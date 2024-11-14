@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new
     if @user.save
       session[:user_id] = @user.id  # Log the user in automatically
       flash[:notice] = "Welcome to Shards of the Grid!"
