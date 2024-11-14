@@ -1,0 +1,1 @@
+#Model For the user information like email and password using bcypt for passwords.

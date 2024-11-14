@@ -1,0 +1,48 @@
+.centered-title {
+    text-align: center;
+    position: absolute;
+    top: 20px; /* Adjust the top position if needed */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem; /* Adjust size as desired */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    flex: 1;
+}
+
+.footer-centered {
+    text-align: center;
+    position: relative; /* Allows footer to be centered and at the bottom */
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0; /* Add some padding for spacing */
+    background-color: #f4f4f4; /* Optional: Add background color */
+    font-size: 1rem;
+}
+
+/* Centering container to fill the viewport */
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f9; /* Optional: background color */
+}
+
+/* Styling the login box */
+.login-box {
+    width: 300px; /* Adjust width as needed */
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
