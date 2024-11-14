@@ -13,11 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20150809022253) do
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password"
-    t.float    "shard_amount"
-    t.float    "money_usd"
+  create_table "movies", force: :cascade do |t|
+    t.string   "title"
+    t.string   "rating"
+    t.text     "description"
+    t.datetime "release_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

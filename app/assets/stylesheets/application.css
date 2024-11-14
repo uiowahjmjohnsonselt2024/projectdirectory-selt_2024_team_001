@@ -46,3 +46,29 @@ html, body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
+.btn-signup {
+    display: inline-block;
+    width: 100%; /* Make it full width like the login button */
+    text-align: center; /* Center text */
+    padding: 0.75rem; /* Same padding as the login button */
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    margin-top: 0.5rem; /* Space between login and signup buttons */
+}
+.btn-login {
+    display: inline-block;
+    width: 100%; /* Make it full width like the login button */
+    text-align: center; /* Center text */
+    padding: 0.75rem; /* Same padding as the login button */
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    margin-top: 0.5rem; /* Space between login and signup buttons */
+}

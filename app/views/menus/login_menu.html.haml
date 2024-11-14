@@ -75,11 +75,14 @@
       }
 
   %body
-    #container
-      .login-container
-        %h2 Login
-        %form{ action: "" }
-          %input{ type: "email", placeholder: "Email", required: true }
-          %input{ type: "password", placeholder: "Password", required: true }
-          %button.btn.btn-login{ type: "submit" } Login
-          %button.btn.btn-signup{ type: "button" } Sign Up
+  #container
+    .login-container
+      %h2 Login
+      %form{ action: "", method: "post" }
+        %input{ type: "email", placeholder: "Email", required: true }
+        %input{ type: "password", placeholder: "Password", required: true }
+        %button.btn.btn-login{ type: "submit" } Login
+        %button.btn.btn-signup{ type: "button", onclick: "window.location.href='#{signup_path}'" } Sign Up
+
+
+
