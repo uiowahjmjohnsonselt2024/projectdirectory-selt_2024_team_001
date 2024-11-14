@@ -1,7 +1,7 @@
 #Model For the user information like email and password using bcypt for passwords.
 class User < ActiveRecord::Base
   # Adds methods to set and authenticate against a BCrypt password
-  #has_secure_password
+  has_secure_password
 
   # Validations
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }

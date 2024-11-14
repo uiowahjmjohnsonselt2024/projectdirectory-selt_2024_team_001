@@ -4,8 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :email
       t.string :password_digest
-
-      t.timestamps
+      t.integer :shards
+      t.float :money
     end
   end
 end

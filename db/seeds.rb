@@ -1,45 +1,45 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Clear existing data
 User.destroy_all
 
-# Create sample users
+# Create sample users with complex passwords
 User.create!(
 	username: 'john@gmail.com',
-	password: 'password123',
-	shard_amount: 100.5,
-	money_usd: 2500.75
+	email: 'john@gmail.com',
+	password: 'Password123!',
+	shards: 100,
+	money: 2500.75
 )
 
 User.create!(
 	username: 'smith@gmail.com',
-	password: 'securepass456',
-	shard_amount: 300.0,
-	money_usd: 1500.0
+	email: 'smith@gmail.com',
+	password: 'SecurePass456!',
+	shards: 300,
+	money: 1500.0
 )
 
 User.create!(
 	username: 'alex@yahoo.com',
-	password: 'mypassword789',
-	shard_amount: 50.25,
-	money_usd: 320.25
+	email: 'alex@yahoo.com',
+	password: 'MyPassword789!',
+	shards: 50,
+	money: 320.25
 )
 
 User.create!(
 	username: 'legend47@gmail.com',
-	password: '123securepass',
-	shard_amount: 200.75,
-	money_usd: 500.0
+	email: 'legend47@gmail.com',
+	password: '123SecurePass!',
+	shards: 200,
+	money: 500.0
 )
 
 User.create!(
 	username: 'therealdonaldtrump@usa.com',
-	password: 'MakeAmericanGreatAgain2024!',
-	shard_amount: 200.75,
-	money_usd: 1259.20
+	email: 'therealdonaldtrump@usa.com',
+	password: 'MakeAmericaGreatAgain2024!',
+	shards: 200,
+	money: 1259.20
 )

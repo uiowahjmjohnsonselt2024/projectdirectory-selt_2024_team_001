@@ -40,6 +40,7 @@ GEM
     arel (6.0.4)
     backports (3.11.4)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.9.0)
@@ -221,6 +222,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   byebug
   capybara
   coffee-rails (~> 4.1.0)
