@@ -27,7 +27,7 @@ gem 'octokit'       # For interacting with the GitHub API
 gem 'cuke_modeler'  # For programmatically creating and manipulating Cucumber features
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.16'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
