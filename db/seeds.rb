@@ -43,3 +43,10 @@ User.create!(
 	shards: 200,
 	money: 1259.20
 )
+User.create!(
+	username: 'admin@example.com',
+	email: 'admin@example.com',
+	password: 'Admin1234',
+	shards: 2000000000,
+	money: 1259000000.20
+)
