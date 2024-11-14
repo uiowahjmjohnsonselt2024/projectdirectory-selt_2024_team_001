@@ -5,16 +5,11 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :username, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }, if: -> { new_record? || !password.nil? }
   validate :password_complexity
 
   # Callbacks
   before_save :downcase_email
-
-  # Enum for roles (optional)
-  enum role: { member: 0, admin: 1 }
-  after_initialize :set_default_role, if: :new_record?
 
   # Class method for finding and authenticating users
   def self.authenticate(email, password)
@@ -39,7 +34,4 @@ class User < ActiveRecord::Base
     self.email = email.downcase
   end
 
-  def set_default_role
-    self.role ||= :member
-  end
 end

@@ -1,27 +1,21 @@
-%h2 Sign Up
+%body
+  #container
+    .signup-container
+      %h2 Sign Up
 
-= form_with model: @user, url: user_path do |form|
-  - if @user.errors.any?
-    #error_explanation
-      %h3= pluralize(@user.errors.count, "error") + " prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |message|
-          %li= message
+      = form_for @user, url: users_path do |form|
+        .form-group
+          = form.label :email, "Email"
+          = form.email_field :email, placeholder: "Enter your email", required: true, class: 'form-control'
 
-  .form-group
-    = form.label :username
-    = form.text_field :username, class: 'form-control'
 
-  .form-group
-    = form.label :email
-    = form.email_field :email, class: 'form-control'
+        .form-group
+          = form.label :password, "Password"
+          .password-wrapper
+            = form.password_field :password, placeholder: "Enter your password", required: true, class: 'form-control'
 
-  .form-group
-    = form.label :password
-    = form.password_field :password, class: 'form-control'
+        .form-group
+          = form.label :password_confirmation, "Confirm Password"
+          = form.password_field :password_confirmation, placeholder: "Re-enter your password", required: true, class: 'form-control'
 
-  .form-group
-    = form.label :password_confirmation
-    = form.password_field :password_confirmation, class: 'form-control'
-
-  = form.submit "Sign Up", class: "btn btn-primary"
+        %button.btn.btn-primary{ type: "submit" } Sign Up

@@ -1,10 +1,9 @@
-# config/routes.rb
 Rails.application.routes.draw do
   # Root route pointing to the login menu
   root 'sessions#login_menu'
 
   # Routes for user sign-up, account management, etc.
-  resources :user, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
 
   # Custom route for user sign-up
   get 'signup', to: 'users#new', as: :signup
