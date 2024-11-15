@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: :login
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  #Template
+  #post '/movies/add_tmdb', to: 'movies#add_tmdb', as: 'add_tmdb_movies'
+  #
+  post '/sessions/login_menu', to: 'sessions#login_menu', as: 'login_menu_sessions'
+
 end
