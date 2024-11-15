@@ -55,3 +55,5 @@ group :production do
   gem 'pg' # for Heroku deployment
 end
 
+
+gem "simplecov", "~> 0.22.0"
