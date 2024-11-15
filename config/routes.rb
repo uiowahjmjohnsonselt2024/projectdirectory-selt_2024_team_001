@@ -12,8 +12,4 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: :login
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-
-  get '/welcome', to: 'menus#welcome', as: 'welcome'
-  get '/start_menu', to: 'menus#start_menu', as: 'start_menu'
-
 end
