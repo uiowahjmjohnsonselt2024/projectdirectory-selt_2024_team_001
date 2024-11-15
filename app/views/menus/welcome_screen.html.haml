@@ -1,0 +1,66 @@
+!!!
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    :css
+      /* Container to center content */
+      html, body {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #0D0E21FF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Main flex container */
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 400px;
+        padding: 2rem;
+      }
+
+      .header {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+
+      .game-logo{
+        width: 500px;
+        height: 500px;
+      }
+
+      /* https://sushi.com/ */
+      .btn-welcome {
+        color: white;
+        border: 2px double transparent;
+          background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)), radial-gradient(circle at left top, rgb(1, 110, 218), rgb(217, 0, 192));
+          background-origin: border-box;
+          background-clip: padding-box, border-box;
+      }
+
+      .btn-welcome:hover {
+            box-shadow: 0 0 10px rgba(1, 110, 218, 0.7),
+                        0 0 20px rgba(217, 0, 192, 0.7);
+            transform: translateY(-2px);
+        }
+
+
+  %body
+  #container
+    %img.game-logo{src: "app/views/menus/reference_pics/GameLogo.png", alt: "The game logo"}
+    %h1 Welcome "'#{:username}'"!!
+    %button.btn.btn-welcome{ type: "Welcome" } Start Your Journey
+    = link_to 'Back to Login', login_path
+

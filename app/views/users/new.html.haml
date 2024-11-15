@@ -1,0 +1,32 @@
+%body
+  #container
+    .signup-container
+      %h2 Sign Up
+
+      - if @user.errors.any?
+        .alert.alert-danger
+          %h4= pluralize(@user.errors.count, "error") + " prohibited this user from being saved:"
+          %ul
+            - @user.errors.full_messages.each do |message|
+              %li= message
+
+      = form_for @user, url: users_path do |form|
+        .form-group
+          = form.label :email, "Email"
+          = form.email_field :email, placeholder: "Enter your email", required: true, class: 'form-control'
+
+        .form-group
+          = form.label :password, "Password"
+          .password-wrapper
+            = form.password_field :password, placeholder: "Enter your password", required: true, class: 'form-control'
+
+        .form-group
+          = form.label :password_confirmation, "Confirm Password"
+          = form.password_field :password_confirmation, placeholder: "Re-enter your password", required: true, class: 'form-control'
+
+        %button.btn.btn-primary{ type: "submit" } Sign Up
+
+  - if flash[:notice]
+    .alert.alert-success= flash[:notice]
+  - if flash[:alert]
+    .alert.alert-danger= flash[:alert]

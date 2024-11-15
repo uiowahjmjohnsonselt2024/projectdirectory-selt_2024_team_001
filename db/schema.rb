@@ -14,12 +14,11 @@
 ActiveRecord::Schema.define(version: 20150809022253) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password"
-    t.float    "shard_amount"
-    t.float    "money_usd"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "username"
+    t.string  "email"
+    t.string  "password_digest"
+    t.integer "shards"
+    t.float   "money"
   end
 
 end
