@@ -76,8 +76,8 @@
   %body
     #container.welcome-container
       .startup-menu
-        %img.game-logo{ src: "app/views/menus/reference_pics/GameLogo.png", alt: "The game logo" }
+        = image_tag "GameLogo.png", class: "game-logo", alt: "The game logo"
         %h1 Welcome "#{:username}"
         %button.btn{ type: "button" } Start Your Journey
         %button.btn{ type: "button" } Settings
-        %button.btn{ type: "button", onclick: login_menu_sessions_path } Logout
+        %button.btn{ type: "button", onclick: "window.location.href='#{root_path}'" } Logout
