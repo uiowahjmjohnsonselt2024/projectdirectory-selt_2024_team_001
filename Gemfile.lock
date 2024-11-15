@@ -131,7 +131,7 @@ GEM
     octokit (4.25.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
-    pg (1.1.3)
+    pg (0.21.0)
     public_suffix (3.0.3)
     rack (1.6.10)
     rack-test (0.6.3)
@@ -240,7 +240,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   octokit
-  pg
+  pg (~> 0.2)
   rails (= 4.2.10)
   rspec-expectations
   rspec-rails
