@@ -1,6 +1,7 @@
 !!! 5
 %html{ lang: "en" }
   %head
+    %title Shards of the Grid
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     :css
@@ -19,8 +20,12 @@
         color: white;
       }
 
-      /* Welcome container */
-      .welcome-container {
+      p {
+        color: white;
+      }
+
+      /* Parent container */
+      .parent-container {
         display: flex;
         flex-direction: column; /* Stack children vertically */
         align-items: center; /* Center content inside */
@@ -34,7 +39,7 @@
         gap: 1rem; /* Add spacing between elements */
       }
 
-      .startup-menu {
+      .settings-container {
         display: flex;
         flex-direction: column; /* Stack buttons and text vertically */
         align-items: center; /* Center everything horizontally */
@@ -42,12 +47,6 @@
         gap: 1rem; /* Add spacing between buttons and message */
         text-align: center; /* Center-align text */
       }
-
-      .game-logo {
-        width: 500px; /* Adjust size to fit */
-        height: auto; /* Maintain aspect ratio */
-      }
-
       /* Button styling */
       .btn {
         color: white;
@@ -74,10 +73,11 @@
         transform: translateY(-2px); /* Slight lift effect */
       }
   %body
-    #container.welcome-container
-      .startup-menu
-        = image_tag "GameLogo.png", class: "game-logo", alt: "The game logo"
-        %h1 Welcome "#{:username}"
-        %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Start Your Journey
-        %button.btn{ type: "button", onclick: "window.location.href='#{welcome_settings_path}'" } Settings
-        %button.btn{ type: "button", onclick: "window.location.href='#{root_path}'" } Logout
+    #container.parent-container
+      .settings-container
+        %h1 Settings
+        %p This will be the location
+        %p of a settings page where
+        %p users can toggle various
+        %p settings in the game.
+        %button.btn{ type: "button", onclick: "window.location.href='#{welcome_screen_path}'" } Back
