@@ -1,6 +1,3 @@
-#The UsersController is responsible for actions like signing up, viewing user profiles, editing account details,
-# and possibly deleting accounts.
-# app/controllers/users_controller.rb
 class UsersController < ApplicationController
   # Ensure only logged-in users can access certain actions
   before_action :require_login, only: [:show, :edit, :update, :destroy]
@@ -55,10 +52,13 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def require_login
-    redirect_to login_path unless session[:user_id]
+    unless current_user
+      flash[:alert] = "You must be logged in to access this page."
+      redirect_to login_path
+    end
   end
 end

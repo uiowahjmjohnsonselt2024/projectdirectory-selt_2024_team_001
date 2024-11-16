@@ -7,8 +7,9 @@
     = csrf_meta_tags
 
   %body
-    %header
-      %h1.title.centered-title Shards of the Grid
+    - unless controller_name == 'sessions' && action_name == 'create'
+      %header
+        %h1.title.centered-title Shards of the Grid
 
     #main
       - if flash[:notice]
@@ -18,7 +19,6 @@
 
       = yield
 
-    %footer.footer-centered
-      %p &copy; #{Time.now.year} Shards of the Grid
-
-
+    - unless controller_name == 'sessions' && action_name == 'create'
+      %footer.footer-centered
+        %p &copy; #{Time.now.year} Shards of the Grid
