@@ -7,7 +7,16 @@ ruby '2.6.10'
 # Use Haml as the templating library
 gem 'haml'
 
-gem 'sqlite3', '~> 1.3.6'
+# Use sqlite3 only in development and test environments
+group :development, :test do
+  gem 'sqlite3', '~> 1.3.6'
+end
+
+# Use PostgreSQL in production
+group :production do
+  gem 'pg', '~> 0.2'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use SCSS for stylesheets
@@ -23,37 +32,26 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'octokit'       # For interacting with the GitHub API
-gem 'cuke_modeler'  # For programmatically creating and manipulating Cucumber features
+# For interacting with the GitHub API
+gem 'octokit'
+# For programmatically creating and manipulating Cucumber features
+gem 'cuke_modeler'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.16'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
+# Debugging and testing tools
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'capybara'
-  gem 'database_cleaner'
-  gem 'cucumber-rails', require: false
+  gem 'database_cleaner' # Ensure only one entry
+  gem 'cucumber-rails', require: false # Ensure only one entry
   gem 'rspec-rails'
-
 end
 
 group :test do
   gem 'rspec-expectations'
-  gem 'cucumber-rails', :require=>false
-  gem 'database_cleaner'
 end
 
-group :production do
-  gem 'pg' # for Heroku deployment
-end
-
-
+# Code coverage
 gem "simplecov", "~> 0.22.0"
