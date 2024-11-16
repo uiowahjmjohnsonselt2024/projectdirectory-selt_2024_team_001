@@ -1,0 +1,83 @@
+!!! 5
+%html{ lang: "en" }
+  %head
+    %title Shards of the Grid
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    :css
+      /* Ensure the entire page covers the full viewport */
+      html,
+      body {
+        background-color: rgb(13, 14, 33); /* Background for the entire page */
+        height: 100%; /* Full viewport height */
+        margin: 0; /* Removes default margin */
+        display: flex; /* Use flexbox on the body itself for centering */
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+      }
+
+      h1 {
+        color: white;
+      }
+
+      p {
+        color: white;
+      }
+
+      /* Parent container */
+      .parent-container {
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+        align-items: center; /* Center content inside */
+        justify-content: center; /* Center vertically within container */
+        width: 100%;
+        max-width: 400px;
+        padding: 2rem;
+        box-sizing: border-box; /* Includes padding in width/height calculations */
+        background-color: rgb(13, 14, 33); /* Optional for clarity */
+        max-height: 90vh; /* Prevent overflow beyond viewport height */
+        gap: 1rem; /* Add spacing between elements */
+      }
+
+      .settings-container {
+        display: flex;
+        flex-direction: column; /* Stack buttons and text vertically */
+        align-items: center; /* Center everything horizontally */
+        justify-content: center; /* Center everything vertically */
+        gap: 1rem; /* Add spacing between buttons and message */
+        text-align: center; /* Center-align text */
+      }
+      /* Button styling */
+      .btn {
+        color: white;
+        border: 2px double transparent;
+        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
+          radial-gradient(
+            circle at left top,
+            rgb(1, 110, 218),
+            rgb(217, 0, 192)
+          );
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        cursor: pointer; /* Show pointer on hover for better UX */
+        padding: 10px 20px; /* Add padding to buttons */
+        font-size: 16px; /* Adjust font size */
+        border-radius: 50px; /* Increased for rounder corners */
+        width: 100%; /* Make buttons stretch to container width */
+        max-width: 250px; /* Limit the maximum button width */
+      }
+
+      .btn:hover {
+        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7),
+          0 0 20px rgba(217, 0, 192, 0.7);
+        transform: translateY(-2px); /* Slight lift effect */
+      }
+  %body
+    #container.parent-container
+      .settings-container
+        %h1 Settings
+        %p This will be the location
+        %p of a settings page where
+        %p users can toggle various
+        %p settings in the game.
+        %button.btn{ type: "button", onclick: "window.location.href='#{welcome_screen_path}'" } Back

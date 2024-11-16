@@ -29,6 +29,18 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def welcome_settings
+    render 'menus/welcome_settings'
+  end
+
+  def main_game_screen
+    render 'menus/main_game_screen'
+  end
+
+  def welcome_screen
+    render 'menus/welcome_screen'
+  end
+
 
 end
 

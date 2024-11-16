@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: :login
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  get 'welcome_screen', to: 'sessions#welcome_screen', as: 'welcome_screen'
+  get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
+  get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
 end
