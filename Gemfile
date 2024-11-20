@@ -14,6 +14,7 @@ gem "haml"
 
 gem "bcrypt", "~> 3.1.7"
 
+gem "turbo-rails"
 
 gem "bootsnap", require: false
 
