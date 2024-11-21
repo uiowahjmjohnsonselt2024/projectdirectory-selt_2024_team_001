@@ -6,7 +6,8 @@
     = csrf_meta_tags
 
   %body
-    - unless controller_name == 'sessions' && action_name == 'create'
+    - unless controller_name == 'sessions' && action_name == 'create' || action_name == 'welcome_screen'
+      %header
       %header
         %h1.title.centered-title Shards of the Grid
 
