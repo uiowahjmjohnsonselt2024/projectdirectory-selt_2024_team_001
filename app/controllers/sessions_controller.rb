@@ -3,8 +3,10 @@
 # app/controllers/sessions_controller.rb
 # app/controllers/sessions_controller.rb
 class SessionsController < ApplicationController
-  def new
 
+  before_action :require_login, only: [:welcome_screen, :welcome_settings, :main_game_screen]
+  def new
+    redirect_to root_path
   end
   def login_menu
     render 'menus/login_menu'
@@ -26,7 +28,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:notice] = "Logged out successfully!"
-    redirect_to root_path
+    redirect_to login_path
   end
 
   def welcome_settings

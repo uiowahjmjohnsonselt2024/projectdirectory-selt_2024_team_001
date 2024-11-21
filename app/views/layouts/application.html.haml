@@ -3,11 +3,11 @@
   %head
     %title Shards of the Grid
     = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
     = csrf_meta_tags
 
   %body
-    - unless controller_name == 'sessions' && action_name == 'create'
+    - unless controller_name == 'sessions' && action_name == 'create' || action_name == 'welcome_screen'
+      %header
       %header
         %h1.title.centered-title Shards of the Grid
 
@@ -22,3 +22,37 @@
     - unless controller_name == 'sessions' && action_name == 'create'
       %footer.footer-centered
         %p &copy; #{Time.now.year} Shards of the Grid
+
+    :css
+      /* Ensure full viewport coverage */
+      html, body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+      }
+
+      #main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .footer-centered {
+        height: 50px;
+        text-align: center;
+        background-color: #f4f4f4;
+        color: #666;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+        border-top: 1px solid #ddd;
+      }
+

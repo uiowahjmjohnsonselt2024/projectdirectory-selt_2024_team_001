@@ -29,7 +29,7 @@
         max-width: 400px;
         padding: 2rem;
         box-sizing: border-box; /* Includes padding in width/height calculations */
-        background-color: rgb(13, 14, 33); /* Optional for clarity */
+        background-color: rgb(13, 14, 33) !important; /* Optional for clarity */
         max-height: 90vh; /* Prevent overflow beyond viewport height */
         gap: 1rem; /* Add spacing between elements */
       }
@@ -73,11 +73,26 @@
           0 0 20px rgba(217, 0, 192, 0.7);
         transform: translateY(-2px); /* Slight lift effect */
       }
+      .inline-form {
+      width: 100%; /* Make the form take the full container width */
+      max-width: 250px; /* Ensure it matches other buttons */
+      display: flex; /* Align contents for consistency */
+      justify-content: center; /* Center the button inside */
+      margin: 0; /* Remove default form margin */
+      }
+
+      .inline-form .btn {
+        width: 100%; /* Ensure button inside form matches other buttons */
+      }
+
+
   %body
     #container.welcome-container
       .startup-menu
         = image_tag "GameLogo.png", class: "game-logo", alt: "The game logo"
-        %h1 Welcome "#{:username}"
+        %h1 Welcome #{current_user&.username || "Guest"}
         %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Start Your Journey
         %button.btn{ type: "button", onclick: "window.location.href='#{welcome_settings_path}'" } Settings
-        %button.btn{ type: "button", onclick: "window.location.href='#{root_path}'" } Logout
+        = button_to 'Logout', logout_path, method: :delete, class: 'btn', form: { class: 'inline-form' }
+
+
