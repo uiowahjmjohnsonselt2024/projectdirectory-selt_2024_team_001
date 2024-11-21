@@ -1,0 +1,87 @@
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    :css
+      /* Ensure the entire page covers the full viewport */
+      html,
+      body {
+        background-color: rgb(13, 14, 33); /* Background for the entire page */
+        height: 100%; /* Full viewport height */
+        margin: 0; /* Removes default margin */
+        display: flex; /* Use flexbox on the body itself for centering */
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+        font-family: Arial, sans-serif; /* Font style for better readability */
+      }
+
+      h1, h2 {
+        color: rgb(13, 14, 33);
+      }
+
+      .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 700px;
+        padding: 2rem;
+        box-sizing: border-box;
+        background-color: rgb(13, 14, 33); /* Match the page background */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Softer shadow */
+        gap: 1rem;
+      }
+
+      .profile-avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid rgb(217, 0, 192);
+        box-shadow: 0 0 10px rgba(217, 0, 192, 0.7);
+      }
+
+      .profile-stats {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+      }
+
+      .stat-item {
+        color: rgb(13, 14, 33);
+        font-size: 16px;
+      }
+
+      .btn {
+        color: rgb(13, 14, 33);
+        border: 2px double transparent;
+        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
+          radial-gradient(circle at left top, rgb(1, 110, 218), rgb(217, 0, 192));
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 50px;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+      }
+
+      .btn:hover {
+        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7), 0 0 20px rgba(217, 0, 192, 0.7);
+        transform: translateY(-2px);
+      }
+  %body
+    #container.profile-container
+      = image_tag "Placeholder_head.png", class: "profile-avatar", alt: "Placeholder Avatar"
+      %h1 User Profile
+      %div.profile-stats
+        %h2 Stats
+        .stat-item Level
+        .stat-item Experience Points
+        .stat-item Achievements Unlocked
+      %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Back to Game
