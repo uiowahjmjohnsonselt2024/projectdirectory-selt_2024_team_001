@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
 
+  get 'user_profile', to: 'sessions#user_profile', as: 'user_profile'
 end
