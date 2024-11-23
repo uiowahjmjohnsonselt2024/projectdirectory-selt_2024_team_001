@@ -3500,3 +3500,982 @@ Processing by SessionsController#welcome_settings as HTML
 Completed 200 OK in 2480ms (Views: 110.5ms | ActiveRecord: 54.9ms (1 query, 0 cached) | GC: 4.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2024-11-23 15:56:59 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (7.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 1246.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1277.9ms | GC: 17.3ms)
+Completed 200 OK in 6964ms (Views: 2066.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 17.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-23 15:57:21 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hSru62n0QzFW37nmK_Mz7qEKDGDiREkpcQHpasTv-SSf3prXV5FotC2inGAE3pB2MRWLUQ6jx1Qy2Y7C-vu8cw", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 34.3ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 36.2ms | GC: 0.9ms)
+Completed 200 OK in 2691ms (Views: 61.0ms | ActiveRecord: 70.4ms (2 queries, 0 cached) | GC: 2.7ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 15:57:27 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 25.6ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 27.5ms | GC: 0.5ms)
+Completed 200 OK in 2679ms (Views: 44.7ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 15:57:30 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 15:57:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-23 15:57:35 -0600
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 2337ms (Views: 4.7ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 15:57:39 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 2579ms (Views: 3.6ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 15:57:42 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 15:57:42 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 15:59:14 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 29.4ms | GC: 3.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 47.6ms | GC: 4.4ms)
+Completed 200 OK in 2048ms (Views: 101.8ms | ActiveRecord: 66.1ms (1 query, 0 cached) | GC: 5.5ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 15:59:17 -0600
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 15:59:17 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:01:12 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 29.2ms | GC: 9.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 46.6ms | GC: 10.0ms)
+Completed 200 OK in 2011ms (Views: 92.1ms | ActiveRecord: 60.7ms (1 query, 0 cached) | GC: 10.0ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:01:14 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:01:14 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-23 16:01:31 -0600
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 15.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 16.7ms | GC: 0.0ms)
+Completed 200 OK in 2055ms (Views: 37.0ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:03:04 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 35.4ms | GC: 3.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 59.1ms | GC: 3.9ms)
+Completed 200 OK in 2176ms (Views: 137.2ms | ActiveRecord: 86.8ms (1 query, 0 cached) | GC: 5.6ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:03:07 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:03:07 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:04:30 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 87.7ms | GC: 61.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 104.4ms | GC: 62.6ms)
+Completed 200 OK in 2011ms (Views: 159.6ms | ActiveRecord: 61.6ms (1 query, 0 cached) | GC: 86.6ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:04:33 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:04:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:05:25 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 26.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 44.4ms | GC: 0.0ms)
+Completed 200 OK in 2354ms (Views: 115.3ms | ActiveRecord: 92.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:05:28 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:05:28 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:07:23 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 37.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 64.7ms | GC: 0.0ms)
+Completed 200 OK in 2008ms (Views: 129.1ms | ActiveRecord: 64.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:07:26 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:07:26 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:10:09 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 26.0ms | GC: 3.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 47.4ms | GC: 3.4ms)
+Completed 200 OK in 2150ms (Views: 119.2ms | ActiveRecord: 107.5ms (1 query, 0 cached) | GC: 4.2ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:10:11 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:10:11 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:11:25 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 31.1ms | GC: 2.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 54.9ms | GC: 7.2ms)
+Completed 200 OK in 1951ms (Views: 103.4ms | ActiveRecord: 68.1ms (1 query, 0 cached) | GC: 7.8ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:11:28 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:11:28 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:12:43 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 23.2ms | GC: 2.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 38.5ms | GC: 2.5ms)
+Completed 200 OK in 2447ms (Views: 86.1ms | ActiveRecord: 87.9ms (1 query, 0 cached) | GC: 2.6ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:12:46 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:12:46 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:13:34 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 19.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 32.4ms | GC: 0.0ms)
+Completed 200 OK in 1987ms (Views: 82.0ms | ActiveRecord: 62.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:13:37 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:13:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:14:28 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 27.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 42.4ms | GC: 0.0ms)
+Completed 200 OK in 2316ms (Views: 93.1ms | ActiveRecord: 65.1ms (1 query, 0 cached) | GC: 3.4ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:14:31 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:14:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:15:05 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 23.4ms | GC: 2.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 38.6ms | GC: 2.7ms)
+Completed 200 OK in 2047ms (Views: 89.7ms | ActiveRecord: 64.2ms (1 query, 0 cached) | GC: 5.0ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:15:08 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:15:08 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:15:20 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 23.7ms | GC: 3.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 38.4ms | GC: 3.2ms)
+Completed 200 OK in 2240ms (Views: 89.5ms | ActiveRecord: 70.6ms (1 query, 0 cached) | GC: 3.4ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:15:23 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:15:23 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:15:53 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 28.3ms | GC: 2.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 44.2ms | GC: 2.8ms)
+Completed 200 OK in 2459ms (Views: 100.6ms | ActiveRecord: 62.5ms (1 query, 0 cached) | GC: 3.2ms)
+
+
+Started GET "/logo.png" for 127.0.0.1 at 2024-11-23 16:15:56 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:15:56 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:18:15 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 44.4ms | GC: 5.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 66.5ms | GC: 6.2ms)
+Completed 200 OK in 2131ms (Views: 139.5ms | ActiveRecord: 76.2ms (1 query, 0 cached) | GC: 10.6ms)
+
+
+Started GET "/app/assets/images/GameLogo.png" for 127.0.0.1 at 2024-11-23 16:18:18 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:18:18 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images/GameLogo.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:19:15 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 28.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 45.7ms | GC: 0.0ms)
+Completed 200 OK in 2695ms (Views: 97.3ms | ActiveRecord: 72.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:19:19 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:20:24 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 32.4ms | GC: 4.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 51.5ms | GC: 4.9ms)
+Completed 200 OK in 2338ms (Views: 115.0ms | ActiveRecord: 80.2ms (1 query, 0 cached) | GC: 10.2ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:20:27 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:20:32 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 2197ms (Views: 3.3ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:20:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:21:30 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 26.4ms | GC: 3.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 41.2ms | GC: 3.4ms)
+Completed 200 OK in 2153ms (Views: 93.9ms | ActiveRecord: 79.9ms (1 query, 0 cached) | GC: 12.1ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:21:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:21:36 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 2123ms (Views: 3.4ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:21:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:22:38 -0600
+Started GET "/" for 127.0.0.1 at 2024-11-23 16:22:38 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (7.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+Processing by SessionsController#main_game_screen as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 436.6ms | GC: 17.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 545.8ms | GC: 17.2ms)
+Completed 200 OK in 5757ms (Views: 3213.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 17.2ms)
+
+
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 241.3ms | GC: 3.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 264.8ms | GC: 3.0ms)
+Completed 200 OK in 5820ms (Views: 287.7ms | ActiveRecord: 104.5ms (1 query, 0 cached) | GC: 17.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-23 16:23:41 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"-t1E7hD4m6NCMQQc4XdiUk8R_tW-CgZ_Jy9PNoPGzlfgKTDSLp2wJjlMIZrOWsHK3w555FLtiAJk9yievdKLAA", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 11.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.1ms | GC: 0.0ms)
+Completed 200 OK in 800ms (Views: 27.9ms | ActiveRecord: 1.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:23:51 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 590ms (Views: 2.6ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:23:52 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:25:36 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 31.8ms | GC: 15.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 42.1ms | GC: 15.6ms)
+Completed 200 OK in 934ms (Views: 61.8ms | ActiveRecord: 32.5ms (1 query, 0 cached) | GC: 15.6ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:25:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:26:25 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 16.7ms | GC: 1.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 30.0ms | GC: 1.3ms)
+Completed 200 OK in 912ms (Views: 55.2ms | ActiveRecord: 29.1ms (1 query, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/GameLogo.png" for 127.0.0.1 at 2024-11-23 16:26:27 -0600
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:26:27 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/GameLogo.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:29:39 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 53.6ms | GC: 36.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 85.5ms | GC: 55.4ms)
+Completed 200 OK in 888ms (Views: 109.0ms | ActiveRecord: 40.7ms (1 query, 0 cached) | GC: 55.6ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:29:40 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:31:18 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 19.4ms | GC: 1.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 33.1ms | GC: 1.9ms)
+Completed 200 OK in 902ms (Views: 61.5ms | ActiveRecord: 43.3ms (1 query, 0 cached) | GC: 2.1ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:31:19 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:32:08 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 19.2ms | GC: 3.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 30.4ms | GC: 3.5ms)
+Completed 200 OK in 1087ms (Views: 52.3ms | ActiveRecord: 42.4ms (1 query, 0 cached) | GC: 7.9ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:32:09 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:32:32 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 15.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 28.2ms | GC: 0.0ms)
+Completed 200 OK in 823ms (Views: 48.9ms | ActiveRecord: 38.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:32:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:32:36 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 755ms (Views: 3.0ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:32:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:32:54 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 24.4ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 37.3ms | GC: 1.5ms)
+Completed 200 OK in 806ms (Views: 57.5ms | ActiveRecord: 28.2ms (1 query, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:32:55 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:33:40 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 17.2ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 27.4ms | GC: 1.5ms)
+Completed 200 OK in 744ms (Views: 55.8ms | ActiveRecord: 40.1ms (1 query, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:33:42 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:34:42 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 18.3ms | GC: 2.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 31.0ms | GC: 2.5ms)
+Completed 200 OK in 796ms (Views: 54.4ms | ActiveRecord: 33.7ms (1 query, 0 cached) | GC: 3.2ms)
+
+
+Started GET "/character-icon.png" for 127.0.0.1 at 2024-11-23 16:34:43 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/character-icon.png"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:37:45 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 30.0ms | GC: 2.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 47.6ms | GC: 2.6ms)
+Completed 200 OK in 827ms (Views: 70.6ms | ActiveRecord: 32.8ms (1 query, 0 cached) | GC: 8.6ms)
+
+
+Started GET "/assets/baseAvatar-814265e4.png" for 127.0.0.1 at 2024-11-23 16:37:46 -0600
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:40:10 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 28.4ms | GC: 8.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 38.0ms | GC: 8.5ms)
+Completed 200 OK in 899ms (Views: 62.9ms | ActiveRecord: 34.9ms (1 query, 0 cached) | GC: 8.5ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:40:32 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 19.7ms | GC: 3.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 31.4ms | GC: 4.0ms)
+Completed 200 OK in 826ms (Views: 52.1ms | ActiveRecord: 39.2ms (1 query, 0 cached) | GC: 4.2ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:42:50 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 15.2ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 24.5ms | GC: 0.8ms)
+Completed 200 OK in 673ms (Views: 43.1ms | ActiveRecord: 33.1ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:43:05 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 17.8ms | GC: 1.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 30.2ms | GC: 1.9ms)
+Completed 200 OK in 844ms (Views: 51.7ms | ActiveRecord: 40.0ms (1 query, 0 cached) | GC: 2.1ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:43:37 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 19.1ms | GC: 3.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 30.8ms | GC: 3.4ms)
+Completed 200 OK in 853ms (Views: 51.5ms | ActiveRecord: 34.3ms (1 query, 0 cached) | GC: 6.9ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:44:39 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 25.9ms | GC: 6.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 38.5ms | GC: 6.5ms)
+Completed 200 OK in 887ms (Views: 64.9ms | ActiveRecord: 38.8ms (1 query, 0 cached) | GC: 6.5ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:44:57 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 20.9ms | GC: 4.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 31.9ms | GC: 4.5ms)
+Completed 200 OK in 827ms (Views: 52.9ms | ActiveRecord: 35.1ms (1 query, 0 cached) | GC: 4.5ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:45:31 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 20.1ms | GC: 3.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 33.5ms | GC: 4.4ms)
+Completed 200 OK in 831ms (Views: 56.3ms | ActiveRecord: 35.8ms (1 query, 0 cached) | GC: 4.9ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:45:43 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 15.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 29.0ms | GC: 3.8ms)
+Completed 200 OK in 826ms (Views: 50.4ms | ActiveRecord: 31.0ms (1 query, 0 cached) | GC: 5.1ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:46:00 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 13.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 22.7ms | GC: 0.0ms)
+Completed 200 OK in 796ms (Views: 46.0ms | ActiveRecord: 32.1ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:46:09 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 24.9ms | GC: 2.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 35.9ms | GC: 2.1ms)
+Completed 200 OK in 808ms (Views: 57.4ms | ActiveRecord: 33.0ms (1 query, 0 cached) | GC: 2.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:46:21 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 16.9ms | GC: 2.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 26.9ms | GC: 2.3ms)
+Completed 200 OK in 820ms (Views: 46.6ms | ActiveRecord: 39.3ms (1 query, 0 cached) | GC: 3.1ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:46:30 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 22.4ms | GC: 3.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 33.3ms | GC: 3.6ms)
+Completed 200 OK in 842ms (Views: 53.3ms | ActiveRecord: 31.7ms (1 query, 0 cached) | GC: 6.5ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:46:42 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 22.6ms | GC: 6.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 33.0ms | GC: 6.8ms)
+Completed 200 OK in 881ms (Views: 53.5ms | ActiveRecord: 35.5ms (1 query, 0 cached) | GC: 6.8ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:47:35 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 26.7ms | GC: 6.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 39.7ms | GC: 7.2ms)
+Completed 200 OK in 855ms (Views: 66.2ms | ActiveRecord: 35.4ms (1 query, 0 cached) | GC: 7.2ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:49:46 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 22.9ms | GC: 7.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 35.5ms | GC: 7.6ms)
+Completed 200 OK in 920ms (Views: 60.0ms | ActiveRecord: 33.1ms (1 query, 0 cached) | GC: 14.1ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:50:06 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 21.0ms | GC: 4.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 32.4ms | GC: 5.3ms)
+Completed 200 OK in 842ms (Views: 55.7ms | ActiveRecord: 34.0ms (1 query, 0 cached) | GC: 5.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:51:53 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 18.6ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 31.4ms | GC: 1.7ms)
+Completed 200 OK in 812ms (Views: 55.5ms | ActiveRecord: 33.5ms (1 query, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:52:55 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 16.6ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 28.6ms | GC: 2.2ms)
+Completed 200 OK in 854ms (Views: 52.7ms | ActiveRecord: 37.9ms (1 query, 0 cached) | GC: 2.6ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:52:59 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 749ms (Views: 2.3ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:53:27 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 25.1ms | GC: 7.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 34.6ms | GC: 7.7ms)
+Completed 200 OK in 884ms (Views: 58.8ms | ActiveRecord: 34.9ms (1 query, 0 cached) | GC: 7.7ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:54:39 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 19.2ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 33.9ms | GC: 4.2ms)
+Completed 200 OK in 847ms (Views: 58.2ms | ActiveRecord: 35.1ms (1 query, 0 cached) | GC: 4.4ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:55:14 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 14.4ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 25.9ms | GC: 1.0ms)
+Completed 200 OK in 725ms (Views: 48.2ms | ActiveRecord: 32.6ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:55:19 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 745ms (Views: 3.2ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:55:40 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 16.9ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 28.9ms | GC: 2.3ms)
+Completed 200 OK in 898ms (Views: 46.8ms | ActiveRecord: 33.9ms (1 query, 0 cached) | GC: 2.6ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:56:34 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 20.7ms | GC: 5.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 34.3ms | GC: 5.5ms)
+Completed 200 OK in 921ms (Views: 62.5ms | ActiveRecord: 47.5ms (1 query, 0 cached) | GC: 5.5ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:56:59 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 23.2ms | GC: 5.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 34.5ms | GC: 6.0ms)
+Completed 200 OK in 865ms (Views: 56.8ms | ActiveRecord: 31.5ms (1 query, 0 cached) | GC: 6.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:57:28 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 13.9ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 26.3ms | GC: 4.0ms)
+Completed 200 OK in 838ms (Views: 55.2ms | ActiveRecord: 32.0ms (1 query, 0 cached) | GC: 4.2ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:58:26 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 15.9ms | GC: 1.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 24.4ms | GC: 1.1ms)
+Completed 200 OK in 838ms (Views: 49.0ms | ActiveRecord: 33.5ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:59:06 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 16.6ms | GC: 1.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 32.6ms | GC: 1.8ms)
+Completed 200 OK in 776ms (Views: 55.6ms | ActiveRecord: 35.4ms (1 query, 0 cached) | GC: 2.1ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:59:20 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 26.3ms | GC: 7.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 36.8ms | GC: 7.5ms)
+Completed 200 OK in 885ms (Views: 60.2ms | ActiveRecord: 34.7ms (1 query, 0 cached) | GC: 7.5ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 16:59:54 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 24.2ms | GC: 6.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 35.2ms | GC: 6.8ms)
+Completed 200 OK in 873ms (Views: 64.7ms | ActiveRecord: 43.3ms (1 query, 0 cached) | GC: 6.8ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 17:00:18 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 21.3ms | GC: 4.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 35.9ms | GC: 4.4ms)
+Completed 200 OK in 871ms (Views: 57.9ms | ActiveRecord: 31.5ms (1 query, 0 cached) | GC: 4.4ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 17:00:35 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 20.5ms | GC: 4.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 30.9ms | GC: 4.8ms)
+Completed 200 OK in 901ms (Views: 51.1ms | ActiveRecord: 32.5ms (1 query, 0 cached) | GC: 5.2ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 17:03:15 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 16.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 28.8ms | GC: 3.8ms)
+Completed 200 OK in 757ms (Views: 48.2ms | ActiveRecord: 40.1ms (1 query, 0 cached) | GC: 3.8ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-23 17:05:14 -0600
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 13.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 24.2ms | GC: 0.0ms)
+Completed 200 OK in 838ms (Views: 47.5ms | ActiveRecord: 37.2ms (1 query, 0 cached) | GC: 1.2ms)
+
+
