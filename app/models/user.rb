@@ -1,6 +1,9 @@
 #Model For the user information like email and password using bcypt for passwords.
 class User < ActiveRecord::Base
   # Adds methods to set and authenticate against a BCrypt password
+  has_many :user_servers, dependent: :destroy
+  has_many :servers, through: :user_servers
+  has_many :grid_cells, through: :servers
   has_secure_password
 
   # Validations
