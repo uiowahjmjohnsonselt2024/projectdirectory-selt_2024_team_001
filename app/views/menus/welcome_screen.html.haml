@@ -73,6 +73,19 @@
           0 0 20px rgba(217, 0, 192, 0.7);
         transform: translateY(-2px); /* Slight lift effect */
       }
+      .inline-form {
+      width: 100%; /* Make the form take the full container width */
+      max-width: 250px; /* Ensure it matches other buttons */
+      display: flex; /* Align contents for consistency */
+      justify-content: center; /* Center the button inside */
+      margin: 0; /* Remove default form margin */
+      }
+
+      .inline-form .btn {
+        width: 100%; /* Ensure button inside form matches other buttons */
+      }
+
+
   %body
     #container.welcome-container
       .startup-menu
@@ -80,6 +93,6 @@
         %h1 Welcome #{current_user&.username || "Guest"}
         %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Start Your Journey
         %button.btn{ type: "button", onclick: "window.location.href='#{welcome_settings_path}'" } Settings
-        = button_to 'Logout', logout_path, method: :delete, class: 'btn'
+        = button_to 'Logout', logout_path, method: :delete, class: 'btn', form: { class: 'inline-form' }
 
 
