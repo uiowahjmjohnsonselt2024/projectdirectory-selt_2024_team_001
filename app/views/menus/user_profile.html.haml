@@ -6,9 +6,10 @@
       /* Ensure the entire page covers the full viewport */
       html,
       body {
-        background-color: rgb(13, 14, 33); /* Background for the entire page */
+        background-color: rgb(13, 14, 33) !important; /* Background for the entire page */
         height: 100%; /* Full viewport height */
-        margin: 0; /* Removes default margin */
+        margin: 0 !important; /* Removes default margin */
+        padding: 0 !important; /* Removes default padding */
         display: flex; /* Use flexbox on the body itself for centering */
         align-items: center; /* Center content vertically */
         justify-content: center; /* Center content horizontally */
@@ -16,7 +17,7 @@
       }
 
       h1, h2 {
-        color: rgb(13, 14, 33);
+        color: rgb(255, 255, 255); /* Light color for visibility */
       }
 
       .profile-container {
@@ -28,9 +29,9 @@
         max-width: 700px;
         padding: 2rem;
         box-sizing: border-box;
-        background-color: rgb(13, 14, 33); /* Match the page background */
+        background-color: rgb(13, 14, 33) !important; /* Match the page background */
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Softer shadow */
+        box-shadow: none !important; /* Remove shadow */
         gap: 1rem;
       }
 
@@ -51,17 +52,14 @@
       }
 
       .stat-item {
-        color: rgb(13, 14, 33);
+        color: rgb(255, 255, 255); /* Light color for visibility */
         font-size: 16px;
       }
 
       .btn {
-        color: rgb(13, 14, 33);
-        border: 2px double transparent;
-        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
-          radial-gradient(circle at left top, rgb(1, 110, 218), rgb(217, 0, 192));
-        background-origin: border-box;
-        background-clip: padding-box, border-box;
+        color: rgb(255, 255, 255); /* Light text color for button */
+        border: 2px solid rgb(217, 0, 192); /* Button border color */
+        background-color: rgb(1, 110, 218); /* Button background color */
         cursor: pointer;
         padding: 10px 20px;
         font-size: 16px;
@@ -69,11 +67,32 @@
         width: 100%;
         max-width: 250px;
         text-align: center;
+        transition: all 0.3s ease;
       }
 
       .btn:hover {
-        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7), 0 0 20px rgba(217, 0, 192, 0.7);
+        background-color: rgb(217, 0, 192); /* Hover effect with brighter background */
+        box-shadow: 0 0 10px rgba(217, 0, 192, 0.7), 0 0 20px rgba(1, 110, 218, 0.7);
         transform: translateY(-2px);
+      }
+
+      /* Universal Reset for Margins and Padding */
+      * {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+      }
+
+      /* Override for #main container styles */
+      #main {
+        background-color: rgb(13, 14, 33) !important; /* Ensure the background matches */
+        padding: 0 !important; /* Remove default padding */
+        margin: 0 !important; /* Remove margins */
+        flex: 1; /* Adjust flex properties */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
   %body
     #container.profile-container
