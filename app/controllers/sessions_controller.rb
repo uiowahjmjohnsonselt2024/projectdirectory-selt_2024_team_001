@@ -43,6 +43,21 @@ class SessionsController < ApplicationController
     render 'menus/welcome_screen'
   end
 
+  def user_profile
+    render 'menus/user_profile'
+  end
+
+  def achievements
+    @achievements = [
+      { name: "First Achievement" },
+      { name: "Second Achievement" },
+      { name: "Third Achievement" }
+    ]
+    render 'menus/achievements'
+  end
+
+
+
 
 end
 
