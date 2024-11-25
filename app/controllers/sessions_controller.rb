@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
         flash[:notice] = "Logged in successfully!"
-        render 'menus/welcome_screen'
+        redirect_to intro_videos_path
       else
         flash.now[:alert] = "Invalid email or password"
         render 'menus/login_menu'

@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
 
+  # Route to play the intro videos
+  get 'videos/intro', to: 'videos#intro', as: 'intro_videos'
+
+  # Route for the main game screen after the intro videos
+  get 'videos/main_screen', to: 'videos#main_screen', as: 'main_screen'
+
 end
