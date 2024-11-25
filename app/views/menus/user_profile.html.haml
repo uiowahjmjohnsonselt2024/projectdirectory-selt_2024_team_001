@@ -94,13 +94,14 @@
         align-items: center;
         justify-content: center;
       }
-  %body
-    #container.profile-container
-      = image_tag "Placeholder_head.png", class: "profile-avatar", alt: "Placeholder Avatar"
-      %h1 User Profile
-      %div.profile-stats
-        %h2 Stats
-        .stat-item Level
-        .stat-item Experience Points
-        .stat-item Achievements Unlocked
-      %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Back to Game
+%body
+  #container.profile-container
+    = image_tag "Placeholder_head.png", class: "profile-avatar", alt: "Placeholder Avatar"
+    %h1 User Profile
+    %div.profile-stats
+      %h2 Stats
+      .stat-item Level
+      .stat-item Experience Points
+      .stat-item
+        = link_to "Achievements Unlocked", achievements_path, class: "btn"
+    %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Back to Game
