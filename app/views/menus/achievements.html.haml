@@ -1,0 +1,63 @@
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    :css
+      html, body {
+        background-color: rgb(13, 14, 33);
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1, h2 {
+        color: white;
+        text-align: center;
+      }
+
+      .achievements-container {
+        max-width: 700px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background-color: rgb(20, 20, 50);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        color: white;
+      }
+
+      .achievement-item {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .btn {
+        display: block;
+        margin: 1rem auto;
+        color: white;
+        border: 2px solid rgb(217, 0, 192);
+        background-color: rgb(1, 110, 218);
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-align: center;
+        width: 200px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: rgb(217, 0, 192);
+        box-shadow: 0 0 10px rgba(217, 0, 192, 0.7);
+      }
+
+%body
+  .achievements-container
+    %h1 Achievements Unlocked
+    - if @achievements.present?
+      - @achievements.each do |achievement|
+        .achievement-item= achievement[:name]
+    - else
+      %p No achievements unlocked yet.
+
+    = link_to "Back to Profile", user_profile_path, class: "btn"
