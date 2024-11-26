@@ -22,6 +22,8 @@ gem "kamal", require: false
 
 gem "thruster", require: false
 
+#Gem for Payment Processing Third Party Application
+gem 'stripe'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

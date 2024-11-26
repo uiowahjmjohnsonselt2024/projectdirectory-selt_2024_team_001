@@ -390,6 +390,7 @@ GEM
       net-ssh (>= 2.8.0)
       ostruct
     stringio (3.1.2)
+    stripe (13.2.0)
     sys-uname (1.3.1)
       ffi (~> 1.1)
     temple (0.10.3)
@@ -446,6 +447,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   simplecov (~> 0.22.0)
   sqlite3 (>= 2.1)
+  stripe
   thruster
   turbo-rails
   web-console
