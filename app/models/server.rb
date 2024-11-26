@@ -1,6 +1,5 @@
 class Server < ApplicationRecord
-  has_many :user_servers, dependent: :destroy
-  has_many :users, through: :user_servers
+  has_and_belongs_to_many :users
   has_many :grid_cells, dependent: :destroy
 
   after_create :initialize_grid

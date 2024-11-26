@@ -1,9 +1,7 @@
 #Model For the user information like email and password using bcypt for passwords.
 class User < ActiveRecord::Base
   # Adds methods to set and authenticate against a BCrypt password
-  has_many :user_servers, dependent: :destroy
-  has_many :servers, through: :user_servers
-  has_many :grid_cells, through: :servers
+  has_and_belongs_to_many :servers
   has_secure_password
 
   # Validations
@@ -28,9 +26,13 @@ class User < ActiveRecord::Base
   private
 
   def password_complexity
-    return if password.blank? || password =~ /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])/
+    return if password.blank?
 
-    errors.add :password, "must include at least one lowercase letter, one uppercase letter, one digit, and one special character"
+    regex = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{1,}\z/
+    unless password.match?(regex)
+        puts "DEBUG: Password failed complexity check: #{password}"
+        errors.add :password, "must include at least one lowercase letter, one uppercase letter, one digit, and one special character"
+      end
   end
 
   def downcase_email
