@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # Routes for user sign-up, account management, etc.
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
 
+  # Routes for payment processing system
+  resources :charges, only: [:create]
+
   # Custom route for user sign-up
   get 'signup', to: 'users#new', as: :signup
 
@@ -16,5 +19,7 @@ Rails.application.routes.draw do
   get 'welcome_screen', to: 'sessions#welcome_screen', as: 'welcome_screen'
   get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
+
+  get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
 
 end
