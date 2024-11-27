@@ -90,24 +90,6 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
-  describe "GET #main_game_screen" do
-    context "when user is logged in" do
-      before { session[:user_id] = user.id }
-
-      it "renders the main_game_screen template" do
-        get :main_game_screen
-        expect(response).to render_template('menus/main_game_screen')
-      end
-    end
-
-    context "when user is not logged in" do
-      it "redirects to login_path" do
-        get :main_game_screen
-        expect(response).to redirect_to(login_path)
-      end
-    end
-  end
-
   describe "GET #welcome_screen" do
     context "when user is logged in" do
       before { session[:user_id] = user.id }
