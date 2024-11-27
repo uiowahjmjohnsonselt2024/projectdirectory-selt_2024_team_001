@@ -1,5 +1,7 @@
-#Model For the user information like email and password using bcypt for passwords.
 class User < ActiveRecord::Base
+  # Associations
+  has_many :achievements, dependent: :destroy
+
   # Adds methods to set and authenticate against a BCrypt password
   has_secure_password
 
@@ -11,15 +13,14 @@ class User < ActiveRecord::Base
   # Callbacks
   before_save :downcase_email
 
-  # Class method for finding and authenticating users
-  def self.authenticate(email, password)
-    user = find_by(email: email.downcase)
-    user&.authenticate(password)
+  # Instance method to check if a user has unlocked a specific achievement
+  def unlocked_achievement?(name)
+    achievements.exists?(name: name)
   end
 
-  # Instance method to get full name
-  def full_name
-    "#{first_name} #{last_name}".strip
+  # Instance method to get all unlocked achievements
+  def list_achievements
+    achievements.order(unlocked_at: :desc)
   end
 
   private
@@ -33,5 +34,4 @@ class User < ActiveRecord::Base
   def downcase_email
     self.email = email.downcase
   end
-
 end
