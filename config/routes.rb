@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root 'sessions#login_menu'
 
   # Routes for user sign-up, account management, etc.
-  resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
-
+  resources :users, only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :achievements, only: [:index]
+  end
   # Custom route for user sign-up
   get 'signup', to: 'users#new', as: :signup
 
@@ -18,4 +19,6 @@ Rails.application.routes.draw do
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
 
   get 'user_profile', to: 'sessions#user_profile', as: 'user_profile'
+
+
 end
