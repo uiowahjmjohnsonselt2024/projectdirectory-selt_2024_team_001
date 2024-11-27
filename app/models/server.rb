@@ -1,11 +1,13 @@
 class Server < ActiveRecord::Base
-  has_and_belongs_to_many :users
+  has_many :user_servers, dependent: :destroy
+  has_many :users, through: :user_servers
   has_many :grid_tiles, dependent: :destroy
 
   after_create :initialize_grid
 
   private
 
+  # Initialize a 6x6 grid of tiles for the server
   def initialize_grid
     (1..6).each do |row|
       (1..6).each do |col|

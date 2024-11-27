@@ -91,7 +91,7 @@
       .startup-menu
         = image_tag "GameLogo.png", class: "game-logo", alt: "The game logo"
         %h1 Welcome #{current_user&.username || "Guest"}
-        %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Start Your Journey
+        %button.btn{ type: "button", onclick: "window.location.href='#{servers_path}'" } Start Your Journey
         %button.btn{ type: "button", onclick: "window.location.href='#{welcome_settings_path}'" } Settings
         = button_to 'Logout', logout_path, method: :delete, class: 'btn', form: { class: 'inline-form' }
 

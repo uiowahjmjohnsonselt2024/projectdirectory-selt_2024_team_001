@@ -1,0 +1,61 @@
+%html
+  %head
+    %title Server Management
+    %style
+      :plain
+        .scrollable-table {
+          height: 300px;
+          overflow-y: auto;
+          border: 1px solid #ccc;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        th, td {
+          border: 1px solid #ccc;
+          padding: 8px;
+          text-align: left;
+        }
+        th {
+          background-color: #f4f4f4;
+        }
+        .input-container {
+          margin: 15px 0;
+        }
+  %body
+    %h1 Server Management
+
+    %h2 Servers You Are Registered To
+    .scrollable-table
+      %table
+        %thead
+          %tr
+            %th Server ID
+            %th Status
+            %th Join Game
+        %tbody
+          - if @user_servers.present?
+            - @user_servers.each do |user_server|
+              %tr
+                %td= user_server.server.id
+                %td= user_server.server.status
+                %td
+                  = link_to "Join Game", game_view_server_path(user_server.server), class: "btn btn-primary"
+          - else
+            %tr
+              %td{ colspan: 3 } You are not registered to any servers.
+
+    %h2 Add a Pre-Existing Server to Your Registered List
+    .input-container
+      %form{ action: add_user_custom_path, method: "post" }
+        %label{ for: "server_number" } Enter Server ID:
+        %input{ type: "text", id: "server_number", name: "server_number", required: true, placeholder: "Server ID" }
+        %button{ type: "submit" } Add Server to Registered List
+
+    %h2 Create a New Server
+    .input-container
+      %form{ action: servers_path, method: "post" }
+        %label{ for: "server_status" } Server Status:
+        %input{ type: "text", id: "server_status", name: "server_status", required: true, placeholder: "Server Status" }
+        %button{ type: "submit" } Create New Server

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_27_152231) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_27_224006) do
   create_table "grid_tiles", force: :cascade do |t|
     t.integer "server_id", null: false
     t.integer "row", null: false
@@ -29,6 +29,17 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_27_152231) do
     t.string "status"
   end
 
+  create_table "user_servers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "server_id", null: false
+    t.datetime "registered_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id"], name: "index_user_servers_on_server_id"
+    t.index ["user_id", "server_id"], name: "index_user_servers_on_user_id_and_server_id", unique: true
+    t.index ["user_id"], name: "index_user_servers_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "email", null: false
@@ -40,4 +51,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_27_152231) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
+
+  add_foreign_key "user_servers", "servers"
+  add_foreign_key "user_servers", "users"
 end

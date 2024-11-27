@@ -1,0 +1,9 @@
+%html
+  %head
+    %title Game View
+  %body
+    %h1 Game View for Server ##{@server.id}
+    %p Status: #{@server.status}
+
+    %p Welcome to the game! This is where the game's UI would be displayed.
+    = link_to "Back to Server Management", servers_path, class: "btn btn-secondary"
