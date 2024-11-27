@@ -3817,3 +3817,34 @@ Processing by SessionsController#shard_purchase as HTML
 Completed 200 OK in 894ms (Views: 112.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2024-11-26 21:20:09 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 827.7ms | GC: 8.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 836.7ms | GC: 9.3ms)
+Completed 200 OK in 2965ms (Views: 1291.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 9.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-26 21:20:24 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A2ICobhWfx8bWUIP2Ij_EmnOGPcFIOEineFfwlGcnL8nxLa4xy0sUlc-2lgCS9GEPjJb5MirndhdS8ZBjFK5lg", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 43.9ms | GC: 28.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 44.8ms | GC: 28.6ms)
+Completed 200 OK in 1388ms (Views: 56.9ms | ActiveRecord: 59.8ms (2 queries, 0 cached) | GC: 50.6ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-26 21:20:36 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 50.0ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 51.0ms | GC: 0.9ms)
+Completed 200 OK in 840ms (Views: 57.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
