@@ -54,9 +54,14 @@
 %body
   .achievements-container
     %h1 Achievements Unlocked
-    - if @achievements.present?
+    - if @achievements.any?
       - @achievements.each do |achievement|
-        .achievement-item= achievement[:name]
+        .achievement-item
+          %strong= achievement.name
+          %br/
+          = achievement.description
+          %br/
+          %small Unlocked: #{achievement.unlocked_at.strftime('%B %d, %Y %I:%M %p')}
     - else
       %p No achievements unlocked yet.
 
