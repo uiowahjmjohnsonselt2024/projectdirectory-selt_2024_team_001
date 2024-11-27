@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2015_08_09_022253) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_27_034106) do
+  create_table "achievements", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.datetime "unlocked_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_achievements_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -18,4 +28,6 @@ ActiveRecord::Schema[7.2].define(version: 2015_08_09_022253) do
     t.integer "shards"
     t.float "money"
   end
+
+  add_foreign_key "achievements", "users"
 end
