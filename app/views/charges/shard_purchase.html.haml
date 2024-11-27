@@ -1,33 +1,40 @@
-= form_with url: charges_path do |f|
-  .card-header
-    %strong Credit Card
-    %small enter your card details
+%body
+  #container
+    .payment-container
+      %h2 Payment Form
 
-  .card-body
-    .form-group
-      %label{for: "amount"} Amount
-      = f.number_field :amount, class: 'form-control', id: 'amount', min: 0, placeholder: 'Enter your amount in $'
+      - if flash[:error]
+        .alert.alert-danger
+          %h4= flash[:error]
 
-    .form-group
-      %label{for: "ccnumber"} Credit Card Number
-      = f.text_field :card_number, class: 'form-control', id: 'cardNumber', placeholder: '0000 0000 0000 0000'
+      = form_with url: charges_path do |f|
+        .form-group
+          = f.label :amount, "Amount"
+          = f.number_field :amount, class: 'form-control', id: 'amount', min: 0, placeholder: 'Enter your amount in $', required: true
 
-    .form-group
-      %label{for: "ccmonth"} Month
-      = f.text_field :month, class: 'form-control', id: 'ccmonth', placeholder: 'MM'
+        .form-group
+          = f.label :card_number, "Credit Card Number"
+          = f.text_field :card_number, class: 'form-control', id: 'cardNumber', placeholder: '0000 0000 0000 0000', required: true
 
-    .form-group
-      %label{for: "ccyear"} Year
-      = f.text_field :year, class: 'form-control', id: 'ccyear', placeholder: 'YY'
+        .form-group
+          = f.label :month, "Month"
+          = f.text_field :month, class: 'form-control', id: 'ccmonth', placeholder: 'MM', required: true
 
-    .form-group
-      %label{for: "cvv"} CVV/CVC
-      = f.text_field :cvc, class: 'form-control', id: 'cvv', placeholder: '123'
+        .form-group
+          = f.label :year, "Year"
+          = f.text_field :year, class: 'form-control', id: 'ccyear', placeholder: 'YY', required: true
 
-  .card-footer
-    = button_to charges_path, class: 'btn btn-sm btn-success float-right' do
-      %i.mdi.mdi-gamepad-circle
-      = " Continue"
-    = link_to root_path, class: 'btn btn-sm btn-danger' do
-      %i.mdi.mdi-lock-reset
-      = " Reset"
+        .form-group
+          = f.label :cvc, "CVV/CVC"
+          = f.text_field :cvc, class: 'form-control', id: 'cvv', placeholder: '123', required: true
+
+        %button.btn.btn-success{ type: "submit" } Continue
+
+        = link_to root_path, class: 'btn btn-danger' do
+          %i.mdi.mdi-lock-reset
+          Reset
+
+  - if flash[:notice]
+    .alert.alert-success= flash[:notice]
+  - if flash[:alert]
+    .alert.alert-danger= flash[:alert]

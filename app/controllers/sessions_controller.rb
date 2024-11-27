@@ -42,7 +42,9 @@ class SessionsController < ApplicationController
   def welcome_screen
     render 'menus/welcome_screen'
   end
-
+  def shard_purchase
+    render 'charges/shard_purchase'
+  end
 
 end
 
