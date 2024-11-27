@@ -3685,3 +3685,135 @@ puma (6.4.3) lib/puma/request.rb:99:in `handle_request'
 puma (6.4.3) lib/puma/server.rb:464:in `process_client'
 puma (6.4.3) lib/puma/server.rb:245:in `block in run'
 puma (6.4.3) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-11-26 21:05:41 -0600
+Started GET "/" for 127.0.0.1 at 2024-11-26 21:05:41 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 658.2ms | GC: 0.0ms)
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 696.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 679.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 708.8ms | GC: 0.0ms)
+Completed 200 OK in 2482ms (Views: 874.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 2467ms (Views: 1076.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-26 21:05:59 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JmR3Sm6L1DHXy1ThXH1jKlsO6LtpKA9jyxF6axT7J18CwsNTEfCHfJuszLaGvk28DPKrqKSjc5kLu-PoyTUCdg", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 36.4ms | GC: 9.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 37.7ms | GC: 9.7ms)
+Completed 200 OK in 1933ms (Views: 55.9ms | ActiveRecord: 92.9ms (2 queries, 0 cached) | GC: 9.7ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-26 21:06:10 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 206.0ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 207.4ms | GC: 0.9ms)
+Completed 200 OK in 1050ms (Views: 219.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-26 21:14:49 -0600
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 535ms (Views: 4.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-26 21:15:00 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hdSW-VhF6z0Xqz8qRkjV9YoAdyU_OoxtTvmAqax25j2hciLgJz64cFvMp32ci_tj3fw0NvKx8JeOUxkqcbjDFA", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (45.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 3.4ms | GC: 0.0ms)
+Completed 200 OK in 1884ms (Views: 4.0ms | ActiveRecord: 45.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-26 21:15:16 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 3.6ms | GC: 0.0ms)
+Completed 200 OK in 1257ms (Views: 37.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-26 21:16:55 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 718.5ms | GC: 8.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 730.0ms | GC: 9.5ms)
+Completed 200 OK in 2333ms (Views: 900.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 9.5ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-26 21:17:08 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"38z235ZER9ZyTTH96-w-LVUlH0kEWgOq_6ngRITeiPn7akLG6T8Umz4qqaoxLxC7AtlcWsnRf1A_A3nHWRCt0A", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 44.1ms | GC: 20.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 47.1ms | GC: 22.5ms)
+Completed 200 OK in 1635ms (Views: 57.4ms | ActiveRecord: 18.9ms (2 queries, 0 cached) | GC: 53.7ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-26 21:17:17 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 102.5ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 104.1ms | GC: 0.6ms)
+Completed 200 OK in 825ms (Views: 111.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-26 21:18:00 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 365.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 372.5ms | GC: 0.0ms)
+Completed 200 OK in 3042ms (Views: 675.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-26 21:18:36 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nFGd-txmp1vX0pUezfs9L6Gd-EIhVkQqUdSTjhn9uVe49ynjox30Fpu1DUkXOBO59mG7UezdONCRfgoNxDOcfg", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 34.0ms | GC: 9.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 35.3ms | GC: 9.1ms)
+Completed 200 OK in 1434ms (Views: 55.7ms | ActiveRecord: 18.8ms (2 queries, 0 cached) | GC: 9.1ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-26 21:18:45 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 105.1ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 106.1ms | GC: 1.5ms)
+Completed 200 OK in 894ms (Views: 112.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.5ms)
+
+
