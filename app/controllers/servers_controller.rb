@@ -79,8 +79,8 @@ class ServersController < ApplicationController
   # GET /servers/:id/grid
   # View the grid of the server
   def grid
-    @grid_cells = @server.grid_cells.order(:row, :column)
-    @users_on_grid = @grid_cells.includes(:users)
+    @grid_cells = @server.grid_tiles.order(:row, :column)
+    @users_on_grid = @grid_tiles.includes(:users)
   end
 
   private

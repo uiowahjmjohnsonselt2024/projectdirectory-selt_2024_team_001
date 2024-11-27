@@ -1,6 +1,6 @@
-class Server < ApplicationRecord
+class Server < ActiveRecord::Base
   has_and_belongs_to_many :users
-  has_many :grid_cells, dependent: :destroy
+  has_many :grid_tiles, dependent: :destroy
 
   after_create :initialize_grid
 
@@ -9,7 +9,7 @@ class Server < ApplicationRecord
   def initialize_grid
     (1..6).each do |row|
       (1..6).each do |col|
-        grid_cells.create!(
+        grid_tiles.create!(
           row: row,
           column: col,
           weather: "Clear",

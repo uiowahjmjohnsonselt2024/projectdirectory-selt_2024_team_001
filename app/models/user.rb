@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
 
     regex = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{1,}\z/
     unless password.match?(regex)
-        puts "DEBUG: Password failed complexity check: #{password}"
         errors.add :password, "must include at least one lowercase letter, one uppercase letter, one digit, and one special character"
       end
   end

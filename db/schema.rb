@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_24_220035) do
-  create_table "grid_cells", force: :cascade do |t|
+ActiveRecord::Schema[7.2].define(version: 2024_11_27_152231) do
+  create_table "grid_tiles", force: :cascade do |t|
     t.integer "server_id", null: false
     t.integer "row", null: false
     t.integer "column", null: false
@@ -20,8 +20,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_24_220035) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["server_id", "row", "column"], name: "index_grid_cells_on_server_id_and_row_and_column", unique: true
-    t.index ["server_id"], name: "index_grid_cells_on_server_id"
+    t.index ["server_id", "row", "column"], name: "index_grid_tiles_on_server_id_and_row_and_column", unique: true
+    t.index ["server_id"], name: "index_grid_tiles_on_server_id"
   end
 
   create_table "servers", force: :cascade do |t|
@@ -30,12 +30,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_24_220035) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
-    t.integer "shards"
-    t.float "money"
+    t.string "username", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.integer "shards", default: 0
+    t.float "money", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
-
-  add_foreign_key "grid_cells", "servers"
 end

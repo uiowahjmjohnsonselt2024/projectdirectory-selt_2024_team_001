@@ -1,7 +1,5 @@
-class GridTile < ApplicationRecord
+class GridTile < ActiveRecord::Base
   belongs_to :server
-  has_many :user_servers, dependent: :nullify # Users occupying this tile
-  has_many :users, through: :user_servers
 
   validates :row, :column, presence: true
   validates :weather, :environment_type, presence: true
