@@ -103,5 +103,5 @@
       .stat-item Level
       .stat-item Experience Points
       .stat-item
-        = link_to "Achievements Unlocked", achievements_path, class: "btn"
+        = link_to "Achievements Unlocked", user_achievements_path(current_user), class: "btn"
     %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Back to Game
