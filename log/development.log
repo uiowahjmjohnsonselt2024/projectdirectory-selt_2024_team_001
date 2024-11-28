@@ -4683,3 +4683,3037 @@ Searched in:
 ):
   
 app/controllers/videos_controller.rb:6:in `intro'
+Started GET "/" for 127.0.0.1 at 2024-11-25 13:26:29 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (6.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 1782.6ms | GC: 2.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 1805.7ms | GC: 2.5ms)
+Completed 200 OK in 8956ms (Views: 2843.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 122.8ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-25 13:26:56 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yu6p8rT9k5XdFWMACYsBtT0cx0ZITBRz_aEsGc4UMu_QGt3Oipi4EKZoRoYmpqItrQNAd6Srmg6-eUux8AB3uA", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/videos/intro
+Completed 302 Found in 4094ms (ActiveRecord: 109.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/intro" for 127.0.0.1 at 2024-11-25 13:27:00 -0600
+Processing by VideosController#intro as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/intro.html.haml within layouts/application
+  Rendered menus/intro.html.haml within layouts/application (Duration: 1031.2ms | GC: 37.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 1035.1ms | GC: 37.7ms)
+Completed 200 OK in 3977ms (Views: 1155.1ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 37.7ms)
+
+
+Started GET "/videos/intro?welcome=true" for 127.0.0.1 at 2024-11-25 13:27:30 -0600
+Processing by VideosController#intro as */*
+  Parameters: {"welcome"=>"true"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2620ms (ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::MissingTemplate (Missing template sessions/welcome_screen with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :webp, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip, :turbo_stream], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :haml, :jbuilder]}.
+
+Searched in:
+  * "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/views"
+  * "/home/egladden/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/turbo-rails-2.0.11/app/views"
+  * "/home/egladden/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/actiontext-7.2.2/app/views"
+  * "/home/egladden/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/actionmailbox-7.2.2/app/views"
+):
+  
+app/controllers/videos_controller.rb:6:in `intro'
+Started GET "/" for 127.0.0.1 at 2024-11-27 15:58:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 474.1ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 483.9ms | GC: 0.8ms)
+Completed 200 OK in 2755ms (Views: 799.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 46.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 15:58:30 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OkKS5mIp9wf-EdbjmgVZwMyqpB-h8POCf8m487f6R2MgtubaXEzcgoVs82W1KPpYXLUjLk0Xff88Ed9bie4CNA", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/welcome_screen
+Completed 302 Found in 1435ms (ActiveRecord: 37.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 15:58:32 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 21.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 22.7ms | GC: 0.0ms)
+Completed 200 OK in 825ms (Views: 38.8ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 15:58:34 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 25.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 26.4ms | GC: 0.0ms)
+Completed 200 OK in 800ms (Views: 45.8ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/baseAvatar-814265e4.png" for 127.0.0.1 at 2024-11-27 15:58:35 -0500
+Started GET "/" for 127.0.0.1 at 2024-11-27 15:58:53 -0500
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.3ms | GC: 0.0ms)
+Completed 200 OK in 814ms (Views: 3.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/sponsor_intro" for 127.0.0.1 at 2024-11-27 16:00:08 -0500
+Processing by VideosController#sponsor_intro as HTML
+Completed 500 Internal Server Error in 785ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template menus/sponsor_intro with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :haml, :jbuilder]}.
+
+Searched in:
+  * "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/views"
+  * "/home/egladden/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/turbo-rails-2.0.11/app/views"
+  * "/home/egladden/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/actiontext-7.2.2/app/views"
+  * "/home/egladden/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/actionmailbox-7.2.2/app/views"
+):
+  
+app/controllers/videos_controller.rb:4:in `sponsor_intro'
+Started GET "/videos/sponsor_intro" for 127.0.0.1 at 2024-11-27 16:04:28 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 205.1ms | GC: 6.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 219.1ms | GC: 7.7ms)
+Completed 200 OK in 1146ms (Views: 242.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 7.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:04:45 -0500
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 11.8ms | GC: 1.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.9ms | GC: 1.8ms)
+Completed 200 OK in 799ms (Views: 26.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:05:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 465.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 487.0ms | GC: 11.8ms)
+Completed 200 OK in 2534ms (Views: 729.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 11.8ms)
+
+
+Started GET "/videos/sponsor_intro" for 127.0.0.1 at 2024-11-27 16:05:29 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 154.6ms | GC: 17.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 158.0ms | GC: 17.8ms)
+Completed 200 OK in 935ms (Views: 170.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 17.8ms)
+
+
+Started GET "/assets/intro1-bc9ab7c9.mp4" for 127.0.0.1 at 2024-11-27 16:05:30 -0500
+Started GET "/assets/intro1-bc9ab7c9.mp4" for 127.0.0.1 at 2024-11-27 16:05:31 -0500
+Started GET "/assets/intro1-bc9ab7c9.mp4" for 127.0.0.1 at 2024-11-27 16:05:31 -0500
+Started GET "/assets/intro1-bc9ab7c9.mp4" for 127.0.0.1 at 2024-11-27 16:05:31 -0500
+Started GET "/assets/intro1-bc9ab7c9.mp4" for 127.0.0.1 at 2024-11-27 16:05:32 -0500
+Started GET "/assets/intro1-bc9ab7c9.mp4" for 127.0.0.1 at 2024-11-27 16:05:32 -0500
+Started GET "/assets/intro1-bc9ab7c9.mp4" for 127.0.0.1 at 2024-11-27 16:05:32 -0500
+Started GET "/assets/intro1-bc9ab7c9.mp4" for 127.0.0.1 at 2024-11-27 16:05:32 -0500
+Started GET "/assets/intro1-bc9ab7c9.mp4" for 127.0.0.1 at 2024-11-27 16:05:33 -0500
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:05:53 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 114.6ms | GC: 2.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 116.2ms | GC: 2.0ms)
+Completed 200 OK in 914ms (Views: 125.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:55 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:55 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:55 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:56 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:56 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:56 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:56 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:57 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:57 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:57 -0500
+Started GET "/assets/intro2-d1d68ed3.mp4" for 127.0.0.1 at 2024-11-27 16:05:57 -0500
+Writing baseAvatar-814265e4.png
+Writing GameLogo-ed7ee6b7.png
+Writing application-29848261.css
+Writing intro1-bc9ab7c9.mp4
+Writing intro2-d1d68ed3.mp4
+Writing turbo-86e38c3c.js
+Writing turbo.min-fae85750.js
+Writing turbo.min-5dd5a71a.js.map
+Writing trix-80a3c05d.js
+Writing actiontext-af44e7a6.js
+Writing actiontext.esm-8fb820b7.js
+Writing trix-c4e7be2d.css
+Writing action_cable-5212cfee.js
+Writing actioncable.esm-e0ec9819.js
+Writing actioncable-ac25813f.js
+Writing activestorage-c540a9c5.js
+Writing activestorage.esm-1984eb8d.js
+Writing rails-ujs-20eaf715.js
+Writing rails-ujs.esm-e925103b.js
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:24:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 441.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 456.6ms | GC: 0.0ms)
+Completed 200 OK in 2672ms (Views: 714.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/sponsor_intro" for 127.0.0.1 at 2024-11-27 16:25:19 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 10.2ms | GC: 1.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.1ms | GC: 1.8ms)
+Completed 200 OK in 764ms (Views: 25.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/videos/sponsor_intro" for 127.0.0.1 at 2024-11-27 16:25:51 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 1111ms (Views: 4.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/sponsor_intro" for 127.0.0.1 at 2024-11-27 16:26:08 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 790ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:26:21 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 13.5ms | GC: 3.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 15.6ms | GC: 3.0ms)
+Completed 200 OK in 843ms (Views: 27.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:29:01 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 460.7ms | GC: 11.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 471.4ms | GC: 11.9ms)
+Completed 200 OK in 2564ms (Views: 717.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 11.9ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:29:14 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 7.0ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 8.3ms | GC: 0.1ms)
+Completed 200 OK in 756ms (Views: 18.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:29:28 -0500
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 805ms (Views: 2.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/sponsor_intro" for 127.0.0.1 at 2024-11-27 16:29:40 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 9.5ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.7ms | GC: 0.4ms)
+Completed 200 OK in 827ms (Views: 19.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:29:53 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 767ms (Views: 3.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:30:07 -0500
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 772ms (Views: 3.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:34:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 38.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 427.6ms | GC: 0.0ms)
+Completed 200 OK in 2423ms (Views: 670.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:34:52 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 8.8ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.2ms | GC: 1.5ms)
+Completed 200 OK in 731ms (Views: 22.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:35:05 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 773ms (Views: 3.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:35:18 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 742ms (Views: 2.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:35:31 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 736ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:37:16 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 8.6ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 16.2ms | GC: 0.1ms)
+Completed 200 OK in 791ms (Views: 36.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:37:30 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 22.6ms | GC: 12.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 25.0ms | GC: 13.6ms)
+Completed 200 OK in 819ms (Views: 32.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 13.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:37:43 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 756ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:37:44 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 3.6ms | GC: 1.0ms)
+Completed 200 OK in 918ms (Views: 4.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:39:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 54.7ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 447.5ms | GC: 1.4ms)
+Completed 200 OK in 2697ms (Views: 742.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 42.6ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:39:27 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 8.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 10.7ms | GC: 0.0ms)
+Completed 200 OK in 818ms (Views: 22.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:39:40 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 784ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:39:41 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 748ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:40:16 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 9.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 19.6ms | GC: 0.0ms)
+Completed 200 OK in 925ms (Views: 41.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:40:29 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 46.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 47.2ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 797ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `login_menu_path' for an instance of #<Class:0x00007f7d7ce73208>):
+
+Causes:
+NameError (undefined local variable or method `login_menu_path' for an instance of #<Class:0x00007f7d7ce73208>)
+    36:         if (gameVideo) {
+    37:           gameVideo.addEventListener('ended', function() {
+    38:             // Redirect to the login screen explicitly
+    39:             window.location.href = "#{login_menu_path}";
+    40:           });
+    41:         }
+    42:       });
+  
+app/views/menus/game_intro.html.haml:39
+app/controllers/videos_controller.rb:8:in `game_intro'
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:42:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 36.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 434.3ms | GC: 0.0ms)
+Completed 200 OK in 2557ms (Views: 698.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:42:53 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 9.8ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.9ms | GC: 1.8ms)
+Completed 200 OK in 804ms (Views: 24.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:43:06 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 847ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:43:07 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 815ms (Views: 3.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:47:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 36.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 436.2ms | GC: 0.0ms)
+Completed 200 OK in 2602ms (Views: 682.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:47:26 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 58.4ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 59.8ms | GC: 1.6ms)
+Completed 500 Internal Server Error in 833ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `mark_intro_as_watched_path' for an instance of #<Class:0x00007f55b839e4e0>):
+
+Causes:
+NameError (undefined local variable or method `mark_intro_as_watched_path' for an instance of #<Class:0x00007f55b839e4e0>)
+    36:         if (gameVideo) {
+    37:           gameVideo.addEventListener('ended', function() {
+    38:             // Redirect to mark that the user has watched the intro videos
+    39:             window.location.href = "#{mark_intro_as_watched_path}";
+    40:           });
+    41:         }
+    42:       });
+  
+app/views/menus/game_intro.html.haml:39
+app/controllers/videos_controller.rb:7:in `game_intro'
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:51:09 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 33.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 434.8ms | GC: 0.0ms)
+Completed 200 OK in 2456ms (Views: 682.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:51:25 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 10.1ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.3ms | GC: 1.4ms)
+Completed 200 OK in 786ms (Views: 22.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/videos/mark_intro_as_watched" for 127.0.0.1 at 2024-11-27 16:51:39 -0500
+Processing by VideosController#mark_intro_as_watched as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 734ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:51:40 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 716ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:51:40 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 728ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2443ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:34 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 883ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:35 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 942ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:36 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 786ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:37 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 731ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:38 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 739ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:39 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 786ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:40 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 768ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:41 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 696ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:41 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 705ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:42 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 725ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:43 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 735ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:44 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 733ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:45 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 770ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:46 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 709ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:46 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 720ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:47 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 731ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:48 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 745ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:49 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 801ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:50 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 783ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:52 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 783ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:53 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 773ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:54 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 758ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:54 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 810ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:55 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 710ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:56 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 723ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:57 -0500
+Processing by SessionsController#new as HTML
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:57 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 787ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 783ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:54:58 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 736ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:54:59 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 762ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:00 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 777ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:01 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 845ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:02 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 736ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:03 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 732ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:03 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 689ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:04 -0500
+Processing by SessionsController#new as HTML
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:05 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 768ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Redirected to http://localhost:3000/login
+Completed 302 Found in 768ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:06 -0500
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:06 -0500
+Processing by SessionsController#decide_route as HTML
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Redirected to http://localhost:3000/
+Completed 302 Found in 533ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 302 Found in 527ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:06 -0500
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:06 -0500
+Processing by SessionsController#new as HTML
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Redirected to http://localhost:3000/
+Completed 302 Found in 507ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 302 Found in 514ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:07 -0500
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:07 -0500
+Processing by SessionsController#new as HTML
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/
+Redirected to http://localhost:3000/login
+Completed 302 Found in 485ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 302 Found in 479ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:08 -0500
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:08 -0500
+Processing by SessionsController#new as HTML
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 517ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Redirected to http://localhost:3000/login
+Completed 302 Found in 515ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:08 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 778ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:09 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 815ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:10 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 809ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:11 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 772ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 8.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:12 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 754ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:13 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 756ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:13 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 726ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:14 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 747ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:15 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 753ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:16 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 746ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:17 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 797ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:18 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 762ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:19 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 741ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:55:19 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 748ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:55:20 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 792ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:58:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/videos/sponsor_intro
+Completed 302 Found in 1801ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/sponsor_intro" for 127.0.0.1 at 2024-11-27 16:58:40 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 33.1ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 42.9ms | GC: 0.1ms)
+Completed 200 OK in 1162ms (Views: 312.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 16:58:54 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 8.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 347.9ms | GC: 0.0ms)
+Completed 200 OK in 1148ms (Views: 355.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/mark_intro_as_watched" for 127.0.0.1 at 2024-11-27 16:59:07 -0500
+Processing by VideosController#mark_intro_as_watched as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 750ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:08 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 789ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:09 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 748ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:10 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 762ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:11 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 768ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:11 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 756ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:12 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 745ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:13 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 761ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:14 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 768ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:15 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 753ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:16 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 747ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:17 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 794ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:17 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 746ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:18 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 777ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:19 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 739ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:20 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 733ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:21 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 740ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:22 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 752ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:22 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 735ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:23 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 744ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:25 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 770ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:26 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 771ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:27 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 792ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:28 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 750ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:29 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 769ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:30 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 755ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:30 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 765ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:31 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 731ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:32 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 739ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:33 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 738ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:34 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 736ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:35 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 728ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:35 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 789ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:36 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 745ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:37 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 775ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:38 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 748ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:39 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 740ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:40 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 757ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 16:59:40 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 716ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 16:59:41 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 718ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:03:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/videos/sponsor_intro
+Completed 302 Found in 1888ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/sponsor_intro" for 127.0.0.1 at 2024-11-27 17:03:16 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 39.3ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 51.5ms | GC: 0.2ms)
+Completed 200 OK in 1228ms (Views: 318.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 17:03:34 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 8.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 351.6ms | GC: 0.0ms)
+Completed 200 OK in 1171ms (Views: 358.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/mark_intro_as_watched" for 127.0.0.1 at 2024-11-27 17:03:47 -0500
+Processing by VideosController#mark_intro_as_watched as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 787ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:03:48 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 759ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:03:49 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 744ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:03:50 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 750ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:03:51 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 766ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:03:52 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 780ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:03:52 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 757ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:03:53 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 791ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:03:54 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 759ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:03:55 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 757ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:03:56 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 805ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:03:57 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 792ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:03:58 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 774ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:03:59 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 756ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:03:59 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 786ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:00 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 787ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:01 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 778ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:02 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 801ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:03 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 781ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:04 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 741ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:06 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 791ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:07 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 794ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:07 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 759ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:08 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 774ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:09 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 766ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:10 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 731ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:11 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 758ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:12 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 795ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:13 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 756ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:13 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 756ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:14 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 776ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:15 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 764ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:16 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 760ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:17 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 789ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:18 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 791ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:19 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 775ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:20 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 736ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:20 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 748ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:04:21 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 748ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:04:22 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 784ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:09 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2248ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 29.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:13 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 890ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:14 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 916ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:15 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 791ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:16 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 738ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:16 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 722ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:17 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 745ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:18 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 722ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:19 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 761ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:20 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 723ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:20 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 718ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:21 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 719ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:22 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 726ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:23 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 700ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:24 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 748ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:25 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 712ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:25 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 749ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:26 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 727ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:27 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 738ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:28 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 745ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:30 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 803ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:31 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 757ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:31 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 725ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:32 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 761ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:33 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 718ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:34 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 740ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:35 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 759ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:36 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 779ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:37 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 817ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:37 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 767ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:38 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 766ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:39 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 762ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:40 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 715ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:41 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 747ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:42 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 723ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:43 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 752ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:43 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 774ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:44 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 777ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:06:45 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 752ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:06:46 -0500
+Processing by SessionsController#decide_route as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 812ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:09:11 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 52.9ms | GC: 10.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 62.6ms | GC: 10.7ms)
+Completed 200 OK in 2254ms (Views: 364.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 45.3ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 17:09:27 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 50.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 51.2ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 801ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"end_intro", :controller=>"videos"}):
+
+Causes:
+ActionController::UrlGenerationError (No route matches {:action=>"end_intro", :controller=>"videos"})
+    36:         if (gameVideo) {
+    37:           gameVideo.addEventListener('ended', function() {
+    38:             // Redirect to end_intro to render the login page
+    39:             window.location.href = "#{url_for(controller: 'videos', action: 'end_intro')}";
+    40:           });
+    41:         }
+    42:       });
+  
+app/views/menus/game_intro.html.haml:39
+app/controllers/videos_controller.rb:7:in `game_intro'
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 17:10:56 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 8.2ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 16.0ms | GC: 1.0ms)
+Completed 200 OK in 917ms (Views: 38.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 17:11:10 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 10.9ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.3ms | GC: 0.5ms)
+Completed 200 OK in 761ms (Views: 20.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 17:11:37 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lnZ6HHSpdZ8wfrDWvpPrtAUyETHHxGMJBWN8vP8rQX_Q8gUn9Hf6UJagu5XPqMktlNbY9UYYcYGcjGy7nASAZw", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/welcome_screen
+Completed 302 Found in 1280ms (ActiveRecord: 37.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 17:11:39 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 11.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.6ms | GC: 0.0ms)
+Completed 200 OK in 781ms (Views: 27.1ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 17:11:41 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 15.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 17.4ms | GC: 0.0ms)
+Completed 200 OK in 785ms (Views: 33.9ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/welcome_settings" for 127.0.0.1 at 2024-11-27 17:11:54 -0500
+Processing by SessionsController#welcome_settings as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_settings.html.haml within layouts/application
+  Rendered menus/welcome_settings.html.haml within layouts/application (Duration: 33.7ms | GC: 10.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 35.0ms | GC: 10.8ms)
+Completed 200 OK in 824ms (Views: 57.4ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 10.8ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 17:11:56 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 756ms (Views: 2.9ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2024-11-27 17:11:58 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kvYXCF99BMqeAaGtPaVuJzIKZX2u7CXP1gADuKsmjoLUcmgz36OLBTjfqu5Mnky-o-6suS8wN0dP7xO_yAlPmg"}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 824ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 17:11:59 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 771ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:12:00 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 7.3ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 9.7ms | GC: 0.1ms)
+Completed 200 OK in 793ms (Views: 17.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 17:12:13 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 762ms (Views: 2.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 17:12:27 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 745ms (Views: 3.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 17:14:04 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ugLPZzqE6KXO0wiOdypcslamindrxLW2UZD3CiU72eL8hrBculpnamgNA80GEX4rx0JDs-oYpz7If-cNRhQY-g", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/welcome_screen
+Completed 302 Found in 1065ms (ActiveRecord: 40.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 17:14:06 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 13.2ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 21.5ms | GC: 2.2ms)
+Completed 200 OK in 915ms (Views: 43.5ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 7.2ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 17:14:08 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 20.8ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 22.3ms | GC: 1.6ms)
+Completed 200 OK in 889ms (Views: 30.4ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 17:27:35 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (29.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 17.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 26.7ms | GC: 0.0ms)
+Completed 200 OK in 1062ms (Views: 49.8ms | ActiveRecord: 29.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 17:38:16 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (30.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 17.0ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 28.0ms | GC: 2.0ms)
+Completed 500 Internal Server Error in 1034ms (ActiveRecord: 30.2ms (1 query, 0 cached) | GC: 3.4ms)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+
+Causes:
+Propshaft::MissingAssetError (The asset 'application.js' was not found in the load path.)
+    3:   %head
+    4:     %title Shards of the Grid
+    5:     = stylesheet_link_tag 'application', media: 'all'
+    6:     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' # Include JavaScript files
+    7:     = csrf_meta_tags
+    8: 
+    9:   %body
+  
+app/views/layouts/application.html.haml:6
+app/controllers/sessions_controller.rb:51:in `main_game_screen'
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:38:56 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 49.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 101.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2129ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+
+Causes:
+Propshaft::MissingAssetError (The asset 'application.js' was not found in the load path.)
+    3:   %head
+    4:     %title Shards of the Grid
+    5:     = stylesheet_link_tag 'application', media: 'all'
+    6:     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' # Include JavaScript files
+    7:     = csrf_meta_tags
+    8: 
+    9:   %body
+  
+app/views/layouts/application.html.haml:6
+app/controllers/videos_controller.rb:3:in `sponsor_intro'
+Started GET "/" for 127.0.0.1 at 2024-11-27 17:51:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 37.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 401.8ms | GC: 0.0ms)
+Completed 200 OK in 2555ms (Views: 668.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 17:51:51 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 11.4ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 14.1ms | GC: 1.9ms)
+Completed 200 OK in 778ms (Views: 22.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 17:52:05 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 11.7ms | GC: 1.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.7ms | GC: 1.2ms)
+Completed 200 OK in 775ms (Views: 21.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 17:52:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0XuBvzun9bNNeumRZZlVVjcd4s5CdhY6jB_qiLFIaL6X__6Eu3l6fOuk4tIUonfPpvkrCsOqBLIV8PqP0meppg", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/welcome_screen
+Completed 302 Found in 1246ms (ActiveRecord: 43.0ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 17:52:26 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 12.1ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 13.5ms | GC: 0.2ms)
+Completed 200 OK in 766ms (Views: 32.9ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 17:52:31 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 14.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 16.1ms | GC: 0.0ms)
+Completed 200 OK in 819ms (Views: 24.2ms | ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 18:04:51 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 45.9ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 485.9ms | GC: 1.0ms)
+Completed 200 OK in 2703ms (Views: 797.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 36.8ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 18:05:07 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 8.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 10.1ms | GC: 0.0ms)
+Completed 200 OK in 754ms (Views: 17.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 18:05:20 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 9.0ms | GC: 1.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 9.8ms | GC: 1.3ms)
+Completed 200 OK in 756ms (Views: 19.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:05:32 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8WP3sQPkdDJmDQha4czHU9lJ5kvI7ZdKXixm-nk3mUy354iKgzr7_cDTAxmQ9-XKSK0vj0kxhcLHw3b9GhhYVA", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/welcome_screen
+Completed 302 Found in 1165ms (ActiveRecord: 29.4ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 18:05:34 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 11.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.8ms | GC: 0.0ms)
+Completed 200 OK in 793ms (Views: 25.6ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:05:36 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 15.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 17.4ms | GC: 0.0ms)
+Completed 200 OK in 756ms (Views: 28.0ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 18:05:39 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 18:22:37 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 18:22:39 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for 127.0.0.1 at 2024-11-27 18:23:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 49.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 433.9ms | GC: 0.0ms)
+Completed 200 OK in 2605ms (Views: 691.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 18:23:51 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 10.4ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.6ms | GC: 2.2ms)
+Completed 200 OK in 802ms (Views: 21.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.2ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 18:24:04 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 9.0ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 10.0ms | GC: 0.9ms)
+Completed 200 OK in 759ms (Views: 17.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:24:15 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vfq3x8NFuA7audnuKhD7wOxRIu0DsBVzgvyCUOWjT3z7fsj8Q5s3wXxn0q1bK9lZfbXrKYJsB_sbE5JXhoyOZA", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/welcome_screen
+Completed 302 Found in 1262ms (ActiveRecord: 36.8ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 18:24:16 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 8.7ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 9.8ms | GC: 0.1ms)
+Completed 200 OK in 757ms (Views: 20.8ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:24:40 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 13.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 14.3ms | GC: 0.0ms)
+Completed 200 OK in 675ms (Views: 25.6ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 18:24:43 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for 127.0.0.1 at 2024-11-27 18:28:33 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 36.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 407.5ms | GC: 0.0ms)
+Completed 200 OK in 2582ms (Views: 687.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 18:28:49 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 9.8ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.5ms | GC: 1.5ms)
+Completed 200 OK in 779ms (Views: 20.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 18:29:02 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 9.6ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 10.6ms | GC: 0.9ms)
+Completed 200 OK in 813ms (Views: 17.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:29:15 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n8JZ_mhDjG5ctReSShF4O3vqNUd-eq-Tcbd-RXXNdHrZRibF6J0DofprHNE7Klqi6g78g_-mvRvoWG5CFuK1Yg", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/welcome_screen
+Completed 302 Found in 1223ms (ActiveRecord: 36.5ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 18:29:16 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 10.9ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.7ms | GC: 0.8ms)
+Completed 200 OK in 781ms (Views: 27.6ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:29:18 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 15.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 16.2ms | GC: 0.0ms)
+Completed 200 OK in 781ms (Views: 25.4ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 18:29:21 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for 127.0.0.1 at 2024-11-27 18:35:58 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 44.0ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 449.3ms | GC: 1.4ms)
+Completed 200 OK in 2639ms (Views: 731.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 33.1ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 18:36:14 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 9.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.4ms | GC: 0.0ms)
+Completed 200 OK in 862ms (Views: 18.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 18:36:27 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 12.6ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 14.4ms | GC: 1.7ms)
+Completed 200 OK in 862ms (Views: 22.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:36:40 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39iYIxJwqGi5bc48zTZFL04zY4m1Saw6FTSZNk0jVJeZXOcYkq4npx-zxX-8DWe239eqTTSVvrKM24kxLgyVjw", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1251ms (ActiveRecord: 34.8ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+  
+NameError (undefined local variable or method `intro_videos_path' for an instance of SessionsController):
+  
+app/controllers/sessions_controller.rb:19:in `create'
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:39:08 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39iYIxJwqGi5bc48zTZFL04zY4m1Saw6FTSZNk0jVJeZXOcYkq4npx-zxX-8DWe239eqTTSVvrKM24kxLgyVjw", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1180ms (ActiveRecord: 32.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `menus' for an instance of SessionsController):
+  
+app/controllers/sessions_controller.rb:19:in `create'
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:39:26 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39iYIxJwqGi5bc48zTZFL04zY4m1Saw6FTSZNk0jVJeZXOcYkq4npx-zxX-8DWe239eqTTSVvrKM24kxLgyVjw", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 14.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 23.4ms | GC: 0.0ms)
+Completed 200 OK in 1300ms (Views: 45.8ms | ActiveRecord: 32.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:39:32 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 19.9ms | GC: 6.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 21.8ms | GC: 6.5ms)
+Completed 200 OK in 844ms (Views: 29.9ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 6.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 18:39:35 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 690ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 18:39:36 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 703ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 18:39:37 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 9.3ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.0ms | GC: 0.3ms)
+Completed 200 OK in 750ms (Views: 25.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 18:39:50 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 6.7ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 8.2ms | GC: 0.3ms)
+Completed 200 OK in 789ms (Views: 15.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 18:40:04 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 11.4ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.6ms | GC: 0.3ms)
+Completed 200 OK in 797ms (Views: 20.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:40:51 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"59ocF6CSEbp5LuUGKxiDAw7Ww5cg_N8alKtkbjek1B2hXmMsIEyedd_w7kVaI6GanzIKU6EgzZINRHRpVIsVBQ", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 912ms (Views: 4.2ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:41:00 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f63N69OIsbcCQpXG2gdI5KlHtEY8iljRCvFUScV-1og5KbLQU1Y-eKScnoWrPGp9OKN9gr1WSlmTHkROplEXkA", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 3.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 4.9ms | GC: 0.0ms)
+Completed 200 OK in 913ms (Views: 5.8ms | ActiveRecord: 2.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:41:03 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 770ms (Views: 3.2ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/welcome_settings" for 127.0.0.1 at 2024-11-27 18:41:06 -0500
+Processing by SessionsController#welcome_settings as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_settings.html.haml within layouts/application
+  Rendered menus/welcome_settings.html.haml within layouts/application (Duration: 23.4ms | GC: 3.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 24.9ms | GC: 3.2ms)
+Completed 200 OK in 782ms (Views: 34.4ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 3.2ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 18:41:08 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 758ms (Views: 2.3ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:41:11 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 743ms (Views: 3.1ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:44:52 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 15.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 27.0ms | GC: 0.0ms)
+Completed 200 OK in 986ms (Views: 47.6ms | ActiveRecord: 31.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:44:56 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 901ms (Views: 2.8ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 18:45:45 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 37.5ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 423.6ms | GC: 0.3ms)
+Completed 200 OK in 2526ms (Views: 685.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 18:46:01 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 7.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 9.7ms | GC: 0.0ms)
+Completed 200 OK in 756ms (Views: 19.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 18:46:15 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 10.2ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.7ms | GC: 1.5ms)
+Completed 200 OK in 716ms (Views: 19.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.5ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:46:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t9mfN_2jQNCCFVSRTEhNI2-SSxvtxZkO8lwj9_ShLNbxXeAMfX3PHyTLX9I9c2-6_naC32wZi4ZrszPwl47tzg", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 11.0ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.0ms | GC: 0.4ms)
+Completed 200 OK in 1278ms (Views: 29.0ms | ActiveRecord: 35.6ms (2 queries, 0 cached) | GC: 2.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:46:28 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 14.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 15.4ms | GC: 0.0ms)
+Completed 200 OK in 760ms (Views: 24.0ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 18:46:32 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 738ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 18:46:33 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 753ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 18:46:34 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 854ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 18:47:07 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 750ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 18:47:21 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.5ms | GC: 0.0ms)
+Completed 200 OK in 727ms (Views: 3.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:47:37 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lg4rtN_mSv71tFkHSq3x2Amc03NBzn-AOal4ih245SfQilSPXzjFMVNqUkQ7ltNBmHgat8ASbQigRmiNfpckPw", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 3.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 5.0ms | GC: 0.0ms)
+Completed 200 OK in 936ms (Views: 5.2ms | ActiveRecord: 2.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:47:39 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 14.3ms | GC: 12.3ms)
+Completed 200 OK in 743ms (Views: 15.6ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 12.3ms)
+
+
+Started GET "/welcome_settings" for 127.0.0.1 at 2024-11-27 18:47:43 -0500
+Processing by SessionsController#welcome_settings as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_settings.html.haml within layouts/application
+  Rendered menus/welcome_settings.html.haml within layouts/application (Duration: 26.9ms | GC: 4.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 28.4ms | GC: 4.9ms)
+Completed 200 OK in 796ms (Views: 39.0ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 4.9ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 18:47:46 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 782ms (Views: 3.0ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:47:53 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 3.5ms | GC: 1.5ms)
+Completed 200 OK in 748ms (Views: 5.8ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 3.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:49:09 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 16.2ms | GC: 2.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 28.0ms | GC: 2.4ms)
+Completed 200 OK in 1110ms (Views: 47.1ms | ActiveRecord: 31.2ms (1 query, 0 cached) | GC: 5.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:49:23 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 25.7ms | GC: 8.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 35.9ms | GC: 9.0ms)
+Completed 200 OK in 971ms (Views: 56.2ms | ActiveRecord: 31.1ms (1 query, 0 cached) | GC: 9.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:51:13 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 19.3ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 29.3ms | GC: 1.0ms)
+Completed 200 OK in 874ms (Views: 57.1ms | ActiveRecord: 38.3ms (1 query, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:51:55 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 17.6ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 27.8ms | GC: 1.5ms)
+Completed 200 OK in 996ms (Views: 49.3ms | ActiveRecord: 32.0ms (1 query, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:52:48 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 22.8ms | GC: 6.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 35.4ms | GC: 6.6ms)
+Completed 200 OK in 1069ms (Views: 57.4ms | ActiveRecord: 32.8ms (1 query, 0 cached) | GC: 6.6ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:53:42 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 23.6ms | GC: 5.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 33.7ms | GC: 5.8ms)
+Completed 200 OK in 1031ms (Views: 53.3ms | ActiveRecord: 33.1ms (1 query, 0 cached) | GC: 5.8ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:54:17 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 21.0ms | GC: 3.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 33.4ms | GC: 4.3ms)
+Completed 200 OK in 1020ms (Views: 53.9ms | ActiveRecord: 35.9ms (1 query, 0 cached) | GC: 4.5ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:54:33 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 15.3ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 28.8ms | GC: 0.8ms)
+Completed 200 OK in 1016ms (Views: 49.4ms | ActiveRecord: 31.2ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:54:55 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 17.6ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 26.8ms | GC: 1.7ms)
+Completed 200 OK in 977ms (Views: 49.3ms | ActiveRecord: 34.5ms (1 query, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:56:21 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 19.8ms | GC: 2.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 32.9ms | GC: 2.8ms)
+Completed 200 OK in 982ms (Views: 62.2ms | ActiveRecord: 35.8ms (1 query, 0 cached) | GC: 3.1ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:57:09 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 31.7ms | GC: 9.8ms)
+  Rendered layout layouts/application.html.haml (Duration: 43.7ms | GC: 10.0ms)
+Completed 200 OK in 1131ms (Views: 70.0ms | ActiveRecord: 37.0ms (1 query, 0 cached) | GC: 10.0ms)
+
+
+Started GET "/welcome_settings" for 127.0.0.1 at 2024-11-27 18:57:19 -0500
+Processing by SessionsController#welcome_settings as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_settings.html.haml within layouts/application
+  Rendered menus/welcome_settings.html.haml within layouts/application (Duration: 26.8ms | GC: 6.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 27.8ms | GC: 6.1ms)
+Completed 200 OK in 783ms (Views: 37.8ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 6.1ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 18:57:22 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 9.5ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 10.5ms | GC: 0.3ms)
+Completed 200 OK in 794ms (Views: 20.4ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:57:23 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.2ms | GC: 0.3ms)
+Completed 200 OK in 793ms (Views: 3.1ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:59:18 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 21.9ms | GC: 4.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 32.8ms | GC: 5.2ms)
+Completed 200 OK in 1051ms (Views: 53.7ms | ActiveRecord: 33.5ms (1 query, 0 cached) | GC: 5.3ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 18:59:32 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 20.2ms | GC: 3.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 32.8ms | GC: 4.0ms)
+Completed 200 OK in 989ms (Views: 51.3ms | ActiveRecord: 32.5ms (1 query, 0 cached) | GC: 4.6ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 19:02:57 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 14.7ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 22.8ms | GC: 1.0ms)
+Completed 200 OK in 1047ms (Views: 45.7ms | ActiveRecord: 31.9ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/welcome_settings" for 127.0.0.1 at 2024-11-27 19:03:10 -0500
+Processing by SessionsController#welcome_settings as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_settings.html.haml within layouts/application
+  Rendered menus/welcome_settings.html.haml within layouts/application (Duration: 28.2ms | GC: 6.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 29.5ms | GC: 6.9ms)
+Completed 200 OK in 794ms (Views: 37.4ms | ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 6.9ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 19:03:13 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 8.8ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 9.7ms | GC: 0.2ms)
+Completed 200 OK in 758ms (Views: 18.3ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 19:03:16 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 740ms (Views: 3.0ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 19:04:56 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 17.1ms | GC: 2.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 29.6ms | GC: 2.5ms)
+Completed 200 OK in 1065ms (Views: 48.9ms | ActiveRecord: 36.1ms (1 query, 0 cached) | GC: 3.4ms)
+
+
+Started GET "/welcome_settings" for 127.0.0.1 at 2024-11-27 19:05:07 -0500
+Processing by SessionsController#welcome_settings as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_settings.html.haml within layouts/application
+  Rendered menus/welcome_settings.html.haml within layouts/application (Duration: 24.3ms | GC: 5.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 25.9ms | GC: 5.2ms)
+Completed 200 OK in 796ms (Views: 34.3ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 5.2ms)
+
+
+Started GET "/welcome_screen" for 127.0.0.1 at 2024-11-27 19:05:09 -0500
+Processing by SessionsController#welcome_screen as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 10.0ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.0ms | GC: 0.5ms)
+Completed 200 OK in 778ms (Views: 19.7ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 19:05:12 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.5ms | GC: 0.0ms)
+Completed 200 OK in 761ms (Views: 2.7ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 19:08:27 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 28.2ms | GC: 8.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 40.3ms | GC: 8.4ms)
+Completed 200 OK in 1121ms (Views: 65.8ms | ActiveRecord: 44.1ms (1 query, 0 cached) | GC: 8.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 19:08:51 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 753ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 19:08:52 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 741ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 19:08:53 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 7.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 8.5ms | GC: 0.0ms)
+Completed 200 OK in 759ms (Views: 20.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 19:09:06 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 7.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 9.1ms | GC: 0.0ms)
+Completed 200 OK in 770ms (Views: 19.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 19:09:19 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 9.6ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 10.5ms | GC: 1.4ms)
+Completed 200 OK in 764ms (Views: 23.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 19:10:03 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LRjGx5QbtSMvyjK9Y-66eNqjA1m6AOnKcu2NtiG9OeFrnLn8FMU67IkUOf4S1ZjhS0fKnTvc-0LrAp2xQpL4-Q", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 13.2ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 14.5ms | GC: 1.0ms)
+Completed 200 OK in 973ms (Views: 31.2ms | ActiveRecord: 2.2ms (2 queries, 0 cached) | GC: 1.0ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2024-11-27 19:13:06 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/logout"):
+  
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 19:13:24 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 18.7ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 30.3ms | GC: 1.5ms)
+Completed 200 OK in 1030ms (Views: 57.1ms | ActiveRecord: 36.4ms (1 query, 0 cached) | GC: 1.7ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 19:13:27 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 946ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 19:13:28 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 933ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 19:13:29 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 10.6ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 13.1ms | GC: 1.9ms)
+Completed 200 OK in 922ms (Views: 26.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 19:13:43 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 9.0ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 10.8ms | GC: 0.5ms)
+Completed 200 OK in 955ms (Views: 19.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 19:13:56 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 10.7ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.1ms | GC: 1.0ms)
+Completed 200 OK in 945ms (Views: 22.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 19:14:30 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1QZY35HQ9o7viQ5OE91ij_LHxx6BYNAWHfXXKOM2fvGTgifkEQ55QUlXBQ1i5kAWYyMO2gC8wp6EGscvgBm_6Q", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 12.0ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 13.4ms | GC: 1.4ms)
+Completed 200 OK in 1124ms (Views: 29.1ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 1.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2024-11-27 19:14:40 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/logout"):
+  
+Started POST "/login" for 127.0.0.1 at 2024-11-27 19:16:20 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1QZY35HQ9o7viQ5OE91ij_LHxx6BYNAWHfXXKOM2fvGTgifkEQ55QUlXBQ1i5kAWYyMO2gC8wp6EGscvgBm_6Q", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 13.6ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 24.7ms | GC: 1.0ms)
+Completed 200 OK in 1222ms (Views: 46.2ms | ActiveRecord: 34.7ms (2 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 19:16:23 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 882ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 19:16:24 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 900ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 19:16:25 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 29.4ms | GC: 18.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 32.8ms | GC: 19.8ms)
+Completed 200 OK in 933ms (Views: 51.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 20.8ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 19:16:39 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 34.1ms | GC: 22.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 36.0ms | GC: 22.6ms)
+Completed 200 OK in 934ms (Views: 49.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 24.4ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 19:16:52 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 12.6ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 14.4ms | GC: 1.4ms)
+Completed 200 OK in 1014ms (Views: 26.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 19:17:07 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZFzjRkLvVclhea2RopPINbQOV8ZFZ9YXyVF6JjyS7l4i2Jx9wjHaBsenptLTqOqsJeqeAsS7xJ9QvmohX70vRg", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 11.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 20.7ms | GC: 0.0ms)
+Completed 200 OK in 1181ms (Views: 49.4ms | ActiveRecord: 33.4ms (2 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 19:17:32 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 905ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 19:17:33 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 923ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 19:17:34 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 7.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 10.0ms | GC: 0.0ms)
+Completed 200 OK in 909ms (Views: 24.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 19:17:48 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 11.2ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 12.7ms | GC: 1.7ms)
+Completed 200 OK in 907ms (Views: 21.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 6.0ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 19:18:01 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 12.7ms | GC: 2.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 13.9ms | GC: 2.0ms)
+Completed 200 OK in 972ms (Views: 24.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 19:18:10 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IvThW9UemdKqBrvoF4-aQTduwsd2i48NPpbGT2VzNURkcJ5gVcAWHQzYsKtmtLjYpooLA_dXnYWnedZIBlz0XA", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 4.2ms | GC: 0.0ms)
+Completed 200 OK in 1140ms (Views: 5.0ms | ActiveRecord: 2.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2024-11-27 19:18:54 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 945ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-27 19:18:55 -0500
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1011ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 19:18:56 -0500
+Processing by VideosController#sponsor_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/sponsor_intro.html.haml within layouts/application
+  Rendered menus/sponsor_intro.html.haml within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 929ms (Views: 3.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/game_intro" for 127.0.0.1 at 2024-11-27 19:19:10 -0500
+Processing by VideosController#game_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/game_intro.html.haml within layouts/application
+  Rendered menus/game_intro.html.haml within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 909ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/videos/end_intro" for 127.0.0.1 at 2024-11-27 19:19:23 -0500
+Processing by VideosController#end_intro as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 963ms (Views: 4.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 19:19:39 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hKksxWMGXWCJZfndaNMfaOYMBDsdnM8_F69XCyMYWhfCLVP-49jSry-78p4Z6D3xd-jN_5xA3beOQEcMQDebDw", "email"=>"therealdonaldtrump@usa.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 3.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 4.8ms | GC: 0.0ms)
+Completed 200 OK in 1076ms (Views: 5.4ms | ActiveRecord: 2.2ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/main_game_screen" for 127.0.0.1 at 2024-11-27 19:19:42 -0500
+Processing by SessionsController#main_game_screen as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/main_game_screen.html.haml within layouts/application
+  Rendered menus/main_game_screen.html.haml within layouts/application (Duration: 21.2ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 23.2ms | GC: 1.0ms)
+Completed 200 OK in 764ms (Views: 33.2ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 1.0ms)
+
+

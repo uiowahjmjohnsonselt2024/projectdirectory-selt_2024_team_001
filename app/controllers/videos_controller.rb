@@ -1,16 +1,14 @@
 class VideosController < ApplicationController
-  before_action :require_login # Ensure the user is logged in before showing the videos
-
-  def intro
-    if params[:welcome]
-      render 'sessions/welcome_screen'
-    else
-      # This action will render the view that plays the introductory videos.
-      render 'menus/intro'
-    end
+  def sponsor_intro
+    render 'menus/sponsor_intro'
   end
 
-  def main_screen
-    # This action will render the main screen of the game after the intro videos
+  def game_intro
+    render 'menus/game_intro'
+  end
+
+  # No session flag, simply render the login menu after videos
+  def end_intro
+    render 'menus/login_menu'
   end
 end

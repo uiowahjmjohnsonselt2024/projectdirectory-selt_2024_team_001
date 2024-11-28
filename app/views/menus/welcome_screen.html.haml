@@ -51,6 +51,7 @@
       /* Button styling */
       .btn {
         color: white;
+        text-decoration: none;
         border: 2px double transparent;
         background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
           radial-gradient(
@@ -93,6 +94,6 @@
         %h1 Welcome #{current_user&.username || "Guest"}
         %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Start Your Journey
         %button.btn{ type: "button", onclick: "window.location.href='#{welcome_settings_path}'" } Settings
-        = button_to 'Logout', logout_path, method: :delete, class: 'btn', form: { class: 'inline-form' }
+        = link_to 'Logout', logout_path, class: 'btn'
 
 
