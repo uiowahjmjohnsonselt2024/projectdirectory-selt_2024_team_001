@@ -39,12 +39,18 @@ class ServersController < ApplicationController
   # POST /servers
   # Create a new server
   def create
-    server = Server.new(status: "New Server") # Adjust fields as needed
+    # Create the server with the provided status
+    server = Server.new(status: params[:server_status])
+
     if server.save
-      flash[:success] = "Server created successfully with ID #{server.id}!"
+      # Automatically register the current user to the newly created server
+      UserServer.create!(user: current_user, server: server)
+
+      flash[:success] = "Server created successfully with ID #{server.id}, and you are now registered to it!"
     else
       flash[:error] = "Failed to create server."
     end
+
     redirect_to servers_path
   end
 

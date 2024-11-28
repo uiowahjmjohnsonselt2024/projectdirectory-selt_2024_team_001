@@ -59,3 +59,5 @@
         %label{ for: "server_status" } Server Status:
         %input{ type: "text", id: "server_status", name: "server_status", required: true, placeholder: "Server Status" }
         %button{ type: "submit" } Create New Server
+    .navigation-button
+      = link_to "Back to Welcome Screen", welcome_screen_path, class: "btn btn-secondary"
