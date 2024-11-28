@@ -1,6 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 
 # Clear existing data
+Achievement.destroy_all
 User.destroy_all
 
 # Create sample users with complex passwords
