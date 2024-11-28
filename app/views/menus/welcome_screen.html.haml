@@ -88,7 +88,7 @@
     #container.welcome-container
       .startup-menu
         = image_tag "GameLogo.png", class: "game-logo", alt: "The game logo"
-        %h1 Welcome #{current_user&.username || "Guest"}
+        %h1 Welcome #{current_user&.email|| "Guest"}
         %button.btn{ type: "button", onclick: "window.location.href='#{servers_path}'" } Start Your Journey
         %button.btn{ type: "button", onclick: "window.location.href='#{welcome_settings_path}'" } Settings
         %button.btn{ type: "button", onclick: "window.location.href='#{user_profile_path}'" } Profile

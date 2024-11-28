@@ -1,4 +1,4 @@
-class UserServer < ActiveRecord::Base
+class UserServer < ApplicationRecord
   belongs_to :user
   belongs_to :server
 

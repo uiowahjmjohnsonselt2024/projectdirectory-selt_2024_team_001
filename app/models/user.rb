@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # Associations
   has_many :user_servers, dependent: :destroy
   has_many :servers, through: :user_servers

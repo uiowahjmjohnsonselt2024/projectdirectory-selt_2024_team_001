@@ -1,4 +1,4 @@
-class GridTile < ActiveRecord::Base
+class GridTile < ApplicationRecord
   belongs_to :server
 
   validates :row, :column, presence: true

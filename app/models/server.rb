@@ -1,4 +1,4 @@
-class Server < ActiveRecord::Base
+class Server < ApplicationRecord
   has_many :user_servers, dependent: :destroy
   has_many :users, through: :user_servers
   has_many :grid_tiles, dependent: :destroy
