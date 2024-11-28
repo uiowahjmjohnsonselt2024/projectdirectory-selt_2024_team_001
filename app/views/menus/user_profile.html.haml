@@ -56,24 +56,30 @@
         font-size: 16px;
       }
 
+      /* Button styling */
       .btn {
-        color: rgb(255, 255, 255); /* Light text color for button */
-        border: 2px solid rgb(217, 0, 192); /* Button border color */
-        background-color: rgb(1, 110, 218); /* Button background color */
-        cursor: pointer;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 50px;
-        width: 100%;
-        max-width: 250px;
-        text-align: center;
-        transition: all 0.3s ease;
+        color: white;
+        border: 2px double transparent;
+        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
+          radial-gradient(
+            circle at left top,
+            rgb(1, 110, 218),
+            rgb(217, 0, 192)
+          );
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        cursor: pointer; /* Show pointer on hover for better UX */
+        padding: 10px 20px; /* Add padding to buttons */
+        font-size: 16px; /* Adjust font size */
+        border-radius: 50px; /* Increased for rounder corners */
+        width: 100%; /* Make buttons stretch to container width */
+        max-width: 250px; /* Limit the maximum button width */
       }
 
       .btn:hover {
-        background-color: rgb(217, 0, 192); /* Hover effect with brighter background */
-        box-shadow: 0 0 10px rgba(217, 0, 192, 0.7), 0 0 20px rgba(1, 110, 218, 0.7);
-        transform: translateY(-2px);
+        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7),
+          0 0 20px rgba(217, 0, 192, 0.7);
+        transform: translateY(-2px); /* Slight lift effect */
       }
 
       /* Universal Reset for Margins and Padding */
@@ -100,8 +106,8 @@
     %h1 User Profile
     %div.profile-stats
       %h2 Stats
-      .stat-item Level
-      .stat-item Experience Points
-      .stat-item
-        = link_to "Achievements Unlocked", user_achievements_path(current_user), class: "btn"
+      .stat-item Level: #{current_user.try(:level) || "Not Available"}
+      .stat-item Experience Points: #{current_user.try(:experience) || "Not Available"}
+      .stat-item Email: #{current_user.email || "Not Available"}
+      = link_to "Achievements Unlocked", user_achievements_path(current_user), class: "btn"
     %button.btn{ type: "button", onclick: "window.location.href='#{main_game_screen_path}'" } Back to Game
