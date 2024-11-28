@@ -31,24 +31,36 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       }
 
+      /* Button container */
+      .button-container {
+        margin-top: 2rem; /* Add space above the button */
+        text-align: center; /* Center the button horizontally */
+      }
+
+      /* Button styling */
       .btn {
-        display: block;
-        margin: 1rem auto;
         color: white;
-        border: 2px solid rgb(217, 0, 192);
-        background-color: rgb(1, 110, 218);
-        cursor: pointer;
-        padding: 10px 20px;
-        border-radius: 50px;
-        text-align: center;
-        width: 200px;
-        text-decoration: none;
-        transition: all 0.3s ease;
+        border: 2px double transparent;
+        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
+          radial-gradient(
+            circle at left top,
+            rgb(1, 110, 218),
+            rgb(217, 0, 192)
+          );
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        cursor: pointer; /* Show pointer on hover for better UX */
+        padding: 10px 20px; /* Add padding to buttons */
+        font-size: 16px; /* Adjust font size */
+        border-radius: 50px; /* Increased for rounder corners */
+        width: 100%; /* Make buttons stretch to container width */
+        max-width: 250px; /* Limit the maximum button width */
       }
 
       .btn:hover {
-        background-color: rgb(217, 0, 192);
-        box-shadow: 0 0 10px rgba(217, 0, 192, 0.7);
+        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7),
+          0 0 20px rgba(217, 0, 192, 0.7);
+        transform: translateY(-2px); /* Slight lift effect */
       }
 
 %body
@@ -65,4 +77,5 @@
     - else
       %p No achievements unlocked yet.
 
+  .button-container
     = link_to "Back to Profile", user_profile_path, class: "btn"
