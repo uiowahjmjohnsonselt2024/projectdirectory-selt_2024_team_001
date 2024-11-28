@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root 'sessions#login_menu'
 
   # Routes for user sign-up, account management, etc.
-  resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
-
+  resources :users, only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :achievements, only: [:index]
+  end
   # Custom route for user sign-up
   get 'signup', to: 'users#new', as: :signup
 
@@ -26,5 +27,8 @@ Rails.application.routes.draw do
   end
 
   post '/add_user_custom', to: 'servers#add_user_custom', as: :add_user_custom
+
+  get 'user_profile', to: 'sessions#user_profile', as: 'user_profile'
+
 
 end

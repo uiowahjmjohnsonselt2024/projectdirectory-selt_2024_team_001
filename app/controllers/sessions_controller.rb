@@ -18,6 +18,10 @@ class SessionsController < ApplicationController
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
         flash[:notice] = "Logged in successfully!"
+        # Grant "First Login" achievement if it's the user's first login
+        unless user.unlocked_achievement?('First Login')
+          Achievement.unlock_for_user(user, 'First Login', 'Logged in for the first time')
+        end
         render 'menus/welcome_screen'
       else
         flash.now[:alert] = "Invalid email or password"
@@ -42,6 +46,21 @@ class SessionsController < ApplicationController
   def welcome_screen
     render 'menus/welcome_screen'
   end
+
+  def user_profile
+    render 'menus/user_profile'
+  end
+
+  def achievements
+    @achievements = [
+      { name: "First Achievement" },
+      { name: "Second Achievement" },
+      { name: "Third Achievement" }
+    ]
+    render 'menus/achievements'
+  end
+
+
 
 
 end

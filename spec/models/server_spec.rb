@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'rails_helper'
 
 RSpec.describe Server, type: :model do
@@ -15,5 +16,10 @@ RSpec.describe Server, type: :model do
       # Verify a specific grid_cell exists (e.g., row 1, column 1)
       expect(server.grid_tiles.find_by(row: 1, column: 1)).to be_present
     end
+  end
+
+  # Additional tests can be added here
+  describe "Validations" do
+    # Placeholder for future validation tests
   end
 end

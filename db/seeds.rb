@@ -1,4 +1,5 @@
 # Clear existing data to avoid duplicates
+Achievement.destroy_all
 User.destroy_all
 Server.destroy_all
 GridTile.destroy_all
@@ -21,7 +22,6 @@ end
 puts "Users seeded: #{User.count}"
 
 # Create sample servers
-# Seed servers only
 servers = [
 	{ server_num: 1, status: "Open" },
 	{ server_num: 2, status: "Open" },
@@ -32,4 +32,4 @@ servers.each do |server_data|
 	Server.create!(server_data)
 end
 
-puts "Grid Tiles seeded: #{GridTile.count}"
+puts "Servers seeded: #{Server.count}"

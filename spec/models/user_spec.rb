@@ -1,9 +1,11 @@
+require 'spec_helper'
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
   # Factory setup
   let(:user) { build(:user) }
 
+  # Validations
   describe "Validations" do
     context "email validations" do
       it "is valid with a valid email" do
@@ -59,6 +61,7 @@ RSpec.describe User, type: :model do
     end
   end
 
+  # Callbacks
   describe "Callbacks" do
     it "downcases the email before saving" do
       user = create(:user, email: "TEST@EXAMPLE.COM")
@@ -66,24 +69,51 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "Class Methods" do
-    describe ".authenticate" do
-      let!(:user) { create(:user, email: "test@example.com", password: "Password123!") }
+  # Instance Methods
+  describe "#unlocked_achievement?" do
+    let(:achievement) { Achievement.create!(name: "First Login", user: user) }
 
-      it "returns the user with valid credentials" do
-        expect(User.authenticate("test@example.com", "Password123!")).to eq(user)
-      end
+    before { user.save }
 
-      it "returns false if password is wrong with invalid credentials" do
-        expect(User.authenticate("test@example.com", "WrongPassword")).to be_falsey
-      end
+    it "returns true if the user has unlocked the achievement" do
+      achievement
+      expect(user.unlocked_achievement?("First Login")).to be true
+    end
 
-      it "returns nil if the email does not exist" do
-        expect(User.authenticate("nonexistent@example.com", "Password123!")).to be_nil
-      end
+    it "returns false if the user has not unlocked the achievement" do
+      expect(user.unlocked_achievement?("Nonexistent Achievement")).to be false
     end
   end
 
+  describe "#list_achievements" do
+    let!(:achievement1) { Achievement.create!(name: "First Login", unlocked_at: 2.days.ago, user: user) }
+    let!(:achievement2) { Achievement.create!(name: "First Post", unlocked_at: 1.day.ago, user: user) }
+
+    before { user.save }
+
+    it "returns achievements ordered by unlocked_at descending" do
+      expect(user.list_achievements).to eq([achievement2, achievement1])
+    end
+  end
+
+  # Class Methods
+  describe ".authenticate" do
+    let!(:user) { create(:user, email: "test@example.com", password: "Password123!") }
+
+    it "returns the user with valid credentials" do
+      expect(User.authenticate("test@example.com", "Password123!")).to eq(user)
+    end
+
+    it "returns false if password is wrong with invalid credentials" do
+      expect(User.authenticate("test@example.com", "WrongPassword")).to be_falsey
+    end
+
+    it "returns nil if the email does not exist" do
+      expect(User.authenticate("nonexistent@example.com", "Password123!")).to be_nil
+    end
+  end
+
+  # Default Values
   describe "Default Values" do
     it "sets default shards to 0" do
       user = create(:user)
@@ -96,6 +126,7 @@ RSpec.describe User, type: :model do
     end
   end
 
+  # Password Complexity Validation
   describe "Password Complexity Validation" do
     it "is invalid if password lacks a digit" do
       user.password = "Password!"

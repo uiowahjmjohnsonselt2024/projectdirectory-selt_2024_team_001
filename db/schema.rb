@@ -11,6 +11,16 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2024_11_27_224006) do
+  create_table "achievements", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.datetime "unlocked_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_achievements_on_user_id"
+  end
+
   create_table "grid_tiles", force: :cascade do |t|
     t.integer "server_id", null: false
     t.integer "row", null: false
@@ -52,6 +62,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_27_224006) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "achievements", "users"
   add_foreign_key "user_servers", "servers"
   add_foreign_key "user_servers", "users"
 end

@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def show
     # Display the user's profile
+    @user = current_user
   end
 
   def edit

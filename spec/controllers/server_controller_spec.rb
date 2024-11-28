@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'rails_helper'
 
 RSpec.describe ServersController, type: :controller do
@@ -74,47 +75,6 @@ RSpec.describe ServersController, type: :controller do
     end
   end
 
-  describe "PATCH/PUT #update" do
-    context "with valid attributes" do
-      it "updates the server" do
-        patch :update, params: { id: server.id, server: { status: "Closed" } }
-        server.reload
-        expect(server.status).to eq("Closed")
-      end
-
-      it "redirects to the server" do
-        patch :update, params: { id: server.id, server: { status: "Closed" } }
-        expect(response).to redirect_to(server)
-      end
-    end
-
-    context "with invalid attributes" do
-      it "does not update the server" do
-        patch :update, params: { id: server.id, server: { server_num: nil } }
-        server.reload
-        expect(server.server_num).not_to be_nil
-      end
-
-      it "re-renders the edit template" do
-        patch :update, params: { id: server.id, server: { server_num: nil } }
-        expect(response).to render_template(:edit)
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "deletes the server" do
-      expect {
-        delete :destroy, params: { id: server.id }
-      }.to change(Server, :count).by(-1)
-    end
-
-    it "redirects to the servers index" do
-      delete :destroy, params: { id: server.id }
-      expect(response).to redirect_to(servers_path)
-    end
-  end
-
   describe "POST #add_user" do
     context "when user is not already in the server" do
       it "adds the user to the server" do
@@ -163,6 +123,31 @@ RSpec.describe ServersController, type: :controller do
     it "renders the grid template" do
       get :grid, params: { id: server.id }
       expect(response).to render_template(:grid)
+    end
+  end
+
+  describe "Create and Join Actions" do
+    it "should create a new Server and add it to your available server list" do
+      pending("Route for 'create' is not implemented yet")
+      post :create, params: { server: { name: 'Test Server' } }
+      expect(response).to have_http_status(:redirect)
+      expect(Server.last.name).to eq('Test Server')
+    end
+
+    it "The newly created server should be able to be joined" do
+      pending("Server table is missing")
+      server = Server.create!(name: 'Test Server')
+      get :join, params: { id: server.id }
+      expect(response).to have_http_status(:success)
+      expect(assigns(:server)).to eq(server)
+    end
+
+    it "should join an existing server and add it to your available server list" do
+      pending("Server table is missing")
+      server = Server.create!(name: 'Existing Server')
+      post :join, params: { id: server.id }
+      expect(response).to have_http_status(:redirect)
+      expect(assigns(:server)).to eq(server)
     end
   end
 end

@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
@@ -13,6 +14,7 @@ RSpec.describe SessionsController, type: :controller do
   describe "GET #login_menu" do
     it "renders the login_menu template" do
       get :login_menu
+      expect(response).to have_http_status(:success)
       expect(response).to render_template('menus/login_menu')
     end
   end
@@ -86,6 +88,26 @@ RSpec.describe SessionsController, type: :controller do
       it "redirects to login_path" do
         get :welcome_settings
         expect(response).to redirect_to(login_path)
+        expect(flash[:alert]).to eq("You must be logged in to access this section.")
+      end
+    end
+  end
+
+  describe "GET #main_game_screen" do
+    context "when user is logged in" do
+      before { session[:user_id] = user.id }
+
+      it "renders the main_game_screen template" do
+        get :main_game_screen
+        expect(response).to render_template('menus/main_game_screen')
+      end
+    end
+
+    context "when user is not logged in" do
+      it "redirects to login_path" do
+        get :main_game_screen
+        expect(response).to redirect_to(login_path)
+        expect(flash[:alert]).to eq("You must be logged in to access this section.")
       end
     end
   end
@@ -104,6 +126,7 @@ RSpec.describe SessionsController, type: :controller do
       it "redirects to login_path" do
         get :welcome_screen
         expect(response).to redirect_to(login_path)
+        expect(flash[:alert]).to eq("You must be logged in to access this section.")
       end
     end
   end
