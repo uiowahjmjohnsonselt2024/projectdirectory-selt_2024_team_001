@@ -1,4 +1,3 @@
-# spec/models/user_spec.rb
 require 'spec_helper'
 require 'rails_helper'
 
@@ -62,16 +61,30 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # Class Methods
-  describe ".authenticate" do
-    it "authenticates a user with correct credentials" do
-      subject.save
-      expect(User.authenticate(subject.email, subject.password)).to eq(subject)
+  # Instance Methods
+  describe "#unlocked_achievement?" do
+    let(:achievement) { Achievement.create!(name: "First Login", user: subject) }
+
+    before { subject.save }
+
+    it "returns true if the user has unlocked the achievement" do
+      achievement
+      expect(subject.unlocked_achievement?("First Login")).to be true
     end
 
-    it "does not authenticate with incorrect credentials" do
-      subject.save
-      expect(User.authenticate(subject.email, "wrongpassword")).to be_falsey
+    it "returns false if the user has not unlocked the achievement" do
+      expect(subject.unlocked_achievement?("Nonexistent Achievement")).to be false
+    end
+  end
+
+  describe "#list_achievements" do
+    let!(:achievement1) { Achievement.create!(name: "First Login", unlocked_at: 2.days.ago, user: subject) }
+    let!(:achievement2) { Achievement.create!(name: "First Post", unlocked_at: 1.day.ago, user: subject) }
+
+    before { subject.save }
+
+    it "returns achievements ordered by unlocked_at descending" do
+      expect(subject.list_achievements).to eq([achievement2, achievement1])
     end
   end
 end

@@ -1,4 +1,3 @@
-# spec/controllers/application_controller_spec.rb
 require 'spec_helper'
 require 'rails_helper'
 
@@ -13,6 +12,13 @@ RSpec.describe ApplicationController, type: :controller do
 
     def protected_action
       render plain: "Protected"
+    end
+  end
+
+  # Explicitly define the routes for the dummy controller
+  before do
+    routes.draw do
+      get 'protected_action' => 'anonymous#protected_action'
     end
   end
 

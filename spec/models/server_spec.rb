@@ -1,6 +1,6 @@
+require 'spec_helper'
 require 'rails_helper'
 
-Describe Server do
-
-
+describe Server do
+  # Add your tests here
 end
