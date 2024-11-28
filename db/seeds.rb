@@ -3,7 +3,6 @@ Achievement.destroy_all
 User.destroy_all
 Server.destroy_all
 GridTile.destroy_all
-puts "GridTiles cleared: #{GridTile.count}"
 
 # Create sample users with complex passwords
 users = [
@@ -33,3 +32,4 @@ servers.each do |server_data|
 end
 
 puts "Servers seeded: #{Server.count}"
+puts "Grid Tiles seeded: #{GridTile.count}"
