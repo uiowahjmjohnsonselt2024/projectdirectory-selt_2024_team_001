@@ -1,28 +1,86 @@
 %html
   %head
     %title Server Management
-    %style
-      :plain
-        .scrollable-table {
-          height: 300px;
-          overflow-y: auto;
-          border: 1px solid #ccc;
-        }
-        table {
-          width: 100%;
-          border-collapse: collapse;
-        }
-        th, td {
-          border: 1px solid #ccc;
-          padding: 8px;
-          text-align: left;
-        }
-        th {
-          background-color: #f4f4f4;
-        }
-        .input-container {
-          margin: 15px 0;
-        }
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    :css
+      body {
+        background: linear-gradient(135deg, #0c0e1a, #161a30);
+        font-family: 'Orbitron', sans-serif;
+        color: #e0e0e0;
+      }
+
+      .scrollable-table {
+        height: 300px;
+        overflow-y: auto;
+        border: 1px solid #5e5e8f;
+        border-radius: 10px;
+        background: rgba(20, 22, 45, 0.9);
+        box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.5);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        border: 1px solid #5e5e8f;
+        padding: 10px;
+        text-align: left;
+        color: #ffffff;
+      }
+
+      th {
+        background-color: #2b2e4a;
+        border-bottom: 2px solid #444;
+        text-shadow: 0 0 5px #00ffff;
+      }
+
+      .input-container {
+        margin: 15px 0;
+        padding: 20px;
+        background: rgba(20, 22, 45, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.5);
+      }
+
+      input[type="text"] {
+        background-color: #2b2e4a;
+        border: 1px solid #5e5e8f;
+        color: #ffffff;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+        transition: box-shadow 0.3s, background-color 0.3s;
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      input[type="text"]:focus {
+        background-color: #34385a;
+        box-shadow: 0 0 15px rgba(0, 153, 255, 0.7);
+      }
+
+      .btn-space {
+        color: #fff;
+        background-image: linear-gradient(135deg, #2b3e50, #1b263b);
+        border: 1px solid #3b4b67;
+        text-shadow: 0 0 5px #00ffff;
+        transition: box-shadow 0.3s, transform 0.3s;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-space:hover {
+        box-shadow: 0 0 20px rgba(0, 153, 255, 0.8);
+        transform: translateY(-3px);
+      }
+
+      .navigation-button {
+        margin-top: 20px;
+      }
+
   %body
     %h1 Server Management
 
@@ -41,7 +99,7 @@
                 %td= user_server.server.id
                 %td= user_server.server.status
                 %td
-                  = link_to "Join Game", game_view_server_path(user_server.server), class: "btn btn-primary"
+                  = link_to "Join Game", game_view_server_path(user_server.server), class: "btn-space"
           - else
             %tr
               %td{ colspan: 3 } You are not registered to any servers.
@@ -51,13 +109,15 @@
       %form{ action: add_user_custom_path, method: "post" }
         %label{ for: "server_number" } Enter Server ID:
         %input{ type: "text", id: "server_number", name: "server_number", required: true, placeholder: "Server ID" }
-        %button{ type: "submit" } Add Server to Registered List
+        %button.btn-space{ type: "submit" } Add Server to Registered List
 
     %h2 Create a New Server
     .input-container
       %form{ action: servers_path, method: "post" }
         %label{ for: "server_status" } Server Status:
         %input{ type: "text", id: "server_status", name: "server_status", required: true, placeholder: "Server Status" }
-        %button{ type: "submit" } Create New Server
+        %button.btn-space{ type: "submit" } Create New Server
+
     .navigation-button
-      = link_to "Back to Welcome Screen", welcome_screen_path, class: "btn btn-secondary"
+      = link_to "Back to Welcome Screen", welcome_screen_path, class: "btn-space"
+

@@ -214,8 +214,8 @@
         #character-icon{ tabindex: "0" }
           = image_tag "baseAvatar.png", alt: "Character Icon", height: "50", width: "50"
         .dropdown-menu
-          %button.dropdown-btn View Profile
-          %button.dropdown-btn Buy Shards
+          = link_to 'User Profile', user_profile_path, class: 'dropdown-btn'
+          = link_to 'Buy Shards', shard_purchase_path, class: 'dropdown-btn'
           = link_to 'Settings', welcome_settings_path, class: 'dropdown-btn'
           = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
 
