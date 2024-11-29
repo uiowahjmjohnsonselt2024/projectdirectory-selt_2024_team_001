@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # Root route pointing to the sponsor intro video
+  # Root route pointing to the sponsor intro video (view, not a direct video file)
   root 'videos#sponsor_intro'
 
   # Routes for user sign-up, account management, etc.
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # Session management routes (assuming you want login/logout functionality)
   get 'login', to: 'sessions#new', as: :login
   post 'login', to: 'sessions#create'
-  get 'logout', to: 'sessions#destroy', as: :logout # Changed from `delete` to `get`
+  delete 'logout', to: 'sessions#destroy', as: :logout
 
 
   # Routes for screens after login
@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
 
-  # Route for the sponsor intro video (first video)
+  # Route for the sponsor intro video (view, not the file itself)
   get 'videos/sponsor_intro', to: 'videos#sponsor_intro', as: 'sponsor_intro'
 
-  # Route for the game intro video (second video)
+  # Route for the game intro video (view, not the file itself)
   get 'videos/game_intro', to: 'videos#game_intro', as: 'game_intro'
 
   # Route to render the login page after videos are watched

@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/application_controller.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/application_controller.rb": {
         "lines": [
           0,
           null,
@@ -10,6 +10,11 @@
           null,
           0,
           null,
+          0,
+          null,
+          null,
+          0,
+          0,
           0,
           null,
           null,
@@ -33,7 +38,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/game_controller.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/game_controller.rb": {
         "lines": [
           null,
           null,
@@ -44,7 +49,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/servers_controller.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/servers_controller.rb": {
         "lines": [
           0,
           null,
@@ -52,18 +57,16 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/sessions_controller.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/sessions_controller.rb": {
         "lines": [
-          null,
-          null,
-          null,
+          0,
           null,
           0,
           null,
           0,
           0,
           0,
-          0,
+          null,
           0,
           0,
           0,
@@ -98,14 +101,11 @@
           0,
           0,
           0,
-          null,
-          null,
-          0,
-          null
+          0
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/users_controller.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/users_controller.rb": {
         "lines": [
           0,
           null,
@@ -174,7 +174,26 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/grid_tile.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/videos_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/models/grid_tile.rb": {
         "lines": [
           0,
           null,
@@ -182,7 +201,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/server.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/models/server.rb": {
         "lines": [
           0,
           null,
@@ -190,7 +209,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/user.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/models/user.rb": {
         "lines": [
           null,
           0,
@@ -233,56 +252,48 @@
         "branches": {}
       }
     },
-    "timestamp": 1732218818
+    "timestamp": 1732910007
   },
   "RSpec": {
     "coverage": {
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/servers_controller.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/application_controller.rb": {
         "lines": [
-          1,
+          0,
           null,
-          null
-        ]
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/server.rb": {
-        "lines": [
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/game_controller.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/game_controller.rb": {
         "lines": [
           null,
           null,
@@ -293,60 +304,63 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/sessions_controller.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/servers_controller.rb": {
         "lines": [
-          null,
-          null,
-          null,
-          null,
           0,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null
+          0
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/users_controller.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/sessions_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/users_controller.rb": {
         "lines": [
           0,
           null,
@@ -415,7 +429,26 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/grid_tile.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/controllers/videos_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/models/grid_tile.rb": {
         "lines": [
           0,
           null,
@@ -423,7 +456,15 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/user.rb": {
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/models/server.rb": {
+        "lines": [
+          0,
+          null,
+          0
+        ],
+        "branches": {}
+      },
+      "/mnt/c/Users/Elijah Gladden/OneDrive - University of Iowa/SELT HW/projectdirectory-selt_2024_team_001/app/models/user.rb": {
         "lines": [
           null,
           0,
@@ -466,6 +507,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1732218829
+    "timestamp": 1732909986
   }
 }
