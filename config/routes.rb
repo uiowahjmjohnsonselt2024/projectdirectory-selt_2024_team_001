@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get 'storefront/crew', to: 'storefront#crew'
   get 'storefront/consumables', to: 'storefront#consumables'
 
+  get 'storefront/trade', to: 'storefront#trade'
+
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
 

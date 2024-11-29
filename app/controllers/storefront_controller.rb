@@ -100,6 +100,10 @@ class StorefrontController < ActionController::Base
                           ])
   end
 
+  def trade
+    #logic
+  end
+
   # Handles the gold update when a player purchases an item
   def update_gold
     gold_spent = params[:gold_spent].to_i
