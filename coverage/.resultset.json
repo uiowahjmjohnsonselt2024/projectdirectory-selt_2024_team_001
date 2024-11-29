@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/application_controller.rb": {
+      "/mnt/c/GitHubProjects/SELT/projectdirectory-selt_2024_team_001/app/controllers/application_controller.rb": {
         "lines": [
           0,
           null,
@@ -33,7 +33,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/game_controller.rb": {
+      "/mnt/c/GitHubProjects/SELT/projectdirectory-selt_2024_team_001/app/controllers/game_controller.rb": {
         "lines": [
           null,
           null,
@@ -44,7 +44,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/servers_controller.rb": {
+      "/mnt/c/GitHubProjects/SELT/projectdirectory-selt_2024_team_001/app/controllers/servers_controller.rb": {
         "lines": [
           0,
           null,
@@ -52,7 +52,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/sessions_controller.rb": {
+      "/mnt/c/GitHubProjects/SELT/projectdirectory-selt_2024_team_001/app/controllers/sessions_controller.rb": {
         "lines": [
           null,
           null,
@@ -105,7 +105,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/users_controller.rb": {
+      "/mnt/c/GitHubProjects/SELT/projectdirectory-selt_2024_team_001/app/controllers/users_controller.rb": {
         "lines": [
           0,
           null,
@@ -174,7 +174,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/grid_tile.rb": {
+      "/mnt/c/GitHubProjects/SELT/projectdirectory-selt_2024_team_001/app/models/grid_tile.rb": {
         "lines": [
           0,
           null,
@@ -182,7 +182,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/server.rb": {
+      "/mnt/c/GitHubProjects/SELT/projectdirectory-selt_2024_team_001/app/models/server.rb": {
         "lines": [
           0,
           null,
@@ -190,7 +190,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/user.rb": {
+      "/mnt/c/GitHubProjects/SELT/projectdirectory-selt_2024_team_001/app/models/user.rb": {
         "lines": [
           null,
           0,
@@ -233,7 +233,7 @@
         "branches": {}
       }
     },
-    "timestamp": 1732218818
+    "timestamp": 1732221979
   },
   "RSpec": {
     "coverage": {

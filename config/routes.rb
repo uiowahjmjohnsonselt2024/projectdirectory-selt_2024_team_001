@@ -50,4 +50,17 @@ Rails.application.routes.draw do
 
   # Route to render the login page after videos are watched
   get 'videos/end_intro', to: 'videos#end_intro', as: 'end_intro'
+  get 'storefront/select_action', to: 'storefront#select_action'
+
+  get 'storefront/store_menu', to: 'storefront#store_menu'
+  get 'storefront/ships', to: 'storefront#ships'
+  get 'storefront/modules', to: 'storefront#modules'
+  get 'storefront/crew', to: 'storefront#crew'
+  get 'storefront/consumables', to: 'storefront#consumables'
+
+  get 'storefront/trade', to: 'storefront#trade'
+
+  post 'storefront/update_gold', to: 'storefront#update_gold'
+
+
 end
