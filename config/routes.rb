@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :achievements, only: [:index]
   end
+
+  # Routes for payment processing system
+  resources :charges, only: [:create]
+
   # Custom route for user sign-up
   get 'signup', to: 'users#new', as: :signup
 
@@ -32,5 +36,8 @@ Rails.application.routes.draw do
 
   get 'user_profile', to: 'sessions#user_profile', as: 'user_profile'
 
+
+  get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
+  #get :stripe_payment, to: 'application#stripe_payment'
 
 end

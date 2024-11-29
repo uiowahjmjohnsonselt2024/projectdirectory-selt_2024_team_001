@@ -62,6 +62,9 @@ class SessionsController < ApplicationController
 
 
 
+  def shard_purchase
+    render 'charges/shard_purchase'
+  end
 
 end
 
