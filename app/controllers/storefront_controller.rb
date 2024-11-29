@@ -11,27 +11,34 @@ class StorefrontController < ActionController::Base
       { title: "Ship 3", description: "A balanced ship for exploration.", cost: 150 },
       { title: "Ship 4", description: "A sleek ship for speed enthusiasts.", cost: 250 },
       { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
+      { title: "Ship 6", description: "A heavy ship equipped with strong armor.", cost: 300 },
 
-    # Modules
+
+      # Modules
       { title: "Module 1", description: "Increases speed by 20%.", cost: 100 },
       { title: "Module 2", description: "Enhances durability by 15%.", cost: 150 },
       { title: "Module 3", description: "Boosts firepower significantly.", cost: 200 },
       { title: "Module 4", description: "Improves energy efficiency for long journeys.", cost: 120 },
       { title: "Module 5", description: "Adds stealth capabilities.", cost: 180 },
+      { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
 
-    # Crew
+
+      # Crew
       { title: "Captain", description: "Experienced leader who commands the ship.", cost: 300 },
       { title: "Engineer", description: "Ensures the ship operates smoothly.", cost: 200 },
       { title: "Pilot", description: "Master navigator and combat specialist.", cost: 250 },
       { title: "Medic", description: "Keeps the crew in top physical condition.", cost: 150 },
       { title: "Scientist", description: "Conducts research and enhances technology.", cost: 350 },
+      { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
 
-    # Consumables
+
+      # Consumables
       { title: "Health Pack", description: "Restores 50% of maximum health.", cost: 50 },
       { title: "Energy Cell", description: "Refills energy reserves for extended travel.", cost: 75 },
       { title: "Shield Booster", description: "Temporarily enhances shields by 25%.", cost: 100 },
       { title: "Combat Stimulant", description: "Increases combat performance for a short duration.", cost: 125 },
       { title: "Repair Kit", description: "Repairs minor hull damage on the ship.", cost: 90 },
+      { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
     ]
 
     # Filter items based on the search query
@@ -52,6 +59,7 @@ class StorefrontController < ActionController::Base
                             { title: "Ship 2", description: "A durable and powerful ship.", cost: 200 },
                             { title: "Ship 3", description: "A balanced ship for exploration.", cost: 150 },
                             { title: "Ship 4", description: "A sleek ship for speed enthusiasts.", cost: 250 },
+                            { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
                             { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 }
                           ])
   end
@@ -63,7 +71,8 @@ class StorefrontController < ActionController::Base
                             { title: "Module 2", description: "Enhances durability by 15%.", cost: 150 },
                             { title: "Module 3", description: "Boosts firepower significantly.", cost: 200 },
                             { title: "Module 4", description: "Improves energy efficiency for long journeys.", cost: 120 },
-                            { title: "Module 5", description: "Adds stealth capabilities.", cost: 180 }
+                            { title: "Module 5", description: "Adds stealth capabilities.", cost: 180 },
+                            { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 }
                           ])
   end
 
@@ -74,7 +83,8 @@ class StorefrontController < ActionController::Base
                             { title: "Engineer", description: "Ensures the ship operates smoothly.", cost: 200 },
                             { title: "Pilot", description: "Master navigator and combat specialist.", cost: 250 },
                             { title: "Medic", description: "Keeps the crew in top physical condition.", cost: 150 },
-                            { title: "Scientist", description: "Conducts research and enhances technology.", cost: 350 }
+                            { title: "Scientist", description: "Conducts research and enhances technology.", cost: 350 },
+                            { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 }
                           ])
   end
 
@@ -85,7 +95,8 @@ class StorefrontController < ActionController::Base
                             { title: "Energy Cell", description: "Refills energy reserves for extended travel.", cost: 75 },
                             { title: "Shield Booster", description: "Temporarily enhances shields by 25%.", cost: 100 },
                             { title: "Combat Stimulant", description: "Increases combat performance for a short duration.", cost: 125 },
-                            { title: "Repair Kit", description: "Repairs minor hull damage on the ship.", cost: 90 }
+                            { title: "Repair Kit", description: "Repairs minor hull damage on the ship.", cost: 90 },
+                            { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 }
                           ])
   end
 
