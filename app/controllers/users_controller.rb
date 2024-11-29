@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   attr_accessor :shards
 
-  validates :shards, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def new
     @user = User.new
