@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy', as: :logout
 
   # Session-related screens
+
+  # Routes for screens after login
   get 'welcome_screen', to: 'sessions#welcome_screen', as: 'welcome_screen'
   get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
@@ -40,4 +42,12 @@ Rails.application.routes.draw do
   get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
   #get :stripe_payment, to: 'application#stripe_payment'
 
+  # Route for the sponsor intro video (view, not the file itself)
+  get 'videos/sponsor_intro', to: 'videos#sponsor_intro', as: 'sponsor_intro'
+
+  # Route for the game intro video (view, not the file itself)
+  get 'videos/game_intro', to: 'videos#game_intro', as: 'game_intro'
+
+  # Route to render the login page after videos are watched
+  get 'videos/end_intro', to: 'videos#end_intro', as: 'end_intro'
 end

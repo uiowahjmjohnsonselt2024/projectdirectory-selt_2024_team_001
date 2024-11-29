@@ -1,3 +1,5 @@
 scripts/secret.txt
 .idea
+/config/credentials/production.key
+
 /config/master.key

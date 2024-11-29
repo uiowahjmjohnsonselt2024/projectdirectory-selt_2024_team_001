@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   # Protect from Cross-Site Request Forgery attacks
   protect_from_forgery with: :exception
 
-  # Make current_user available to views
-  helper_method :current_user, :logged_in?
+  # Make current_user, logged_in?, and intro_watched? available to views
+  helper_method :current_user, :logged_in?, :intro_watched?
 
   private
 
@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
   # Check if a user is logged in
   def logged_in?
     current_user.present?
+  end
+
+  # Track if the intro videos have been watched
+  def intro_watched?
+    session[:intro_watched].present?
   end
 
   # Redirect unauthenticated users
