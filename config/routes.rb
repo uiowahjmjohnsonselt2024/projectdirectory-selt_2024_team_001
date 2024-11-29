@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Root route pointing to the login menu
-  root 'sessions#login_menu'
+  root 'videos#sponsor_intro'
 
   # Routes for user sign-up, account management, etc.
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy] do
