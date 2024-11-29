@@ -2,9 +2,17 @@
   %a{:href => "/storefront/select_action", :style => "color: white; text-decoration: none; font-size: 18px; display: flex; align-items: center;"}
     &#x2190; Back
 
+  %div{:style => "flex: 1; display: flex; justify-content: center;"}
+    %button{:onclick => "sellItem()", :style => "padding: 5px 10px; background-color: #555; color: white; border: none; border-radius: 5px; cursor: pointer;"} Sell Item
+
   %div{:style => "font-size: 18px; text-align: right;"}
     Gold:
     %span{:id => "gold-amount"}= @gold
 
 %div{:style => "background-color: #222; width: 100%; height: calc(100vh - 60px); display: flex; justify-content: center; align-items: center; color: white; font-size: 24px; font-weight: bold;"}
   Trade Test Successful
+
+:javascript
+  function sellItem() {
+    alert("This will be used to sell items");
+  }
