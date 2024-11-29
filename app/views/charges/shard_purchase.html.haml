@@ -29,9 +29,10 @@
     = button_to charges_path, class: 'btn btn-sm btn-success float-right' do
       %i.mdi.mdi-gamepad-circle
       = " Continue"
-    = link_to 'shard_purchase', class: 'btn btn-sm btn-danger' do
-      %i.mdi.mdi-lock-reset
-      = " Reset"
-      = link_to 'main_game_screen', class: 'btn btn-sm btn-secondary' do
+    = link_to main_game_screen_path, class: 'btn btn-sm btn-secondary' do
       %i.mdi.mdi-arrow-left
       = " Back"
+    = link_to shard_purchase_path, class: 'btn btn-sm btn-danger' do
+      %i.mdi.mdi-lock-reset
+      = " Reset"
+
