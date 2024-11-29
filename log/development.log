@@ -3848,3 +3848,946 @@ Processing by SessionsController#shard_purchase as HTML
 Completed 200 OK in 840ms (Views: 57.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
 
 
+Started GET "/" for 127.0.0.1 at 2024-11-27 14:41:17 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 491.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 500.3ms | GC: 0.0ms)
+Completed 200 OK in 2686ms (Views: 752.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 14:41:30 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A_VKpSeKsCdpWGgSC5XTBdYL3_ga7t6kJ2hHlDVshlInU_68WPHjaiU_8EXRVv2Tgfec69dlol7nwt4X6KKjew", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 38.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 40.2ms | GC: 0.0ms)
+Completed 200 OK in 1929ms (Views: 62.9ms | ActiveRecord: 57.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 14:41:39 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 109.0ms | GC: 14.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 110.7ms | GC: 15.2ms)
+Completed 200 OK in 986ms (Views: 134.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 15.2ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 14:41:42 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mSWB8p0bD2ynKLILxeEnK-jiWvNNd2sBA_TWBFAraFK9gzXr4mBcIetPKlwfIgm9vx4Z4ID8F_vDXk-HjeVNew", "amount"=>"", "card_number"=>"", "month"=>"", "year"=>"", "cvc"=>""}
+Completed 500 Internal Server Error in 883ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+Stripe::AuthenticationError (No API key provided. Set your API key using "Stripe.api_key = <API-KEY>". You can generate API keys from the Stripe web interface. See https://stripe.com/api for details, or email support@stripe.com if you have any questions.):
+  
+app/controllers/charges_controller.rb:22:in `stripe_token'
+app/controllers/charges_controller.rb:6:in `create'
+Started GET "/" for 127.0.0.1 at 2024-11-27 14:41:52 -0600
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.3ms | GC: 0.0ms)
+Completed 200 OK in 865ms (Views: 3.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 14:50:18 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 422.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 433.2ms | GC: 0.0ms)
+Completed 200 OK in 2237ms (Views: 648.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 14:50:53 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H98umLY_3yjgF6VWe5oaqPB-2KSktoG4cRrTiRRwGpY7eZqByUSMZaxwPQGhWTQ-p4Kbt2k9_UKxsEoKyb4_vw", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 31.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 33.8ms | GC: 0.0ms)
+Completed 200 OK in 1478ms (Views: 59.3ms | ActiveRecord: 28.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 14:51:06 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 176.4ms | GC: 12.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 178.3ms | GC: 12.7ms)
+Completed 200 OK in 1027ms (Views: 189.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 12.7ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 14:51:10 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 871ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 14:51:17 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.5ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.5ms | GC: 0.3ms)
+Completed 200 OK in 868ms (Views: 3.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 18:48:01 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 715.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 729.7ms | GC: 0.0ms)
+Completed 200 OK in 2800ms (Views: 953.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:48:13 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zTDWxksnyLnrhoB6_4Cxp8PhoFyjc1GaomMiizFAwkDplmLfNFyb9KfhGC0lQ58xlB3jT274LWBiybsI7I7naQ", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 13.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 14.8ms | GC: 0.0ms)
+Completed 200 OK in 1284ms (Views: 21.7ms | ActiveRecord: 17.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 18:48:20 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 89.2ms | GC: 11.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 90.4ms | GC: 11.1ms)
+Completed 200 OK in 1020ms (Views: 138.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 11.1ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 18:49:14 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RcpW2uUAI6Z_YCMVrz0Ux0GnOr1JKS4SKnNIK5wMuGBhbOLDmntw6zMHu0J1_jpRFlt5roSiUujq2dGoQcKdSQ", "amount"=>"500", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"606"}
+Completed 500 Internal Server Error in 931ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+Stripe::AuthenticationError (No API key provided. Set your API key using "Stripe.api_key = <API-KEY>". You can generate API keys from the Stripe web interface. See https://stripe.com/api for details, or email support@stripe.com if you have any questions.):
+  
+app/controllers/charges_controller.rb:23:in `stripe_token'
+app/controllers/charges_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2024-11-27 18:52:59 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 321.5ms | GC: 8.1ms)
+  Rendered layout layouts/application.html.haml (Duration: 329.7ms | GC: 8.9ms)
+Completed 200 OK in 2099ms (Views: 554.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 8.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 18:53:27 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GdV2cwNMcCuy2BevKyRAQKhpK0lc7NW5vBYrMcr8fE89c8JqfDcjZv6_j_jx527W_5VoWpFnqUN8vLKyFzJZZg", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 42.5ms | GC: 20.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 43.4ms | GC: 20.4ms)
+Completed 200 OK in 2070ms (Views: 56.2ms | ActiveRecord: 20.6ms (2 queries, 0 cached) | GC: 45.2ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 18:53:36 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 101.9ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 103.1ms | GC: 0.7ms)
+Completed 200 OK in 1299ms (Views: 123.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 18:54:05 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Sodyx_88AlU4_Vt6mTN8zKZbX-QkgRjcJIVH_pPW00puIcbegEdRGHSawy1D8FJa8acc9-kKZCbkL959Thj2Yw", "amount"=>"10", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Completed 500 Internal Server Error in 637ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+Stripe::AuthenticationError (No API key provided. Set your API key using "Stripe.api_key = <API-KEY>". You can generate API keys from the Stripe web interface. See https://stripe.com/api for details, or email support@stripe.com if you have any questions.):
+  
+app/controllers/charges_controller.rb:23:in `stripe_token'
+app/controllers/charges_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2024-11-27 20:05:35 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 837.4ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 852.4ms | GC: 0.9ms)
+Completed 200 OK in 4744ms (Views: 1373.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 20:06:09 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u0zQUbdKFk3QlM5MfLNi9nnYN7arMPVP3WGmuVEqNb6f6mRIyDFFAJzzVhumcExgLiR0pWa7ibUdyz86jOQQlw", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 16.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 17.8ms | GC: 0.0ms)
+Completed 200 OK in 1442ms (Views: 74.6ms | ActiveRecord: 17.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 20:06:16 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 118.7ms | GC: 9.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 120.3ms | GC: 9.4ms)
+Completed 200 OK in 985ms (Views: 169.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 9.4ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 20:06:32 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1WhJMGs56eBWMmQ65W469W_0u6VGCbQTctMoUo9nTWrxzv0pFEK6rRpV_G0_rRRjOAj4touCyOmyebHRUqloQw", "amount"=>"500", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Completed 500 Internal Server Error in 1171ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+  
+Stripe::AuthenticationError (No API key provided. Set your API key using "Stripe.api_key = <API-KEY>". You can generate API keys from the Stripe web interface. See https://stripe.com/api for details, or email support@stripe.com if you have any questions.):
+  
+app/controllers/charges_controller.rb:23:in `stripe_token'
+app/controllers/charges_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2024-11-27 20:09:40 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 322.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 329.2ms | GC: 0.0ms)
+Completed 200 OK in 2130ms (Views: 669.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 20:09:52 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fq1_45fGSo39U34vL2YMCKnAWNECNPl7WHKJxeOW8Q1aC8v66L0ZwLE05nj1pSKe_jwbws-_hYGY2BBGPljUJA", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 22.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 23.1ms | GC: 0.0ms)
+Completed 200 OK in 1317ms (Views: 39.6ms | ActiveRecord: 87.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 20:09:59 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 63.7ms | GC: 13.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 64.8ms | GC: 13.9ms)
+Completed 200 OK in 1244ms (Views: 72.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 13.9ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 20:10:17 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5h3CatU5hkPFyjKaYrqE_b2R1AXH1F6XOgOBheVTYq3Cu3ZzqkLVDomtqs24eapr6m2XFgpfIm36qRgGOJ1HhA", "amount"=>"500", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Completed 500 Internal Server Error in 692ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+Stripe::AuthenticationError (No API key provided. Set your API key using "Stripe.api_key = <API-KEY>". You can generate API keys from the Stripe web interface. See https://stripe.com/api for details, or email support@stripe.com if you have any questions.):
+  
+app/controllers/charges_controller.rb:24:in `stripe_token'
+app/controllers/charges_controller.rb:8:in `create'
+  [1m[36mActiveRecord::SchemaMigration Load (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (20.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "shards" integer, "money" float)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20150809022253)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-11-28 04:20:23.274312', '2024-11-28 04:20:23.274316') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '298c7bd24881ae0dd470339d149ad6a34794e9e8', '2024-11-28 04:20:23.278584', '2024-11-28 04:20:23.278617') RETURNING "key"[0m
+  [1m[35m (12.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "shards" integer, "money" float)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20150809022253)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-11-28 04:20:23.318830', '2024-11-28 04:20:23.318833') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2024-11-28 04:20:23.322517' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '298c7bd24881ae0dd470339d149ad6a34794e9e8', '2024-11-28 04:20:23.324574', '2024-11-28 04:20:23.324576') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "john@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "john@gmail.com"], ["email", "john@gmail.com"], ["password_digest", "[FILTERED]"], ["shards", 100], ["money", 2500.75]]
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "smith@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "smith@gmail.com"], ["email", "smith@gmail.com"], ["password_digest", "[FILTERED]"], ["shards", 300], ["money", 1500.0]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alex@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "alex@yahoo.com"], ["email", "alex@yahoo.com"], ["password_digest", "[FILTERED]"], ["shards", 50], ["money", 320.25]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "legend47@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "legend47@gmail.com"], ["email", "legend47@gmail.com"], ["password_digest", "[FILTERED]"], ["shards", 200], ["money", 500.0]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "therealdonaldtrump@usa.com"], ["email", "therealdonaldtrump@usa.com"], ["password_digest", "[FILTERED]"], ["shards", 200], ["money", 1259.2]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "admin@example.com"], ["email", "admin@example.com"], ["password_digest", "[FILTERED]"], ["shards", 2000000000], ["money", 1259000000.2]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (1.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 4]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 5]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "john@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "john@gmail.com"], ["email", "john@gmail.com"], ["password_digest", "[FILTERED]"], ["shards", 100], ["money", 2500.75]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "smith@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "smith@gmail.com"], ["email", "smith@gmail.com"], ["password_digest", "[FILTERED]"], ["shards", 300], ["money", 1500.0]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alex@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "alex@yahoo.com"], ["email", "alex@yahoo.com"], ["password_digest", "[FILTERED]"], ["shards", 50], ["money", 320.25]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (11.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "legend47@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "legend47@gmail.com"], ["email", "legend47@gmail.com"], ["password_digest", "[FILTERED]"], ["shards", 200], ["money", 500.0]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "therealdonaldtrump@usa.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "therealdonaldtrump@usa.com"], ["email", "therealdonaldtrump@usa.com"], ["password_digest", "[FILTERED]"], ["shards", 200], ["money", 1259.2]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "shards", "money") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "admin@example.com"], ["email", "admin@example.com"], ["password_digest", "[FILTERED]"], ["shards", 2000000000], ["money", 1259000000.2]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2024-11-27 22:26:29 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 738.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 745.9ms | GC: 0.0ms)
+Completed 200 OK in 2295ms (Views: 984.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 22:26:47 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FbX343YDt4pJ_wkg0Ep56MKMDAshS6upUw3Ysp5B_qwxE0P6CXjkxwWYkXcKiVd-lXBPGOzA11OTp0ExQ4_bhQ", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 943ms (Views: 2.6ms | ActiveRecord: 27.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-11-27 22:26:50 -0600
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering users/new.html.haml within layouts/application
+  Rendered users/new.html.haml within layouts/application (Duration: 196.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 197.5ms | GC: 0.0ms)
+Completed 200 OK in 1211ms (Views: 203.6ms | ActiveRecord: 2.2ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-11-27 22:27:03 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KyXkmDh6A96clNaK--1Ggx_rGy5R01MLOnecHxDX2YQPg1CBRwFQk9DzTt0hLmgVSBdYPZxYL_H63QWczRn8rQ", "user"=>{"email"=>"rock@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest") VALUES (?, ?) RETURNING "id"[0m  [["email", "rock@gmail.com"], ["password_digest", "[FILTERED]"]]
+  [1m[36mTRANSACTION (48.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1236ms (ActiveRecord: 50.7ms (2 queries, 0 cached) | GC: 9.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 22:27:04 -0600
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 650ms (Views: 2.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 22:27:14 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C0UvY8S7OzxVAe9B8TfQhUSlXqVJmE-8BIfBLgDfkhMv45t6u8BocRlmdxYr9P4TE1kdtoQTM0bELVit3RG3Og", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 17.3ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.haml (Duration: 18.1ms | GC: 0.9ms)
+Completed 200 OK in 1245ms (Views: 76.1ms | ActiveRecord: 4.6ms (2 queries, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 22:27:21 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 49.3ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.haml (Duration: 50.6ms | GC: 0.4ms)
+Completed 200 OK in 1144ms (Views: 70.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 22:28:45 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DqIxGws45-an4msYmXMVfsYnqiOhtJyVH0VdEA7pwHgqBIUCdEO0q-uF809DsDvokdvpMGw_4G_f78ST0yflUQ", "amount"=>"500", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Completed 500 Internal Server Error in 963ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+Stripe::AuthenticationError (No API key provided. Set your API key using "Stripe.api_key = <API-KEY>". You can generate API keys from the Stripe web interface. See https://stripe.com/api for details, or email support@stripe.com if you have any questions.):
+  
+app/controllers/charges_controller.rb:24:in `stripe_token'
+app/controllers/charges_controller.rb:8:in `create'
+Started GET "/" for 127.0.0.1 at 2024-11-27 23:17:53 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 370.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 379.1ms | GC: 0.0ms)
+Completed 200 OK in 2181ms (Views: 599.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 23:18:08 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"_XeSt6_1kBdeZO3PwRTiD1MQgThP2XXRxPoZ7dBxi4HZ0Sau0I7DWhIDdZgb18yZBOzCK4JSCSsEUIBuDb-uqA", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 18.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 20.7ms | GC: 0.0ms)
+Completed 200 OK in 1470ms (Views: 69.2ms | ActiveRecord: 31.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:18:15 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 74.3ms | GC: 9.7ms)
+  Rendered layout layouts/application.html.haml (Duration: 75.6ms | GC: 9.7ms)
+Completed 200 OK in 1478ms (Views: 137.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 9.7ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 23:18:32 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TxPszBurtVeSWEjrYiO11fzcN0kITVgbux3sQ16hbn9rtVjVZNDmGt4_0Ly44JtDqyB0WsXGJOF7t3XAg29LVg", "amount"=>"500", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 1107ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:18:33 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.6ms | GC: 0.2ms)
+Completed 200 OK in 740ms (Views: 3.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 23:20:15 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rNtaCjFv5y5uUvCL5D8aFYuCMfwynXiKZtOc8_hCNf6Ife4TThS0YyI1aNw-_DSD3H5y7_8WBHCmeQVwJYwQ1w", "amount"=>"5000", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 1312ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:20:16 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 3.6ms | GC: 0.0ms)
+Completed 200 OK in 1125ms (Views: 5.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:27:06 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 522.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 570.4ms | GC: 0.0ms)
+Completed 200 OK in 2470ms (Views: 826.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 23:27:20 -0600
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 9.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 10.9ms | GC: 0.0ms)
+Completed 200 OK in 957ms (Views: 18.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 23:27:31 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FKHUGbhjBG5Z8OAfoximcFjUJ7b-_UsWCMueX6P5j6UwB2AAxxhXIxWXeEh524jmDyhkpTN2N-zIYQfcfjeqjA", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 22.6ms | GC: 1.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 23.5ms | GC: 1.3ms)
+Completed 200 OK in 1595ms (Views: 32.1ms | ActiveRecord: 19.6ms (2 queries, 0 cached) | GC: 13.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:27:40 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.6ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.5ms | GC: 0.2ms)
+Completed 200 OK in 853ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 23:28:11 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MsH2VLU2PWC_7bBODgq0R4To_w83EuTp_PQTNhj44TIWZ0JNyk1uLfOKKBnUyZrR0xS8HPqZmBM8Xoq1xTbEGw", "amount"=>"5000", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 1528ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:28:13 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 4.6ms | GC: 0.0ms)
+Completed 200 OK in 752ms (Views: 5.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 23:31:18 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (4.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 453.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 462.4ms | GC: 0.0ms)
+Completed 200 OK in 1959ms (Views: 802.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 23:34:57 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0ygzwrWQuIynCFrHvXKp74FFKtKTdGeOzcAFUx6Jnvf3jofbyuvrwetvwpBnsYd51rlpwV7_G3QNapzQw0e73g", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 31.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 33.4ms | GC: 0.0ms)
+Completed 200 OK in 2224ms (Views: 54.9ms | ActiveRecord: 58.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:35:09 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 142.9ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 144.3ms | GC: 1.6ms)
+Completed 200 OK in 1862ms (Views: 172.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 10.8ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 23:37:06 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QKzMiQvKaur6Ma7c5Pc9GVkfundMkSklCbEIHHUxFIxkCniQdLE5p7ZWNos-NBOPDuP5ZIEaVd_JG5GfqP8xpQ", "amount"=>"5000", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 1561ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:37:08 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 738ms (Views: 3.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:45:24 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 918.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 1042.8ms | GC: 0.0ms)
+Completed 200 OK in 5161ms (Views: 1585.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 23:45:55 -0600
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 9.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 11.1ms | GC: 0.0ms)
+Completed 200 OK in 1430ms (Views: 27.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 23:46:23 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RyRkDnBopc5IvdFay_s4E8Lix_Q6QnLkw71DR5uKVfJjgtAXDxP2gwTaSQ0ROBaFlR6E5_fJDh4DF9rERkRw2w", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 20.6ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 22.3ms | GC: 1.5ms)
+Completed 200 OK in 2180ms (Views: 35.5ms | ActiveRecord: 44.4ms (2 queries, 0 cached) | GC: 10.3ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:46:32 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 1834ms (Views: 4.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 23:46:51 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CJ6teyOnPOo47tji0KTjl_x4_VPihsaHNwTj32R1bzQsOBliXNxvp3SJQLUKZ80Bq4S-QC8Nun33rnpcubtKHQ", "amount"=>"5000", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Completed 500 Internal Server Error in 1289ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `tok_visa' for an instance of ChargesController):
+  
+app/controllers/charges_controller.rb:9:in `create'
+Started GET "/" for 127.0.0.1 at 2024-11-27 23:47:54 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 543.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 552.3ms | GC: 0.0ms)
+Completed 200 OK in 3497ms (Views: 1031.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 23:48:12 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wJHc8CaqlRs_C_BxJc9MUCG5AZfSlQOe7iW3pFjC5LLkN2jpWdHGVnNsaCb_DGLGdkVChB8ef2Qujy4nhQzBmw", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 26.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 28.7ms | GC: 0.0ms)
+Completed 200 OK in 2224ms (Views: 52.8ms | ActiveRecord: 52.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:48:29 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 86.4ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 87.7ms | GC: 1.5ms)
+Completed 200 OK in 1098ms (Views: 105.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.5ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 23:48:52 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vnihmr73Aw8VUG7wU_qQvn4SjtuFhAppbehkU3JM84Ry3hWDwYxQQlk39qeJOb4oKe7NyEgPdpOtQv3Qr4LWrQ", "amount"=>"5000", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 1405ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:48:54 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.7ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.8ms | GC: 0.3ms)
+Completed 200 OK in 632ms (Views: 4.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-27 23:51:04 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 691.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 700.2ms | GC: 0.0ms)
+Completed 200 OK in 2777ms (Views: 1029.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-27 23:51:22 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qrBovsMdN57prp3W_B5dbzKVGhFBCBfLvWh3Vbr45LKOFtynvGZk06XJBYEm3XP5ZWlZAoyDazF9wu7WZzbBmw", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 30.9ms | GC: 8.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 32.1ms | GC: 8.5ms)
+Completed 200 OK in 1318ms (Views: 53.6ms | ActiveRecord: 28.4ms (2 queries, 0 cached) | GC: 8.5ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:51:33 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 142.7ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.haml (Duration: 144.0ms | GC: 1.6ms)
+Completed 200 OK in 864ms (Views: 150.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.6ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-27 23:51:54 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NJEMrzbLaloJok5NJNv--IXkG-Pofv7iZ-dWR8EIj2oQN7i2SbA5F0XF1hr-GNBu0hhY8CX1ghinTc_EHMaqQw", "amount"=>"50000", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 1951ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-27 23:51:56 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 939ms (Views: 3.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-28 19:11:56 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 139.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 151.5ms | GC: 0.0ms)
+Completed 200 OK in 2765ms (Views: 475.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-28 19:12:10 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"egfj76E4hfA73K6-L0o_ZvtBsqtZnFOI2Lfw10zEEozHQLHAb0y0HKpMvEpFekc-ddUQCW0IqASHexu2Zmr6Xw", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 34.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 35.9ms | GC: 0.0ms)
+Completed 200 OK in 2488ms (Views: 56.3ms | ActiveRecord: 43.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-28 19:12:19 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 45.2ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 46.2ms | GC: 1.5ms)
+Completed 200 OK in 1218ms (Views: 53.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.5ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-28 19:13:46 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CH7q3GpgSdFFCN6C0VhsOUz9Y2K00ECOwjh1nfFjZBi1ObjzpBR4PdSYzHa7aBRhwmnBwIBEuwKd9J78282Myw", "amount"=>"750", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 1264ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-28 19:13:48 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.7ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 3.9ms | GC: 0.2ms)
+Completed 200 OK in 593ms (Views: 5.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-28 19:16:48 -0600
+Started GET "/" for 127.0.0.1 at 2024-11-28 19:16:48 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#shard_purchase as HTML
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 479.3ms | GC: 0.0ms)
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 455.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 491.9ms | GC: 0.0ms)
+Completed 200 OK in 2218ms (Views: 872.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendered layout layouts/application.html.haml (Duration: 571.6ms | GC: 0.0ms)
+Completed 200 OK in 2332ms (Views: 921.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-28 19:17:05 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GJl5UEmjjSWarebTgxHGUwDnJ1Sz0Inl_PJr9cnxx6Cl3it_h9e8yQs99CfpIb4LjnOF9odEcmmjPoCU418vcw", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 20.4ms | GC: 1.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 21.6ms | GC: 1.3ms)
+Completed 200 OK in 1330ms (Views: 33.1ms | ActiveRecord: 21.4ms (2 queries, 0 cached) | GC: 10.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-28 19:17:14 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.9ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.9ms | GC: 0.2ms)
+Completed 200 OK in 1298ms (Views: 4.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-28 19:17:30 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p5JurjOVeZF7ZNjDQ4jaez8fiN0UfoN5OqOF_txnqRwa1TyB_eFIfer0yjcpuKIjsYsqfyDqePVlb26f9slBzw", "amount"=>"750", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "shards" = ? WHERE "users"."id" = ?[0m  [["shards", 1000], ["id", 13]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 2094ms (ActiveRecord: 8.4ms (3 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-28 19:17:33 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 1.8ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.haml (Duration: 2.9ms | GC: 0.2ms)
+Completed 200 OK in 1417ms (Views: 4.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-28 19:18:20 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8baOTpRIuYr-HuXVc7J-t7VfQHpmOyR1lais9rC26m1M8dxhWjyIZm-O9yEZggbvO8vi2FKv3_nKZEeXmhgCvg", "amount"=>"750", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "shards" = ? WHERE "users"."id" = ?[0m  [["shards", 2000], ["id", 13]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 1791ms (ActiveRecord: 4.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-28 19:18:22 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 2.0ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 3.2ms | GC: 0.3ms)
+Completed 200 OK in 932ms (Views: 4.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-28 19:40:33 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_menu as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering menus/login_menu.html.haml within layouts/application
+  Rendered menus/login_menu.html.haml within layouts/application (Duration: 538.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 544.8ms | GC: 0.0ms)
+Completed 200 OK in 3010ms (Views: 923.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-11-28 19:40:47 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X3VCenAaaLf0DfntbT_kL0FJdm5e3ZrE1I3UFt0FBxTiMhBVvm5ZW2Wd6xkHD5x3z93UzGpJYUiLQT9396vvxw", "email"=>"rock@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering menus/welcome_screen.html.haml within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered menus/welcome_screen.html.haml within layouts/application (Duration: 39.0ms | GC: 10.5ms)
+  Rendered layout layouts/application.html.haml (Duration: 40.3ms | GC: 10.5ms)
+Completed 200 OK in 2591ms (Views: 60.8ms | ActiveRecord: 47.6ms (2 queries, 0 cached) | GC: 10.5ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-28 19:40:55 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 88.3ms | GC: 2.3ms)
+  Rendered layout layouts/application.html.haml (Duration: 91.8ms | GC: 2.3ms)
+Completed 200 OK in 1203ms (Views: 105.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.3ms)
+
+
+Started POST "/charges" for 127.0.0.1 at 2024-11-28 19:41:11 -0600
+Processing by ChargesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N1P9LBVZTvIXWNrAsh1vnzwATyuKJOuefMEKf_dTxi-KFK8D2y1_HobIyDTYLRfHspTtib6wEBIjDeEe3f0u_A", "amount"=>"0.75", "card_number"=>"4242424242424242", "month"=>"12", "year"=>"25", "cvc"=>"123"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "rock@gmail.com"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "shards" = ? WHERE "users"."id" = ?[0m  [["shards", 2001], ["id", 13]]
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/shard_purchase
+Completed 302 Found in 2507ms (ActiveRecord: 13.7ms (3 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/shard_purchase" for 127.0.0.1 at 2024-11-28 19:41:14 -0600
+Processing by SessionsController#shard_purchase as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering charges/shard_purchase.html.haml within layouts/application
+  Rendered charges/shard_purchase.html.haml within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.haml (Duration: 3.7ms | GC: 0.0ms)
+Completed 200 OK in 1826ms (Views: 5.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+

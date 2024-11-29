@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
 
   get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
+  #get :stripe_payment, to: 'application#stripe_payment'
 
 end
