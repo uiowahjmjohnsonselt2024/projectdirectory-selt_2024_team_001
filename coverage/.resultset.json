@@ -237,14 +237,80 @@
   },
   "RSpec": {
     "coverage": {
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/servers_controller.rb": {
+      "/mnt/c/Users/JOEHO/RubymineProjects/projectdirectory-selt_2024_team_001/app/controllers/charges_controller.rb": {
         "lines": [
           1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
           null,
           null
         ]
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/application_controller.rb": {
+      "/mnt/c/Users/JOEHO/RubymineProjects/projectdirectory-selt_2024_team_001/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null,
@@ -275,14 +341,7 @@
           null
         ]
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/server.rb": {
-        "lines": [
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/game_controller.rb": {
+      "/mnt/c/Users/JOEHO/RubymineProjects/projectdirectory-selt_2024_team_001/app/controllers/game_controller.rb": {
         "lines": [
           null,
           null,
@@ -293,7 +352,15 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/sessions_controller.rb": {
+      "/mnt/c/Users/JOEHO/RubymineProjects/projectdirectory-selt_2024_team_001/app/controllers/servers_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0
+        ],
+        "branches": {}
+      },
+      "/mnt/c/Users/JOEHO/RubymineProjects/projectdirectory-selt_2024_team_001/app/controllers/sessions_controller.rb": {
         "lines": [
           null,
           null,
@@ -339,18 +406,24 @@
           0,
           0,
           0,
-          null,
+          0,
+          0,
+          0,
           null,
           0,
           null
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/controllers/users_controller.rb": {
+      "/mnt/c/Users/JOEHO/RubymineProjects/projectdirectory-selt_2024_team_001/app/controllers/users_controller.rb": {
         "lines": [
           0,
           null,
           0,
+          0,
+          null,
+          0,
+          null,
           0,
           null,
           0,
@@ -415,7 +488,7 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/grid_tile.rb": {
+      "/mnt/c/Users/JOEHO/RubymineProjects/projectdirectory-selt_2024_team_001/app/models/grid_tile.rb": {
         "lines": [
           0,
           null,
@@ -423,7 +496,15 @@
         ],
         "branches": {}
       },
-      "/home/rutger0714/projectdirectory-selt_2024_team_001/app/models/user.rb": {
+      "/mnt/c/Users/JOEHO/RubymineProjects/projectdirectory-selt_2024_team_001/app/models/server.rb": {
+        "lines": [
+          0,
+          null,
+          0
+        ],
+        "branches": {}
+      },
+      "/mnt/c/Users/JOEHO/RubymineProjects/projectdirectory-selt_2024_team_001/app/models/user.rb": {
         "lines": [
           null,
           0,
@@ -466,6 +547,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1732218829
+    "timestamp": 1732861944
   }
 }

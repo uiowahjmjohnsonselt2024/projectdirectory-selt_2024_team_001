@@ -131,6 +131,7 @@ GEM
       cucumber (>= 5, < 10)
       railties (>= 5.2, < 8)
     cucumber-tag-expressions (6.1.1)
+    dante (0.2.0)
     database_cleaner (2.1.0)
       database_cleaner-active_record (>= 2, < 3)
     database_cleaner-active_record (2.2.0)
@@ -147,6 +148,11 @@ GEM
     drb (2.2.1)
     ed25519 (1.3.0)
     erubi (1.13.0)
+    factory_bot (6.5.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.4)
+      factory_bot (~> 6.5)
+      railties (>= 5.0.0)
     ffi (1.17.0-x86_64-linux-gnu)
     formatador (1.1.0)
     globalid (1.2.1)
@@ -219,6 +225,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.5)
+    multi_json (1.15.0)
     multi_test (1.1.0)
     nenv (0.3.0)
     net-imap (0.5.1)
@@ -391,6 +398,10 @@ GEM
       ostruct
     stringio (3.1.2)
     stripe (13.2.0)
+    stripe-ruby-mock (2.5.8)
+      dante (>= 0.2.0)
+      multi_json (~> 1.0)
+      stripe (>= 2.0.3)
     sys-uname (1.3.1)
       ffi (~> 1.1)
     temple (0.10.3)
@@ -428,6 +439,7 @@ DEPENDENCIES
   cucumber-rails (~> 3.0)
   database_cleaner
   debug
+  factory_bot_rails
   guard-rspec
   haml
   jasmine-rails
@@ -448,6 +460,7 @@ DEPENDENCIES
   simplecov (~> 0.22.0)
   sqlite3 (>= 2.1)
   stripe
+  stripe-ruby-mock
   thruster
   turbo-rails
   web-console

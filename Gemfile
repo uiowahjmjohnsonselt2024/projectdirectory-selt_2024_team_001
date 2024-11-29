@@ -22,6 +22,9 @@ gem "kamal", require: false
 
 gem "thruster", require: false
 
+gem 'factory_bot_rails'
+
+gem 'stripe-ruby-mock'
 #Gem for Payment Processing Third Party Application
 gem 'stripe'
 
