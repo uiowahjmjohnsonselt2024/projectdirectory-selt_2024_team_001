@@ -1,0 +1,35 @@
+<h1>Server Details</h1>
+
+<p>
+  <strong>Server ID:</strong>
+  <%= @server.id %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @server.status %>
+</p>
+
+<h2>Users</h2>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+</ul>
+
+<h2>Grid Tiles</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Row</th>
+      <th>Column</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grid_tiles.each do |cell| %>
+      <tr>
+        <td><%= cell.row %></td>
+        <td><%= cell.column %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

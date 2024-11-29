@@ -1,8 +1,13 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # Associations
   has_many :user_servers, dependent: :destroy
   has_many :servers, through: :user_servers
   has_many :achievements, dependent: :destroy
+  has_many :grid_tile_users
+  has_many :grid_tiles, through: :grid_tile_users
+
 
   # Adds methods to set and authenticate against a BCrypt password
   has_secure_password
@@ -24,6 +29,13 @@ class User < ApplicationRecord
   def list_achievements
     achievements.order(unlocked_at: :desc)
   end
+
+  # Class method for finding and authenticating users
+  def self.authenticate(email, password)
+    user = find_by(email: email.downcase)
+    user&.authenticate(password)
+  end
+
 
   private
 

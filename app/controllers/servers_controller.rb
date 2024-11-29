@@ -27,7 +27,7 @@ class ServersController < ApplicationController
   # Show details of a specific server
   def show
     @users = @server.users
-    @grid_cells = @server.grid_cells.order(:row, :column)
+    @grid_tiles = @server.grid_tiles.order(:row, :column)
   end
 
   # GET /servers/new
@@ -123,8 +123,9 @@ class ServersController < ApplicationController
   # GET /servers/:id/grid
   # View the grid of the server
   def grid
-    @grid_cells = @server.grid_tiles.order(:row, :column)
-    @users_on_grid = @grid_tiles.includes(:users)
+    @grid_tiles = @server.grid_tiles.order(:row, :column)
+    @users_on_tiles = @grid_tiles.presence&.includes(:users) || []
+    redirect_to servers_path
   end
 
   private

@@ -19,12 +19,14 @@ Rails.application.routes.draw do
   get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
   # routes.rb
-  resources :servers, only: [:index, :create] do
+  resources :servers, only: [:index, :create, :show, :destroy] do
     member do
       post :add_user
       get :game_view
+      get :grid
     end
   end
+
 
   post '/add_user_custom', to: 'servers#add_user_custom', as: :add_user_custom
 

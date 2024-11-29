@@ -1,5 +1,7 @@
 class GridTile < ApplicationRecord
   belongs_to :server
+  has_many :user_grid_tiles
+  has_many :users, through: :user_grid_tiles
 
   validates :row, :column, presence: true
   validates :weather, :environment_type, presence: true

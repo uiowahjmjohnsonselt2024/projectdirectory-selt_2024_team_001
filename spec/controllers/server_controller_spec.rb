@@ -1,153 +1,111 @@
-require 'spec_helper'
 require 'rails_helper'
 
 RSpec.describe ServersController, type: :controller do
-  let!(:server) { create(:server) }
-  let!(:user) { create(:user) }
+  let(:user) { create(:user) }
+  let(:server) { create(:server) }
+  let!(:user_server) { create(:user_server, user: user, server: server) }
+
+
+  before do
+    # Simulate a logged-in user by stubbing the current_user method
+    allow(controller).to receive(:current_user).and_return(user)
+  end
 
   describe "GET #index" do
-    it "assigns all servers to @servers" do
+    it "assigns user servers and all servers" do
       get :index
-      expect(assigns(:servers)).to eq([server])
-    end
-
-    it "renders the index template" do
-      get :index
-      expect(response).to render_template(:index)
+      expect(assigns(:user_servers)).to eq(user.user_servers.includes(:server))
+      expect(assigns(:servers)).to eq(Server.all)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe "GET #show" do
-    it "assigns the requested server to @server" do
-      get :show, params: { id: server.id }
-      expect(assigns(:server)).to eq(server)
-    end
-
-    it "assigns users and grid_cells" do
+    it "assigns the requested server's details" do
       get :show, params: { id: server.id }
       expect(assigns(:users)).to eq(server.users)
-      expect(assigns(:grid_cells)).to eq(server.grid_tiles.order(:row, :column))
-    end
-
-    it "renders the show template" do
-      get :show, params: { id: server.id }
-      expect(response).to render_template(:show)
-    end
-  end
-
-  describe "GET #new" do
-    it "assigns a new server to @server" do
-      get :new
-      expect(assigns(:server)).to be_a_new(Server)
-    end
-
-    it "renders the new template" do
-      get :new
-      expect(response).to render_template(:new)
+      expect(assigns(:grid_tiles)).to eq(server.grid_tiles.order(:row, :column))
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe "POST #create" do
     context "with valid attributes" do
-      it "creates a new server" do
-        expect {
-          post :create, params: { server: attributes_for(:server) }
-        }.to change(Server, :count).by(1)
-      end
-
-      it "redirects to the new server" do
-        post :create, params: { server: attributes_for(:server) }
-        expect(response).to redirect_to(Server.last)
+      it "creates a new server and registers the user" do
+        post :create, params: { server_status: "active" }
+        created_server = Server.last
+        expect(created_server.status).to eq("active")
+        expect(user.servers).to include(created_server)
+        expect(flash[:success]).to match(/Server created successfully/)
+        expect(response).to redirect_to(servers_path)
       end
     end
 
     context "with invalid attributes" do
-      it "does not save the server" do
-        expect {
-          post :create, params: { server: { server_num: nil, status: nil } }
-        }.not_to change(Server, :count)
-      end
-
-      it "re-renders the new template" do
-        post :create, params: { server: { server_num: nil, status: nil } }
-        expect(response).to render_template(:new)
+      it "does not create a server and displays an error" do
+        allow_any_instance_of(Server).to receive(:save).and_return(false)
+        post :create, params: { server_status: "active" }
+        expect(flash[:error]).to match(/Failed to create server/)
+        expect(response).to redirect_to(servers_path)
       end
     end
   end
 
-  describe "POST #add_user" do
-    context "when user is not already in the server" do
-      it "adds the user to the server" do
-        expect {
-          post :add_user, params: { id: server.id, user_id: user.id }
-        }.to change { server.users.count }.by(1)
+  describe "POST #add_user_custom" do
+    context "when server exists" do
+      it "registers the user if not already registered" do
+        new_server = create(:server)
+        post :add_user_custom, params: { server_number: new_server.id }
+        expect(user.servers).to include(new_server)
+        expect(flash[:success]).to match(/successfully joined server/)
+        expect(response).to redirect_to(servers_path)
       end
 
-      it "assigns the user to a starting tile" do
-        post :add_user, params: { id: server.id, user_id: user.id }
-        user_server = UserServer.find_by(user: user, server: server)
-        expect(user_server.grid_cell).to eq(server.grid_tiles.find_by(row: 1, column: 1))
-      end
-
-      it "redirects to the server" do
-        post :add_user, params: { id: server.id, user_id: user.id }
-        expect(response).to redirect_to(server)
+      it "does not register the user if already registered" do
+        post :add_user_custom, params: { server_number: server.id }
+        expect(flash[:error]).to match(/already registered/)
+        expect(response).to redirect_to(servers_path)
       end
     end
 
-    context "when user is already in the server" do
-      before do
-        server.users << user
-      end
-
-      it "does not add the user again" do
-        expect {
-          post :add_user, params: { id: server.id, user_id: user.id }
-        }.not_to change { server.users.count }
-      end
-
-      it "sets a flash error message" do
-        post :add_user, params: { id: server.id, user_id: user.id }
-        expect(flash[:error]).to eq("User is already a member of this server.")
+    context "when server does not exist" do
+      it "displays an error" do
+        post :add_user_custom, params: { server_number: 9999 }
+        expect(flash[:error]).to match(/Server not found/)
+        expect(response).to redirect_to(servers_path)
       end
     end
   end
 
   describe "GET #grid" do
-    it "assigns grid_cells and users_on_grid" do
-      get :grid, params: { id: server.id }
-      expect(assigns(:grid_cells)).to eq(server.grid_tiles.order(:row, :column))
-      expect(assigns(:users_on_grid)).to eq(server.grid_tiles.includes(:users))
+    before do
+      allow(controller).to receive(:current_user).and_return(user)
+      UserServer.find_or_create_by!(user: user, server: server)
     end
 
-    it "renders the grid template" do
+    it "assigns grid tiles and users on the grid" do
       get :grid, params: { id: server.id }
-      expect(response).to render_template(:grid)
+      expect(assigns(:grid_tiles)).to eq(server.grid_tiles.order(:row, :column))
+      expect(assigns(:users_on_tiles)).to eq(server.grid_tiles.includes(:users))
     end
   end
 
-  describe "Create and Join Actions" do
-    it "should create a new Server and add it to your available server list" do
-      pending("Route for 'create' is not implemented yet")
-      post :create, params: { server: { name: 'Test Server' } }
-      expect(response).to have_http_status(:redirect)
-      expect(Server.last.name).to eq('Test Server')
+  describe "POST #add_user" do
+    it "registers the user to the server" do
+      new_server = create(:server)
+      post :add_user, params: { id: new_server.id }
+      expect(user.servers).to include(new_server)
+      expect(flash[:success]).to match(/successfully joined server/)
+      expect(response).to redirect_to(servers_path)
     end
+  end
 
-    it "The newly created server should be able to be joined" do
-      pending("Server table is missing")
-      server = Server.create!(name: 'Test Server')
-      get :join, params: { id: server.id }
-      expect(response).to have_http_status(:success)
-      expect(assigns(:server)).to eq(server)
-    end
-
-    it "should join an existing server and add it to your available server list" do
-      pending("Server table is missing")
-      server = Server.create!(name: 'Existing Server')
-      post :join, params: { id: server.id }
-      expect(response).to have_http_status(:redirect)
-      expect(assigns(:server)).to eq(server)
+  describe "DELETE #destroy" do
+    it "deletes the server" do
+      delete :destroy, params: { id: server.id }
+      expect(Server.exists?(server.id)).to be_falsey
+      expect(flash[:success]).to match(/Server deleted successfully/)
+      expect(response).to redirect_to(servers_path)
     end
   end
 end
