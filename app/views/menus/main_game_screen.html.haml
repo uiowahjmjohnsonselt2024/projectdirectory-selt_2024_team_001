@@ -217,6 +217,7 @@
           %button.dropdown-btn View Profile
           %button.dropdown-btn Buy Shards
           = link_to 'Settings', welcome_settings_path, class: 'dropdown-btn'
+          = link_to 'Store', storefront_select_action_path, class: 'dropdown-btn'
           = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
 
       .game-grid
