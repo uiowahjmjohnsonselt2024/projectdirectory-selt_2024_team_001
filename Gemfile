@@ -61,4 +61,5 @@ group :test do
   gem "database_cleaner"
   gem "rails-controller-testing"
   gem "simplecov", "~> 0.22.0"
+  gem 'shoulda-matchers', '~> 5.0'
 end
