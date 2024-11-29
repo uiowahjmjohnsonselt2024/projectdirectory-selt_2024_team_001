@@ -34,4 +34,16 @@ class User < ActiveRecord::Base
     self.email = email.downcase
   end
 
+  after_initialize :set_default_gold
+  def set_default_gold
+    self.gold ||= 1000
+  end
+
+  def adjust_gold(amount)
+    self.gold += amount
+    save
+  end
+
+  validates :gold, numericality: { greater_than_or_equal_to: 0 }
+
 end

@@ -17,4 +17,15 @@ Rails.application.routes.draw do
   get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
 
+  get 'storefront/select_action', to: 'storefront#select_action'
+
+  get 'storefront/store_menu', to: 'storefront#store_menu'
+  get 'storefront/ships', to: 'storefront#ships'
+  get 'storefront/modules', to: 'storefront#modules'
+  get 'storefront/crew', to: 'storefront#crew'
+  get 'storefront/consumables', to: 'storefront#consumables'
+
+  post 'storefront/update_gold', to: 'storefront#update_gold'
+
+
 end
