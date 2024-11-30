@@ -7,9 +7,6 @@ Rails.application.routes.draw do
     resources :achievements, only: [:index]
   end
 
-  # Routes for payment processing system
-  resources :charges, only: [:create]
-
   # Custom route for user sign-up
   get 'signup', to: 'users#new', as: :signup
 
@@ -33,14 +30,9 @@ Rails.application.routes.draw do
     end
   end
 
-
   post '/add_user_custom', to: 'servers#add_user_custom', as: :add_user_custom
 
   get 'user_profile', to: 'sessions#user_profile', as: 'user_profile'
-
-
-  get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
-  #get :stripe_payment, to: 'application#stripe_payment'
 
   # Route for the sponsor intro video (view, not the file itself)
   get 'videos/sponsor_intro', to: 'videos#sponsor_intro', as: 'sponsor_intro'
