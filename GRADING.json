@@ -1,8 +1,8 @@
 {	
   “GROUP“ : “G001“,	
   “ALL_SPRINTS“ : {	
-    “SPRINT1_URL“ : http:"https://safe-harbor-17305-f36e8bd1b28e.herokuapp.com/",		
-    “SPRINT2_URL“ : http://blah.blee.boo/myapp,	
+    “SPRINT1_URL“ :"https://safe-harbor-17305-f36e8bd1b28e.herokuapp.com/",		
+    “SPRINT2_URL“ :"https://pure-scrubland-31099-9150e65a1754.herokuapp.com/",	
     “SPRINT3_URL“ : http://blah.blee.boo/myapp,	
     “FINAL_URL“   : http://blah.blee.boo/myapp
   }
