@@ -1,0 +1,113 @@
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    :css
+      /* Ensure the entire page covers the full viewport */
+      html,
+      body {
+        background-color: rgb(13, 14, 33) !important; /* Background for the entire page */
+        height: 100%; /* Full viewport height */
+        margin: 0 !important; /* Removes default margin */
+        padding: 0 !important; /* Removes default padding */
+        display: flex; /* Use flexbox on the body itself for centering */
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+        font-family: Arial, sans-serif; /* Font style for better readability */
+      }
+
+      h1, h2 {
+        color: rgb(255, 255, 255); /* Light color for visibility */
+      }
+
+      .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 700px;
+        padding: 2rem;
+        box-sizing: border-box;
+        background-color: rgb(13, 14, 33) !important; /* Match the page background */
+        border-radius: 10px;
+        box-shadow: none !important; /* Remove shadow */
+        gap: 1rem;
+      }
+
+      .profile-avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid rgb(217, 0, 192);
+        box-shadow: 0 0 10px rgba(217, 0, 192, 0.7);
+      }
+
+      .profile-stats {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+      }
+
+      .stat-item {
+        color: rgb(255, 255, 255); /* Light color for visibility */
+        font-size: 16px;
+      }
+
+      /* Button styling */
+      .btn {
+        color: white;
+        border: 2px double transparent;
+        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
+          radial-gradient(
+            circle at left top,
+            rgb(1, 110, 218),
+            rgb(217, 0, 192)
+          );
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        cursor: pointer; /* Show pointer on hover for better UX */
+        padding: 10px 20px; /* Add padding to buttons */
+        font-size: 16px; /* Adjust font size */
+        border-radius: 50px; /* Increased for rounder corners */
+        width: 100%; /* Make buttons stretch to container width */
+        max-width: 250px; /* Limit the maximum button width */
+      }
+
+      .btn:hover {
+        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7),
+          0 0 20px rgba(217, 0, 192, 0.7);
+        transform: translateY(-2px); /* Slight lift effect */
+      }
+
+      /* Universal Reset for Margins and Padding */
+      * {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+      }
+
+      /* Override for #main container styles */
+      #main {
+        background-color: rgb(13, 14, 33) !important; /* Ensure the background matches */
+        padding: 0 !important; /* Remove default padding */
+        margin: 0 !important; /* Remove margins */
+        flex: 1; /* Adjust flex properties */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+%body
+  #container.profile-container
+    = image_tag "Placeholder_head.png", class: "profile-avatar", alt: "Placeholder Avatar"
+    %h1 User Profile
+    %div.profile-stats
+      %h2 Stats
+      .stat-item Level: #{current_user.try(:level) || "Not Available"}
+      .stat-item Experience Points: #{current_user.try(:experience) || "Not Available"}
+      .stat-item Email: #{current_user.email || "Not Available"}
+      = link_to "Achievements Unlocked", user_achievements_path(current_user), class: "btn"
+    %button.btn{ type: "button", onclick: "window.location.href='#{welcome_screen_path}'" } Back to Game

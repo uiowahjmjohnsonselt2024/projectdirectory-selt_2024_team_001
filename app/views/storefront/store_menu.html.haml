@@ -1,0 +1,39 @@
+%div{:style => "width: 100%; height: 60px; background-color: #333; color: white; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; padding: 0 10px;"}
+  %a{:href => "/storefront/select_action", :style => "color: white; text-decoration: none; font-size: 18px; display: flex; align-items: center;"}
+    &#x2190; Back
+
+  %form{:action => "/storefront/store_menu", :method => "get", :style => "flex: 1; display: flex; justify-content: center;"}
+    %input{:type => "text", :name => "search", :placeholder => "Search the store...", :value => params[:search], :style => "width: 60%; padding: 5px; border: none; border-radius: 5px;"}
+    %button{:type => "submit", :style => "padding: 5px 10px; border: none; border-radius: 5px; background-color: #555; color: white; margin-left: 10px;"} Search
+
+  %div{:style => "font-size: 18px; text-align: right;"}
+    Gold:
+    %span{:id => "gold-amount"}= @gold || 0
+
+%div{:style => "background-color: #aaa; width: 100%; height: calc(100vh - 60px); padding: 20px; box-sizing: border-box;"}
+  %div.categories-container{:style => "display: flex; width: 100%; height: 100%;"}
+    %a.section{:href => "/storefront/ships", :style => "flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #555; text-decoration: none; color: #fff; font-size: 24px; font-weight: bold; border-right: 1px solid #aaa;"}
+      Ships
+      = image_tag 'ship.png', alt: 'Ships', style: 'width: 250px; height: 250px; margin-top: 10px;'
+    %a.section{:href => "/storefront/modules", :style => "flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #555; text-decoration: none; color: #fff; font-size: 24px; font-weight: bold; border-right: 1px solid #aaa;"}
+      Modules
+      = image_tag 'modules.png', alt: 'Modules', style: 'width: 250px; height: 250px; margin-top: 10px;'
+    %a.section{:href => "/storefront/crew", :style => "flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #555; text-decoration: none; color: #fff; font-size: 24px; font-weight: bold; border-right: 1px solid #aaa;"}
+      Crew
+      = image_tag 'crew.png', alt: 'Crew', style: 'width: 250px; height: 250px; margin-top: 10px;'
+    %a.section{:href => "/storefront/consumables", :style => "flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #555; text-decoration: none; color: #fff; font-size: 24px; font-weight: bold;"}
+      Consumables
+      = image_tag 'consumables.png', alt: 'Consumables', style: 'width: 250px; height: 250px; margin-top: 10px;'
+
+  - if params[:search].present?
+    - if @filtered_items.any?
+      %div.search-results-container{:style => "margin-top: 30px; background-color: #333; padding: 20px; border-radius: 10px; color: white;"}
+        %h3 Search Results:
+        %div.items-container{:style => "display: flex; gap: 30px; flex-wrap: wrap;"}
+          - @filtered_items.each do |item|
+            %div.item-box{:style => "width: 200px; height: 300px; background-color: #555; color: white; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 10px;"}
+              %h4= item[:title]
+              %p= item[:description]
+              %p{:style => "font-size: 12px; color: #aaa;"}= "Category: #{item[:category]}"
+    - else
+      %div{:style => "margin-top: 20px; text-align: center; color: white;"} No results found.

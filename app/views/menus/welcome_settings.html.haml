@@ -1,4 +1,3 @@
-!!! 5
 %html{ lang: "en" }
   %head
     %title Shards of the Grid
@@ -16,11 +15,7 @@
         justify-content: center; /* Center content horizontally */
       }
 
-      h1 {
-        color: white;
-      }
-
-      p {
+      h1, p {
         color: white;
       }
 
@@ -47,6 +42,79 @@
         gap: 1rem; /* Add spacing between buttons and message */
         text-align: center; /* Center-align text */
       }
+
+      .scrollable-settings {
+        max-height: 300px; /* Limit height of the settings list */
+        overflow-y: auto; /* Make settings scrollable */
+        padding: 1rem;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: rgb(23, 24, 43);
+        border-radius: 10px;
+      }
+
+      /* Setting item */
+      .setting-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Separate switch and label */
+        width: 100%;
+        padding: 0.5rem 0;
+        color: white;
+      }
+
+      .setting-item label {
+        flex-grow: 1; /* Allow the label to take up available space */
+        text-align: left; /* Align the label text to the left */
+        padding-left: 10px; /* Add spacing between switch and label */
+      }
+
+      /* Toggle switch styling */
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: #4caf50;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(20px);
+      }
+
       /* Button styling */
       .btn {
         color: white;
@@ -76,8 +144,57 @@
     #container.parent-container
       .settings-container
         %h1 Settings
-        %p This will be the location
-        %p of a settings page where
-        %p users can toggle various
-        %p settings in the game.
+        %div.scrollable-settings
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting1" }
+              %span.slider
+            %label{ for: "setting1" } Enable notifications
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting2" }
+              %span.slider
+            %label{ for: "setting2" } Dark mode
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting3" }
+              %span.slider
+            %label{ for: "setting3" } Auto-update
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting4" }
+              %span.slider
+            %label{ for: "setting4" } Location services
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting5" }
+              %span.slider
+            %label{ for: "setting5" } Backup data
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting6" }
+              %span.slider
+            %label{ for: "setting6" } Voice assistance
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting7" }
+              %span.slider
+            %label{ for: "setting7" } Use cellular data
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting8" }
+              %span.slider
+            %label{ for: "setting8" } Automatic time zone
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting9" }
+              %span.slider
+            %label{ for: "setting9" } Send usage data
+          %div.setting-item
+            %div.switch
+              %input{ type: "checkbox", id: "setting10" }
+              %span.slider
+            %label{ for: "setting10" } Enable Bluetooth
+        %button.btn{type: "button"} Reset
+        %button.btn{ type: "button"} Save
         %button.btn{ type: "button", onclick: "window.location.href='#{welcome_screen_path}'" } Back

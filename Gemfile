@@ -22,6 +22,13 @@ gem "kamal", require: false
 
 gem "thruster", require: false
 
+gem 'factory_bot_rails'
+
+gem 'devise'
+
+gem 'stripe-ruby-mock'
+#Gem for Payment Processing Third Party Application
+gem 'stripe'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -30,6 +37,8 @@ group :development, :test do
 
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails"
+  gem "faker"
+
 end
 
 group :development do
@@ -52,4 +61,5 @@ group :test do
   gem "database_cleaner"
   gem "rails-controller-testing"
   gem "simplecov", "~> 0.22.0"
+  gem 'shoulda-matchers', '~> 5.0'
 end

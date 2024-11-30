@@ -1,85 +1,233 @@
-!!! 5
 %html{ lang: "en" }
   %head
     %title Shards of the Grid
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
     :css
-      /* Ensure the entire page covers the full viewport */
+      /* General page styling */
       html,
       body {
-        background-color: rgb(13, 14, 33); /* Background for the entire page */
-        height: 100%; /* Full viewport height */
-        margin: 0; /* Removes default margin */
-        display: flex; /* Use flexbox on the body itself for centering */
-        align-items: center; /* Center content vertically */
-        justify-content: center; /* Center content horizontally */
+        background-color: rgb(13, 14, 33);
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
       }
 
-      h1 {
+      .title {
+        padding-bottom: 30px;
         color: white;
+        text-align: center;
+        margin-top: 1rem;
       }
 
-      p {
-        color: white;
-      }
-
-      /* Parent container */
-      .parent-container {
+      #game-container {
         display: flex;
-        flex-direction: column; /* Stack children vertically */
-        align-items: center; /* Center content inside */
-        justify-content: center; /* Center vertically within container */
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 20px 2rem 2rem 2rem;
         width: 100%;
-        max-width: 400px;
-        padding: 2rem;
-        box-sizing: border-box; /* Includes padding in width/height calculations */
-        background-color: rgb(13, 14, 33) !important; /* Optional for clarity */
-        max-height: 90vh; /* Prevent overflow beyond viewport height */
-        gap: 1rem; /* Add spacing between elements */
+        height: calc(100vh - 40px);
+        box-sizing: border-box;
       }
 
-      .settings-container {
-        display: flex;
-        flex-direction: column; /* Stack buttons and text vertically */
-        align-items: center; /* Center everything horizontally */
-        justify-content: center; /* Center everything vertically */
-        gap: 1rem; /* Add spacing between buttons and message */
-        text-align: center; /* Center-align text */
+      /* Game logo positioning */
+      #game-logo {
+        position: absolute;
+        top: 10px;
+        left: 20px;
       }
-      /* Button styling */
-      .btn {
+
+      #game-logo img {
+        height: 50px;
+        width: 50px;
+      }
+
+      /* Character icon container */
+      #character-icon-container {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        width: 50px;
+        cursor: pointer;
+      }
+
+      /* Character icon positioning */
+      #character-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid white;
+        transition: box-shadow 0.3s ease;
+      }
+
+      #character-icon:hover {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      }
+
+      /* Dropdown menu for character icon */
+      .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(13, 14, 33, 0.9);
+        border-radius: 8px;
+        border: 1px solid #666;
+        padding: 1rem;
         color: white;
-        border: 2px double transparent;
-        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
-          radial-gradient(
-            circle at left top,
-            rgb(1, 110, 218),
-            rgb(217, 0, 192)
-          );
-        background-origin: border-box;
-        background-clip: padding-box, border-box;
-        cursor: pointer; /* Show pointer on hover for better UX */
-        padding: 10px 20px; /* Add padding to buttons */
-        font-size: 16px; /* Adjust font size */
-        border-radius: 50px; /* Increased for rounder corners */
-        width: 100%; /* Make buttons stretch to container width */
-        max-width: 250px; /* Limit the maximum button width */
+        z-index: 10;
+        text-align: center;
+        display: flex; /* Flex container for buttons */
+        flex-direction: column; /* Arrange buttons in a vertical column */
+        gap: 0.5rem; /* Add spacing between items */
       }
 
-      .btn:hover {
-        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7),
-          0 0 20px rgba(217, 0, 192, 0.7);
-        transform: translateY(-2px); /* Slight lift effect */
+      /* Button styling for dropdown */
+      .dropdown-btn {
+        color: white;
+        background-color: transparent;
+        border: 2px solid #666;
+        border-radius: 10px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        width: 100%;
+        text-decoration: none;
       }
+
+      .dropdown-btn:hover {
+        background-color: #4caf50;
+        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7);
+        text-decoration: none;
+      }
+
+      /* Grid container styling */
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-auto-rows: 67px;
+        gap: 10px;
+        width: 55%;
+        height: auto;
+        background-color: rgb(23, 24, 43);
+        padding: 1rem;
+        border-radius: 10px;
+        overflow: auto;
+      }
+
+      /* Grid cell styling */
+      .grid-cell {
+        background-color: rgb(31, 32, 52);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 100%;
+        height: 67px;
+      }
+
+      .grid-cell:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px 10px rgba(1, 110, 218, 0.7);
+      }
+
+      /* Chat container styling */
+      .chat-container {
+        width: 40%;
+        background-color: rgb(23, 24, 43);
+        padding: 1rem;
+        border-radius: 10px;
+        color: white;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        box-sizing: border-box;
+      }
+
+      .chat-messages {
+        flex-grow: 1;
+        overflow-y: auto;
+        border: 1px solid #666;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+      }
+
+      .chat-input {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .chat-input input {
+        flex-grow: 1;
+        padding: 0.5rem;
+        border-radius: 8px;
+        border: none;
+        box-sizing: border-box;
+      }
+
+      .chat-input button {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .chat-input button:hover {
+        background-color: #45a049;
+
+    :javascript
+      document.addEventListener('DOMContentLoaded', () => {
+        const characterIcon = document.getElementById('character-icon');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        // Toggle the dropdown menu when the character icon is clicked
+        characterIcon.addEventListener('click', (event) => {
+          event.stopPropagation(); // Prevent this click from triggering the document click event
+          dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Close the dropdown if clicking anywhere outside of it
+        document.addEventListener('click', (event) => {
+          if (!dropdownMenu.contains(event.target) && dropdownMenu.style.display === 'flex') {
+            dropdownMenu.style.display = 'none';
+          }
+        });
+      });
+
   %body
-    #container.parent-container
-      .settings-container
-        %h1 Main Game
-        %p This will be the location
-        %p of the main game page where
-        %p user's can start their
-        %p journey playing the great
-        %p Shards Of The Grid!
-        %button.btn{ type: "button", onclick: "window.location.href='#{welcome_screen_path}'" } Back
+    %header.title
+    #game-container
+      #game-logo
+        = image_tag "GameLogo.png", alt: "The game logo", height: "50", width: "50"
+      #character-icon-container
+        #character-icon{ tabindex: "0" }
+          = image_tag "baseAvatar.png", alt: "Character Icon", height: "50", width: "50"
+        .dropdown-menu
+          = link_to 'User Profile', user_profile_path, class: 'dropdown-btn'
+          = link_to 'Buy Shards', shard_purchase_path, class: 'dropdown-btn'
+          = link_to 'Settings', welcome_settings_path, class: 'dropdown-btn'
+          = link_to 'Store', storefront_select_action_path, class: 'dropdown-btn'
+          = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
 
+      .game-grid
+        - (0..63).each do |i|
+          %div.grid-cell
+            %p= "Cell #{i + 1}"
+      .chat-container
+        %h1 Chat
+        .chat-messages
+          %p Welcome to the chat!
+        .chat-input
+          %input{ type: "text", placeholder: "Type your message..." }
+          %button Send

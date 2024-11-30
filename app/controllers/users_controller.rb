@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   before_action :require_login, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  attr_accessor :shards
+
+
   def new
     @user = User.new
   end
@@ -21,6 +24,7 @@ class UsersController < ApplicationController
 
   def show
     # Display the user's profile
+    @user = current_user
   end
 
   def edit

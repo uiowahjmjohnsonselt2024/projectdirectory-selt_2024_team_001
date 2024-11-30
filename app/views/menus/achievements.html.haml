@@ -1,0 +1,81 @@
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    :css
+      html, body {
+        background-color: rgb(13, 14, 33);
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1, h2 {
+        color: white;
+        text-align: center;
+      }
+
+      .achievements-container {
+        max-width: 700px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background-color: rgb(20, 20, 50);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        color: white;
+      }
+
+      .achievement-item {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Button container */
+      .button-container {
+        margin-top: 2rem; /* Add space above the button */
+        text-align: center; /* Center the button horizontally */
+      }
+
+      /* Button styling */
+      .btn {
+        color: white;
+        border: 2px double transparent;
+        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
+          radial-gradient(
+            circle at left top,
+            rgb(1, 110, 218),
+            rgb(217, 0, 192)
+          );
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        cursor: pointer; /* Show pointer on hover for better UX */
+        padding: 10px 20px; /* Add padding to buttons */
+        font-size: 16px; /* Adjust font size */
+        border-radius: 50px; /* Increased for rounder corners */
+        width: 100%; /* Make buttons stretch to container width */
+        max-width: 250px; /* Limit the maximum button width */
+      }
+
+      .btn:hover {
+        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7),
+          0 0 20px rgba(217, 0, 192, 0.7);
+        transform: translateY(-2px); /* Slight lift effect */
+      }
+
+%body
+  .achievements-container
+    %h1 Achievements Unlocked
+    - if @achievements.any?
+      - @achievements.each do |achievement|
+        .achievement-item
+          %strong= achievement.name
+          %br/
+          = achievement.description
+          %br/
+          %small Unlocked: #{achievement.unlocked_at.strftime('%B %d, %Y %I:%M %p')}
+    - else
+      %p No achievements unlocked yet.
+
+  .button-container
+    = link_to "Back to Profile", user_profile_path, class: "btn"
