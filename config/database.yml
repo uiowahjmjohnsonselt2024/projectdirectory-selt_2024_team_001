@@ -24,4 +24,8 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  url: <%= ENV['DATABASE_URL'] %>
+  username: prod_user
+  password: secure_password_123
+  host: localhost
+  port: 5432
+  database: my_app_production
