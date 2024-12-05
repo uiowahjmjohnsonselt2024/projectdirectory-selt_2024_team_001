@@ -55,6 +55,7 @@
         background-color: #ff3030;
       }
 
+
   %body
     .video-container
       %video{ id: "gameVideo", autoplay: true, muted: true, controls: false }
@@ -75,11 +76,11 @@
         // Add an event listener to the skip button to pause the video and redirect to the login page
         skipButton.addEventListener('click', function() {
           gameVideo.pause(); // Pause the video
-          window.location.href = "#{end_intro_path}"; // Redirect to the login page
+          window.location.href = "#{start_screen_path}"; // Redirect to the login page
         });
 
         // Add an event listener for the 'ended' event to redirect automatically after the video ends
         gameVideo.addEventListener('ended', function() {
-          window.location.href = "#{end_intro_path}";
+          window.location.href = "#{start_screen_path}";
         }, { once: true }); // Ensures the listener runs only once
       });
