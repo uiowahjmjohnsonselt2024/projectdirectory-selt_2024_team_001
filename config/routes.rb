@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   get 'storefront/consumables', to: 'storefront#consumables'
 
   get 'storefront/trade', to: 'storefront#trade'
+  get 'storefront/api_test', to: 'storefront#api_test'
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
