@@ -3,6 +3,7 @@
     %title Shards of the Grid
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    = csrf_meta_tags
     :css
       /* Ensure the entire page covers the full viewport */
       html,
@@ -140,61 +141,32 @@
           0 0 20px rgba(217, 0, 192, 0.7);
         transform: translateY(-2px); /* Slight lift effect */
       }
+
   %body
     #container.parent-container
-      .settings-container
-        %h1 Settings
-        %div.scrollable-settings
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting1" }
-              %span.slider
-            %label{ for: "setting1" } Enable notifications
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting2" }
-              %span.slider
-            %label{ for: "setting2" } Dark mode
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting3" }
-              %span.slider
-            %label{ for: "setting3" } Auto-update
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting4" }
-              %span.slider
-            %label{ for: "setting4" } Location services
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting5" }
-              %span.slider
-            %label{ for: "setting5" } Backup data
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting6" }
-              %span.slider
-            %label{ for: "setting6" } Voice assistance
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting7" }
-              %span.slider
-            %label{ for: "setting7" } Use cellular data
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting8" }
-              %span.slider
-            %label{ for: "setting8" } Automatic time zone
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting9" }
-              %span.slider
-            %label{ for: "setting9" } Send usage data
-          %div.setting-item
-            %div.switch
-              %input{ type: "checkbox", id: "setting10" }
-              %span.slider
-            %label{ for: "setting10" } Enable Bluetooth
-        %button.btn{type: "button"} Reset
-        %button.btn{ type: "button"} Save
-        %button.btn{ type: "button", onclick: "window.location.href='#{welcome_screen_path}'" } Back
+      = form_with model: current_user, url: user_settings_path, method: :patch, local: true do |f|
+        .settings-container
+          %h1 Settings
+          %div.scrollable-settings
+            %div.setting-item
+              %div.switch
+                = f.check_box :light_mode, checked: current_user.get_setting(:light_mode)
+                %span.slider
+              %label{ for: "user_light_mode" } Light Mode
+
+            %div.setting-item
+              %div.switch
+                = f.check_box :dark_mode, checked: current_user.get_setting(:dark_mode)
+                %span.slider
+              %label{ for: "user_dark_mode" } Dark Mode
+
+            %div.setting-item
+              %div.switch
+                = f.check_box :notifications, checked: current_user.get_setting(:notifications)
+                %span.slider
+              %label{ for: "user_notifications" } Notifications
+
+          %div.actions
+            = f.submit "Save Changes", class: "btn btn-primary space-btn"
+            = link_to 'Reset to Factory Settings', reset_user_settings_path, method: :patch, class: "btn btn-danger space-btn"
+            = link_to 'Back', welcome_screen_path, class: "btn btn-secondary space-btn"
