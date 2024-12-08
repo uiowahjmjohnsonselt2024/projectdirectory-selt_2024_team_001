@@ -20,6 +20,34 @@ class User < ApplicationRecord
   # Callbacks
   before_save :downcase_email
 
+  # Settings Defaults
+  DEFAULT_SETTINGS = {
+    light_mode: false,
+    notifications: true,
+    sound_volume: 50,
+    graphics_quality: "high",
+    language: "en"
+  }.freeze
+
+  # Methods for User Settings
+
+  # Save settings changes
+  def save_settings(new_settings)
+    self.settings = settings.merge(new_settings)
+    save
+  end
+
+  # Reset settings to default values
+  def reset_settings
+    self.settings = DEFAULT_SETTINGS
+    save
+  end
+
+  # Get a specific setting or the entire settings hash
+  def get_setting(key = nil)
+    key ? settings[key.to_s] : settings
+  end
+
   # Instance method to check if a user has unlocked a specific achievement
   def unlocked_achievement?(name)
     achievements.exists?(name: name)
@@ -35,7 +63,6 @@ class User < ApplicationRecord
     user = find_by(email: email.downcase)
     user&.authenticate(password)
   end
-
 
   private
 
