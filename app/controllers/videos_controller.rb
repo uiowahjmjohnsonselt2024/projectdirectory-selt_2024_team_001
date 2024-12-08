@@ -1,4 +1,8 @@
 class VideosController < ApplicationController
+
+  def start_screen
+    render 'menus/start_screen'
+  end
   def sponsor_intro
     render 'menus/sponsor_intro'
   end
