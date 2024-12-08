@@ -7,7 +7,7 @@ class ChargesController < ApplicationController
     #charge = Stripe::Charge.create(amount: (@amount * 100), source: stripe_token.id, currency: 'usd')
     amount_cents = (@amount * 100).to_i
     # Source: 'tok_visa' is a token provided by the stripe API for testing purposes
-    charge = Stripe::Charge.create(amount: (amount_cents * 100), source: 'tok_visa', currency: 'usd')
+    charge = Stripe::Charge.create(amount: (amount_cents), source: 'tok_visa', currency: 'usd')
 
     #flash[:notice] = charge[:paid] == true ? success_message(charge) : failure_message
 
