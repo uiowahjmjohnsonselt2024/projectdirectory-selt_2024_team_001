@@ -1,0 +1,77 @@
+!!!
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %meta{ name: "csrf-token", content: form_authenticity_token }
+    %title Image Generator
+    %style
+      :plain
+        body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          margin: 50px;
+        }
+        input[type="text"] {
+          width: 300px;
+          padding: 10px;
+        }
+        button {
+          padding: 10px 20px;
+          margin-top: 10px;
+        }
+        img {
+          display: block;
+          margin: 20px auto;
+          max-width: 500px;
+          border: 1px solid #ccc;
+        }
+        .error {
+          color: red;
+        }
+  %body
+    %h1 Generate an Image with OpenAI
+    %form{ id: "imageForm" }
+      %input{ type: "text", id: "promptInput", placeholder: "Enter your prompt", required: true }
+      %button{ type: "submit" } Generate Image
+    %p.error{ id: "error" }
+    #imageContainer
+
+    %script
+      :plain
+        document.getElementById('imageForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const prompt = document.getElementById('promptInput').value;
+          const imageContainer = document.getElementById('imageContainer');
+          const errorElement = document.getElementById('error');
+
+          // Clear previous image and error
+          imageContainer.innerHTML = '';
+          errorElement.textContent = '';
+
+          try {
+            const response = await fetch('http://localhost:3000/chat', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ prompt: prompt, type: 'image' })
+            });
+
+            if (!response.ok) {
+              throw new Error('Failed to generate image. Please try again.');
+            }
+
+            const data = await response.json();
+            if (data.image_url) {
+              const img = document.createElement('img');
+              img.src = data.image_url;
+              img.alt = 'Generated Image';
+              imageContainer.appendChild(img);
+            } else {
+              throw new Error('No image URL received.');
+            }
+          } catch (error) {
+            errorElement.textContent = error.message;
+          }
+        });
