@@ -65,6 +65,10 @@ Rails.application.routes.draw do
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
+  # config/routes.rb
+  mount ActionCable.server => '/cable'
+
+
 
 
 end

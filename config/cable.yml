@@ -1,0 +1,8 @@
+# config/cable.yml
+development:
+  adapter: async
+
+production:
+  adapter: redis
+  url: <%= ENV['REDIS_URL'] %>
+  channel_prefix: your_app_production

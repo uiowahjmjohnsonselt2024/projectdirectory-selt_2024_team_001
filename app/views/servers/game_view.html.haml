@@ -226,8 +226,10 @@
             %p= "Cell #{i + 1}"
       .chat-container
         %h1 Chat
-        .chat-messages
+        .chat-messages{id: "chat-messages"}
           %p Welcome to the chat!
+
         .chat-input
-          %input{ type: "text", placeholder: "Type your message..." }
-          %button Send
+          %input{ type: "text", placeholder: "Type your message...", id: "chat-input" }
+          %button{id: "send-btn"} Send
+
