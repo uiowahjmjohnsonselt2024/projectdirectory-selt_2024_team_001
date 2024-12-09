@@ -66,6 +66,10 @@ Rails.application.routes.draw do
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
+  Rails.application.routes.draw do
+    post 'chat', to: 'chats#create'
+  end
+
 
 
 end
