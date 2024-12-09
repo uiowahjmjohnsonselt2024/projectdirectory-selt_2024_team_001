@@ -4,3 +4,6 @@ scripts/secret.txt
 
 /config/master.key
 tmp/pids/server.pid
+/db
+/log
+tmp/pids/server.pid

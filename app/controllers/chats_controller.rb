@@ -6,7 +6,7 @@ class ChatsController < ApplicationController
     prompt = params[:prompt]
     type = params[:type] # 'text' or 'image'
 
-    response = OpenAIService.new(prompt: prompt, type: type).call
+    response = OpenaiService.new(prompt: prompt, type: type).call
 
     if response
       if type == 'text'
