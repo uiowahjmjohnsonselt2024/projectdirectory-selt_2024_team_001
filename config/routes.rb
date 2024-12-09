@@ -42,6 +42,9 @@ Rails.application.routes.draw do
   get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
   #get :stripe_payment, to: 'application#stripe_payment'
 
+  # A route that is used to go to the start screen
+  get "videos/start_screen", to: 'videos#start_screen', as: 'start_screen'
+
   # Route for the sponsor intro video (view, not the file itself)
   get 'videos/sponsor_intro', to: 'videos#sponsor_intro', as: 'sponsor_intro'
 

@@ -4,7 +4,6 @@ ruby "3.3.0"
 gem "rails", "~> 7.2.2"
 gem "propshaft"
 gem "sqlite3", ">= 2.1"
-gem "puma", ">= 5.0"
 
 gem "jbuilder"
 # Styling: rubocop -a
@@ -48,6 +47,7 @@ end
 group :production do
   gem "pg"
   gem "rails_12factor"
+  gem 'puma'
 end
 
 group :test do
