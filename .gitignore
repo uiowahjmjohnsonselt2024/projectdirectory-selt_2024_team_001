@@ -3,3 +3,4 @@ scripts/secret.txt
 /config/credentials/production.key
 
 /config/master.key
+tmp/pids/server.pid
