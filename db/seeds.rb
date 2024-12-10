@@ -12,7 +12,7 @@ users = [
 	{ email: 'legend47@gmail.com', password: '123SecurePass!', shards: 200, money: 500.0 },
 	{  email: 'therealdonaldtrump@usa.com', password: 'MakeAmericaGreatAgain2024!', shards: 200, money: 1259.20 },
 	{ email: 'admin@example.com', password: 'Admin1234!', shards: 2000000000, money: 1259000000.20 },
-	{ email: 'test@gmail.com', password: 'Test#1', shards: 999999999999, money: 99999999999999.0 }
+	{ email: 'test@gmail.com', password: 'Test#1', shards: 100, money: 5000.0 }
 ]
 
 users.each do |user_data|
