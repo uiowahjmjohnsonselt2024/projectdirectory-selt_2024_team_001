@@ -65,6 +65,9 @@ Rails.application.routes.draw do
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
+  post 'convert', to: 'conversions#convert'
+
+  get 'convert_to_usd', to: 'conversions#convert_to_usd'
 
 
 end
