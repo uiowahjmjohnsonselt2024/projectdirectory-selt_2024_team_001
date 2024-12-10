@@ -4,7 +4,11 @@ class ChargesController < ApplicationController
   before_action :set_params
 
   def create
-    amount_cents = (@amount * 100).to_i
+    if @currency == 'JPY'
+      amount_cents = (@amount).to_i
+    else
+      amount_cents = (@amount * 100).to_i
+    end
 
     # Source: 'tok_visa' is a token provided by the stripe API for testing purposes
     charge = Stripe::Charge.create(amount: (amount_cents), source: 'tok_visa', currency: @currency)
@@ -40,13 +44,13 @@ class ChargesController < ApplicationController
     @currency = params[:currency] || 'usd'
     #raise ArgumentError, "Invalid currency" unless %w[usd eur gbp jpy cad].include?(@currency)
     raise ArgumentError, "Amount must be greater than 0" if @amount <= 0
-
+    @converted_amount = params[:hidden_converted_amount]&.to_f || 666
     @card_number = params[:card_number] || ''
     @card_month = params[:month] || ''
     @card_year = params[:year] || ''
     @cvc = params[:cvc] || ''
 
-    @shards = (@amount / 0.75).floor
+    @shards = (@converted_amount / 0.75).floor
   end
 
   def stripe_token
@@ -59,7 +63,7 @@ class ChargesController < ApplicationController
   end
 
   def success_message(charge)
-    "Your payment for #{@shards} has been successfully processed and added to your new total #{current_user.shards} shards.
+    "Your payment for #{@shards} ++ #{@converted_amount} ++ #{@amount} ++ has been successfully processed and added to your new total #{current_user.shards} shards.
      You can take your receipt from here: #{charge[:receipt_url]}"
   end
 
