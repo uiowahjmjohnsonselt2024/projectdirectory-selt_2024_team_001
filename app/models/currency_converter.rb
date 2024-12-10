@@ -3,12 +3,12 @@ require 'json'
 
 class CurrencyConverter
 
-  def initialize(api_key)
-    @api_key = api_key
-  end
+  def initialize(base_currency = 'USD')
+    @base_currency = base_currency
+    end
 
   def fetch_rates(base_currency = 'USD')
-    url = "#{BASE_URL}?apikey=#{@api_key}&base_currency=#{base_currency}"
+    url = "#{CURRENCY_API_BASE_URL}?apikey=#{CURRENCY_API_KEY}&base_currency=#{@base_currency}"
     uri = URI(url)
     response = Net::HTTP.get(uri)
     parsed_response = JSON.parse(response)
