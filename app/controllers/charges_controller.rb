@@ -4,10 +4,10 @@ class ChargesController < ApplicationController
   before_action :set_params
 
   def create
-    #charge = Stripe::Charge.create(amount: (@amount * 100), source: stripe_token.id, currency: 'usd')
     amount_cents = (@amount * 100).to_i
+
     # Source: 'tok_visa' is a token provided by the stripe API for testing purposes
-    charge = Stripe::Charge.create(amount: (amount_cents), source: 'tok_visa', currency: 'usd')
+    charge = Stripe::Charge.create(amount: (amount_cents), source: 'tok_visa', currency: @currency)
 
     #flash[:notice] = charge[:paid] == true ? success_message(charge) : failure_message
 
@@ -37,7 +37,7 @@ class ChargesController < ApplicationController
     #@amount = params[:amount]&.to_i || 0
     #
     @amount = params[:amount]&.to_f || 0
-    #@currency = params[:currency] || 'usd'
+    @currency = params[:currency] || 'usd'
     #raise ArgumentError, "Invalid currency" unless %w[usd eur gbp jpy cad].include?(@currency)
     raise ArgumentError, "Amount must be greater than 0" if @amount <= 0
 
