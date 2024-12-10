@@ -1,10 +1,17 @@
+%div{:style => "width: 100%; height: 60px; background-color: #333; color: white; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; padding: 0 10px;"}
+  %a{:href => "/storefront/select_action", :style => "color: white; text-decoration: none; font-size: 18px; display: flex; align-items: center;"}
+    &#x2190; Back
+
+  %div{:style => "font-size: 18px; text-align: right;"}
+    Gold:
+    %span{:id => "gold-amount"}= @gold
 !!!
 %html{ lang: "en" }
   %head
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     %meta{ name: "csrf-token", content: form_authenticity_token }
-    %title Image Generator
+    %title OpenAI API Tester
     %style
       :plain
         body {
@@ -16,6 +23,10 @@
           width: 300px;
           padding: 10px;
         }
+        select {
+          padding: 10px;
+          margin-top: 10px;
+        }
         button {
           padding: 10px 20px;
           margin-top: 10px;
@@ -26,27 +37,38 @@
           max-width: 500px;
           border: 1px solid #ccc;
         }
+        .response {
+          margin-top: 20px;
+          white-space: pre-wrap;
+        }
         .error {
           color: red;
         }
   %body
-    %h1 Generate an Image with OpenAI
-    %form{ id: "imageForm" }
+    %h1 Generate an Image or Text with OpenAI
+    %form{ id: "apiForm" }
       %input{ type: "text", id: "promptInput", placeholder: "Enter your prompt", required: true }
-      %button{ type: "submit" } Generate Image
+      %br/
+      %select{ id: "responseType" }
+        %option{ value: "image" } Image
+        %option{ value: "text" } Text
+      %br/
+      %button{ type: "submit" } Generate
+
     %p.error{ id: "error" }
-    #imageContainer
+    #responseContainer
 
     %script
       :plain
-        document.getElementById('imageForm').addEventListener('submit', async function(e) {
+        document.getElementById('apiForm').addEventListener('submit', async function(e) {
           e.preventDefault();
           const prompt = document.getElementById('promptInput').value;
-          const imageContainer = document.getElementById('imageContainer');
+          const responseType = document.getElementById('responseType').value;
+          const responseContainer = document.getElementById('responseContainer');
           const errorElement = document.getElementById('error');
 
-          // Clear previous image and error
-          imageContainer.innerHTML = '';
+          // Clear previous response and error
+          responseContainer.innerHTML = '';
           errorElement.textContent = '';
 
           try {
@@ -55,21 +77,27 @@
               headers: {
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({ prompt: prompt, type: 'image' })
+              body: JSON.stringify({ prompt: prompt, type: responseType })
             });
 
             if (!response.ok) {
-              throw new Error('Failed to generate image. Please try again.');
+              throw new Error('Failed to generate response. Please try again.');
             }
 
             const data = await response.json();
-            if (data.image_url) {
+
+            if (responseType === 'image' && data.image_url) {
               const img = document.createElement('img');
               img.src = data.image_url;
               img.alt = 'Generated Image';
-              imageContainer.appendChild(img);
+              responseContainer.appendChild(img);
+            } else if (responseType === 'text' && data.reply) {
+              const textResponse = document.createElement('div');
+              textResponse.className = 'response';
+              textResponse.textContent = data.reply;
+              responseContainer.appendChild(textResponse);
             } else {
-              throw new Error('No image URL received.');
+              throw new Error('No valid response received.');
             }
           } catch (error) {
             errorElement.textContent = error.message;
