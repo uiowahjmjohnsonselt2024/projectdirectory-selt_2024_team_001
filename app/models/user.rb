@@ -35,7 +35,7 @@ class User < ApplicationRecord
     user = find_by(email: email.downcase)
     user&.authenticate(password)
   end
-
+  #A test comment
 
   private
 
