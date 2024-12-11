@@ -29,6 +29,8 @@ gem 'stripe-ruby-mock'
 #Gem for Payment Processing Third Party Application
 gem 'stripe'
 
+gem 'ruby-openai'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
