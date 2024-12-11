@@ -10,8 +10,18 @@ class ServersController < ApplicationController
       return
     end
 
+    # Check if the user already has a player in the server
+    if @server.players.exists?(user_id: current_user.id)
+      flash[:notice] = "You already have a player in this server."
+    else
+      # Create a new player for the user in this server
+      Player.create!(user: current_user, server: @server)
+      flash[:success] = "Player successfully created and added to the server."
+    end
+
     # Store the game view path in the session
     session[:return_to] = game_view_server_path(@server)
+
     # Render the game view for the specific server
     render 'game_view'
   end
@@ -22,7 +32,6 @@ class ServersController < ApplicationController
     @user_servers = current_user.user_servers.includes(:server) # Registered servers
     @servers = Server.all # All servers
   end
-
 
 
   # GET /servers/:id
