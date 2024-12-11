@@ -106,10 +106,10 @@
         text-decoration: none;
       }
 
-      /* Improved Grid Styling */
+      /* Fixed Grid Styling */
       .game-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(6, 1fr);
         gap: 10px;
         width: 100%;
         height: auto;
@@ -210,37 +210,40 @@
 
       .modal-content {
         background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
+        margin: 10% auto;
+        padding: 40px;
         border: 1px solid #888;
-        border-radius: 8px;
-        width: 300px;
+        border-radius: 12px;
+        width: 600px;
         text-align: center;
       }
 
       .modal-image {
-        height: 150px;
-        margin-bottom: 10px;
+        max-width: 100%;
+        max-height:100%;
+        object-fit: contain;
         background-color: lightblue;
       }
 
       .modal-description {
-        margin: 10px 0;
+        margin: 20px 0;
+        font-size: 18px;
       }
 
       .modal-buttons {
         display: flex;
         justify-content: space-around;
-        margin-top: 10px;
+        margin-top: 20px;
       }
 
       .modal-buttons button {
-        padding: 10px;
+        padding: 15px;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
         background-color: #4caf50;
         color: white;
         cursor: pointer;
+        font-size: 16px;
       }
 
       .modal-buttons button:hover {
@@ -269,6 +272,17 @@
         const modal = document.getElementById('modal');
         const closeButton = document.querySelector('.close-button');
         const gridCells = document.querySelectorAll('.grid-cell');
+
+        // Listens for click on each grid cell
+         gridCells.forEach((cell) => {
+          cell.addEventListener('click', () => {
+            const cellId = cell.getAttribute('data-id');
+            console.log(`Grid cell clicked: ${cellId}`);
+            // Optionally display the identifier in the modal
+            const modalDescription = document.querySelector('.modal-description');
+            modalDescription.textContent = `You clicked on cell ${cellId}`;
+          });
+        });
 
         // Toggle the dropdown menu when the character icon is clicked
         characterIcon.addEventListener('click', (event) => {
@@ -319,8 +333,8 @@
           = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
 
       .game-grid
-        - (0..63).each do |i|
-          %div.grid-cell
+        - (0..35).each do |i|
+          %div.grid-cell{ data: {id: i + 1}}
             %p= "Cell #{i + 1}"
       .chat-container
         %h1 Chat
@@ -333,7 +347,8 @@
     %div#modal.modal
       .modal-content
         %span.close-button &times;
-        .modal-image Image
+        .modal-image
+          = image_tag asset_path('planets/11test.png'), alt: "Modal Image", class: "modal-img"
         .modal-description Text/Description
         .modal-buttons
           %button Button 1
