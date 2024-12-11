@@ -27,6 +27,7 @@ class User < ApplicationRecord
     sound_volume: 50,
     graphics_quality: "high",
     language: "en"
+    ####Tester for commits.
   }.freeze
 
   # Methods for User Settings
