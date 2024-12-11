@@ -44,13 +44,18 @@ class ChargesController < ApplicationController
     @currency = params[:currency] || 'usd'
     #raise ArgumentError, "Invalid currency" unless %w[usd eur gbp jpy cad].include?(@currency)
     raise ArgumentError, "Amount must be greater than 0" if @amount <= 0
-    @converted_amount = params[:hidden_converted_amount]&.to_f || 666
+    @converted_amount = params[:hidden_converted_amount]&.to_f || 0
     @card_number = params[:card_number] || ''
     @card_month = params[:month] || ''
     @card_year = params[:year] || ''
     @cvc = params[:cvc] || ''
 
-    @shards = (@converted_amount / 0.75).floor
+    if(@currency == 'USD')
+      @shards = (@amount / 0.75).floor
+    else
+      @shards = (@converted_amount / 0.75).floor
+    end
+
   end
 
   def stripe_token
