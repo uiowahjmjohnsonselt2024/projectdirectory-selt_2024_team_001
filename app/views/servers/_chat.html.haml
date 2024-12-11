@@ -1,0 +1,6 @@
+#chat-area
+  %p No messages yet.
+
+= form_with id: "chat-form", local: false do |f|
+  = f.text_field :message, id: "message-input", placeholder: "Enter your message", required: true
+  = f.submit "Send"

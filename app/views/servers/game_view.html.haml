@@ -4,7 +4,7 @@
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag "application", type: "module", "data-turbo-track": "reload"
     = csrf_meta_tags
     :css
       /* General page styling */
@@ -225,11 +225,15 @@
           %div.grid-cell
             %p= "Cell #{i + 1}"
       .chat-container
-        %h1 Chat
-        .chat-messages{id: "chat-messages"}
-          %p Welcome to the chat!
+        #chat-area
+          %p No messages yet.
 
-        .chat-input
-          %input{ type: "text", placeholder: "Type your message...", id: "chat-input" }
-          %button{id: "send-btn"} Send
+        = form_with id: "chat-form", local: false, url: game_view_server_path(@server), method: :post do |f|
+          = f.text_field :message, id: "message-input", placeholder: "Enter your message", required: true
+          = f.submit "Send"
+
+
+
+
+
 

@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       post :add_user
       get :game_view
       get :grid
+      post :game_view # Add POST route for chat messages
     end
   end
 
@@ -65,7 +66,6 @@ Rails.application.routes.draw do
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
-  # config/routes.rb
   mount ActionCable.server => '/cable'
 
 

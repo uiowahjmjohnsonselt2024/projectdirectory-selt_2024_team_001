@@ -1,8 +1,10 @@
 source "https://rubygems.org"
 ruby "3.3.0"
 
+gem 'propshaft'
+
+
 gem "rails", "~> 7.2.2"
-gem "propshaft"
 gem "sqlite3", ">= 2.1"
 
 gem "jbuilder"
@@ -15,8 +17,6 @@ gem "bcrypt", "~> 3.1.7"
 
 gem "turbo-rails"
 
-gem "bootsnap", require: false
-
 gem "kamal", require: false
 
 gem "thruster", require: false
@@ -24,6 +24,8 @@ gem "thruster", require: false
 gem 'factory_bot_rails'
 
 gem 'devise'
+
+gem 'redis', '~> 4.0'
 
 gem 'actioncable'
 

@@ -3,6 +3,8 @@ class ServersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:add_user_custom, :create]
 
   def game_view
+
+
     # Ensure the user is registered to this server
     unless current_user.servers.include?(@server)
       flash[:error] = "You are not registered to this server."
@@ -14,6 +16,13 @@ class ServersController < ApplicationController
     session[:return_to] = game_view_server_path(@server)
     # Render the game view for the specific server
     render 'game_view'
+    if request.post?
+      ActionCable.server.broadcast("chat_channel", {
+        user: current_user.email,
+        message: params[:message]
+      })
+      head :ok
+    end
   end
 
   # GET /servers
@@ -42,7 +51,7 @@ class ServersController < ApplicationController
   # Create a new server
   def create
     # Create the server with the provided status
-    server = Server.new(status: params[:server_status])
+    server = Server.new()
 
     if server.save
       # Automatically register the current user to the newly created server

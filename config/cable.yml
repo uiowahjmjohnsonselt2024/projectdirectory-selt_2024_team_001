@@ -1,8 +1,11 @@
 # config/cable.yml
 development:
   adapter: async
+  url: redis://localhost:6379/1
+
 
 production:
   adapter: redis
-  url: <%= ENV['REDIS_URL'] %>
-  channel_prefix: your_app_production
+  url: redis://localhost:6379/1
+  channel_prefix: shards_of_the_grid_production
+
