@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_29_192559) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_11_213755) do
   create_table "achievements", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_29_192559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "gold", default: 1000, null: false
+    t.json "settings"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
