@@ -32,14 +32,8 @@ class ChargesController < ApplicationController
 
   private
 
-  #set_params works to set those values shown by errors provided by the Stripe API
+  #set_params works to set those values, shown by errors provided by the Stripe API
   def set_params
-    #@card_number = params[:card_number] || 0
-    #@card_month = params[:month] || 0
-    #@card_year = params[:year] || 0
-    #@cvc = params[:cvc] || 0
-    #@amount = params[:amount]&.to_i || 0
-    #
     @amount = params[:amount]&.to_f || 0
     @currency = params[:currency] || 'usd'
     #raise ArgumentError, "Invalid currency" unless %w[usd eur gbp jpy cad].include?(@currency)
