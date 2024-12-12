@@ -65,4 +65,10 @@ class UsersController < ApplicationController
       redirect_to login_path
     end
   end
+
+  def reset_settings
+    current_user.reset_settings
+    redirect_to welcome_settings_path, notice: 'Settings have been reset to default values.'
+  end
+
 end

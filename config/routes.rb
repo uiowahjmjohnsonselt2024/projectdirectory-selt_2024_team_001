@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: :logout
 
-  # Session-related screens
+  # Settings
+  patch 'users/reset_settings', to: 'users#reset_settings', as: 'reset_user_settings'
 
   # Routes for screens after login
   get 'welcome_screen', to: 'sessions#welcome_screen', as: 'welcome_screen'

@@ -17,12 +17,12 @@
       }
 
       .light-mode {
-        background-color: rgb(240, 240, 240);
+        background-color: white;
         color: #000;
       }
 
       .dark-mode {
-        background-color: rgb(13, 14, 33);
+        background-color: black;
         color: #fff;
       }
 
@@ -200,6 +200,7 @@
 
       .chat-input button:hover {
         background-color: #45a049;
+      }
 
     :javascript
       document.addEventListener('DOMContentLoaded', () => {
@@ -218,13 +219,6 @@
             dropdownMenu.style.display = 'none';
           }
         });
-
-        // Apply user's light mode setting to the body
-        if (window.userLightModeSetting) {
-          document.body.classList.add('light-mode');
-        } else {
-          document.body.classList.add('dark-mode');
-        }
       });
 
   %body{ class: current_user.get_setting(:light_mode) ? 'light-mode' : 'dark-mode' }
