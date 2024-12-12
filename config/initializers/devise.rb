@@ -1,3 +1,21 @@
+# /config/initializers/devise.rb
+
+# Turbo doesn't work with devise by default.
+# Keep tabs on https://github.com/heartcombo/devise/issues/5446 for a possible fix
+# Fix from https://gorails.com/episodes/devise-hotwire-turbo
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w(html turbo_stream */*).include? request_format.to_s
+  end
+end
 # frozen_string_literal: true
 
 # Assuming you have not yet modified this file, each configuration option below
@@ -15,6 +33,28 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '5272f0c20e50ef2285cd0dfc286406b2e3aeefdfa29f852abd97a857846ee0723070b4df3495697130350b42b54223c180ddc5aa52334d78ae12e2ac5a713888'
+
+  # ...
+    # ==> Controller configuration
+    # Configure the parent class to the devise controllers.
+    config.parent_controller = 'TurboDeviseController'
+
+    # ...
+
+    # ==> Navigation configuration
+    # ...
+    config.navigational_formats = ['*/*', :html, :turbo_stream]
+
+    # ...
+
+    # ==> Warden configuration
+    # ...
+    config.warden do |manager|
+      manager.failure_app = TurboFailureApp
+      #   manager.intercept_401 = false
+      #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+    end
+
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
