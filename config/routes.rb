@@ -65,11 +65,14 @@ Rails.application.routes.draw do
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
+  resources :rooms
+  devise_for :users
   devise_scope :user do
     get "users", to: "devise/sessions#new"
   end
 
-  resources :rooms
+
+
 
 
 end

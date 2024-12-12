@@ -15,6 +15,9 @@ gem "bcrypt", "~> 3.1.7"
 
 gem "turbo-rails"
 
+#Utilized to install turbo-rails
+gem 'importmap-rails'
+
 gem "bootsnap", require: false
 
 gem "kamal", require: false
