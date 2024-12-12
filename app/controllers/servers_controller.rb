@@ -16,6 +16,23 @@ class ServersController < ApplicationController
     render 'game_view'
   end
 
+  def send_chat_message
+    server = Server.find(params[:id])
+    message = params[:message]
+
+    # Optional: You could add validation or message persistence here
+    ActionCable.server.broadcast(
+      "server_#{server.id}_channel",
+      {
+        message: message,
+        user_id: current_user.id,
+        timestamp: Time.current
+      }
+    )
+
+    head :ok
+  end
+
   # GET /servers
   # List all servers
   def index

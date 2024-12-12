@@ -3,8 +3,10 @@
   %head
     %title Shards of the Grid
     = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' # Include JavaScript files
+    = javascript_include_tag "application", type: "module", defer: true
     = csrf_meta_tags
+
+
 
   %body
     - unless controller_name == 'sessions' && action_name == 'create' || action_name == 'welcome_screen'

@@ -224,10 +224,20 @@
         - (0..63).each do |i|
           %div.grid-cell
             %p= "Cell #{i + 1}"
-      .chat-container
-        %h1 Chat
-        .chat-messages
-          %p Welcome to the chat!
+      .server-chat-container{ data: {
+        controller: 'server-chat',
+        server_chat_server_id_value: @server.id,
+        server_chat_user_id_value: current_user.id
+      } }
+        .chat-messages{ id: 'server-chat-messages', data: { server_chat_target: 'messages' } }
+          -# Optional: Render previous messages if you want to persist them
+
         .chat-input
-          %input{ type: "text", placeholder: "Type your message..." }
-          %button Send
+          = form_with(url: send_chat_message_server_path(@server), local: false) do |f|
+            = f.text_field :message,
+                data: { server_chat_target: 'input' },
+                placeholder: 'Type a message...',
+                class: 'form-control'
+            = f.submit 'Send',
+                class: 'btn btn-primary',
+                data: { action: 'click->server-chat#send' }

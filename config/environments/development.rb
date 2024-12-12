@@ -29,12 +29,17 @@ Rails.application.configure do
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
-  config.assets.digest = true
+  # config/environments/development.rb
+  config.assets.digest = false
+
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+
+  config.action_cable.url = "ws://localhost:3000/cable" #TODO: change this to env
+  config.action_cable.disable_request_forgery_protection = true
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

@@ -1,0 +1,15 @@
+.server-chat-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#server-chat-messages {
+    height: 250px;
+    overflow-y: scroll;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}

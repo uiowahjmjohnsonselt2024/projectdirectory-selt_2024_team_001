@@ -25,6 +25,10 @@ gem 'factory_bot_rails'
 
 gem 'devise'
 
+gem 'stimulus-rails'
+
+gem 'importmap-rails'
+
 gem 'stripe-ruby-mock'
 #Gem for Payment Processing Third Party Application
 gem 'stripe'
