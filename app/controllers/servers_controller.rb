@@ -19,12 +19,19 @@ class ServersController < ApplicationController
       flash[:success] = "Player successfully created and added to the server."
     end
 
+    # Call createGrid to generate grid tiles for the server, if they don't already exist
+    #createGrid
+
     # Store the game view path in the session
     session[:return_to] = game_view_server_path(@server)
+
+    @server = Server.find(params[:id])
+    @player = @server.players.find_or_create_by(user_id: current_user.id) # Assuming current_user exists
 
     # Render the game view for the specific server
     render 'game_view'
   end
+
 
   # GET /servers
   # List all servers
@@ -34,11 +41,30 @@ class ServersController < ApplicationController
   end
 
 
+
+
   # GET /servers/:id
   # Show details of a specific server
   def show
     @users = @server.users
     @grid_tiles = @server.grid_tiles.order(:row, :column)
+  end
+
+  def createGrid
+    # Ensure grid tiles are created only if they don't already exist for the server
+    return if @server.grid_tiles.exists?
+
+    # Iterate through rows and columns to create grid tiles
+    (0..5).to_a.reverse.each do |row| # Reverse rows for bottom-left `00`
+      (0..5).each do |column|
+        @server.grid_tiles.create!(
+          row: row,
+          column: column,
+          weather: nil, # Replace with your desired weather value
+          environment_type: nil # Replace with your desired environment type
+        )
+      end
+    end
   end
 
   # GET /servers/new
