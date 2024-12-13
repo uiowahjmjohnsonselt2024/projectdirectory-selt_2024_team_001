@@ -48,7 +48,20 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def update_settings
+    if current_user.update(settings_params)
+      redirect_to welcome_settings_path, notice: "Settings updated successfully."
+    else
+      redirect_to welcome_settings_path, alert: "Failed to update settings."
+    end
+  end
+
+
   private
+
+  def settings_params
+    params.require(:user).permit(:theme)
+  end
 
   # Strong parameters to prevent mass assignment vulnerability
   def user_params

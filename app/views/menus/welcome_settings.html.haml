@@ -143,30 +143,18 @@
       }
 
   %body
-    #container.parent-container
-      = form_with model: current_user, url: user_settings_path, method: :patch, local: true do |f|
-        .settings-container
-          %h1 Settings
-          %div.scrollable-settings
-            %div.setting-item
-              %div.switch
-                = f.check_box :light_mode, checked: current_user.get_setting(:light_mode)
-                %span.slider
-              %label{ for: "user_light_mode" } Light Mode
+    %div#container.parent-container
+    = form_with model: current_user, url: user_settings_path(current_user), method: :patch, local: true do |f|
+      .settings-container
+        %h1 Settings
+        %div.scrollable-settings
+          %div.setting-item
+            %div.switch
+              = f.check_box :theme, checked: (current_user.theme == "light")
+              %span.slider
+            %label{ for: "user_theme" } Light Mode
 
-            %div.setting-item
-              %div.switch
-                = f.check_box :dark_mode, checked: current_user.get_setting(:dark_mode)
-                %span.slider
-              %label{ for: "user_dark_mode" } Dark Mode
-
-            %div.setting-item
-              %div.switch
-                = f.check_box :notifications, checked: current_user.get_setting(:notifications)
-                %span.slider
-              %label{ for: "user_notifications" } Notifications
-
-          %div.actions
-            = f.submit "Save Changes", class: "btn btn-primary space-btn"
-            = link_to 'Reset to Factory Settings', reset_user_settings_path, method: :patch, class: "btn btn-danger space-btn"
-            = link_to 'Back', welcome_screen_path, class: "btn btn-secondary space-btn"
+        %div.actions
+          = f.submit "Save Changes", class: "btn btn-primary space-btn"
+          = link_to 'Reset to Factory Settings', reset_user_settings_path, method: :patch, class: "btn btn-danger space-btn"
+          = link_to 'Back', welcome_screen_path, class: "btn btn-secondary space-btn"

@@ -66,10 +66,17 @@ Rails.application.routes.draw do
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
-  Rails.application.routes.draw do
-    post 'chat', to: 'chats#create'
+  patch 'update_theme', to: 'users#update_theme', as: :update_theme
+
+  resources :users do
+    member do
+      patch :settings, to: 'users#update_settings', as: :settings
+    end
   end
 
 
+  Rails.application.routes.draw do
+    post 'chat', to: 'chats#create'
+  end
 
 end

@@ -36,6 +36,15 @@ class User < ApplicationRecord
     user&.authenticate(password)
   end
 
+  def theme
+    self[:theme] || "dark"
+  end
+
+  # Method to toggle between dark and light themes
+  def toggle_theme
+    update(theme: theme == "dark" ? "light" : "dark")
+  end
+
 
   private
 
