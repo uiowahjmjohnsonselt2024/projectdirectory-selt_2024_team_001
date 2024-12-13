@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_12_191445) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_13_071826) do
   create_table "achievements", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
@@ -32,6 +32,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_191445) do
     t.datetime "updated_at", null: false
     t.index ["server_id", "row", "column"], name: "index_grid_tiles_on_server_id_and_row_and_column", unique: true
     t.index ["server_id"], name: "index_grid_tiles_on_server_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -68,7 +78,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_191445) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
-    t.string "password_digest", null: false
     t.integer "shards", default: 0
     t.float "money", default: 0.0
     t.datetime "created_at", null: false
@@ -83,6 +92,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_191445) do
   end
 
   add_foreign_key "achievements", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "user_grid_tiles", "grid_tiles"
   add_foreign_key "user_grid_tiles", "users"
   add_foreign_key "user_servers", "servers"

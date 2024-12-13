@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
 
   # Adds methods to set and authenticate against a BCrypt password
-  has_secure_password
+  #has_secure_password
 
   # Validations
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
