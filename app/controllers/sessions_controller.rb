@@ -35,6 +35,11 @@ class SessionsController < ApplicationController
     redirect_to login_path
   end
 
+  def toggle_theme
+    session[:theme] = params[:theme_toggle] == 'light' ? 'light' : 'dark'
+    redirect_to welcome_screen_path, notice: "Theme updated to #{session[:theme]} mode."
+  end
+
   def welcome_settings
     render 'menus/welcome_settings'
   end

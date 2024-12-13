@@ -65,6 +65,6 @@ Rails.application.routes.draw do
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
-
+  patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
 
 end
