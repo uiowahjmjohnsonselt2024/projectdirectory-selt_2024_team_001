@@ -33,11 +33,11 @@
         width: 100%;
         height: calc(100vh - 40px);
         box-sizing: border-box;
+        position: relative; /* To position game-logo absolutely within */
       }
 
-      /* Game logo positioning */
       #game-logo {
-        position: absolute;
+        position: fixed;
         top: 10px;
         left: 20px;
       }
@@ -47,71 +47,11 @@
         width: 50px;
       }
 
-      /* Character icon container */
-      #character-icon-container {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        width: 50px;
-        cursor: pointer;
-      }
-
-      /* Character icon positioning */
-      #character-icon {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 2px solid white;
-        transition: box-shadow 0.3s ease;
-      }
-
-      #character-icon:hover {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-      }
-
-      /* Dropdown menu for character icon */
-      .dropdown-menu {
-        display: none; /* Hidden by default */
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: rgba(13, 14, 33, 0.9);
-        border-radius: 8px;
-        border: 1px solid #666;
-        padding: 1rem;
-        color: white;
-        z-index: 10;
-        text-align: center;
-        display: flex; /* Flex container for buttons */
-        flex-direction: column; /* Arrange buttons in a vertical column */
-        gap: 0.5rem; /* Add spacing between items */
-      }
-
-      /* Button styling for dropdown */
-      .dropdown-btn {
-        color: white;
-        background-color: transparent;
-        border: 2px solid #666;
-        border-radius: 10px;
-        padding: 10px 15px;
-        cursor: pointer;
-        transition: background-color 0.3s, box-shadow 0.3s;
-        width: 100%;
-        text-decoration: none;
-      }
-
-      .dropdown-btn:hover {
-        background-color: #4caf50;
-        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7);
-        text-decoration: none;
-      }
-
-      /* Fixed Grid Styling */
       .game-grid {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         gap: 10px;
-        width: 100%;
+        width: 55%; /* Adjusted width to accommodate chat and dropdown */
         height: auto;
         background-color: rgb(23, 24, 43);
         padding: 1rem;
@@ -127,9 +67,10 @@
         border-radius: 12px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         width: 100%;
-        height: 100px; /* Fixed height for better visuals */
+        height: 100px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         cursor: pointer;
+        position: relative;
       }
 
       .grid-cell:hover {
@@ -137,17 +78,19 @@
         box-shadow: 0 8px 16px rgba(1, 110, 218, 0.7);
       }
 
-      .grid-cell p {
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        text-align: center;
-        margin: 0;
+      .grid-cell.selected {
+        border: 3px solid #4caf50;
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(1, 110, 218, 0.9);
       }
 
-      /* Chat container styling */
+      .grid-cell.player-current {
+        background-color: #4caf50;
+        color: white;
+      }
+
       .chat-container {
-        width: 40%;
+        width: 35%;
         background-color: rgb(23, 24, 43);
         padding: 1rem;
         border-radius: 10px;
@@ -157,6 +100,7 @@
         flex-direction: column;
         justify-content: flex-start;
         box-sizing: border-box;
+        position: relative; /* To position dropdown menu */
       }
 
       .chat-messages {
@@ -195,7 +139,64 @@
         background-color: #45a049;
       }
 
-      /* Modal styling */
+      /* Dropdown Menu Styling */
+      .dropdown-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        min-width: 150px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 1001; /* Ensure it appears above other elements */
+        margin-bottom: 1rem; /* Space below dropdown */
+      }
+
+      .dropdown-btn {
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+        display: block;
+        border-bottom: 1px solid #eee;
+        background-color: #f9f9f9; /* Light background for each item */
+        border-radius: 4px; /* Rounded corners for items */
+        margin: 5px; /* Space around items */
+      }
+
+      .dropdown-btn:last-child {
+        border-bottom: none; /* Remove border from the last item */
+      }
+
+      .dropdown-btn:hover {
+        background-color: #f0f0f0;
+      }
+
+      .dropdown-btn button {
+        width: 100%;
+        text-align: left;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      /* Player Icon Styling */
+      .player-icon {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none; /* Prevent interfering with clicks */
+      }
+
+      /* Modal Styling remains unchanged */
       .modal {
         display: none;
         position: fixed;
@@ -216,13 +217,6 @@
         border-radius: 12px;
         width: 600px;
         text-align: center;
-      }
-
-      .modal-image {
-        max-width: 100%;
-        max-height:100%;
-        object-fit: contain;
-        background-color: lightblue;
       }
 
       .modal-description {
@@ -250,93 +244,118 @@
         background-color: #45a049;
       }
 
-      .close-button {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-      }
+  :javascript
+    document.addEventListener('DOMContentLoaded', () => {
+      const gridCells = document.querySelectorAll('.grid-cell');
+      const movePlayerButton = document.getElementById('move-player-btn');
+      const modal = document.getElementById('modal');
+      const closeButton = document.querySelector('.close-button');
+      const characterIcon = document.getElementById('character-icon');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+      const gameContainer = document.getElementById('game-container');
+      const serverId = gameContainer.dataset.serverId;
+      const playerId = gameContainer.dataset.playerId;
 
-      .close-button:hover,
-      .close-button:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-      }
+      gridCells.forEach((cell) => {
+        cell.addEventListener('click', () => {
+          gridCells.forEach((c) => c.classList.remove('selected'));
+          cell.classList.add('selected');
 
-    :javascript
-      document.addEventListener('DOMContentLoaded', () => {
-        const characterIcon = document.getElementById('character-icon');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-        const modal = document.getElementById('modal');
-        const closeButton = document.querySelector('.close-button');
-        const gridCells = document.querySelectorAll('.grid-cell');
-
-        // Listens for click on each grid cell
-         gridCells.forEach((cell) => {
-          cell.addEventListener('click', () => {
-            const cellId = cell.getAttribute('data-id');
-            console.log(`Grid cell clicked: ${cellId}`);
-            // Optionally display the identifier in the modal
-            const modalDescription = document.querySelector('.modal-description');
-            modalDescription.textContent = `You clicked on cell ${cellId}`;
-          });
-        });
-
-        // Toggle the dropdown menu when the character icon is clicked
-        characterIcon.addEventListener('click', (event) => {
-          event.stopPropagation(); // Prevent this click from triggering the document click event
-          dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Close the dropdown if clicking anywhere outside of it
-        document.addEventListener('click', (event) => {
-          if (!dropdownMenu.contains(event.target) && dropdownMenu.style.display === 'flex') {
-            dropdownMenu.style.display = 'none';
-          }
-        });
-
-        // Show the modal when a grid cell is clicked
-        gridCells.forEach((cell) => {
-          cell.addEventListener('click', () => {
-            modal.style.display = 'block';
-          });
-        });
-
-        // Hide the modal when the close button is clicked
-        closeButton.addEventListener('click', () => {
-          modal.style.display = 'none';
-        });
-
-        // Hide the modal when clicking outside of it
-        window.addEventListener('click', (event) => {
-          if (event.target === modal) {
-            modal.style.display = 'none';
-          }
+          const cellId = cell.dataset.id;
+          const modalDescription = document.querySelector('.modal-description');
+          modalDescription.textContent = `You clicked on cell ${cellId}`;
+          modal.style.display = 'block';
         });
       });
 
+      movePlayerButton.addEventListener('click', () => {
+        const selectedCell = document.querySelector('.grid-cell.selected');
+        if (!selectedCell) {
+          alert('Please select a grid cell first.');
+          return;
+        }
+
+        const cellId = selectedCell.dataset.id;
+
+        fetch(`/servers/${serverId}/players/${playerId}/update_position`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
+          },
+          body: JSON.stringify({ cellId }),
+        })
+          .then((response) => {
+            if (!response.ok) throw new Error('Failed to move the player.');
+            return response.json();
+          })
+          .then(() => {
+            // Remove player-current from all cells and any existing player images
+            gridCells.forEach((c) => {
+              c.classList.remove('player-current');
+              const existingImg = c.querySelector('.player-icon');
+              if (existingImg) existingImg.remove();
+            });
+
+            // Mark this cell as player-current
+            selectedCell.classList.add('player-current');
+
+            // Append the placeholder image using Rails asset_path helper
+            const playerIcon = document.createElement('img');
+            // Correct HAML interpolation syntax
+            playerIcon.src = "#{ asset_path('Placeholder_head.png') }";
+            playerIcon.alt = "Player Head";
+            playerIcon.classList.add('player-icon');
+            selectedCell.appendChild(playerIcon);
+
+            modal.style.display = 'none';
+          })
+          .catch((error) => {
+            console.error(error);
+            alert('Error: Unable to move player.');
+          });
+      });
+
+      closeButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+
+      characterIcon.addEventListener('click', (event) => {
+        event.stopPropagation();
+        dropdownMenu.style.display =
+          dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!dropdownMenu.contains(event.target)) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    });
+
   %body
-    %header.title
-    #game-container
+    %header.title Shards of the Grid
+    #game-container{ data: { server_id: @server.id, player_id: @player.id } }
       #game-logo
-        = image_tag "GameLogo.png", alt: "The game logo", height: "50", width: "50"
-      #character-icon-container
-        #character-icon{ tabindex: "0" }
-          = image_tag "baseAvatar.png", alt: "Character Icon", height: "50", width: "50"
-        .dropdown-menu
-          = link_to 'User Profile', user_profile_path, class: 'dropdown-btn'
-          = link_to 'Buy Shards', shard_purchase_path, class: 'dropdown-btn'
-          = link_to 'Settings', welcome_settings_path, class: 'dropdown-btn'
-          = link_to 'Store', storefront_select_action_path, class: 'dropdown-btn'
-          = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
+        = image_tag "GameLogo.png", alt: "Game Logo", height: "50", width: "50"
 
       .game-grid
-        - (0..35).each do |i|
-          %div.grid-cell{ data: {id: i + 1}}
-            %p= "Cell #{i + 1}"
+        - (0..5).to_a.reverse.each do |row|
+          - (0..5).each do |column|
+            %div.grid-cell{ data: { id: "#{row}#{column}" } }
+              %p= "Cell #{row}#{column}"
+
       .chat-container
+        #character-icon-container
+          #character-icon{ tabindex: "0" }
+            = image_tag "baseAvatar.png", alt: "Character Icon", height: "50", width: "50"
+          .dropdown-menu
+            = link_to 'User Profile', user_profile_path, class: 'dropdown-btn'
+            = link_to 'Buy Shards', shard_purchase_path, class: 'dropdown-btn'
+            = link_to 'Settings', welcome_settings_path, class: 'dropdown-btn'
+            = link_to 'Store', storefront_select_action_path, class: 'dropdown-btn'
+            = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
+
         %h1 Chat
         .chat-messages
           %p Welcome to the chat!
@@ -344,14 +363,13 @@
           %input{ type: "text", placeholder: "Type your message..." }
           %button Send
 
-    %div#modal.modal
-      .modal-content
-        %span.close-button &times;
-        .modal-image
-          = image_tag asset_path('planets/11test.png'), alt: "Modal Image", class: "modal-img"
-        .modal-description Text/Description
-        .modal-buttons
-          %button Button 1
-          %button Button 2
-          %button Button 3
-          %button Button 4
+%div#modal.modal
+  .modal-content
+    %button.close-button
+      = image_tag 'planets/11test.png', alt: 'Close', class: 'close-icon'
+    .modal-description Move the player to the selected cell.
+    .modal-buttons
+      %button#move-player-btn.move-player-btn Move Player
+      %button Button 2
+      %button Button 3
+      %button Button 4
