@@ -10,6 +10,10 @@ class ServersController < ApplicationController
       return
     end
 
+    @users = @server.users
+    @single_room = @server # or assign it to the appropriate room object
+    @message = @server.messages.build # or use another way to initialize the message
+    @messages = @server.messages.order(created_at: :asc) # Assuming a Message model exists
     # Store the game view path in the session
     session[:return_to] = game_view_server_path(@server)
     # Render the game view for the specific server
@@ -47,6 +51,8 @@ class ServersController < ApplicationController
   def show
     @users = @server.users
     @grid_tiles = @server.grid_tiles.order(:row, :column)
+    @message = Message.new
+    @messages = @single_room
   end
 
   # GET /servers/new

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_29_192559) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_13_135550) do
   create_table "achievements", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
@@ -32,6 +32,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_29_192559) do
     t.datetime "updated_at", null: false
     t.index ["server_id", "row", "column"], name: "index_grid_tiles_on_server_id_and_row_and_column", unique: true
     t.index ["server_id"], name: "index_grid_tiles_on_server_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "server_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id"], name: "index_messages_on_server_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "servers", force: :cascade do |t|
@@ -71,6 +81,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_29_192559) do
   end
 
   add_foreign_key "achievements", "users"
+  add_foreign_key "messages", "servers"
+  add_foreign_key "messages", "users"
   add_foreign_key "user_grid_tiles", "grid_tiles"
   add_foreign_key "user_grid_tiles", "users"
   add_foreign_key "user_servers", "servers"

@@ -3,9 +3,7 @@
     %title Shards of the Grid
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = csrf_meta_tags
+
     :css
       /* General page styling */
       html,
@@ -205,6 +203,7 @@
         });
       });
 
+
   %body
     %header.title
     #game-container
@@ -224,20 +223,18 @@
         - (0..63).each do |i|
           %div.grid-cell
             %p= "Cell #{i + 1}"
-      .server-chat-container{ data: {
-        controller: 'server-chat',
-        server_chat_server_id_value: @server.id,
-        server_chat_user_id_value: current_user.id
-      } }
-        .chat-messages{ id: 'server-chat-messages', data: { server_chat_target: 'messages' } }
-          -# Optional: Render previous messages if you want to persist them
 
-        .chat-input
-          = form_with(url: send_chat_message_server_path(@server), local: false) do |f|
-            = f.text_field :message,
-                data: { server_chat_target: 'input' },
-                placeholder: 'Type a message...',
-                class: 'form-control'
-            = f.submit 'Send',
-                class: 'btn btn-primary',
-                data: { action: 'click->server-chat#send' }
+
+      .col-md-8.col-sm-8.bg-dark.text-light#room_container
+      #single_room
+        %h4.text-center= @server.server_num
+        = turbo_stream_from @server
+        #messages
+          - if @messages.present?
+            - @messages.each do |message|
+              %div.message
+                %p
+                  %strong= message.user.email
+                  = message.body
+        = render partial: 'layouts/new_message_form'
+

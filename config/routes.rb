@@ -26,11 +26,12 @@ Rails.application.routes.draw do
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
   # routes.rb
   resources :servers, only: [:index, :create, :show, :destroy] do
+    resources :messages, only: [:create]
     member do
       post :add_user
       get :game_view
       get :grid
-      post 'send_chat_message'
+      post :send_chat_message
     end
   end
 
