@@ -14,16 +14,17 @@ class Server < ApplicationRecord
   
   # Initialize a 6x6 grid of tiles for the server
   def initialize_grid
-    (1..6).each do |row|
-      (1..6).each do |col|
+    (0..5).each do |row|
+      (0..5).each do |col|
         grid_tiles.create!(
           row: row,
           column: col,
-          weather: "Clear",
-          environment_type: "Forest",
+          weather: 'temp',
+          environment_type: 'temp',
           image_url: "default_image.jpg"
         )
       end
     end
   end
 end
+
