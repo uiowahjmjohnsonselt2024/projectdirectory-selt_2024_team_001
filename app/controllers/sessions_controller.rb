@@ -40,6 +40,7 @@ class SessionsController < ApplicationController
   end
 
   def main_game_screen
+    @light_mode = current_user.get_setting(:light_mode)
     render 'menus/main_game_screen'
   end
 
