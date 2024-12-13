@@ -3,8 +3,11 @@
     %title Shards of the Grid
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    = javascript_include_tag "application", "data-turbo-track": "reload"
+    = action_cable_meta_tag
 
-    :css
+
+  :css
       /* General page styling */
       html,
       body {

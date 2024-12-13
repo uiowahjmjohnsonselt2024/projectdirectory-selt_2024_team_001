@@ -5,12 +5,18 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
-      Turbo::StreamsChannel.broadcast_replace_to(
-        @server, target: 'messages', partial: 'messages/message', locals: { message: @message }
-      )
-
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.append(
+            'messages',
+            partial: 'messages/message',
+            locals: { message: @message }
+          )
+        end
+        format.html { redirect_to game_view_server_path(@server) }
+      end
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
