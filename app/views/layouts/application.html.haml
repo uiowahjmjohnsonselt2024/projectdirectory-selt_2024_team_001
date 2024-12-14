@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Shards of the Grid
+    %title{ class: (session[:theme] || 'dark') }Shards of the Grid
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
@@ -41,6 +41,20 @@
       body.light {
         background-color: white;
         color: black;
+      }
+
+      title.dark {
+        padding-bottom: 30px;
+        color: white;
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+      title.light {
+        padding-bottom: 30px;
+        color: black;
+        text-align: center;
+        margin-top: 1rem;
       }
 
       #main {
