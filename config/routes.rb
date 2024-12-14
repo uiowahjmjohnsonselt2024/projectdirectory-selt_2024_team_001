@@ -85,10 +85,12 @@ Rails.application.routes.draw do
   end
 
 
+
   patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
 
   mount ActionCable.server => '/cable'
   post 'convert', to: 'conversions#convert'
+
 
   # Route for chat
   post 'chat', to: 'chats#create'
