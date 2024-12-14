@@ -354,9 +354,7 @@
                 data: { row: tile.row, column: tile.column }
               }
                 %p= "Cell #{tile.row}, #{tile.column}"
-
-
-
+                  
 
 
       .chat-container
@@ -370,11 +368,6 @@
             = link_to 'Store', storefront_select_action_path, class: 'dropdown-btn'
             = link_to 'Server', servers_path, class: 'dropdown-btn'
             = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
-
-      .game-grid
-        - (0..63).each do |i|
-          %div.grid-cell
-            %p= "Cell #{i + 1}"
 
 
       .col-md-8.col-sm-8.bg-dark.text-light#room_container
