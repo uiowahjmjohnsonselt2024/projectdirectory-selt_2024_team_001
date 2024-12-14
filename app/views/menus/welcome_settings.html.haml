@@ -8,69 +8,75 @@
       /* Ensure the entire page covers the full viewport */
       html,
       body {
-        background-color: rgb(13, 14, 33); /* Background for the entire page */
-        height: 100%; /* Full viewport height */
-        margin: 0; /* Removes default margin */
-        display: flex; /* Use flexbox on the body itself for centering */
-        align-items: center; /* Center content vertically */
-        justify-content: center; /* Center content horizontally */
+        background-color: rgb(13, 14, 33); /* Default background (dark mode) */
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      body.light {
+        background-color: white; /* Light mode background */
+        color: black;
+      }
+
+      body.dark {
+        background-color: rgb(13, 14, 33); /* Dark mode background */
+        color: white;
+      }
+
+      title.dark {
+        padding-bottom: 30px;
+        color: white;
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+      title.light {
+        padding-bottom: 30px;
+        color: black;
+        text-align: center;
+        margin-top: 1rem;
       }
 
       h1, p {
-        color: white;
+        color: inherit; /* Adapt to the current theme */
       }
 
       /* Parent container */
       .parent-container {
         display: flex;
-        flex-direction: column; /* Stack children vertically */
-        align-items: center; /* Center content inside */
-        justify-content: center; /* Center vertically within container */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         max-width: 400px;
         padding: 2rem;
-        box-sizing: border-box; /* Includes padding in width/height calculations */
-        background-color: rgb(13, 14, 33) !important; /* Optional for clarity */
-        max-height: 90vh; /* Prevent overflow beyond viewport height */
-        gap: 1rem; /* Add spacing between elements */
+        box-sizing: border-box;
+        max-height: 90vh;
+        gap: 1rem;
       }
 
       .settings-container {
         display: flex;
-        flex-direction: column; /* Stack buttons and text vertically */
-        align-items: center; /* Center everything horizontally */
-        justify-content: center; /* Center everything vertically */
-        gap: 1rem; /* Add spacing between buttons and message */
-        text-align: center; /* Center-align text */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        text-align: center;
       }
 
-      .scrollable-settings {
-        max-height: 300px; /* Limit height of the settings list */
-        overflow-y: auto; /* Make settings scrollable */
-        padding: 1rem;
-        box-sizing: border-box;
-        width: 100%;
-        background-color: rgb(23, 24, 43);
-        border-radius: 10px;
-      }
-
-      /* Setting item */
       .setting-item {
         display: flex;
         align-items: center;
-        justify-content: space-between; /* Separate switch and label */
+        justify-content: space-between;
         width: 100%;
         padding: 0.5rem 0;
-        color: white;
+        color: inherit;
       }
 
-      .setting-item label {
-        flex-grow: 1; /* Allow the label to take up available space */
-        text-align: left; /* Align the label text to the left */
-        padding-left: 10px; /* Add spacing between switch and label */
-      }
-
-      /* Toggle switch styling */
       .switch {
         position: relative;
         display: inline-block;
@@ -116,57 +122,17 @@
         transform: translateX(20px);
       }
 
-      /* Button styling */
-      .btn {
-        color: white;
-        border: 2px double transparent;
-        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
-          radial-gradient(
-            circle at left top,
-            rgb(1, 110, 218),
-            rgb(217, 0, 192)
-          );
-        background-origin: border-box;
-        background-clip: padding-box, border-box;
-        cursor: pointer; /* Show pointer on hover for better UX */
-        padding: 10px 20px; /* Add padding to buttons */
-        font-size: 16px; /* Adjust font size */
-        border-radius: 50px; /* Increased for rounder corners */
-        width: 100%; /* Make buttons stretch to container width */
-        max-width: 250px; /* Limit the maximum button width */
-      }
-
-      .btn:hover {
-        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7),
-          0 0 20px rgba(217, 0, 192, 0.7);
-        transform: translateY(-2px); /* Slight lift effect */
-      }
-
-  %body
+  %body{ class: session[:theme] || 'dark' }
     #container.parent-container
-      = form_with model: current_user, url: user_settings_path, method: :patch, local: true do |f|
+      = form_with url: toggle_theme_path, method: :patch, local: true do
         .settings-container
           %h1 Settings
-          %div.scrollable-settings
-            %div.setting-item
-              %div.switch
-                = f.check_box :light_mode, checked: current_user.get_setting(:light_mode)
-                %span.slider
-              %label{ for: "user_light_mode" } Light Mode
+          %div.setting-item
+            %label{ for: "theme_toggle" } Light / Dark Mode
+            %div.switch
+              = check_box_tag :theme_toggle, 'light', (session[:theme] == 'light'), id: 'theme_toggle'
+              %span.slider
 
-            %div.setting-item
-              %div.switch
-                = f.check_box :dark_mode, checked: current_user.get_setting(:dark_mode)
-                %span.slider
-              %label{ for: "user_dark_mode" } Dark Mode
-
-            %div.setting-item
-              %div.switch
-                = f.check_box :notifications, checked: current_user.get_setting(:notifications)
-                %span.slider
-              %label{ for: "user_notifications" } Notifications
-
-          %div.actions
-            = f.submit "Save Changes", class: "btn btn-primary space-btn"
-            = link_to 'Reset to Factory Settings', reset_user_settings_path, method: :patch, class: "btn btn-danger space-btn"
-            = link_to 'Back', welcome_screen_path, class: "btn btn-secondary space-btn"
+        %div.actions
+          = submit_tag "Save Changes", class: "btn btn-primary space-btn"
+          = link_to 'Back', welcome_screen_path, class: "btn btn-secondary space-btn"
