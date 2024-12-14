@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id  # Log the user in automatically
       flash[:notice] = "Welcome to Shards of the Grid!"
-      redirect_to root_path
+      redirect_to welcome_screen_path
     else
       flash.now[:alert] = "There was a problem with your sign-up."
       render :new

@@ -71,7 +71,6 @@ Rails.application.routes.draw do
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
-
   # Route for chat
   post 'chat', to: 'chats#create'
 
