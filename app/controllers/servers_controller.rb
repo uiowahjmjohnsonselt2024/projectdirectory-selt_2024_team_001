@@ -5,18 +5,18 @@ class ServersController < ApplicationController
   def game_view
     # Ensure the user is registered to this server
     unless current_user.servers.include?(@server)
-      flash[:error] = "You are not registered to this server."
+      flash.now[:error] = "You are not registered to this server."
       redirect_to servers_path
       return
     end
 
     # Check if the user already has a player in the server
     if @server.players.exists?(user_id: current_user.id)
-      flash[:notice] = "You already have a player in this server."
+      flash.now[:notice] = "You already have a player in this server."
     else
       # Create a new player for the user in this server
       Player.create!(user: current_user, server: @server)
-      flash[:success] = "Player successfully created and added to the server."
+      flash.now[:success] = "Player successfully created and added to the server."
     end
 
     # Call createGrid to generate grid tiles for the server, if they don't already exist
@@ -83,9 +83,9 @@ class ServersController < ApplicationController
       # Automatically register the current user to the newly created server
       UserServer.create!(user: current_user, server: server)
 
-      flash[:success] = "Server created successfully with ID #{server.id}, and you are now registered to it!"
+      flash.now[:success] = "Server created successfully with ID #{server.id}, and you are now registered to it!"
     else
-      flash[:error] = "Failed to create server."
+      flash.now[:error] = "Failed to create server."
     end
 
     redirect_to servers_path
@@ -98,13 +98,13 @@ class ServersController < ApplicationController
     if server
       registration = UserServer.find_or_initialize_by(user: current_user, server: server)
       if registration.persisted?
-        flash[:error] = "You are already registered to this server."
+        flash.now[:error] = "You are already registered to this server."
       else
         registration.save!
-        flash[:success] = "You have successfully joined server #{server.id}!"
+        flash.now[:success] = "You have successfully joined server #{server.id}!"
       end
     else
-      flash[:error] = "Server not found."
+      flash.now[:error] = "Server not found."
     end
     redirect_to servers_path
   end
@@ -120,10 +120,10 @@ class ServersController < ApplicationController
   # Update a server
   def update
     if @server.update(server_params)
-      flash[:success] = "Server updated successfully!"
+      flash.now[:success] = "Server updated successfully!"
       redirect_to @server
     else
-      flash[:error] = "Failed to update server."
+      flash.now[:error] = "Failed to update server."
       render :edit
     end
   end
@@ -132,7 +132,7 @@ class ServersController < ApplicationController
   # Delete a server
   def destroy
     @server.destroy
-    flash[:success] = "Server deleted successfully!"
+    flash.now[:success] = "Server deleted successfully!"
     redirect_to servers_path
   end
 
@@ -146,10 +146,10 @@ class ServersController < ApplicationController
     registration = UserServer.find_or_initialize_by(user: user, server: server)
 
     if registration.persisted?
-      flash[:error] = "You are already registered to this server."
+      flash.now[:error] = "You are already registered to this server."
     else
       registration.save!
-      flash[:success] = "You have successfully joined server #{server.server_num}!"
+      flash.now[:success] = "You have successfully joined server #{server.server_num}!"
     end
 
     redirect_to servers_path

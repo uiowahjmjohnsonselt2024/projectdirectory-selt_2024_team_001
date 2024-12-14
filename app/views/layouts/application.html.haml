@@ -12,10 +12,10 @@
         %h1.title.centered-title Shards of the Grid
 
     #main
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
+      - if flash.now[:notice]
+        #notice.message= flash.now[:notice]
+      - elsif flash.now[:warning]
+        #warning.message= flash.now[:warning]
 
       = yield
 

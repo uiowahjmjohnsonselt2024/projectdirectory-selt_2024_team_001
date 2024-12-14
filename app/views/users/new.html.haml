@@ -27,6 +27,6 @@
         %button.btn.btn-primary{ type: "submit" } Sign Up
 
   - if flash[:notice]
-    .alert.alert-success= flash[:notice]
+    .alert.alert-success= flash.now[:notice]
   - if flash[:alert]
-    .alert.alert-danger= flash[:alert]
+    .alert.alert-danger= flash.now[:alert]

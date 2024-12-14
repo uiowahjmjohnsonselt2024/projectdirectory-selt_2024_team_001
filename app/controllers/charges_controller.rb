@@ -16,12 +16,12 @@ class ChargesController < ApplicationController
       current_user.shards += @shards
 
       if current_user.save
-        flash[:notice] = success_message(charge)
+        flash.now[:notice] = success_message(charge)
       else
-        flash[:alert] = "Payment succeeded, but we couldn't update your shard balance. Please contact support."
+        flash.now[:alert] = "Payment succeeded, but we couldn't update your shard balance. Please contact support."
       end
     else
-      flash[:alert] = failure_message
+      flash.now[:alert] = failure_message
     end
     redirect_back fallback_location: 'main_game_screen'
   end
@@ -54,7 +54,7 @@ class ChargesController < ApplicationController
   end
 
   def catch_exception(exception)
-    flash[:alert] = exception.message
+    flash.now[:alert] = exception.message
     redirect_back fallback_location: root_path
   end
 
