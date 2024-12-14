@@ -265,93 +265,79 @@
       }
 
   :javascript
-    document.addEventListener('DOMContentLoaded', () => {
-      const gridCells = document.querySelectorAll('.grid-cell');
-      const movePlayerButton = document.getElementById('move-player-btn');
-      const modal = document.getElementById('modal');
-      const closeButton = document.querySelector('.close-button');
-      const characterIcon = document.getElementById('character-icon');
-      const dropdownMenu = document.querySelector('.dropdown-menu');
-      const gameContainer = document.getElementById('game-container');
-      const serverId = gameContainer.dataset.serverId;
-      const playerId = gameContainer.dataset.playerId;
+      document.addEventListener('DOMContentLoaded', () => {
+        const gridCells = document.querySelectorAll('.grid-cell');
+        const movePlayerButton = document.getElementById('move-player-btn');
+        const modal = document.getElementById('modal');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        const characterIcon = document.getElementById('character-icon');
 
-      gridCells.forEach((cell) => {
-        cell.addEventListener('click', () => {
-          gridCells.forEach((c) => c.classList.remove('selected'));
-          cell.classList.add('selected');
+        characterIcon.addEventListener('click', (event) => {
+          event.stopPropagation(); // Prevent the event from propagating to other elements
+          const isMenuVisible = dropdownMenu.style.display === 'block';
+          dropdownMenu.style.display = isMenuVisible ? 'none' : 'block';
+      });
 
-          const cellId = cell.dataset.id;
-          const modalDescription = document.querySelector('.modal-description');
-          modalDescription.textContent = `You clicked on cell ${cellId}`;
-          modal.style.display = 'block';
+
+        document.addEventListener('click', (event) => {
+          if (!dropdownMenu.contains(event.target) && event.target !== characterIcon) {
+            dropdownMenu.style.display = 'none';
+          }
+        });
+
+        // Highlight selected cell
+        gridCells.forEach((cell) => {
+          cell.addEventListener('click', () => {
+            gridCells.forEach((c) => c.classList.remove('selected'));
+            cell.classList.add('selected');
+            document.querySelector('.modal-description').textContent =
+              `You clicked on cell at row ${cell.dataset.row}, column ${cell.dataset.column}`;
+            modal.style.display = 'block';
+          });
+        });
+
+        // Send PATCH request for player movement
+        movePlayerButton.addEventListener('click', async () => {
+          const selectedCell = document.querySelector('.grid-cell.selected');
+          if (!selectedCell) {
+            alert('Please select a grid cell first.');
+            return;
+          }
+
+          const serverId = document.getElementById('game-container').dataset.serverId;
+          const playerId = document.getElementById('game-container').dataset.playerId;
+
+          const targetRow = selectedCell.dataset.row;
+          const targetColumn = selectedCell.dataset.column;
+
+          fetch(`/servers/${serverId}/players/${playerId}/update_position`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
+            },
+            body: JSON.stringify({ player: { row: targetRow, column: targetColumn } }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                location.reload(); // Reload the grid on success
+              } else {
+                alert(data.error || "An error occurred.");
+              }
+            })
+            .catch((error) => console.error("Error:", error));
+        });
+
+        // Close the modal
+        document.querySelector('.close-button').addEventListener('click', () => {
+          modal.style.display = 'none';
         });
       });
 
-      movePlayerButton.addEventListener('click', () => {
-        const selectedCell = document.querySelector('.grid-cell.selected');
-        if (!selectedCell) {
-          alert('Please select a grid cell first.');
-          return;
-        }
 
-        const cellId = selectedCell.dataset.id;
 
-        fetch(`/servers/${serverId}/players/${playerId}/update_position`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
-          },
-          body: JSON.stringify({ cellId }),
-        })
-          .then((response) => {
-            if (!response.ok) throw new Error('Failed to move the player.');
-            return response.json();
-          })
-          .then(() => {
-            // Remove player-current from all cells and any existing player images
-            gridCells.forEach((c) => {
-              c.classList.remove('player-current');
-              const existingImg = c.querySelector('.player-icon');
-              if (existingImg) existingImg.remove();
-            });
 
-            // Mark this cell as player-current
-            selectedCell.classList.add('player-current');
-
-            // Append the placeholder image using Rails asset_path helper
-            const playerIcon = document.createElement('img');
-            // Correct HAML interpolation syntax
-            playerIcon.src = "#{ asset_path('Placeholder_head.png') }";
-            playerIcon.alt = "Player Head";
-            playerIcon.classList.add('player-icon');
-            selectedCell.appendChild(playerIcon);
-
-            modal.style.display = 'none';
-          })
-          .catch((error) => {
-            console.error(error);
-            alert('Error: Unable to move player.');
-          });
-      });
-
-      closeButton.addEventListener('click', () => {
-        modal.style.display = 'none';
-      });
-
-      characterIcon.addEventListener('click', (event) => {
-        event.stopPropagation();
-        dropdownMenu.style.display =
-          dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
-      });
-
-      document.addEventListener('click', (event) => {
-        if (!dropdownMenu.contains(event.target)) {
-          dropdownMenu.style.display = 'none';
-        }
-      });
-    });
 
   %body
     %header.title Shards of the Grid
@@ -360,10 +346,18 @@
         = image_tag "GameLogo.png", alt: "Game Logo", height: "50", width: "50"
 
       .game-grid
-        - (0..5).to_a.reverse.each do |row|
-          - (0..5).each do |column|
-            %div.grid-cell{ data: { id: "#{row}#{column}" } }
-              %p= "Cell #{row}#{column}"
+        - @server.grid_tiles.order(:row, :column).each_slice(6) do |row_tiles|
+          %div.row
+            - row_tiles.each do |tile|
+              %div.grid-cell{
+                class: tile.row == @player.row && tile.column == @player.column ? 'player-current' : '',
+                data: { row: tile.row, column: tile.column }
+              }
+                %p= "Cell #{tile.row}, #{tile.column}"
+
+
+
+
 
       .chat-container
         #character-icon-container
