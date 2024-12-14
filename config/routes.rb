@@ -71,6 +71,12 @@ Rails.application.routes.draw do
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
+
   # Route for chat
   post 'chat', to: 'chats#create'
+
+  patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
+  
+
+
 end
