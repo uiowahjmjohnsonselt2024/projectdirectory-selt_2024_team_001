@@ -10,6 +10,10 @@ class ServersController < ApplicationController
       return
     end
 
+    @users = @server.users
+    @single_room = @server # or assign it to the appropriate room object
+    @message = @server.messages.build # or use another way to initialize the message
+    @messages = @server.messages.order(created_at: :asc) # Assuming a Message model exists
     # Check if the user already has a player in the server
     if @server.players.exists?(user_id: current_user.id)
       flash.now[:notice] = "You already have a player in this server."
@@ -32,6 +36,22 @@ class ServersController < ApplicationController
     render 'game_view'
   end
 
+  def send_chat_message
+    server = Server.find(params[:id])
+    message = params[:message]
+
+    # Optional: You could add validation or message persistence here
+    ActionCable.server.broadcast(
+      "server_#{server.id}_channel",
+      {
+        message: message,
+        user_id: current_user.id,
+        timestamp: Time.current
+      }
+    )
+
+    head :ok
+  end
 
   # GET /servers
   # List all servers
@@ -42,12 +62,13 @@ class ServersController < ApplicationController
 
 
 
-
   # GET /servers/:id
   # Show details of a specific server
   def show
     @users = @server.users
     @grid_tiles = @server.grid_tiles.order(:row, :column)
+    @message = Message.new
+    @messages = @single_room
   end
 
   def createGrid

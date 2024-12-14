@@ -1,10 +1,14 @@
 !!!
 %html
   %head
-    %title{ class: (session[:theme] || 'dark') }Shards of the Grid
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %title Shards of the Grid
     = csrf_meta_tags
+    = csp_meta_tag
+    = javascript_importmap_tags
+    = action_cable_meta_tag
+    = stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"
+  %body
+    = yield
 
   %body{ class: (session[:theme] || 'dark') }
     - unless controller_name == 'sessions' && (action_name == 'create' || action_name == 'welcome_screen')
@@ -33,30 +37,6 @@
         font-family: Arial, sans-serif;
       }
 
-      body.dark {
-        background-color: rgb(23, 24, 43);
-        color: white;
-      }
-
-      body.light {
-        background-color: white;
-        color: black;
-      }
-
-      title.dark {
-        padding-bottom: 30px;
-        color: white;
-        text-align: center;
-        margin-top: 1rem;
-      }
-
-      title.light {
-        padding-bottom: 30px;
-        color: black;
-        text-align: center;
-        margin-top: 1rem;
-      }
-
       #main {
         flex: 1;
         display: flex;
@@ -79,3 +59,4 @@
         font-size: 0.9rem;
         border-top: 1px solid #ddd;
       }
+

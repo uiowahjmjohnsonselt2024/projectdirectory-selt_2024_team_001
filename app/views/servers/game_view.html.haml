@@ -3,10 +3,10 @@
     %title Shards of the Grid
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = csrf_meta_tags
-    :css
+    = action_cable_meta_tag
+
+
+  :css
       /* General page styling */
       html,
       body {
@@ -377,12 +377,25 @@
             = link_to 'Server', servers_path, class: 'dropdown-btn'
             = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
 
-        %h1 Chat
-        .chat-messages
-          %p Welcome to the chat!
-        .chat-input
-          %input{ type: "text", placeholder: "Type your message..." }
-          %button Send
+      .game-grid
+        - (0..63).each do |i|
+          %div.grid-cell
+            %p= "Cell #{i + 1}"
+
+
+      .col-md-8.col-sm-8.bg-dark.text-light#room_container
+      #single_room
+        %h4.text-center= @server.server_num
+        = turbo_stream_from @server
+        #messages
+          - if @messages.present?
+            - @messages.each do |message|
+              %div.message
+                %p
+                  %strong= message.user.email
+                  = message.body
+        = render partial: 'layouts/new_message_form'
+
 
 %div#modal.modal
   .modal-content

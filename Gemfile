@@ -25,6 +25,10 @@ gem 'factory_bot_rails'
 
 gem 'devise'
 
+gem 'stimulus-rails'
+
+gem 'importmap-rails'
+
 gem 'stripe-ruby-mock'
 #Gem for Payment Processing Third Party Application
 gem 'stripe'
@@ -50,6 +54,7 @@ group :production do
   gem "pg"
   gem "rails_12factor"
   gem 'puma'
+  gem "redis", "~> 4.0"
 end
 
 group :test do
