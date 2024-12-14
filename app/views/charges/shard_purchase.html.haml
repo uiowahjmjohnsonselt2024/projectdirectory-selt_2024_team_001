@@ -54,6 +54,9 @@
       %i.mdi.mdi-gamepad-circle
       = " Continue"
 
+- if flash[:alert]
+  .alert.alert-danger= flash[:alert]
+
 :javascript
   document.addEventListener("DOMContentLoaded", () => {
     const convertButton = document.getElementById('convert-button');

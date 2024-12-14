@@ -7,6 +7,7 @@ GridTile.destroy_all
 # Create sample users with complex passwords
 users = [
 	{ email: 'john@gmail.com', password: 'Password123!', shards: 100, money: 2500.75 },
+	{ email: 'rock@gmail.com', password: 'Rock@562', shards: 100, money: 2500.75 },
 	{  email: 'smith@gmail.com', password: 'SecurePass456!', shards: 300, money: 1500.0 },
 	{ email: 'alex@yahoo.com', password: 'MyPassword789!', shards: 50, money: 320.25 },
 	{ email: 'legend47@gmail.com', password: '123SecurePass!', shards: 200, money: 500.0 },
