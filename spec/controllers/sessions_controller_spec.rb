@@ -33,7 +33,7 @@ RSpec.describe SessionsController, type: :controller do
 
       it "renders the welcome_screen template" do
         post :create, params: { email: user.email, password: "Password123!" }
-        expect(response).to render_template('menus/welcome_screen')
+        expect(response).to redirect_to(welcome_screen_path)
       end
     end
 

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: :logout
 
+  get 'sessions/login_menu', to: 'sessions#login_menu', as: :login_menu
+
   # Session-related screens
 
   # Routes for screens after login

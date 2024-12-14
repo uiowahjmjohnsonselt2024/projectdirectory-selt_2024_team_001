@@ -1,5 +1,16 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter '/spec/'        # Exclude the spec directory
+  add_filter '/config/'      # Exclude config files
+  add_filter '/vendor/'      # Exclude vendor files
+
+  # Add a group for views to include coverage for view templates
+  add_group 'Views', 'app/views'
+end
+
+puts "SimpleCov is running. Coverage report will be available in coverage/index.html."
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
