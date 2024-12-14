@@ -3,266 +3,10 @@
     %title Shards of the Grid
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    = csrf_meta_tags
     = action_cable_meta_tag
+    = stylesheet_link_tag 'game_view', media: 'all'
 
-
-  :css
-      /* General page styling */
-      html,
-      body {
-        background-color: rgb(13, 14, 33);
-        height: 100%;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-      }
-
-      title.dark {
-        padding-bottom: 30px;
-        color: white;
-        text-align: center;
-        margin-top: 1rem;
-      }
-
-      title.light {
-        padding-bottom: 30px;
-        color: black;
-        text-align: center;
-        margin-top: 1rem;
-      }
-
-      #game-container {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-        padding: 20px 2rem 2rem 2rem;
-        width: 100%;
-        height: calc(100vh - 40px);
-        box-sizing: border-box;
-        position: relative; /* To position game-logo absolutely within */
-      }
-
-      #game-logo {
-        position: fixed;
-        top: 10px;
-        left: 20px;
-      }
-
-      #game-logo img {
-        height: 50px;
-        width: 50px;
-      }
-
-      .game-grid {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 10px;
-        width: 55%; /* Adjusted width to accommodate chat and dropdown */
-        height: auto;
-        background-color: rgb(23, 24, 43);
-        padding: 1rem;
-        border-radius: 10px;
-        overflow: auto;
-      }
-
-      .grid-cell {
-        background-color: rgb(41, 42, 72);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        width: 100%;
-        height: 100px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        position: relative;
-      }
-
-      .grid-cell:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(1, 110, 218, 0.7);
-      }
-
-      .grid-cell.selected {
-        border: 3px solid #4caf50;
-        transform: scale(1.1);
-        box-shadow: 0 10px 20px rgba(1, 110, 218, 0.9);
-      }
-
-      .grid-cell.player-current {
-        background-color: #4caf50;
-        color: white;
-      }
-
-      body.dark {
-        background-color: rgb(23, 24, 43);
-        color: #ffffff;
-      }
-
-
-      body.light {
-        background-color: #ffffff;
-        color: #000000;
-      }
-
-
-      /* Chat container styling */
-      .chat-container {
-        width: 35%;
-        background-color: rgb(23, 24, 43);
-        padding: 1rem;
-        border-radius: 10px;
-        color: white;
-        height: 90%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        box-sizing: border-box;
-        position: relative; /* To position dropdown menu */
-      }
-
-      .chat-messages {
-        flex-grow: 1;
-        overflow-y: auto;
-        border: 1px solid #666;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        border-radius: 8px;
-      }
-
-      .chat-input {
-        display: flex;
-        gap: 0.5rem;
-      }
-
-      .chat-input input {
-        flex-grow: 1;
-        padding: 0.5rem;
-        border-radius: 8px;
-        border: none;
-        box-sizing: border-box;
-      }
-
-      .chat-input button {
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      .chat-input button:hover {
-        background-color: #45a049;
-      }
-
-      /* Dropdown Menu Styling */
-      .dropdown-menu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        display: none; /* Hidden by default */
-        flex-direction: column;
-        min-width: 150px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        z-index: 1001; /* Ensure it appears above other elements */
-        margin-bottom: 1rem; /* Space below dropdown */
-      }
-
-      .dropdown-btn {
-        padding: 10px 15px;
-        text-decoration: none;
-        color: #333;
-        display: block;
-        border-bottom: 1px solid #eee;
-        background-color: #f9f9f9; /* Light background for each item */
-        border-radius: 4px; /* Rounded corners for items */
-        margin: 5px; /* Space around items */
-      }
-
-      .dropdown-btn:last-child {
-        border-bottom: none; /* Remove border from the last item */
-      }
-
-      .dropdown-btn:hover {
-        background-color: #f0f0f0;
-      }
-
-      .dropdown-btn button {
-        width: 100%;
-        text-align: left;
-        background: none;
-        border: none;
-        padding: 0;
-        margin: 0;
-        cursor: pointer;
-        font: inherit;
-      }
-
-      /* Player Icon Styling */
-      .player-icon {
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none; /* Prevent interfering with clicks */
-      }
-
-      /* Modal Styling remains unchanged */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.8);
-      }
-
-      .modal-content {
-        background-color: #fefefe;
-        margin: 10% auto;
-        padding: 40px;
-        border: 1px solid #888;
-        border-radius: 12px;
-        width: 600px;
-        text-align: center;
-      }
-
-      .modal-description {
-        margin: 20px 0;
-        font-size: 18px;
-      }
-
-      .modal-buttons {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-      }
-
-      .modal-buttons button {
-        padding: 15px;
-        border: none;
-        border-radius: 8px;
-        background-color: #4caf50;
-        color: white;
-        cursor: pointer;
-        font-size: 16px;
-      }
-
-      .modal-buttons button:hover {
-        background-color: #45a049;
-      }
 
   :javascript
       document.addEventListener('DOMContentLoaded', () => {
@@ -368,20 +112,20 @@
             = link_to 'Store', storefront_select_action_path, class: 'dropdown-btn'
             = link_to 'Server', servers_path, class: 'dropdown-btn'
             = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
+        .col-md-8.col-sm-8.bg-dark.text-light#room_container
+        #single_room
+          %h4.text-center= @server.server_num
+          = turbo_stream_from @server
+          #messages
+            - if @messages.present?
+              - @messages.each do |message|
+                %div.message
+                  %p
+                    %strong= message.user.email
+                    = message.body
+          = render partial: 'layouts/new_message_form'
 
 
-      .col-md-8.col-sm-8.bg-dark.text-light#room_container
-      #single_room
-        %h4.text-center= @server.server_num
-        = turbo_stream_from @server
-        #messages
-          - if @messages.present?
-            - @messages.each do |message|
-              %div.message
-                %p
-                  %strong= message.user.email
-                  = message.body
-        = render partial: 'layouts/new_message_form'
 
 
 %div#modal.modal
