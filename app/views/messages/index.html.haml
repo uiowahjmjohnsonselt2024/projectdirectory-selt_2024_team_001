@@ -1,0 +1,9 @@
+.col-md-8.col-sm-8.bg-dark.text-light#room_container
+  %h4.text-center= @server.name
+
+  #messages
+    = render @messages
+
+  = render 'layouts/new_message_form'
+
+  = turbo_stream_from @server, :messages

@@ -1,3 +1,5 @@
+# app/controllers/messages_controller.rb
+
 class MessagesController < ApplicationController
   def create
     @server = Server.find(params[:server_id])
@@ -6,13 +8,8 @@ class MessagesController < ApplicationController
 
     if @message.save
       respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.append(
-            'messages',
-            partial: 'messages/message',
-            locals: { message: @message }
-          )
-        end
+        # Automatic Turbo Streams broadcast
+        format.turbo_stream
         format.html { redirect_to game_view_server_path(@server) }
       end
     else

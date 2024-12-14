@@ -6,8 +6,9 @@ import { createConsumer } from "@rails/actioncable"
 
 // Stimulus setup
 const application = Application.start()
+import { definitionsFromContext } from "@hotwired/stimulus-loading"
 const context = require.context("controllers", true, /\.js$/)
-application.load(context)
+application.load(definitionsFromContext(context))
 
 // Initialize ActionCable
 window.App || (window.App = {})

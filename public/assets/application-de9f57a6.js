@@ -2,15 +2,12 @@
 
 import "@hotwired/turbo-rails"
 import { Application } from "@hotwired/stimulus"
-import { createConsumer } from "@rails/actioncable"
+import { definitionsFromContext } from "@hotwired/stimulus-loading"
 
 // Stimulus setup
 const application = Application.start()
 const context = require.context("controllers", true, /\.js$/)
-application.load(context)
+application.load(definitionsFromContext(context))
 
-// Initialize ActionCable
-window.App || (window.App = {})
-window.App.cable = createConsumer()
-
-console.log("Application.js loaded successfully")
+// app/javascript/application.js
+import "@rails/actioncable"
