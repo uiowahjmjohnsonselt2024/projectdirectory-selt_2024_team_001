@@ -26,7 +26,7 @@
       = f.text_field :cvc, class: 'form-control input-space', id: 'cvv', placeholder: '123'
 
   .card-footer.mt-4.d-flex.justify-content-between.align-items-center
-    = link_to main_game_screen_path, class: 'btn btn-secondary btn-sm space-btn' do
+    = link_to(session[:return_to] || root_path, class: "btn-space") do
       %i.mdi.mdi-arrow-left
       = " Back"
 
