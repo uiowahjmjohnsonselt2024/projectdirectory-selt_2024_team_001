@@ -374,6 +374,7 @@
             = link_to 'Buy Shards', shard_purchase_path, class: 'dropdown-btn'
             = link_to 'Settings', welcome_settings_path, class: 'dropdown-btn'
             = link_to 'Store', storefront_select_action_path, class: 'dropdown-btn'
+            = link_to 'Server', servers_path, class: 'dropdown-btn'
             = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
 
         %h1 Chat
@@ -390,6 +391,6 @@
     .modal-description Move the player to the selected cell.
     .modal-buttons
       %button#move-player-btn.move-player-btn Move Player
-      %button Button 2
+      %button Collect Resource
       %button Button 3
       %button Button 4
