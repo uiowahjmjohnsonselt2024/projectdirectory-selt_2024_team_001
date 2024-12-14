@@ -3,34 +3,27 @@ class ServersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:add_user_custom, :create]
 
   def game_view
-    # Ensure the user is registered to this server
     unless current_user.servers.include?(@server)
-      flash.now[:error] = "You are not registered to this server."
-      redirect_to servers_path
-      return
+      flash[:alert] = "You are not registered to this server."
+      redirect_to servers_path and return
     end
 
-    # Check if the user already has a player in the server
-    if @server.players.exists?(user_id: current_user.id)
-      flash.now[:notice] = "You already have a player in this server."
-    else
-      # Create a new player for the user in this server
-      Player.create!(user: current_user, server: @server)
-      flash.now[:success] = "Player successfully created and added to the server."
+    # Create or fetch the player for the current user
+    @player = @server.players.find_or_create_by!(user: current_user) do |player|
+      player.row = 0
+      player.column = 0
     end
 
-    # Call createGrid to generate grid tiles for the server, if they don't already exist
-    #createGrid
+    # Ensure the player's position matches a grid tile
+    unless @server.grid_tiles.exists?(row: @player.row, column: @player.column)
+      flash[:error] = "Player position is invalid. Resetting to (0,0)."
+      @player.update!(row: 0, column: 0)
+    end
 
-    # Store the game view path in the session
     session[:return_to] = game_view_server_path(@server)
-
-    @server = Server.find(params[:id])
-    @player = @server.players.find_or_create_by(user_id: current_user.id) # Assuming current_user exists
-
-    # Render the game view for the specific server
     render 'game_view'
   end
+
 
 
   # GET /servers
