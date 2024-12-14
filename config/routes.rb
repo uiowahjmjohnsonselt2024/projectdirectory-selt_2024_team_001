@@ -27,6 +27,12 @@ Rails.application.routes.draw do
   # routes.rb
   resources :servers, only: [:index, :create, :show, :destroy] do
     resources :messages, only: [:create]
+    resources :players, only: [] do
+      member do
+        patch :update_position
+      end
+    end
+
     member do
       post :add_user
       get :game_view
@@ -35,12 +41,6 @@ Rails.application.routes.draw do
     end
   end
 
-    # Nested routes for players within a server
-    resources :players do
-      member do
-        patch :update_position # Adds a PATCH route for moving a player
-      end
-    end
 
   post '/add_user_custom', to: 'servers#add_user_custom', as: :add_user_custom
 

@@ -44,6 +44,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_13_135550) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "players", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "server_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "row", default: 0, null: false
+    t.integer "column", default: 0, null: false
+    t.index ["server_id"], name: "index_players_on_server_id"
+    t.index ["user_id", "server_id"], name: "index_players_on_user_id_and_server_id", unique: true
+    t.index ["user_id"], name: "index_players_on_user_id"
+  end
+
   create_table "servers", force: :cascade do |t|
     t.integer "server_num"
     t.string "status"
@@ -83,6 +95,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_13_135550) do
   add_foreign_key "achievements", "users"
   add_foreign_key "messages", "servers"
   add_foreign_key "messages", "users"
+  add_foreign_key "players", "servers"
+  add_foreign_key "players", "users"
   add_foreign_key "user_grid_tiles", "grid_tiles"
   add_foreign_key "user_grid_tiles", "users"
   add_foreign_key "user_servers", "servers"
