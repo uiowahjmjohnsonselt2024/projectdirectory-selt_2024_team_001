@@ -24,23 +24,28 @@ Rails.application.routes.draw do
   get 'welcome_screen', to: 'sessions#welcome_screen', as: 'welcome_screen'
   get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
-  # routes.rb
-  resources :servers, only: [:index, :create, :show, :destroy] do
+
+  # Routes for servers and nested players
+  resources :servers do
     member do
       post :add_user
       get :game_view
       get :grid
     end
-  end
 
+    # Nested routes for players within a server
+    resources :players do
+      member do
+        patch :update_position # Adds a PATCH route for moving a player
+      end
+    end
+  end
 
   post '/add_user_custom', to: 'servers#add_user_custom', as: :add_user_custom
 
   get 'user_profile', to: 'sessions#user_profile', as: 'user_profile'
 
-
   get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
-  #get :stripe_payment, to: 'application#stripe_payment'
 
   # A route that is used to go to the start screen
   get "videos/start_screen", to: 'videos#start_screen', as: 'start_screen'
@@ -53,23 +58,25 @@ Rails.application.routes.draw do
 
   # Route to render the login page after videos are watched
   get 'videos/end_intro', to: 'videos#end_intro', as: 'end_intro'
-  get 'storefront/select_action', to: 'storefront#select_action'
 
+  # Routes for the storefront
+  get 'storefront/select_action', to: 'storefront#select_action'
   get 'storefront/store_menu', to: 'storefront#store_menu'
   get 'storefront/ships', to: 'storefront#ships'
   get 'storefront/modules', to: 'storefront#modules'
   get 'storefront/crew', to: 'storefront#crew'
   get 'storefront/consumables', to: 'storefront#consumables'
-
   get 'storefront/trade', to: 'storefront#trade'
   get 'storefront/api_test', to: 'storefront#api_test'
 
   post 'storefront/update_gold', to: 'storefront#update_gold'
 
-  Rails.application.routes.draw do
-    post 'chat', to: 'chats#create'
-  end
 
+  # Route for chat
+  post 'chat', to: 'chats#create'
+
+  patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
+  
 
 
 end

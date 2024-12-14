@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       user = User.find_by(email: params[:email])
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
-        flash[:notice] = "Logged in successfully!"
+        flash.now[:notice] = "Logged in successfully!"
         # Grant "First Login" achievement if it's the user's first login
         unless user.unlocked_achievement?('First Login')
           Achievement.unlock_for_user(user, 'First Login', 'Logged in for the first time')
@@ -31,8 +31,13 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "Logged out successfully!"
+    flash.now[:notice] = "Logged out successfully!"
     redirect_to login_path
+  end
+
+  def toggle_theme
+    session[:theme] = params[:theme_toggle] == 'light' ? 'light' : 'dark'
+    redirect_to welcome_screen_path, notice: "Theme updated to #{session[:theme]} mode."
   end
 
   def welcome_settings

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id  # Log the user in automatically
-      flash[:notice] = "Welcome to Shards of the Grid!"
+      flash.now[:notice] = "Welcome to Shards of the Grid!"
       redirect_to root_path
     else
       flash.now[:alert] = "There was a problem with your sign-up."
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "Account updated successfully!"
+      flash.now[:notice] = "Account updated successfully!"
       redirect_to @user
     else
       flash.now[:alert] = @user.errors.full_messages.to_sentence
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     session[:user_id] = nil  # Log the user out
-    flash[:notice] = "Your account has been deleted."
+    flash.now[:notice] = "Your account has been deleted."
     redirect_to root_path
   end
 
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   def require_login
     unless current_user
-      flash[:alert] = "You must be logged in to access this page."
+      flash.now[:alert] = "You must be logged in to access this page."
       redirect_to login_path
     end
   end

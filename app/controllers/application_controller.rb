@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   # Redirect unauthenticated users
   def require_login
     unless logged_in?
-      flash[:alert] = "You must be logged in to access this section."
+      flash.now[:alert] = "You must be logged in to access this section."
       redirect_to login_path # Adjust to your login route
     end
   end
