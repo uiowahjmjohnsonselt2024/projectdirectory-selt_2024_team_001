@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     resources :players, only: [] do
       member do
         patch :update_position
+        patch :collect_gold
+        get :generate_story
       end
     end
 

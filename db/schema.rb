@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_15_080320) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "prompt"
     t.index ["server_id", "row", "column"], name: "index_grid_tiles_on_server_id_and_row_and_column", unique: true
     t.index ["server_id"], name: "index_grid_tiles_on_server_id"
   end
