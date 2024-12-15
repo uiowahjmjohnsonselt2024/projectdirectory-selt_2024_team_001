@@ -6,6 +6,13 @@ class Player < ApplicationRecord
 
   validates :row, :column, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
+  # Set default gold to 0 for new records
+  after_initialize :set_default_gold, if: :new_record?
+
+  def set_default_gold
+    self.gold ||= 0
+  end
+
   # Move the player to a new position
   def move_to(target_row, target_column, user)
     # Validate if the target tile exists in the grid
@@ -29,6 +36,7 @@ class Player < ApplicationRecord
       user.decrement!(:shards, cost) if cost > 0
       self.update!(row: target_row, column: target_column)
     end
+
     true
   rescue StandardError => e
     errors.add(:base, e.message)

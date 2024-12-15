@@ -1,4 +1,8 @@
 html,
+#story-container #story-text {
+    color: black !important;
+}
+
 body {
     background-color: rgb(13, 14, 33);
     height: 100%;
@@ -88,7 +92,7 @@ title.light {
 
 body.dark {
     background-color: rgb(23, 24, 43);
-    color: #ffffff;
+    color: #000000;
 }
 
 
@@ -104,7 +108,7 @@ body.light {
     background-color: rgb(23, 24, 43);
     padding: 1rem;
     border-radius: 10px;
-    color: white;
+    color: black; !important;
     height: 90%;
     display: flex;
     flex-direction: column;

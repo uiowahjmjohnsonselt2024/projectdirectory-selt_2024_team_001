@@ -42,7 +42,7 @@ class StorefrontController < ApplicationController
 
     # Check if the player has enough currency
     if currency == 'gold' && current_user.gold >= item.cost
-      current_user.gold -= item.cost
+      player.gold -= item.cost
       save_purchase(item, 'gold', player)
     elsif currency == 'shards' && current_user.shards >= item.cost
       current_user.shards -= item.cost
@@ -53,25 +53,26 @@ class StorefrontController < ApplicationController
   end
 
   def save_purchase(item, currency, player)
-    # Find or create a PlayerItem for the purchased item
     player_item = player.player_items.find_or_initialize_by(store_item: item)
     player_item.quantity ||= 0
     player_item.quantity += 1
 
     ActiveRecord::Base.transaction do
-      current_user.save!
-      player_item.save!
+      player.save! # Save the player's updated gold
+      current_user.save! # Save the user's updated shards
+      player_item.save! # Save the purchased item
     end
 
     render json: {
       status: 'success',
-      new_gold: current_user.gold,
+      new_gold: player.gold,
       new_shards: current_user.shards,
       item: { id: item.id, title: item.title, quantity: player_item.quantity }
     }
   rescue => e
     render json: { status: 'error', message: "Purchase failed: #{e.message}" }, status: :unprocessable_entity
   end
+
 
 
   def process_purchase(user, currency)
@@ -117,11 +118,19 @@ class StorefrontController < ApplicationController
   # Set the user's current gold
   def set_user_currencies
     if current_user
-      @gold = current_user.gold
+      @player = current_user.players.last
+
+      if @player
+        @gold = @player.gold
+      else
+        @gold = 0
+      end
+
       @shards = current_user.shards
     else
       @gold = 0
       @shards = 0
     end
   end
+
 end
