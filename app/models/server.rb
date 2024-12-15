@@ -25,13 +25,17 @@ class Server < ApplicationRecord
 
         prompt = "A sci-fi landscape with #{weather} weather in a #{environment} environment that is viewed from space."
 
-        # Skip image generation if the flag is set to true
         image_url = if skip_image_generation
-                      '/planets/11test.png' # Use the default image
+                      '/planets/11test.png'
                     else
                       service = OpenaiService.new(prompt: prompt, type: 'image')
                       response = service.call
-                      response&.dig("data", 0, "url") || '/planets/11test.png'
+
+                      if response.is_a?(Hash)
+                        response.dig("data", 0, "url") || '/planets/11test.png'
+                      else
+                        '/planets/11test.png'
+                      end
                     end
 
         grid_tiles.create!(

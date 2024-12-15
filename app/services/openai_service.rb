@@ -38,12 +38,13 @@ class OpenaiService
       }
     )
 
-    image_url = response.dig("data", 0, "url")
-    save_image_from_url(image_url) if image_url
+    Rails.logger.debug "OpenAI Image API Response: #{response.inspect}"
+    response
   rescue StandardError => e
     Rails.logger.error "OpenAI image generation failed: #{e.message}"
     nil
   end
+
 
   def save_image_from_url(image_url)
     filename = "generated_images/#{SecureRandom.uuid}.png"

@@ -15,8 +15,8 @@ class ServersController < ApplicationController
     @messages = @server.messages.order(created_at: :asc) # Assuming a Message model exists
     # Create or fetch the player for the current user
     @player = @server.players.find_or_create_by!(user: current_user) do |player|
-      player.row = 0
-      player.column = 0
+      player.row = 1
+      player.column = 1
     end
 
     # Check if the user already has a player in the server
@@ -107,13 +107,17 @@ class ServersController < ApplicationController
       # Automatically register the current user to the newly created server
       UserServer.create!(user: current_user, server: server)
 
-      flash.now[:success] = "Server created successfully with ID #{server.id}, and you are now registered to it!"
+      # Create a player for the current user at a valid starting position (1,1)
+      server.players.create!(user: current_user, row: 1, column: 1)
+
+      flash[:success] = "Server created successfully with ID #{server.id}, and you are now registered to it!"
     else
-      flash.now[:error] = "Failed to create server."
+      flash[:error] = "Failed to create server."
     end
 
     redirect_to servers_path
   end
+
 
 
 

@@ -9,12 +9,43 @@ class PlayersController < ApplicationController
 
   # Generate a story using the OpenAI API
   def generate_story
-    prompt = "Write a short sci-fi story based on a player exploring a planet with #{@player.server.grid_tiles.find_by(row: @player.row, column: @player.column).weather} weather and #{@player.server.grid_tiles.find_by(row: @player.row, column: @player.column).environment_type} environment."
+    @player = current_user.players.last
+    @server = @player&.server
 
+    unless @player && @server
+      render json: { success: false, error: "Player or server not found." }, status: :not_found
+      return
+    end
+
+    # Find the grid tile based on the player's position
+    grid_tile = @server.grid_tiles.find_by(row: @player.row, column: @player.column)
+
+    if grid_tile.nil?
+      render json: { success: false, error: "Grid tile not found for player's position." }, status: :unprocessable_entity
+      return
+    end
+
+    # Generate the prompt based on the grid tile's weather and environment
+    prompt = "Write a short sci-fi story based on a player exploring a planet with #{grid_tile.weather} weather and #{grid_tile.environment_type} environment."
+
+    # Call the OpenAI service
     service = OpenaiService.new(prompt: prompt, type: 'text')
     response = service.call
+
     story = response.dig("choices", 0, "message", "content") || "No story generated."
-    end
+
+    # Generate a random amount of gold between 10 and 100
+    gold_amount = rand(10..100)
+
+    render json: { success: true, story: story, gold: gold_amount }
+  rescue StandardError => e
+    Rails.logger.error "Error generating story: #{e.message}"
+    render json: { success: false, error: e.message }, status: :unprocessable_entity
+  end
+
+
+
+
   def inventory
     @player_items = @player.player_items.includes(:store_item)
       render 'menus/inventory'  # Explicitly render the correct view
@@ -40,6 +71,25 @@ class PlayersController < ApplicationController
     end
   end
 
+  def collect_gold
+    @player = current_user.players.last
+
+    if @player.nil?
+      render json: { success: false, error: "Player not found." }, status: :not_found
+      return
+    end
+
+    gold_amount = params[:gold].to_i
+    @player.gold += gold_amount
+    @player.save!
+
+    render json: { success: true, message: "#{gold_amount} gold added to your inventory!" }
+  rescue StandardError => e
+    Rails.logger.error "Error collecting gold: #{e.message}"
+    render json: { success: false, error: e.message }, status: :unprocessable_entity
+  end
+
+
   private
 
   # Prepares the grid with the player's position
@@ -57,14 +107,24 @@ class PlayersController < ApplicationController
     end
   end
   def set_server
-    @server = Server.find(params[:server_id])
-  end
-
-  def set_player
-    if params[:server_id]
-      @player = @server.players.find(params[:id])
-    else
-      @player = Player.find(params[:id]) # For inventory and standalone player actions
+    @server = Server.find_by(id: params[:server_id])
+    Rails.logger.debug "set_server: @server = #{@server.inspect}"
+    unless @server
+      render json: { success: false, error: "Server not found." }, status: :not_found
     end
   end
+
+
+
+  def set_player
+    @player = @server.players.find_by(id: params[:id])
+    Rails.logger.debug "set_player: @player = #{@player.inspect}"
+    unless @player
+      render json: { success: false, error: "Player not found for this server." }, status: :not_found
+    end
   end
+
+
+
+
+end

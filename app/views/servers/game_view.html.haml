@@ -14,10 +14,11 @@
       const modalImage = document.getElementById('modal-image');
       const modalDescription = document.querySelector('.modal-description');
       const movePlayerButton = document.getElementById('move-player-btn');
-      const storyText = document.getElementById('story-text');
 
-      let isCurrentPlayer = false; // Track if the player is on the tile
+      let isCurrentPlayer = false;
+      let goldAmount = 0; // Track the gold amount
 
+      // Handle grid cell click events
       gridCells.forEach((cell) => {
         cell.addEventListener('click', async () => {
           gridCells.forEach((c) => c.classList.remove('selected'));
@@ -26,13 +27,12 @@
           const row = cell.dataset.row;
           const column = cell.dataset.column;
           const imageUrl = cell.dataset.imageUrl;
+          const prompt = cell.dataset.prompt;
           isCurrentPlayer = cell.dataset.currentPlayer === 'true';
 
-          // Set the modal image
           modalImage.src = imageUrl && imageUrl !== '' ? imageUrl : '/planets/11test.png';
 
           if (isCurrentPlayer) {
-            // Fetch the story from the server
             try {
               const serverId = document.getElementById('game-container').dataset.serverId;
               const playerId = document.getElementById('game-container').dataset.playerId;
@@ -41,7 +41,8 @@
               const data = await response.json();
 
               if (data.success) {
-                modalDescription.textContent = data.story;
+                modalDescription.textContent = `${data.story}\n\nYou found ${data.gold} gold!`;
+                goldAmount = data.gold;
               } else {
                 modalDescription.textContent = 'Failed to generate story.';
               }
@@ -50,15 +51,34 @@
               modalDescription.textContent = 'Error fetching story.';
             }
 
-            // Change the button to "Collect Gold"
             movePlayerButton.textContent = 'Collect Gold';
-            movePlayerButton.onclick = () => {
-              alert('Gold Collected!');
-              modal.style.display = 'none';
+            movePlayerButton.onclick = async () => {
+              const serverId = document.getElementById('game-container').dataset.serverId;
+              const playerId = document.getElementById('game-container').dataset.playerId;
+
+              try {
+                const response = await fetch(`/servers/${serverId}/players/${playerId}/collect_gold`, {
+                  method: 'PATCH',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
+                  },
+                  body: JSON.stringify({ gold: goldAmount }),
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                  alert(`You collected ${goldAmount} gold!`);
+                  modal.style.display = 'none';
+                } else {
+                  alert(data.error || "An error occurred.");
+                }
+              } catch (error) {
+                console.error("Error:", error);
+              }
             };
           } else {
-            // Reset to default behavior for moving the player
-            modalDescription.textContent = `Move the player to cell at row ${row}, column ${column}`;
+            modalDescription.textContent = prompt || `Move the player to cell at row ${row}, column ${column}`;
             movePlayerButton.textContent = 'Move Player';
             movePlayerButton.onclick = async () => {
               const serverId = document.getElementById('game-container').dataset.serverId;
@@ -94,9 +114,22 @@
       document.querySelector('.close-button').addEventListener('click', () => {
         modal.style.display = 'none';
       });
+
+      // Dropdown menu functionality
+      const characterIcon = document.getElementById('character-icon');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+
+      characterIcon.addEventListener('click', (event) => {
+        event.stopPropagation();
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!dropdownMenu.contains(event.target) && event.target !== characterIcon) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
     });
-
-
 
   %body
     %header.title Shards of the Grid
@@ -134,19 +167,6 @@
             = link_to 'Server', servers_path, class: 'dropdown-btn'
             = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
 
-        .col-md-8.col-sm-8.bg-dark.text-light#room_container
-        #single_room
-          %h4.text-center= @server.server_num
-          = turbo_stream_from @server
-          #messages
-            - if @messages.present?
-              - @messages.each do |message|
-                %div.message
-                  %p
-                    %strong= message.user.email
-                    = message.body
-          = render partial: 'layouts/new_message_form'
-
 %div#modal.modal
   .modal-content
     %button.close-button &times;
@@ -157,5 +177,3 @@
       %p#story-text
     .modal-buttons
       %button#move-player-btn.move-player-btn Move Player
-
-

@@ -3,7 +3,15 @@ class Player < ApplicationRecord
   belongs_to :server
   has_many :player_items
   has_many :store_items, through: :player_items
+
   validates :row, :column, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  # Set default gold to 0 for new records
+  after_initialize :set_default_gold, if: :new_record?
+
+  def set_default_gold
+    self.gold ||= 0
+  end
 
   # Move the player to a new position
   def move_to(target_row, target_column, user)
@@ -27,16 +35,11 @@ class Player < ApplicationRecord
     Player.transaction do
       user.decrement!(:shards, cost) if cost > 0
       self.update!(row: target_row, column: target_column)
-    if self.user == user
-      update(row: target_row, column: target_column)
-    else
-      errors.add(:base, "You can only move your own player.")
-      false
     end
-      true
-    rescue StandardError => e
-      errors.add(:base, e.message)
-      false
+
+    true
+  rescue StandardError => e
+    errors.add(:base, e.message)
+    false
   end
-  end
-  end
+end
