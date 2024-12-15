@@ -36,6 +36,9 @@ class User < ApplicationRecord
     user&.authenticate(password)
   end
 
+  def profile_picture
+    self[:profile_picture] || "profilePics/holder.png"
+  end
 
   private
 

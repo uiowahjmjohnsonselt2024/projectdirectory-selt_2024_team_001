@@ -186,25 +186,6 @@
       .chat-input button:hover {
         background-color: #45a049;
 
-    :javascript
-      document.addEventListener('DOMContentLoaded', () => {
-        const characterIcon = document.getElementById('character-icon');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-
-        // Toggle the dropdown menu when the character icon is clicked
-        characterIcon.addEventListener('click', (event) => {
-          event.stopPropagation(); // Prevent this click from triggering the document click event
-          dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Close the dropdown if clicking anywhere outside of it
-        document.addEventListener('click', (event) => {
-          if (!dropdownMenu.contains(event.target) && dropdownMenu.style.display === 'flex') {
-            dropdownMenu.style.display = 'none';
-          }
-        });
-      });
-
   %body
     %header.title
     #game-container
@@ -212,7 +193,7 @@
         = image_tag "GameLogo.png", alt: "The game logo", height: "50", width: "50"
       #character-icon-container
         #character-icon{ tabindex: "0" }
-          = image_tag "baseAvatar.png", alt: "Character Icon", height: "50", width: "50"
+          = image_tag session[:profile_picture] || "baseAvatar.png", alt: "Character Icon", height: "50", width: "50"
         .dropdown-menu
           = link_to 'User Profile', user_profile_path, class: 'dropdown-btn'
           = link_to 'Buy Shards', shard_purchase_path, class: 'dropdown-btn'
