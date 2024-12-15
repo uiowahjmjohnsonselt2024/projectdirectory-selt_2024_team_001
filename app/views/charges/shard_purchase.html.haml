@@ -55,7 +55,8 @@
     = " Continue"
 
 - if flash[:notice]
-  .alert.alert-success= flash[:notice]
+  .alert.alert-success= flash.now[:notice]
+
 - if flash[:alert]
   .alert.alert-danger= flash[:alert]
 
