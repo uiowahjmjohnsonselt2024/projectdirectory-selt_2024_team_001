@@ -48,7 +48,16 @@ end
 #   Before('~@no-txn', '~@selenium', '~@culerity', '~@celerity', '~@javascript') do
 #     DatabaseCleaner.strategy = :transaction
 #   end
-#
+
+World(Warden::Test::Helpers)
+Before do
+  Warden.test_mode!
+end
+
+After do
+  Warden.test_reset!
+end
+
 
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
