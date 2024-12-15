@@ -29,6 +29,7 @@ gem 'stimulus-rails'
 
 gem 'importmap-rails'
 
+#Gem For Testing Stripe
 gem 'stripe-ruby-mock'
 #Gem for Payment Processing Third Party Application
 gem 'stripe'

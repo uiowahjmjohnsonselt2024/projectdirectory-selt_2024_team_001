@@ -1,12 +1,28 @@
-= form_with url: charges_path do |f|
+= form_with url: charges_path, id: 'currency-form' do |f|
   .card-header.py-3.px-4.mb-3.bg-space-station
     %strong Credit Card
     %small.d-block.mt-1.text-muted Please enter your card details below
 
   .card-body.px-4.py-4.form-space-station
     .form-group.mb-4
+      %label{for: "currency"} Select Currency
+      = select_tag :currency, options_for_select([["USD", "USD"], ["EUR", "EUR"], ["GBP", "GBP"], ["JPY", "JPY"], ["CAD", "CAD"]]), { prompt: "Choose Currency", class: 'form-control input-space', id: 'currency' }
+
+    .form-group.mb-4
       %label{for: "amount"} Amount
-      = f.text_field :amount, class: 'form-control input-space', id: 'amount', min: 0, placeholder: 'Enter amount in $'
+      = f.text_field :amount, class: 'form-control input-space', id: 'amount', placeholder: 'Enter amount'
+
+    .form-group.mb-4
+      %label{for: "converted_amount"} Converted Amount (in USD)
+      = text_field_tag :converted_amount, '', class: 'form-control input-space', id: 'converted_amount', disabled: true
+      = hidden_field_tag :hidden_converted_amount, '', id: 'hidden_converted_amount'
+
+    .form-group.mb-4
+      %label{for: "shards"} Shards You Will Obtain
+      = text_field_tag :shards, '', class: 'form-control input-space', id: 'shards', disabled: true
+
+    .form-group.mb-4
+      = button_tag 'Convert to USD', type: 'button', class: 'btn btn-info btn-sm space-btn', id: 'convert-button'
 
     .form-group.mb-4
       %label{for: "ccnumber"} Credit Card Number
@@ -38,58 +54,44 @@
       %i.mdi.mdi-gamepad-circle
       = " Continue"
 
-:css
-  body {
-    background: linear-gradient(135deg, #0c0e1a, #161a30);
-    font-family: 'Orbitron', sans-serif;
-    color: #e0e0e0;
-  }
+- if flash[:alert]
+  .alert.alert-danger= flash[:alert]
 
-  .bg-space-station {
-    background: linear-gradient(135deg, #1a1c2e, #272a40);
-    border-bottom: 2px solid #444;
-    text-shadow: 0 0 5px #fff;
-  }
+:javascript
+  document.addEventListener("DOMContentLoaded", () => {
+    const convertButton = document.getElementById('convert-button');
+    const currencyField = document.getElementById('currency');
+    const amountField = document.getElementById('amount');
+    const convertedField = document.getElementById('converted_amount')
+    const hiddenConvertedField = document.getElementById('hidden_converted_amount');
+    const shardsField = document.getElementById('shards');
 
-  .form-space-station {
-    background: rgba(20, 22, 45, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.5), 0 0 30px 10px rgba(255, 255, 255, 0.1);
-    padding: 30px;
-  }
 
-  .input-space {
-    background-color: #2b2e4a;
-    border: 1px solid #5e5e8f;
-    color: #ffffff;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
-    transition: box-shadow 0.3s, background-color 0.3s;
-  }
+    convertButton.addEventListener('click', () => {
+      const currency = currencyField.value;
+      const amount = amountField.value;
 
-  .input-space:focus {
-    background-color: #34385a;
-    box-shadow: 0 0 15px rgba(0, 153, 255, 0.7);
-  }
+      if (!currency || !amount || amount <= 0) {
+        alert("Please select a currency and enter a valid amount.");
+        return;
+      }
 
-  .form-group label {
-    color: #9dbbd8;
-  }
+      fetch(`/convert_to_usd?currency=${currency}&amount=${amount}`, {
+        method: 'GET',
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.converted_amount) {
+          convertedField.value = data.converted_amount;
+          hiddenConvertedField.value = data.converted_amount;
 
-  .space-btn {
-    color: #fff;
-    background-image: linear-gradient(135deg, #2b3e50, #1b263b);
-    border: 1px solid #3b4b67;
-    text-shadow: 0 0 5px #00ffff;
-    transition: box-shadow 0.3s, transform 0.3s;
-    border-radius: 8px;
-    padding: 10px 20px;
-  }
-
-  .space-btn:hover {
-    box-shadow: 0 0 20px rgba(0, 153, 255, 0.8);
-    transform: translateY(-3px);
-  }
-
-  .card-footer {
-    border-top: 1px solid #3b3f5c;
-  }
+          const shards = Math.floor(data.converted_amount / 0.75);
+          shardsField.value = shards;
+        } else {
+          alert(data.error || "An error occurred during conversion.");
+        }
+      })
+      .catch(error => console.error("Error:", error));
+    });
+  });
