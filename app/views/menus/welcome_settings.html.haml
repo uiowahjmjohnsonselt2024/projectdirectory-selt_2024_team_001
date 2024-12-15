@@ -141,21 +141,6 @@
         transform: translateX(20px);
       }
 
-      .space-btn {
-        color: #fff;
-        background-image: linear-gradient(135deg, #2b3e50, #1b263b);
-        border: 1px solid #3b4b67;
-        text-shadow: 0 0 5px #00ffff;
-        transition: box-shadow 0.3s, transform 0.3s;
-        border-radius: 8px;
-        padding: 10px 20px;
-      }
-
-      .space-btn:hover {
-        box-shadow: 0 0 20px rgba(0, 153, 255, 0.8);
-        transform: translateY(-3px);
-      }
-
   %body{ class: session[:theme] || 'dark' }
     #container
       = form_with url: toggle_theme_path, method: :patch, local: true do
