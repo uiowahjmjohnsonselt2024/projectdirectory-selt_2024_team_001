@@ -1,11 +1,17 @@
 class PlayersController < ApplicationController
-  before_action :set_server
-  before_action :set_player, only: [:update_position, :current_position]
+  before_action :set_server, except: [:inventory]
+  before_action :set_player, only: [:update_position, :current_position, :inventory]
 
   # Show the game grid
   def game_view
     @grid = build_grid
   end
+
+  def inventory
+    @player_items = @player.player_items.includes(:store_item)
+      render 'menus/inventory'  # Explicitly render the correct view
+    end
+
 
   # Fetch the current position of the player
   def current_position
@@ -49,6 +55,10 @@ class PlayersController < ApplicationController
   end
 
   def set_player
-    @player = @server.players.find(params[:id])
+    if params[:server_id]
+      @player = @server.players.find(params[:id])
+    else
+      @player = Player.find(params[:id]) # For inventory and standalone player actions
+    end
   end
 end
