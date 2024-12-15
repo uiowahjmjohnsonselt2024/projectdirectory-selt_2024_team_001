@@ -3,111 +3,160 @@
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     :css
-      /* Ensure the entire page covers the full viewport */
-      html,
       body {
-        background-color: rgb(13, 14, 33) !important; /* Background for the entire page */
-        height: 100%; /* Full viewport height */
-        margin: 0 !important; /* Removes default margin */
-        padding: 0 !important; /* Removes default padding */
-        display: flex; /* Use flexbox on the body itself for centering */
-        align-items: center; /* Center content vertically */
-        justify-content: center; /* Center content horizontally */
-        font-family: Arial, sans-serif; /* Font style for better readability */
+        background-color: #0d0e21;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
       }
 
       h1, h2 {
-        color: rgb(255, 255, 255); /* Light color for visibility */
+        text-align: center;
+        color: white;
       }
 
       .profile-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 700px;
-        padding: 2rem;
-        box-sizing: border-box;
-        background-color: rgb(13, 14, 33) !important; /* Match the page background */
-        border-radius: 10px;
-        box-shadow: none !important; /* Remove shadow */
-        gap: 1rem;
+        background-color: #15172b;
+        border-radius: 20px;
+        padding: 20px;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       }
 
       .profile-avatar {
         width: 150px;
         height: 150px;
         border-radius: 50%;
-        border: 3px solid rgb(217, 0, 192);
-        box-shadow: 0 0 10px rgba(217, 0, 192, 0.7);
+        border: 4px solid rgba(0, 140, 255, 0.8);
+        box-shadow: 0 0 20px rgba(0, 140, 255, 0.5);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
       }
 
-      .profile-stats {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      .profile-avatar:hover {
+        transform: scale(1.05);
+      }
+
+      #dropdown-menu {
+        position: absolute;
+        top: 200px;
+        background: #1e1e2f;
+        border-radius: 10px;
+        padding: 15px;
+        width: 320px;
+        max-height: 400px;
+        overflow-y: auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        z-index: 1000;
+      }
+
+      .profile-option img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border: 3px solid transparent;
+      }
+
+      .profile-option img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(0, 140, 255, 0.8);
+      }
+
+      .dropdown-save-btn {
+        grid-column: span 3;
         text-align: center;
-        gap: 0.5rem;
       }
 
-      .stat-item {
-        color: rgb(255, 255, 255); /* Light color for visibility */
-        font-size: 16px;
-      }
-
-      /* Button styling */
       .btn {
+        background: #008cff;
         color: white;
-        border: 2px double transparent;
-        background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)),
-          radial-gradient(
-            circle at left top,
-            rgb(1, 110, 218),
-            rgb(217, 0, 192)
-          );
-        background-origin: border-box;
-        background-clip: padding-box, border-box;
-        cursor: pointer; /* Show pointer on hover for better UX */
-        padding: 10px 20px; /* Add padding to buttons */
-        font-size: 16px; /* Adjust font size */
-        border-radius: 50px; /* Increased for rounder corners */
-        width: 100%; /* Make buttons stretch to container width */
-        max-width: 250px; /* Limit the maximum button width */
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+        display: inline-block;
+        margin-top: 10px;
       }
 
       .btn:hover {
-        box-shadow: 0 0 10px rgba(1, 110, 218, 0.7),
-          0 0 20px rgba(217, 0, 192, 0.7);
-        transform: translateY(-2px); /* Slight lift effect */
+        background: #005bb5;
       }
 
-      /* Universal Reset for Margins and Padding */
-      * {
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box;
+      .stat-item {
+        color: white;
       }
 
-      /* Override for #main container styles */
-      #main {
-        background-color: rgb(13, 14, 33) !important; /* Ensure the background matches */
-        padding: 0 !important; /* Remove default padding */
-        margin: 0 !important; /* Remove margins */
-        flex: 1; /* Adjust flex properties */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+  %body
+    %div.profile-container
+      %div.profile-picture-wrapper
+        %img{src: current_user.profile_picture || "/profilePics/holder.png",class: "profile-avatar",alt: "Profile Avatar",id: "current-profile-picture",onclick: "toggleDropdown()"}
+      %div#dropdown-menu
+        - existing_images = ["profilePics/Admiral_F_PP.png","profilePics/Admiral_M_PP.png","profilePics/Mechanic_F_PP.png","profilePics/Mechanic_M_PP.png","profilePics/Monk_F_PP.png","profilePics/Monk_M_PP.png","profilePics/Pilot_F_PP.png","profilePics/Pilot_M_PP.png","profilePics/holder.png"]
+        - existing_images.each do |image_path|
+          %div.profile-option
+            %img{src: "/#{image_path}",alt: "Profile Option",onclick: "selectProfilePicture('/#{image_path}')"}
+        %div.dropdown-save-btn
+          %button.btn{ type: "button", onclick: "saveProfilePicture()" } Save
+      %h1 User Profile
+      %div.profile-stats
+        %h2 Stats
+        .stat-item Level: #{current_user.try(:level) || "Not Available"}
+        .stat-item Experience Points: #{current_user.try(:experience) || "Not Available"}
+        .stat-item Email: #{current_user.email || "Not Available"}
+        = link_to "Achievements Unlocked", user_achievements_path(current_user), class: "btn", text_decoration: "none"
+      %button.btn{ type: "button", onclick: "window.location.href='#{welcome_screen_path}'" } Back to Game
+    :javascript
+      function toggleDropdown() {
+        const dropdown = document.getElementById("dropdown-menu");
+        dropdown.style.display = dropdown.style.display === "none" ? "grid" : "none";
       }
-%body
-  #container.profile-container
-    = image_tag "Placeholder_head.png", class: "profile-avatar", alt: "Placeholder Avatar"
-    %h1 User Profile
-    %div.profile-stats
-      %h2 Stats
-      .stat-item Level: #{current_user.try(:level) || "Not Available"}
-      .stat-item Experience Points: #{current_user.try(:experience) || "Not Available"}
-      .stat-item Email: #{current_user.email || "Not Available"}
-      = link_to "Achievements Unlocked", user_achievements_path(current_user), class: "btn"
-    %button.btn{ type: "button", onclick: "window.location.href='#{welcome_screen_path}'" } Back to Game
+
+      function selectProfilePicture(imagePath) {
+        const currentProfilePicture = document.getElementById("current-profile-picture");
+        currentProfilePicture.src = imagePath;
+        currentProfilePicture.dataset.selectedImage = imagePath;
+      }
+
+      function saveProfilePicture() {
+        const selectedImage = document.getElementById("current-profile-picture").dataset.selectedImage;
+
+        if (!selectedImage) {
+          alert("No image selected!");
+          return;
+        }
+
+        fetch("/update_profile_picture", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+          },
+          body: JSON.stringify({ profile_picture: selectedImage })
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert("Profile picture updated successfully!");
+            } else {
+              alert("Failed to update profile picture.");
+            }
+          })
+          .catch(error => console.error("Error:", error));
+      }

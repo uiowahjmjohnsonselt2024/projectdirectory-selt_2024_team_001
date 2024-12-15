@@ -48,6 +48,15 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def update_profile_picture
+    if current_user.update(profile_picture: params[:profile_picture])
+      render json: { success: true, profile_picture: current_user.profile_picture }
+    else
+      render json: { success: false, errors: current_user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+
   private
 
   # Strong parameters to prevent mass assignment vulnerability

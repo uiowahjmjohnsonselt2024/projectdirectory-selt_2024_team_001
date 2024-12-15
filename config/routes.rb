@@ -45,7 +45,10 @@ Rails.application.routes.draw do
   post '/add_user_custom', to: 'servers#add_user_custom', as: :add_user_custom
 
   get 'user_profile', to: 'sessions#user_profile', as: 'user_profile'
-
+  # config/routes.rb
+  #For updating the profile picture
+  post '/update_profile_picture', to: 'users#update_profile_picture'
+  
   get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
 
   # A route that is used to go to the start screen
@@ -89,7 +92,12 @@ Rails.application.routes.draw do
   post 'chat', to: 'chats#create'
 
 
+
   get 'convert_to_usd', to: 'conversions#convert_to_usd'
+
+  patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
+
+
 
 
 end
