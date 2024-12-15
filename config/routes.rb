@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   # config/routes.rb
   #For updating the profile picture
   post '/update_profile_picture', to: 'users#update_profile_picture'
-  
+
   get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
 
   # A route that is used to go to the start screen
