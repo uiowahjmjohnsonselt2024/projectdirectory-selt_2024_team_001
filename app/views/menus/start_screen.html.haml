@@ -28,7 +28,7 @@
         position: fixed; /* Make sure it fills the background */
         top: 0;
         left: 0;
-        z-index: -1; /* Send the video to the background */
+        z-index: +4; /* Send the video to the background */
         opacity: 1; /* Ensure video is fully visible */
       }
 
@@ -40,12 +40,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 1; /* Ensure content is above the video */
+        z-index: +8; /* Ensure content is above the video */
       }
 
       .game-logo {
         width: 350px; /* Adjust the size of the logo as needed */
         margin-bottom: 20px; /* Add some space below the logo */
+        z-index: +8;
       }
 
       .pulsing-text {
@@ -54,6 +55,7 @@
         color: #00ffff;
         text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
         animation: pulseAnimation 3s infinite;
+        z-index: +8;
       }
 
       @keyframes pulseAnimation {

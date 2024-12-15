@@ -1,6 +1,16 @@
 # app/controllers/messages_controller.rb
 
 class MessagesController < ApplicationController
+
+  # messages_controller.rb
+  def index
+    @messages = @single_room.messages.order(created_at: :asc).last(50)
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
+  end
+
   def create
     @server = Server.find(params[:server_id])
     @message = @server.messages.new(message_params)

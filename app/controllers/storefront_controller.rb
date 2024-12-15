@@ -1,5 +1,7 @@
 class StorefrontController < ApplicationController
   before_action :set_user_currencies
+  before_action :set_player, only: [:ships, :modules, :crew, :consumables]
+
 
   # Ships category
   def ships
@@ -25,17 +27,52 @@ class StorefrontController < ApplicationController
   def purchase_item
     item = StoreItem.find(params[:item_id])
     currency = params[:currency]
+    player_id = params[:player_id]
 
+    unless player_id
+      render json: { status: 'error', message: 'Player ID is missing.' }, status: :unprocessable_entity
+      return
+    end
+
+    player = current_user.players.find_by(id: player_id)
+    unless player
+      render json: { status: 'error', message: 'Player not found.' }, status: :unprocessable_entity
+      return
+    end
+
+    # Check if the player has enough currency
     if currency == 'gold' && current_user.gold >= item.cost
       current_user.gold -= item.cost
-      process_purchase(current_user, 'gold')
+      save_purchase(item, 'gold', player)
     elsif currency == 'shards' && current_user.shards >= item.cost
       current_user.shards -= item.cost
-      process_purchase(current_user, 'shards')
+      save_purchase(item, 'shards', player)
     else
       render json: { status: 'error', message: 'Not enough currency to purchase this item.' }, status: :unprocessable_entity
     end
   end
+
+  def save_purchase(item, currency, player)
+    # Find or create a PlayerItem for the purchased item
+    player_item = player.player_items.find_or_initialize_by(store_item: item)
+    player_item.quantity ||= 0
+    player_item.quantity += 1
+
+    ActiveRecord::Base.transaction do
+      current_user.save!
+      player_item.save!
+    end
+
+    render json: {
+      status: 'success',
+      new_gold: current_user.gold,
+      new_shards: current_user.shards,
+      item: { id: item.id, title: item.title, quantity: player_item.quantity }
+    }
+  rescue => e
+    render json: { status: 'error', message: "Purchase failed: #{e.message}" }, status: :unprocessable_entity
+  end
+
 
   def process_purchase(user, currency)
     if user.save
@@ -69,6 +106,13 @@ class StorefrontController < ApplicationController
   end
 
   private
+
+  def set_player
+    @player = current_user.players.first # Adjust logic if multiple players are supported
+    unless @player
+      redirect_to root_path, alert: "Player not found"
+    end
+  end
 
   # Set the user's current gold
   def set_user_currencies

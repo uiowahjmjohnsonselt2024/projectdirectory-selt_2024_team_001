@@ -14,8 +14,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id  # Log the user in automatically
-      flash.now[:notice] = "Welcome to Shards of the Grid!"
-      redirect_to root_path
+      flash[:notice] = "Welcome to Shards of the Grid!"
+      redirect_to welcome_screen_path
     else
       flash.now[:alert] = "There was a problem with your sign-up."
       render :new
@@ -47,6 +47,15 @@ class UsersController < ApplicationController
     flash.now[:notice] = "Your account has been deleted."
     redirect_to root_path
   end
+
+  def update_profile_picture
+    if current_user.update(profile_picture: params[:profile_picture])
+      render json: { success: true, profile_picture: current_user.profile_picture }
+    else
+      render json: { success: false, errors: current_user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
 
   private
 

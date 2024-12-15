@@ -1,98 +1,175 @@
-= form_with url: charges_path, id: 'currency-form' do |f|
-  .card-header.py-3.px-4.mb-3.bg-space-station
-    %strong Credit Card
-    %small.d-block.mt-1.text-muted Please enter your card details below
-
-  .card-body.px-4.py-4.form-space-station
-    .form-group.mb-4
-      %label{for: "currency"} Select Currency
-      = select_tag :currency, options_for_select([["USD", "USD"], ["EUR", "EUR"], ["GBP", "GBP"], ["JPY", "JPY"], ["CAD", "CAD"]]), { prompt: "Choose Currency", class: 'form-control input-space', id: 'currency' }
-
-    .form-group.mb-4
-      %label{for: "amount"} Amount
-      = f.text_field :amount, class: 'form-control input-space', id: 'amount', placeholder: 'Enter amount'
-
-    .form-group.mb-4
-      %label{for: "converted_amount"} Converted Amount (in USD)
-      = text_field_tag :converted_amount, '', class: 'form-control input-space', id: 'converted_amount', disabled: true
-      = hidden_field_tag :hidden_converted_amount, '', id: 'hidden_converted_amount'
-
-    .form-group.mb-4
-      %label{for: "shards"} Shards You Will Obtain
-      = text_field_tag :shards, '', class: 'form-control input-space', id: 'shards', disabled: true
-
-    .form-group.mb-4
-      = button_tag 'Convert to USD', type: 'button', class: 'btn btn-info btn-sm space-btn', id: 'convert-button'
-
-    .form-group.mb-4
-      %label{for: "ccnumber"} Credit Card Number
-      = f.text_field :card_number, class: 'form-control input-space', id: 'cardNumber', placeholder: '0000 0000 0000 0000'
-
-    .form-row
-      .col-6.form-group.mb-4
-        %label{for: "ccmonth"} Expiry Month
-        = f.text_field :month, class: 'form-control input-space', id: 'ccmonth', placeholder: 'MM'
-
-      .col-6.form-group.mb-4
-        %label{for: "ccyear"} Expiry Year
-        = f.text_field :year, class: 'form-control input-space', id: 'ccyear', placeholder: 'YY'
-
-    .form-group.mb-4
-      %label{for: "cvv"} CVV/CVC
-      = f.text_field :cvc, class: 'form-control input-space', id: 'cvv', placeholder: '123'
-
-  .card-footer.mt-4.d-flex.justify-content-between.align-items-center
-    = link_to(session[:return_to] || root_path, class: "btn-space") do
-      %i.mdi.mdi-arrow-left
-      = " Back"
-
-    = link_to shard_purchase_path, class: 'btn btn-danger btn-sm space-btn' do
-      %i.mdi.mdi-lock-reset
-      = " Reset"
-
-    = button_to charges_path, class: 'btn btn-success btn-sm space-btn float-right' do
-      %i.mdi.mdi-gamepad-circle
-      = " Continue"
-- if flash[:notice]
-  .alert.alert-success= flash.now[:notice]
-- if flash[:alert]
-  .alert.alert-danger= flash[:alert]
-
-:javascript
-  document.addEventListener("DOMContentLoaded", () => {
-    const convertButton = document.getElementById('convert-button');
-    const currencyField = document.getElementById('currency');
-    const amountField = document.getElementById('amount');
-    const convertedField = document.getElementById('converted_amount')
-    const hiddenConvertedField = document.getElementById('hidden_converted_amount');
-    const shardsField = document.getElementById('shards');
-
-
-    convertButton.addEventListener('click', () => {
-      const currency = currencyField.value;
-      const amount = amountField.value;
-
-      if (!currency || !amount || amount <= 0) {
-        alert("Please select a currency and enter a valid amount.");
-        return;
+%html{ lang: "en", "data-theme": session[:theme] || "dark" }
+  %head
+    %title Shards of the Grid
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+    :css
+      body {
+        font-family: 'Orbitron', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      fetch(`/convert_to_usd?currency=${currency}&amount=${amount}`, {
-        method: 'GET',
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.converted_amount) {
-          convertedField.value = data.converted_amount;
-          hiddenConvertedField.value = data.converted_amount;
+      body[data-theme="dark"] {
+        background-color: #0d0e21;
+        color: white;
+      }
 
-          const shards = Math.floor(data.converted_amount / 0.75);
-          shardsField.value = shards;
-        } else {
-          alert(data.error || "An error occurred during conversion.");
-        }
-      })
-      .catch(error => console.error("Error:", error));
-    });
-  });
+      body[data-theme="light"] {
+        background-color: #ffffff;
+        color: #000000;
+      }
+
+      .bg-space-station {
+        text-shadow: 0 0 5px #fff;
+        padding: 15px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      body[data-theme="dark"] .bg-space-station {
+        background-color: #15172b;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      }
+
+      body[data-theme="light"] .bg-space-station {
+        background-color: #f7f7fb;
+        box-shadow: 0 0 15px rgba(0, 140, 255, 0.5);
+      }
+
+      .form-space-station {
+        border-radius: 15px;
+        padding: 30px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      body[data-theme="dark"] .form-space-station {
+        background-color: rgba(20, 22, 45, 0.9);
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+      }
+
+      body[data-theme="light"] .form-space-station {
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 15px rgba(0, 140, 255, 0.5);
+      }
+
+      .input-space {
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 10px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      body[data-theme="dark"] .input-space {
+        background-color: #2b2e4a;
+        color: white;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.7);
+      }
+
+      body[data-theme="light"] .input-space {
+        background-color: #f7f7fb;
+        color: black;
+        box-shadow: inset 0 0 5px rgba(0, 140, 255, 0.7);
+      }
+
+      .input-space:focus {
+        outline: none;
+      }
+
+      .space-btn {
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s, box-shadow 0.3s;
+      }
+
+      body[data-theme="dark"] .space-btn {
+        background-color: rgba(255, 0, 0, 0.8);
+        color: white;
+      }
+
+      body[data-theme="light"] .space-btn {
+        background-color: rgba(0, 140, 255, 0.8);
+        color: white;
+      }
+
+      .space-btn:hover {
+        transform: scale(1.05);
+      }
+
+      body[data-theme="dark"] .space-btn:hover {
+        background-color: rgba(255, 0, 0, 0.5);
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+      }
+
+      body[data-theme="light"] .space-btn:hover {
+        background-color: rgba(0, 140, 255, 0.5);
+        box-shadow: 0 0 10px rgba(0, 140, 255, 0.8);
+      }
+
+      .card-footer {
+        border-top: 1px solid #3b3f5c;
+        margin-top: 2rem; /* Add spacing below form */
+      }
+
+      .card-footer .space-btn {
+        margin-top: 1rem; /* Add spacing to buttons themselves */
+      }
+
+  %body{ "data-theme": session[:theme] || "dark" }
+    = form_with url: charges_path do |f|
+      .card-header.py-3.px-4.mb-3.bg-space-station
+        %strong Credit Card
+        %small.d-block.mt-1.text-muted Please enter your card details below
+
+      .card-body.px-4.py-4.form-space-station
+        .form-group.mb-4
+          %label{for: "amount"} Amount
+          = f.text_field :amount, class: 'form-control input-space', id: 'amount', min: 0, placeholder: 'Enter amount in $'
+
+        .form-group.mb-4
+          %label{for: "ccnumber"} Credit Card Number
+          = f.text_field :card_number, class: 'form-control input-space', id: 'cardNumber', placeholder: '0000 0000 0000 0000'
+
+        .form-row
+          .col-6.form-group.mb-4
+            %label{for: "ccmonth"} Expiry Month
+            = f.text_field :month, class: 'form-control input-space', id: 'ccmonth', placeholder: 'MM'
+
+          .col-6.form-group.mb-4
+            %label{for: "ccyear"} Expiry Year
+            = f.text_field :year, class: 'form-control input-space', id: 'ccyear', placeholder: 'YY'
+
+        .form-group.mb-4
+          %label{for: "cvv"} CVV/CVC
+          = f.text_field :cvc, class: 'form-control input-space', id: 'cvv', placeholder: '123'
+
+        .card-footer.mt-4.d-flex.justify-content-between.align-items-center
+          = link_to session[:return_to] || main_game_screen_path, class: 'btn btn-secondary btn-sm space-btn' do
+            %i.mdi.mdi-arrow-left
+            = " Back to Game"
+
+        = link_to shard_purchase_path, class: 'btn btn-danger btn-sm space-btn' do
+          %i.mdi.mdi-lock-reset
+          = " Reset"
+
+        = button_to charges_path, class: 'btn btn-success btn-sm space-btn float-right' do
+          %i.mdi.mdi-gamepad-circle
+          = " Continue"
+
+          - if flash[:notice]
+            .alert.alert-success= flash.now[:notice]
+          - if flash[:alert]
+            .alert.alert-danger= flash[:alert]
+

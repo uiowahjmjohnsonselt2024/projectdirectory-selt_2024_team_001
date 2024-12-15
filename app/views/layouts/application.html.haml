@@ -1,7 +1,9 @@
 !!!
-%html
+%html{ lang: "en", "data-theme": session[:theme] || "dark" }
   %head
+
     %title Shards of the Grid
+
     = csrf_meta_tags
     = csp_meta_tag
     = javascript_importmap_tags
@@ -9,5 +11,6 @@
     = stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"
   %body
     = yield
+
 
 

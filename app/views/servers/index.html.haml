@@ -1,22 +1,90 @@
-%html
+%html{ lang: "en", "data-theme": session[:theme] || "dark" }
   %head
     %title Server Management
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    = csrf_meta_tags
     :css
-      body {
-        background: linear-gradient(135deg, #0c0e1a, #161a30);
-        font-family: 'Orbitron', sans-serif;
-        color: #e0e0e0;
+      /* General Page Styling */
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Arial', sans-serif;
+        background-color: rgb(13, 14, 33);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
       }
 
+      [data-theme="light"] body {
+        background-color: #f5f5f5;
+        color: black;
+      }
+
+      /* Main Container */
+      .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 90%;
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(255, 0, 0, 0.7);
+      }
+
+      [data-theme="light"] .main-container {
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Title Styling */
+      h1 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        text-align: center;
+        color: rgba(255, 0, 0, 0.8);
+      }
+
+      [data-theme="light"] h1 {
+        color: #007bff;
+      }
+
+      h2 {
+        text-align: center;
+        margin: 1.5rem 0 1rem;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+        padding-bottom: 0.5rem;
+      }
+
+      [data-theme="light"] h2 {
+        border-color: #007bff;
+      }
+
+      /* Scrollable Table */
       .scrollable-table {
+        width: 100%;
+        margin: 1.5rem 0;
         height: 300px;
         overflow-y: auto;
-        border: 1px solid #5e5e8f;
-        border-radius: 10px;
-        background: rgba(20, 22, 45, 0.9);
-        box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.5);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(255, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+
+      [data-theme="light"] .scrollable-table {
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
 
       table {
@@ -25,100 +93,102 @@
       }
 
       th, td {
-        border: 1px solid #5e5e8f;
         padding: 10px;
-        text-align: left;
-        color: #ffffff;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       th {
-        background-color: #2b2e4a;
-        border-bottom: 2px solid #444;
-        text-shadow: 0 0 5px #00ffff;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
       }
 
+      [data-theme="light"] th {
+        background-color: #e0e0e0;
+        color: black;
+      }
+
+      /* Input Container Centered */
       .input-container {
-        margin: 15px 0;
-        padding: 20px;
-        background: rgba(20, 22, 45, 0.9);
-        border-radius: 15px;
-        box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.5);
-      }
-
-      input[type="text"] {
-        background-color: #2b2e4a;
-        border: 1px solid #5e5e8f;
-        color: #ffffff;
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
-        transition: box-shadow 0.3s, background-color 0.3s;
+        width: 100%;
+        max-width: 600px;
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.8);
         border-radius: 8px;
-        padding: 10px;
+        box-shadow: 0 4px 12px rgba(255, 0, 0, 0.7);
+        text-align: center;
       }
 
-      input[type="text"]:focus {
-        background-color: #34385a;
-        box-shadow: 0 0 15px rgba(0, 153, 255, 0.7);
+      [data-theme="light"] .input-container {
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
 
+      /* Buttons */
       .btn-space {
-        color: #fff;
-        background-image: linear-gradient(135deg, #2b3e50, #1b263b);
-        border: 1px solid #3b4b67;
-        text-shadow: 0 0 5px #00ffff;
-        transition: box-shadow 0.3s, transform 0.3s;
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-decoration: none;
         display: inline-block;
+        padding: 10px 15px;
+        width: auto;
+        border: none;
+        border-radius: 8px;
+        background-color: rgba(255, 0, 0, 0.8);
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
       }
 
       .btn-space:hover {
-        box-shadow: 0 0 20px rgba(0, 153, 255, 0.8);
-        transform: translateY(-3px);
+        background-color: rgba(255, 0, 0, 0.6);
       }
 
-      .navigation-button {
-        margin-top: 20px;
+      [data-theme="light"] .btn-space {
+        background-color: #007bff;
       }
 
-      
-  %body
-    %h1 Server Management
+      [data-theme="light"] .btn-space:hover {
+        background-color: #005bb5;
+      }
 
-    %h2 Servers You Are Registered To
-    .scrollable-table
-      %table
-        %thead
-          %tr
-            %th Server ID
-            %th Status
-            %th Join Game
-        %tbody
-          - if @user_servers.present?
-            - @user_servers.each do |user_server|
-              %tr
-                %td= user_server.server.id
-                %td= user_server.server.status
-                %td
-                  = link_to "Join Game", game_view_server_path(user_server.server), class: "btn-space"
-          - else
+  %body{ class: session[:theme] || 'dark' }
+    %h1
+    .main-container
+      %h2 Server Management
+
+      %h2 Servers You Are Registered To
+      .scrollable-table
+        %table
+          %thead
             %tr
-              %td{ colspan: 3 } You are not registered to any servers.
+              %th Server ID
+              %th Status
+              %th Join Game
+          %tbody
+            - if @user_servers.present?
+              - @user_servers.each do |user_server|
+                %tr
+                  %td= user_server.server.id
+                  %td= user_server.server.status
+                  %td
+                    = link_to "Join Game", game_view_server_path(user_server.server), class: "btn-space"
+            - else
+              %tr
+                %td{ colspan: 3 } You are not registered to any servers.
 
-    %h2 Add a Pre-Existing Server to Your Registered List
-    .input-container
-      %form{ action: add_user_custom_path, method: "post" }
-        %label{ for: "server_number" } Enter Server ID:
-        %input{ type: "text", id: "server_number", name: "server_number", required: true, placeholder: "Server ID" }
-        %button.btn-space{ type: "submit" } Add Server to Registered List
+      %h2 Add a Pre-Existing Server to Your Registered List
+      .input-container
+        %form{ action: add_user_custom_path, method: "post" }
+          %label{ for: "server_number" } Enter Server ID:
+          %input{ type: "text", id: "server_number", name: "server_number", required: true, placeholder: "Server ID" }
+          %button.btn-space{ type: "submit" } Add Server to Registered List
 
-    %h2 Create a New Server
-    .input-container
-      %form{ action: servers_path, method: "post" }
-        %label{ for: "server_status" } Server Status:
-        %input{ type: "text", id: "server_status", name: "server_status", required: true, placeholder: "Server Status" }
-        %button.btn-space{ type: "submit" } Create New Server
+      %h2 Create a New Server
+      .input-container
+        %form{ action: servers_path, method: "post" }
+          %label{ for: "server_status" } Server Status:
+          %input{ type: "text", id: "server_status", name: "server_status", required: true, placeholder: "Server Status" }
+          %button.btn-space{ type: "submit" } Create New Server
 
-    .navigation-button
-      = link_to "Back to Welcome Screen", welcome_screen_path, class: "btn-space"
-
+      .navigation-button
+        = link_to "Back to Welcome Screen", welcome_screen_path, class: "btn-space"

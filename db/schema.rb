@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_15_090237) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_15_080320) do
   create_table "achievements", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_15_090237) do
   create_table "player_items", force: :cascade do |t|
     t.integer "player_id", null: false
     t.integer "store_item_id", null: false
+    t.integer "quantity", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_id"], name: "index_player_items_on_player_id"

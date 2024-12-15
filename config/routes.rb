@@ -45,6 +45,9 @@ Rails.application.routes.draw do
   post '/add_user_custom', to: 'servers#add_user_custom', as: :add_user_custom
 
   get 'user_profile', to: 'sessions#user_profile', as: 'user_profile'
+  # config/routes.rb
+  #For updating the profile picture
+  post '/update_profile_picture', to: 'users#update_profile_picture'
 
   get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
 
@@ -72,10 +75,30 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :players, only: [] do
+    member do
+      get 'inventory' # Add route for the inventory view
+    end
+    resources :player_items, only: [:index, :create, :update], shallow: true
+  end
+
+
+  patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
+
   mount ActionCable.server => '/cable'
   post 'convert', to: 'conversions#convert'
 
+  # Route for chat
+  post 'chat', to: 'chats#create'
+
+
+
   get 'convert_to_usd', to: 'conversions#convert_to_usd'
+
+
+  post 'update_session_profile_picture', to: 'sessions#update_session_profile_picture'
+
+
 
 
 end

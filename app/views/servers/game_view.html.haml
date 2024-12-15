@@ -108,18 +108,19 @@
             = link_to 'Settings', welcome_settings_path, class: 'dropdown-btn'
             = link_to 'Store', store_menu_storefront_index_path, class: 'dropdown-btn'
             = link_to 'Server', servers_path, class: 'dropdown-btn'
+            = link_to 'Inventory', inventory_player_path(@player.id), class: 'dropdown-btn'
             = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
         .col-md-8.col-sm-8.bg-dark.text-light#room_container
         #single_room
           %h4.text-center= @server.server_num
           = turbo_stream_from @server
-          #messages
-            - if @messages.present?
-              - @messages.each do |message|
-                %div.message
-                  %p
-                    %strong= message.user.email
-                    = message.body
+          #messages.message-list
+          - if @messages.present?
+            - @messages.last(14).each do |message|
+              %div.message
+                %p
+                  %strong= message.user.email
+                  = message.body
           = render partial: 'layouts/new_message_form'
 
 
