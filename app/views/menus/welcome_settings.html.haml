@@ -5,17 +5,17 @@
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     = csrf_meta_tags
     :css
-      /* Ensure the entire page covers the full viewport */
-      html,
-      body {
-        background-color: rgb(13, 14, 33); /* Default background (dark mode) */
-        height: 100%;
-        color: white;
+      /* Full-screen setup */
+      html, body {
         margin: 0;
+        padding: 0;
+        height: 100%;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        font-family: Arial, sans-serif;
+        background-color: rgb(13, 14, 33); /* Dark mode background */
+        color: white;
       }
 
       [data-theme="light"] body {
@@ -23,68 +23,75 @@
         color: black;
       }
 
-
-      title {
-        padding-bottom: 30px;
-        color: white;
-        text-align: center;
-        margin-top: 1rem;
-      }
-
-      [data-theme="light"] title {
-        padding-bottom: 30px;
-        color: black;
-        text-align: center;
-        margin-top: 1rem;
-      }
-
-      h1, p {
-        color: inherit; /* Adapt to the current theme */
-      }
-
-      /* Parent container */
-      .parent-container {
+      /* Parent container centers the settings box */
+      #container {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        min-height: 100vh;
         width: 100%;
-        max-width: 400px;
-        padding: 2rem;
-        box-sizing: border-box;
-        max-height: 90vh;
-        gap: 1rem;
       }
 
+      /* Settings box styling */
       .settings-container {
-        background: black;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 1.5rem; /* Even spacing between items */
+        background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Red glow shadow for dark mode */
         text-align: center;
+        width: 350px;
+        max-width: 90%;
       }
 
       [data-theme="light"] .settings-container {
         background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle gray shadow for light mode */
+      }
+
+      /* Buttons styling */
+      .actions {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Center the buttons horizontally */
         justify-content: center;
-        gap: 1rem;
-        text-align: center;
-      }
-
-      .setting-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        gap: 1rem; /* Even spacing between buttons */
         width: 100%;
-        padding: 0.5rem 0;
-        color: inherit;
       }
 
+      .space-btn {
+        color: white;
+        background-color: rgba(255, 0, 0, 0.8); /* Red background for buttons in dark mode */
+        border: none;
+        border-radius: 8px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        text-align: center;
+        width: 100%; /* Buttons span the full width of their container */
+        max-width: 300px; /* Prevent overly wide buttons */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .space-btn:hover {
+        background-color: rgba(255, 0, 0, 0.6);
+        transform: translateY(-3px);
+      }
+
+      [data-theme="light"] .space-btn {
+        background-color: #007bff; /* Blue background for buttons in light mode */
+        color: white;
+      }
+
+      [data-theme="light"] .space-btn:hover {
+        background-color: #005bb5; /* Darker blue hover effect for light mode */
+      }
+
+      /* Toggle switch */
       .switch {
         position: relative;
         display: inline-block;
@@ -123,61 +130,30 @@
       }
 
       input:checked + .slider {
-        background-color: rgba(255, 0, 0, 0.5);
+        background-color: rgba(255, 0, 0, 0.5); /* Red in dark mode */
       }
 
       [data-theme="light"] input:checked + .slider {
-        background-color: #4caf50;
+        background-color: #28a745; /* Green in light mode */
       }
 
       input:checked + .slider:before {
         transform: translateX(20px);
       }
 
-      .space-btn {
-        color: #fff;
-        background-image: linear-gradient(135deg, #191919, #000000);
-        border: 1px solid #633535;
-        text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
-        transition: box-shadow 0.3s, transform 0.3s;
-        border-radius: 8px;
-        padding: 10px 20px;
-      }
-
-      [data-theme="light"] .space-btn {
-        color: #fff;
-        background-image: linear-gradient(135deg, #2b3e50, #1b263b);
-        border: 1px solid #3b4b67;
-        text-shadow: 0 0 5px #00ffff;
-        transition: box-shadow 0.3s, transform 0.3s;
-        border-radius: 8px;
-        padding: 10px 20px;
-      }
-
-      .space-btn:hover {
-        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-        transform: translateY(-3px);
-      }
-
-      [data-theme="light"] .space-btn:hover {
-        box-shadow: 0 0 20px rgba(0, 153, 255, 0.8);
-        transform: translateY(-3px);
-      }
-
   %body{ class: session[:theme] || 'dark' }
-    #container.parent-container
+    #container
       = form_with url: toggle_theme_path, method: :patch, local: true do
         .settings-container
           %h1 Settings
           %div.setting-item
-            %label{ for: "theme_toggle" } Light / Dark Mode
+            %label{ for: "theme_toggle" } Light Mode
             %div.switch
               = check_box_tag :theme_toggle, 'light', (session[:theme] == 'light'), id: 'theme_toggle'
               %span.slider
 
-        %div.actions
-          = submit_tag "Save Changes", class: "btn btn-primary space-btn"
-          = link_to main_game_screen_path, class: 'btn btn-secondary btn-sm space-btn' do
-            %i.mdi.mdi-arrow-left
-              = " Back"
-          = link_to 'Main Menu', welcome_screen_path, class: "btn btn-secondary space-btn"
+          %div.actions
+            = submit_tag "Save Changes", class: "btn btn-primary space-btn"
+            = link_to main_game_screen_path, class: 'btn btn-secondary space-btn' do
+              = "Back to Game"
+            = link_to 'Main Menu', welcome_screen_path, class: "btn btn-secondary space-btn"
