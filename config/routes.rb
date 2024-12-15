@@ -94,7 +94,7 @@ Rails.application.routes.draw do
 
 
   get 'convert_to_usd', to: 'conversions#convert_to_usd'
-  
+
 
   post 'update_session_profile_picture', to: 'sessions#update_session_profile_picture'
 
