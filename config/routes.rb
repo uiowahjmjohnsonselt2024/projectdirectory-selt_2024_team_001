@@ -32,8 +32,12 @@ Rails.application.routes.draw do
     resources :players, only: [] do
       member do
         patch :update_position
+
         patch :collect_gold
         get :generate_story
+
+        get :ping, to: 'players#ping_players', as: 'ping_players'
+
       end
     end
 
@@ -42,6 +46,7 @@ Rails.application.routes.draw do
       get :game_view
       get :grid
       post :send_chat_message
+      post :ping_players, to: 'players#ping_players'
     end
   end
 
@@ -91,6 +96,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
   post 'convert', to: 'conversions#convert'
+
 
 
   # Route for chat
