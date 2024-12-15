@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_15_013652) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_15_090237) do
   create_table "achievements", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_15_013652) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "prompt"
     t.index ["server_id", "row", "column"], name: "index_grid_tiles_on_server_id_and_row_and_column", unique: true
     t.index ["server_id"], name: "index_grid_tiles_on_server_id"
   end
@@ -42,6 +43,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_15_013652) do
     t.datetime "updated_at", null: false
     t.index ["server_id"], name: "index_messages_on_server_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "player_items", force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.integer "store_item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_player_items_on_player_id"
+    t.index ["store_item_id"], name: "index_player_items_on_store_item_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -106,6 +116,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_15_013652) do
   add_foreign_key "achievements", "users"
   add_foreign_key "messages", "servers"
   add_foreign_key "messages", "users"
+  add_foreign_key "player_items", "players"
+  add_foreign_key "player_items", "store_items"
   add_foreign_key "players", "servers"
   add_foreign_key "players", "users"
   add_foreign_key "user_grid_tiles", "grid_tiles"
