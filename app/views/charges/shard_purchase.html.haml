@@ -53,7 +53,8 @@
     = button_to charges_path, class: 'btn btn-success btn-sm space-btn float-right' do
       %i.mdi.mdi-gamepad-circle
       = " Continue"
-
+- if flash[:notice]
+  .alert.alert-success= flash.now[:notice]
 - if flash[:alert]
   .alert.alert-danger= flash[:alert]
 
