@@ -7,6 +7,7 @@
     = action_cable_meta_tag
     = stylesheet_link_tag 'game_view', media: 'all'
 
+
   :javascript
     document.addEventListener('turbo:load', () => {
       const gridCells = document.querySelectorAll('.grid-cell');
@@ -49,6 +50,7 @@
 
               if (data.success) {
                 modalDescription.textContent = `${data.story}\n\nYou found ${data.gold} gold!`;
+                modalDescription.style.color = 'black';
                 goldAmount = data.gold;
               } else {
                 modalDescription.textContent = 'Failed to generate story.';
@@ -229,14 +231,26 @@
             = link_to 'Settings', welcome_settings_path, class: 'dropdown-btn'
             = link_to 'Store', store_menu_storefront_index_path, class: 'dropdown-btn'
             = link_to 'Server', servers_path, class: 'dropdown-btn'
+            = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
 
+        #single_room
+          %h4.text-center= @server.server_num
+          = turbo_stream_from @server
+          #messages
+            - if @messages.present?
+              - @messages.each do |message|
+                %div.message
+                  %p
+                    %strong= message.user.email
+                    = message.body
+          = render partial: 'layouts/new_message_form'
           %div#modal.modal
             .modal-content
               %button.close-button &times;
               .modal-image
                 %img#modal-image{ src: '', alt: 'Grid Cell Image', class: 'modal-img' }
               .modal-description Move the player to the selected cell.
-              .story-container
+              .story-container{:id => "story-container"}
                 %p#story-text
               .modal-buttons
                 %button#move-player-btn.move-player-btn Move Player

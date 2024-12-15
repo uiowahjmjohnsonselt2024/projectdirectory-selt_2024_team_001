@@ -165,9 +165,13 @@ class PlayersController < ApplicationController
 
   # Set player based on :id parameter (player id) within the server
   def set_player
-    @player = @server.players.find_by(id: params[:id])
-    unless @player
-      render json: { success: false, error: "Player not found for this server." }, status: :not_found
+    if action_name == 'inventory'
+      # Just find the player by id
+      @player = Player.find_by(id: params[:id])
+      render json: { success: false, error: "Player not found." }, status: :not_found unless @player
+    else
+      @player = @server.players.find_by(id: params[:id])
+      render json: { success: false, error: "Player not found for this server." }, status: :not_found unless @player
     end
   end
 end
