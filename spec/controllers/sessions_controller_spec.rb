@@ -130,4 +130,31 @@ RSpec.describe SessionsController, type: :controller do
       end
     end
   end
+  describe 'POST #update_session_profile_picture' do
+    before { session[:user_id] = user.id } # Assuming a logged-in user for context.
+
+    context 'when profile_picture parameter is provided' do
+      it 'updates the session profile picture and returns success' do
+        post :update_session_profile_picture, params: { profile_picture: '/profilePics/avatar.png' }, format: :json
+
+        expect(session[:profile_picture]).to eq('/profilePics/avatar.png')
+        json_response = JSON.parse(response.body)
+        expect(json_response['success']).to be true
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'when profile_picture parameter is not provided' do
+      it 'does not throw an error and processes the request gracefully' do
+        post :update_session_profile_picture, params: {}, format: :json
+
+        # In your existing method, there is no error handling for missing params.
+        # This ensures the method doesn't raise an error in that case.
+        expect(session[:profile_picture]).to be_nil
+        json_response = JSON.parse(response.body)
+        expect(json_response['success']).to be true
+        expect(response).to have_http_status(:ok)
+      end
+    end
+  end
 end
