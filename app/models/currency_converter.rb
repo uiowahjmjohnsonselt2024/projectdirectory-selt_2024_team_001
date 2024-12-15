@@ -5,7 +5,7 @@ class CurrencyConverter
 
   def initialize(base_currency = 'USD')
     @base_currency = base_currency
-    end
+  end
 
   def fetch_rates(base_currency = 'USD')
     url = "#{CURRENCY_API_BASE_URL}?apikey=#{CURRENCY_API_KEY}&base_currency=#{@base_currency}"

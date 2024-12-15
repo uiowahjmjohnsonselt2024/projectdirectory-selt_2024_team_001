@@ -5,7 +5,7 @@ class ConversionsController < ApplicationController
   # from_currency = params[:from_currency]
   # to_currency = params[:to_currency]
 
-   # Initialize the converter
+  # Initialize the converter
   #  converter = CurrencyConverter.new(from_currency)
 
   # begin
@@ -43,4 +43,3 @@ class ConversionsController < ApplicationController
   end
 
 end
-

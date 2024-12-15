@@ -1,9 +1,7 @@
 require 'stripe'
-
 class ChargesController < ApplicationController
   rescue_from Stripe::CardError, Stripe::InvalidRequestError, with: :catch_exception
   before_action :set_params
-  before_action :disable_caching, only: [:create]  # Add it here
 
   def create
     if flash[:alert].present?
@@ -18,7 +16,8 @@ class ChargesController < ApplicationController
     end
 
     # Source: 'tok_visa' is a token provided by the stripe API for testing purposes
-    charge = Stripe::Charge.create(amount: amount_cents, source: 'tok_visa', currency: @currency)
+    charge = Stripe::Charge.create(amount: (amount_cents), source: 'tok_visa', currency: @currency)
+    #flash[:notice] = charge[:paid] == true ? success_message(charge) : failure_message
 
     if charge.paid
       current_user.shards ||= 0
@@ -37,12 +36,7 @@ class ChargesController < ApplicationController
 
   private
 
-  def disable_caching
-    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = 'Fri, 01 Jan 1990 00:00:00 GMT'
-  end
-
+  #set_params works to set those values, shown by errors provided by the Stripe API
   def set_params
     @amount = params[:amount]&.to_f || 0
     @currency = params[:currency] || ''
@@ -63,7 +57,7 @@ class ChargesController < ApplicationController
 
     flash[:alert] = flash[:alert].join(' ') if flash[:alert].any?
 
-    if @currency == 'USD'
+    if(@currency == 'USD')
       @shards = (@amount / 0.75).floor
     else
       @shards = (@converted_amount / 0.75).floor
@@ -115,7 +109,7 @@ class ChargesController < ApplicationController
   end
 
   def success_message(charge)
-    "Your payment for #{@shards} ++ #{@converted_amount} ++ #{@amount} ++ has been successfully processed and added to your new total #{current_user.shards} shards.
+    "Your payment for #{@shards} has been successfully processed and added to your new total #{current_user.shards} shards.
      You can take your receipt from here: #{charge[:receipt_url]}"
   end
 
