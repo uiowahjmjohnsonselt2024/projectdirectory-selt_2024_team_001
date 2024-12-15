@@ -5,7 +5,7 @@ class Server < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :players
 
-  after_create :initialize_grid
+  after_create :initialize_grid_unless_seeding
 
   private
 
@@ -14,17 +14,44 @@ class Server < ApplicationRecord
   end
 
   # Initialize a 6x6 grid of tiles for the server
-  def initialize_grid
-    (0..5).each do |row|
-      (0..5).each do |col|
+  def initialize_grid(skip_image_generation: false)
+    possible_weathers = %w[clear_atmosphere partially_cloudy fully_cloudy stormy hurricane_scarred foggy_atmosphere frozen_atmosphere volcanic_clouds auroral_activity dust_storms]
+    possible_environments = %w[terrestrial desert ocean frozen lava gas_giant crystal metallic jungle ruined]
+
+    (1..6).each do |row|
+      (1..6).each do |col|
+        weather = possible_weathers.sample
+        environment = possible_environments.sample
+
+        prompt = "A sci-fi landscape with #{weather} weather in a #{environment} environment that is viewed from space."
+
+        # Skip image generation if the flag is set to true
+        image_url = if skip_image_generation
+                      '/planets/11test.png' # Use the default image
+                    else
+                      service = OpenaiService.new(prompt: prompt, type: 'image')
+                      response = service.call
+                      response&.dig("data", 0, "url") || '/planets/11test.png'
+                    end
+
         grid_tiles.create!(
           row: row,
           column: col,
-          weather: 'temp',
-          environment_type: 'temp',
-          image_url: "default_image.jpg"
+          weather: weather,
+          environment_type: environment,
+          image_url: image_url,
+          prompt: prompt
         )
       end
     end
+  end
+
+  def initialize_grid_unless_seeding
+    initialize_grid(skip_image_generation: seeding?)
+  end
+
+  # Method to detect if the code is running during seeding
+  def seeding?
+    caller.any? { |line| line.include?('db/seeds.rb') }
   end
 end
