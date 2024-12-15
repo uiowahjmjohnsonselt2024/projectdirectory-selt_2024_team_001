@@ -1,95 +1,169 @@
-= form_with url: charges_path do |f|
-  .card-header.py-3.px-4.mb-3.bg-space-station
-    %strong Credit Card
-    %small.d-block.mt-1.text-muted Please enter your card details below
+%html{ lang: "en", "data-theme": session[:theme] || "dark" }
+  %head
+    %title Shards of the Grid
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+    :css
+      body {
+        font-family: 'Orbitron', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
 
-  .card-body.px-4.py-4.form-space-station
-    .form-group.mb-4
-      %label{for: "amount"} Amount
-      = f.text_field :amount, class: 'form-control input-space', id: 'amount', min: 0, placeholder: 'Enter amount in $'
+      body[data-theme="dark"] {
+        background-color: #0d0e21;
+        color: white;
+      }
 
-    .form-group.mb-4
-      %label{for: "ccnumber"} Credit Card Number
-      = f.text_field :card_number, class: 'form-control input-space', id: 'cardNumber', placeholder: '0000 0000 0000 0000'
+      body[data-theme="light"] {
+        background-color: #ffffff;
+        color: #000000;
+      }
 
-    .form-row
-      .col-6.form-group.mb-4
-        %label{for: "ccmonth"} Expiry Month
-        = f.text_field :month, class: 'form-control input-space', id: 'ccmonth', placeholder: 'MM'
+      .bg-space-station {
+        text-shadow: 0 0 5px #fff;
+        padding: 15px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
 
-      .col-6.form-group.mb-4
-        %label{for: "ccyear"} Expiry Year
-        = f.text_field :year, class: 'form-control input-space', id: 'ccyear', placeholder: 'YY'
+      body[data-theme="dark"] .bg-space-station {
+        background-color: #15172b;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      }
 
-    .form-group.mb-4
-      %label{for: "cvv"} CVV/CVC
-      = f.text_field :cvc, class: 'form-control input-space', id: 'cvv', placeholder: '123'
+      body[data-theme="light"] .bg-space-station {
+        background-color: #f7f7fb;
+        box-shadow: 0 0 15px rgba(0, 140, 255, 0.5);
+      }
 
-  .card-footer.mt-4.d-flex.justify-content-between.align-items-center
-    = link_to main_game_screen_path, class: 'btn btn-secondary btn-sm space-btn' do
-      %i.mdi.mdi-arrow-left
-      = " Back"
+      .form-space-station {
+        border-radius: 15px;
+        padding: 30px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
 
-    = link_to shard_purchase_path, class: 'btn btn-danger btn-sm space-btn' do
-      %i.mdi.mdi-lock-reset
-      = " Reset"
+      body[data-theme="dark"] .form-space-station {
+        background-color: rgba(20, 22, 45, 0.9);
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+      }
 
-    = button_to charges_path, class: 'btn btn-success btn-sm space-btn float-right' do
-      %i.mdi.mdi-gamepad-circle
-      = " Continue"
+      body[data-theme="light"] .form-space-station {
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 15px rgba(0, 140, 255, 0.5);
+      }
 
-:css
-  body {
-    background: linear-gradient(135deg, #0c0e1a, #161a30);
-    font-family: 'Orbitron', sans-serif;
-    color: #e0e0e0;
-  }
+      .input-space {
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 10px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
 
-  .bg-space-station {
-    background: linear-gradient(135deg, #1a1c2e, #272a40);
-    border-bottom: 2px solid #444;
-    text-shadow: 0 0 5px #fff;
-  }
+      body[data-theme="dark"] .input-space {
+        background-color: #2b2e4a;
+        color: white;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.7);
+      }
 
-  .form-space-station {
-    background: rgba(20, 22, 45, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.5), 0 0 30px 10px rgba(255, 255, 255, 0.1);
-    padding: 30px;
-  }
+      body[data-theme="light"] .input-space {
+        background-color: #f7f7fb;
+        color: black;
+        box-shadow: inset 0 0 5px rgba(0, 140, 255, 0.7);
+      }
 
-  .input-space {
-    background-color: #2b2e4a;
-    border: 1px solid #5e5e8f;
-    color: #ffffff;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
-    transition: box-shadow 0.3s, background-color 0.3s;
-  }
+      .input-space:focus {
+        outline: none;
+      }
 
-  .input-space:focus {
-    background-color: #34385a;
-    box-shadow: 0 0 15px rgba(0, 153, 255, 0.7);
-  }
+      .space-btn {
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s, box-shadow 0.3s;
+      }
 
-  .form-group label {
-    color: #9dbbd8;
-  }
+      body[data-theme="dark"] .space-btn {
+        background-color: rgba(255, 0, 0, 0.8);
+        color: white;
+      }
 
-  .space-btn {
-    color: #fff;
-    background-image: linear-gradient(135deg, #2b3e50, #1b263b);
-    border: 1px solid #3b4b67;
-    text-shadow: 0 0 5px #00ffff;
-    transition: box-shadow 0.3s, transform 0.3s;
-    border-radius: 8px;
-    padding: 10px 20px;
-  }
+      body[data-theme="light"] .space-btn {
+        background-color: rgba(0, 140, 255, 0.8);
+        color: white;
+      }
 
-  .space-btn:hover {
-    box-shadow: 0 0 20px rgba(0, 153, 255, 0.8);
-    transform: translateY(-3px);
-  }
+      .space-btn:hover {
+        transform: scale(1.05);
+      }
 
-  .card-footer {
-    border-top: 1px solid #3b3f5c;
-  }
+      body[data-theme="dark"] .space-btn:hover {
+        background-color: rgba(255, 0, 0, 0.5);
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+      }
+
+      body[data-theme="light"] .space-btn:hover {
+        background-color: rgba(0, 140, 255, 0.5);
+        box-shadow: 0 0 10px rgba(0, 140, 255, 0.8);
+      }
+
+      .card-footer {
+        border-top: 1px solid #3b3f5c;
+        margin-top: 2rem; /* Add spacing below form */
+      }
+
+      .card-footer .space-btn {
+        margin-top: 1rem; /* Add spacing to buttons themselves */
+      }
+
+  %body{ "data-theme": session[:theme] || "dark" }
+    = form_with url: charges_path do |f|
+      .card-header.py-3.px-4.mb-3.bg-space-station
+        %strong Credit Card
+        %small.d-block.mt-1.text-muted Please enter your card details below
+
+      .card-body.px-4.py-4.form-space-station
+        .form-group.mb-4
+          %label{for: "amount"} Amount
+          = f.text_field :amount, class: 'form-control input-space', id: 'amount', min: 0, placeholder: 'Enter amount in $'
+
+        .form-group.mb-4
+          %label{for: "ccnumber"} Credit Card Number
+          = f.text_field :card_number, class: 'form-control input-space', id: 'cardNumber', placeholder: '0000 0000 0000 0000'
+
+        .form-row
+          .col-6.form-group.mb-4
+            %label{for: "ccmonth"} Expiry Month
+            = f.text_field :month, class: 'form-control input-space', id: 'ccmonth', placeholder: 'MM'
+
+          .col-6.form-group.mb-4
+            %label{for: "ccyear"} Expiry Year
+            = f.text_field :year, class: 'form-control input-space', id: 'ccyear', placeholder: 'YY'
+
+        .form-group.mb-4
+          %label{for: "cvv"} CVV/CVC
+          = f.text_field :cvc, class: 'form-control input-space', id: 'cvv', placeholder: '123'
+
+      .card-footer.mt-4.d-flex.justify-content-between.align-items-center
+        = link_to main_game_screen_path, class: 'btn btn-secondary btn-sm space-btn' do
+          %i.mdi.mdi-arrow-left
+          = " Back"
+
+        = link_to shard_purchase_path, class: 'btn btn-danger btn-sm space-btn' do
+          %i.mdi.mdi-lock-reset
+          = " Reset"
+
+        = button_to charges_path, class: 'btn btn-success btn-sm space-btn float-right' do
+          %i.mdi.mdi-gamepad-circle
+          = " Continue"
