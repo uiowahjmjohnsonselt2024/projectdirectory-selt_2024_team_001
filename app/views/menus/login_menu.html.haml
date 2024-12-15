@@ -133,8 +133,8 @@
     #container
       .login-container
         %h2 Login
-        - if flash[:alert]
-          %div.alert.alert-danger= flash[:alert]
+        - if flash.now[:alert]
+          %div.alert.alert-danger= flash.now[:alert]
 
         = form_tag login_path, method: :post do
           .form-group

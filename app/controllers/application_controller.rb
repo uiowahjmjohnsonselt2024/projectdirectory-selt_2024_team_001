@@ -3,13 +3,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # Make current_user, logged_in?, and intro_watched? available to views
-  helper_method :current_user, :logged_in?, :intro_watched?
+  helper_method :current_user, :logged_in?, :intro_watched?, :current_player
 
   private
 
   # Fetch the currently logged-in user based on the session
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  end
+
+  def current_player
+    @current_player ||= Player.find_by(user_id: current_user.id) if current_user
   end
 
   def authenticate_user!
@@ -29,7 +33,7 @@ class ApplicationController < ActionController::Base
   # Redirect unauthenticated users
   def require_login
     unless logged_in?
-      flash[:alert] = "You must be logged in to access this section."
+      flash.now[:alert] = "You must be logged in to access this section."
       redirect_to login_path # Adjust to your login route
     end
   end

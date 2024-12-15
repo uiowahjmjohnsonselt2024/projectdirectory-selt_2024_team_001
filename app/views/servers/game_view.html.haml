@@ -3,299 +3,53 @@
     %title Shards of the Grid
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
-    :css
-      /* General page styling */
-      html,
-      body {
-        background-color: rgb(13, 14, 33);
-        height: 100%;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-      }
+    = action_cable_meta_tag
+    = stylesheet_link_tag 'game_view', media: 'all'
 
-      title.dark {
-        padding-bottom: 30px;
-        color: white;
-        text-align: center;
-        margin-top: 1rem;
-      }
-
-      title.light {
-        padding-bottom: 30px;
-        color: black;
-        text-align: center;
-        margin-top: 1rem;
-      }
-
-      #game-container {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-        padding: 20px 2rem 2rem 2rem;
-        width: 100%;
-        height: calc(100vh - 40px);
-        box-sizing: border-box;
-        position: relative; /* To position game-logo absolutely within */
-      }
-
-      #game-logo {
-        position: fixed;
-        top: 10px;
-        left: 20px;
-      }
-
-      #game-logo img {
-        height: 50px;
-        width: 50px;
-      }
-
-      .game-grid {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 10px;
-        width: 55%; /* Adjusted width to accommodate chat and dropdown */
-        height: auto;
-        background-color: rgb(23, 24, 43);
-        padding: 1rem;
-        border-radius: 10px;
-        overflow: auto;
-      }
-
-      .grid-cell {
-        background-color: rgb(41, 42, 72);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        width: 100%;
-        height: 100px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        position: relative;
-      }
-
-      .grid-cell:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(1, 110, 218, 0.7);
-      }
-
-      .grid-cell.selected {
-        border: 3px solid #4caf50;
-        transform: scale(1.1);
-        box-shadow: 0 10px 20px rgba(1, 110, 218, 0.9);
-      }
-
-      .grid-cell.player-current {
-        background-color: #4caf50;
-        color: white;
-      }
-
-      body.dark {
-        background-color: rgb(23, 24, 43);
-        color: #ffffff;
-      }
-
-
-      body.light {
-        background-color: #ffffff;
-        color: #000000;
-      }
-
-
-      /* Chat container styling */
-      .chat-container {
-        width: 35%;
-        background-color: rgb(23, 24, 43);
-        padding: 1rem;
-        border-radius: 10px;
-        color: white;
-        height: 90%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        box-sizing: border-box;
-        position: relative; /* To position dropdown menu */
-      }
-
-      .chat-messages {
-        flex-grow: 1;
-        overflow-y: auto;
-        border: 1px solid #666;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        border-radius: 8px;
-      }
-
-      .chat-input {
-        display: flex;
-        gap: 0.5rem;
-      }
-
-      .chat-input input {
-        flex-grow: 1;
-        padding: 0.5rem;
-        border-radius: 8px;
-        border: none;
-        box-sizing: border-box;
-      }
-
-      .chat-input button {
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      .chat-input button:hover {
-        background-color: #45a049;
-      }
-
-      /* Dropdown Menu Styling */
-      .dropdown-menu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        display: none; /* Hidden by default */
-        flex-direction: column;
-        min-width: 150px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        z-index: 1001; /* Ensure it appears above other elements */
-        margin-bottom: 1rem; /* Space below dropdown */
-      }
-
-      .dropdown-btn {
-        padding: 10px 15px;
-        text-decoration: none;
-        color: #333;
-        display: block;
-        border-bottom: 1px solid #eee;
-        background-color: #f9f9f9; /* Light background for each item */
-        border-radius: 4px; /* Rounded corners for items */
-        margin: 5px; /* Space around items */
-      }
-
-      .dropdown-btn:last-child {
-        border-bottom: none; /* Remove border from the last item */
-      }
-
-      .dropdown-btn:hover {
-        background-color: #f0f0f0;
-      }
-
-      .dropdown-btn button {
-        width: 100%;
-        text-align: left;
-        background: none;
-        border: none;
-        padding: 0;
-        margin: 0;
-        cursor: pointer;
-        font: inherit;
-      }
-
-      /* Player Icon Styling */
-      .player-icon {
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none; /* Prevent interfering with clicks */
-      }
-
-      /* Modal Styling remains unchanged */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.8);
-      }
-
-      .modal-content {
-        background-color: #fefefe;
-        margin: 10% auto;
-        padding: 40px;
-        border: 1px solid #888;
-        border-radius: 12px;
-        width: 600px;
-        text-align: center;
-      }
-
-      .modal-description {
-        margin: 20px 0;
-        font-size: 18px;
-      }
-
-      .modal-buttons {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-      }
-
-      .modal-buttons button {
-        padding: 15px;
-        border: none;
-        border-radius: 8px;
-        background-color: #4caf50;
-        color: white;
-        cursor: pointer;
-        font-size: 16px;
-      }
-
-      .modal-buttons button:hover {
-        background-color: #45a049;
-      }
 
   :javascript
-    document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('turbo:load', () => {
       const gridCells = document.querySelectorAll('.grid-cell');
       const movePlayerButton = document.getElementById('move-player-btn');
       const modal = document.getElementById('modal');
-      const closeButton = document.querySelector('.close-button');
-      const characterIcon = document.getElementById('character-icon');
       const dropdownMenu = document.querySelector('.dropdown-menu');
-      const gameContainer = document.getElementById('game-container');
-      const serverId = gameContainer.dataset.serverId;
-      const playerId = gameContainer.dataset.playerId;
+      const characterIcon = document.getElementById('character-icon');
+
+      characterIcon.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const isMenuVisible = dropdownMenu.style.display === 'block';
+        dropdownMenu.style.display = isMenuVisible ? 'none' : 'block';
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!dropdownMenu.contains(event.target) && event.target !== characterIcon) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
 
       gridCells.forEach((cell) => {
         cell.addEventListener('click', () => {
           gridCells.forEach((c) => c.classList.remove('selected'));
           cell.classList.add('selected');
-
-          const cellId = cell.dataset.id;
-          const modalDescription = document.querySelector('.modal-description');
-          modalDescription.textContent = `You clicked on cell ${cellId}`;
+          document.querySelector('.modal-description').textContent =
+            `You clicked on cell at row ${cell.dataset.row}, column ${cell.dataset.column}`;
           modal.style.display = 'block';
         });
       });
 
-      movePlayerButton.addEventListener('click', () => {
+      movePlayerButton.addEventListener('click', async () => {
         const selectedCell = document.querySelector('.grid-cell.selected');
         if (!selectedCell) {
           alert('Please select a grid cell first.');
           return;
         }
 
-        const cellId = selectedCell.dataset.id;
+        const serverId = document.getElementById('game-container').dataset.serverId;
+        const playerId = document.getElementById('game-container').dataset.playerId;
+
+        const targetRow = selectedCell.dataset.row;
+        const targetColumn = selectedCell.dataset.column;
 
         fetch(`/servers/${serverId}/players/${playerId}/update_position`, {
           method: 'PATCH',
@@ -303,55 +57,28 @@
             'Content-Type': 'application/json',
             'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
           },
-          body: JSON.stringify({ cellId }),
+          body: JSON.stringify({ player: { row: targetRow, column: targetColumn } }),
         })
-          .then((response) => {
-            if (!response.ok) throw new Error('Failed to move the player.');
-            return response.json();
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              location.reload();
+            } else {
+              alert(data.error || "An error occurred.");
+            }
           })
-          .then(() => {
-            // Remove player-current from all cells and any existing player images
-            gridCells.forEach((c) => {
-              c.classList.remove('player-current');
-              const existingImg = c.querySelector('.player-icon');
-              if (existingImg) existingImg.remove();
-            });
-
-            // Mark this cell as player-current
-            selectedCell.classList.add('player-current');
-
-            // Append the placeholder image using Rails asset_path helper
-            const playerIcon = document.createElement('img');
-            // Correct HAML interpolation syntax
-            playerIcon.src = "#{ asset_path('Placeholder_head.png') }";
-            playerIcon.alt = "Player Head";
-            playerIcon.classList.add('player-icon');
-            selectedCell.appendChild(playerIcon);
-
-            modal.style.display = 'none';
-          })
-          .catch((error) => {
-            console.error(error);
-            alert('Error: Unable to move player.');
-          });
+          .catch((error) => console.error("Error:", error));
       });
 
-      closeButton.addEventListener('click', () => {
+      document.querySelector('.close-button').addEventListener('click', () => {
         modal.style.display = 'none';
       });
-
-      characterIcon.addEventListener('click', (event) => {
-        event.stopPropagation();
-        dropdownMenu.style.display =
-          dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
-      });
-
-      document.addEventListener('click', (event) => {
-        if (!dropdownMenu.contains(event.target)) {
-          dropdownMenu.style.display = 'none';
-        }
-      });
     });
+
+
+
+
+
 
   %body
     %header.title Shards of the Grid
@@ -360,10 +87,16 @@
         = image_tag "GameLogo.png", alt: "Game Logo", height: "50", width: "50"
 
       .game-grid
-        - (0..5).to_a.reverse.each do |row|
-          - (0..5).each do |column|
-            %div.grid-cell{ data: { id: "#{row}#{column}" } }
-              %p= "Cell #{row}#{column}"
+        - @server.grid_tiles.order(:row, :column).each_slice(6) do |row_tiles|
+          %div.row
+            - row_tiles.each do |tile|
+              %div.grid-cell{
+                class: tile.row == @player.row && tile.column == @player.column ? 'player-current' : '',
+                data: { row: tile.row, column: tile.column }
+              }
+                %p= "Cell #{tile.row}, #{tile.column}"
+                  
+
 
       .chat-container
         #character-icon-container
@@ -373,14 +106,26 @@
             = link_to 'User Profile', user_profile_path, class: 'dropdown-btn'
             = link_to 'Buy Shards', shard_purchase_path, class: 'dropdown-btn'
             = link_to 'Store', storefront_select_action_path, class: 'dropdown-btn'
+            = link_to 'Settings', welcome_settings_path, class: 'dropdown-btn'
+            = link_to 'Store', store_menu_storefront_index_path, class: 'dropdown-btn'
+            = link_to 'Server', servers_path, class: 'dropdown-btn'
+            = link_to 'Inventory', inventory_player_path(@player.id), class: 'dropdown-btn'
             = button_to 'Logout', logout_path, method: :delete, class: 'dropdown-btn', form: { class: 'inline-form' }
+        .col-md-8.col-sm-8.bg-dark.text-light#room_container
+        #single_room
+          %h4.text-center= @server.server_num
+          = turbo_stream_from @server
+          #messages.message-list
+          - if @messages.present?
+            - @messages.last(14).each do |message|
+              %div.message
+                %p
+                  %strong= message.user.email
+                  = message.body
+          = render partial: 'layouts/new_message_form'
 
-        %h1 Chat
-        .chat-messages
-          %p Welcome to the chat!
-        .chat-input
-          %input{ type: "text", placeholder: "Type your message..." }
-          %button Send
+
+
 
 %div#modal.modal
   .modal-content
@@ -389,6 +134,6 @@
     .modal-description Move the player to the selected cell.
     .modal-buttons
       %button#move-player-btn.move-player-btn Move Player
-      %button Button 2
+      %button Collect Resource
       %button Button 3
       %button Button 4

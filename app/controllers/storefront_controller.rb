@@ -1,140 +1,127 @@
-class StorefrontController < ActionController::Base
-  before_action :set_user_gold
+class StorefrontController < ApplicationController
+  before_action :set_user_currencies
+  before_action :set_player, only: [:ships, :modules, :crew, :consumables]
 
-  # Main store menu
-  def store_menu
-    # Combine items from all categories
-    all_items = [
-      # Ships
-      { title: "Ship 1", description: "A fast and agile ship.", cost: 100 },
-      { title: "Ship 2", description: "A durable and powerful ship.", cost: 200 },
-      { title: "Ship 3", description: "A balanced ship for exploration.", cost: 150 },
-      { title: "Ship 4", description: "A sleek ship for speed enthusiasts.", cost: 250 },
-      { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
-      { title: "Ship 6", description: "A heavy ship equipped with strong armor.", cost: 300 },
-
-
-      # Modules
-      { title: "Module 1", description: "Increases speed by 20%.", cost: 100 },
-      { title: "Module 2", description: "Enhances durability by 15%.", cost: 150 },
-      { title: "Module 3", description: "Boosts firepower significantly.", cost: 200 },
-      { title: "Module 4", description: "Improves energy efficiency for long journeys.", cost: 120 },
-      { title: "Module 5", description: "Adds stealth capabilities.", cost: 180 },
-      { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
-
-
-      # Crew
-      { title: "Captain", description: "Experienced leader who commands the ship.", cost: 300 },
-      { title: "Engineer", description: "Ensures the ship operates smoothly.", cost: 200 },
-      { title: "Pilot", description: "Master navigator and combat specialist.", cost: 250 },
-      { title: "Medic", description: "Keeps the crew in top physical condition.", cost: 150 },
-      { title: "Scientist", description: "Conducts research and enhances technology.", cost: 350 },
-      { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
-
-
-      # Consumables
-      { title: "Health Pack", description: "Restores 50% of maximum health.", cost: 50 },
-      { title: "Energy Cell", description: "Refills energy reserves for extended travel.", cost: 75 },
-      { title: "Shield Booster", description: "Temporarily enhances shields by 25%.", cost: 100 },
-      { title: "Combat Stimulant", description: "Increases combat performance for a short duration.", cost: 125 },
-      { title: "Repair Kit", description: "Repairs minor hull damage on the ship.", cost: 90 },
-      { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
-    ]
-
-    # Filter items based on the search query
-    @filtered_items = if params[:search].present?
-                        all_items.select do |item|
-                          item[:title].downcase.include?(params[:search].downcase) ||
-                            item[:description].downcase.include?(params[:search].downcase)
-                        end
-                      else
-                        []
-                      end
-  end
 
   # Ships category
   def ships
-    @items = filter_items([
-                            { title: "Ship 1", description: "A fast and agile ship.", cost: 100 },
-                            { title: "Ship 2", description: "A durable and powerful ship.", cost: 200 },
-                            { title: "Ship 3", description: "A balanced ship for exploration.", cost: 150 },
-                            { title: "Ship 4", description: "A sleek ship for speed enthusiasts.", cost: 250 },
-                            { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 },
-                            { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 }
-                          ])
+    @items = StoreItem.where(category: 'Ship')
   end
 
   # Modules category
   def modules
-    @items = filter_items([
-                            { title: "Module 1", description: "Increases speed by 20%.", cost: 100 },
-                            { title: "Module 2", description: "Enhances durability by 15%.", cost: 150 },
-                            { title: "Module 3", description: "Boosts firepower significantly.", cost: 200 },
-                            { title: "Module 4", description: "Improves energy efficiency for long journeys.", cost: 120 },
-                            { title: "Module 5", description: "Adds stealth capabilities.", cost: 180 },
-                            { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 }
-                          ])
+    @items = StoreItem.where(category: 'Module')
   end
 
   # Crew category
   def crew
-    @items = filter_items([
-                            { title: "Captain", description: "Experienced leader who commands the ship.", cost: 300 },
-                            { title: "Engineer", description: "Ensures the ship operates smoothly.", cost: 200 },
-                            { title: "Pilot", description: "Master navigator and combat specialist.", cost: 250 },
-                            { title: "Medic", description: "Keeps the crew in top physical condition.", cost: 150 },
-                            { title: "Scientist", description: "Conducts research and enhances technology.", cost: 350 },
-                            { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 }
-                          ])
+    @items = StoreItem.where(category: 'Crew')
   end
 
   # Consumables category
   def consumables
-    @items = filter_items([
-                            { title: "Health Pack", description: "Restores 50% of maximum health.", cost: 50 },
-                            { title: "Energy Cell", description: "Refills energy reserves for extended travel.", cost: 75 },
-                            { title: "Shield Booster", description: "Temporarily enhances shields by 25%.", cost: 100 },
-                            { title: "Combat Stimulant", description: "Increases combat performance for a short duration.", cost: 125 },
-                            { title: "Repair Kit", description: "Repairs minor hull damage on the ship.", cost: 90 },
-                            { title: "Ship 5", description: "A heavy ship equipped with strong armor.", cost: 300 }
-                          ])
+    @items = StoreItem.where(category: 'Consumable')
   end
 
-  def trade
-    #logic
+  # Purchase an item
+  def purchase_item
+    item = StoreItem.find(params[:item_id])
+    currency = params[:currency]
+    player_id = params[:player_id]
+
+    unless player_id
+      render json: { status: 'error', message: 'Player ID is missing.' }, status: :unprocessable_entity
+      return
+    end
+
+    player = current_user.players.find_by(id: player_id)
+    unless player
+      render json: { status: 'error', message: 'Player not found.' }, status: :unprocessable_entity
+      return
+    end
+
+    # Check if the player has enough currency
+    if currency == 'gold' && current_user.gold >= item.cost
+      current_user.gold -= item.cost
+      save_purchase(item, 'gold', player)
+    elsif currency == 'shards' && current_user.shards >= item.cost
+      current_user.shards -= item.cost
+      save_purchase(item, 'shards', player)
+    else
+      render json: { status: 'error', message: 'Not enough currency to purchase this item.' }, status: :unprocessable_entity
+    end
   end
 
-  # Handles the gold update when a player purchases an item
+  def save_purchase(item, currency, player)
+    # Find or create a PlayerItem for the purchased item
+    player_item = player.player_items.find_or_initialize_by(store_item: item)
+    player_item.quantity ||= 0
+    player_item.quantity += 1
+
+    ActiveRecord::Base.transaction do
+      current_user.save!
+      player_item.save!
+    end
+
+    render json: {
+      status: 'success',
+      new_gold: current_user.gold,
+      new_shards: current_user.shards,
+      item: { id: item.id, title: item.title, quantity: player_item.quantity }
+    }
+  rescue => e
+    render json: { status: 'error', message: "Purchase failed: #{e.message}" }, status: :unprocessable_entity
+  end
+
+
+  def process_purchase(user, currency)
+    if user.save
+      render json: { status: 'success', new_gold: user.gold, new_shards: user.shards }
+    else
+      render json: { status: 'error', message: 'Unable to update balance.' }, status: :unprocessable_entity
+    end
+  end
+
+
+
+  # Update gold via fetch request
   def update_gold
     gold_spent = params[:gold_spent].to_i
+
+    if current_user.nil?
+      render json: { status: 'error', message: 'User not logged in.' }, status: :unauthorized
+      return
+    end
+
     if current_user.gold >= gold_spent
       current_user.gold -= gold_spent
-      current_user.save
-      render json: { status: 'success', new_gold: current_user.gold }
+      if current_user.save
+        render json: { status: 'success', new_gold: current_user.gold }
+      else
+        render json: { status: 'error', message: 'Unable to update gold balance.' }, status: :unprocessable_entity
+      end
     else
-      render json: { status: 'error', message: 'Not enough gold' }, status: :unprocessable_entity
+      render json: { status: 'error', message: 'Not enough gold.' }, status: :unprocessable_entity
     end
   end
 
   private
 
-  # Sets the user's current gold for display
-  def set_user_gold
-    #@gold = current_user.gold
-    @gold = 1000
-  rescue NoMethodError
-    @gold = 0 # Default to 0 if current_user is not available
+  def set_player
+    @player = current_user.players.first # Adjust logic if multiple players are supported
+    unless @player
+      redirect_to root_path, alert: "Player not found"
+    end
   end
 
-  # Filters items based on the search query
-  def filter_items(items)
-    if params[:search].present?
-      items.select do |item|
-        item[:title].downcase.include?(params[:search].downcase) ||
-          item[:description].downcase.include?(params[:search].downcase)
-      end
+  # Set the user's current gold
+  def set_user_currencies
+    if current_user
+      @gold = current_user.gold
+      @shards = current_user.shards
     else
-      items
+      @gold = 0
+      @shards = 0
     end
   end
 end
