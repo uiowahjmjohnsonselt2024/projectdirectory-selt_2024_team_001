@@ -12,6 +12,8 @@
       Shards:
       %span{ id: "shard-amount" }= @shards
 
+  %div#game-container{ data: { player_id: @player.id } }
+
 %div.content-area
   - if @items.empty? && params[:search].present?
     %div.no-results No results found for "#{params[:search]}"
@@ -45,6 +47,8 @@
 
   function confirmPurchase(itemId, itemCost, currency) {
     console.log(`Item ID: ${itemId}, Cost: ${itemCost}, Currency: ${currency}`);
+    const playerId = document.querySelector('#game-container').dataset.playerId;
+
 
     if (confirm(`Are you sure you want to buy this item for ${itemCost} ${currency}?`)) {
       fetch('/storefront/purchase_item', {
@@ -53,7 +57,7 @@
           'Content-Type': 'application/json',
           'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         },
-        body: JSON.stringify({ item_id: itemId, currency: currency })
+        body: JSON.stringify({ item_id: itemId, currency: currency, player_id: playerId })
       })
       .then(response => response.json())
       .then(data => {
