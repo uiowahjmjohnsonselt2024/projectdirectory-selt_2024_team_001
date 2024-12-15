@@ -80,14 +80,41 @@ class PlayersController < ApplicationController
     end
 
     gold_amount = params[:gold].to_i
-    @player.gold += gold_amount
-    @player.save!
 
-    render json: { success: true, message: "#{gold_amount} gold added to your inventory!" }
+    if gold_amount <= 0
+      render json: { success: false, error: "Invalid gold amount." }, status: :unprocessable_entity
+      return
+    end
+
+    # Add the gold to the player's total and save
+    @player.gold += gold_amount
+
+    if @player.save
+      new_gold = @player.gold
+      render json: { success: true, message: "#{gold_amount} gold added to your inventory!", new_gold: @player.gold }
+    else
+      render json: { success: false, error: @player.errors.full_messages.to_sentence }, status: :unprocessable_entity
+    end
   rescue StandardError => e
     Rails.logger.error "Error collecting gold: #{e.message}"
     render json: { success: false, error: e.message }, status: :unprocessable_entity
   end
+
+
+
+  # Add the gold to the player's total and save
+    @player.gold += gold_amount
+
+    if @player.save
+      render json: { success: true, message: "#{gold_amount} gold added to your inventory!", new_gold: @player.gold }
+    else
+      render json: { success: false, error: @player.errors.full_messages.to_sentence }, status: :unprocessable_entity
+    end
+  rescue StandardError => e
+    Rails.logger.error "Error collecting gold: #{e.message}"
+    render json: { success: false, error: e.message }, status: :unprocessable_entity
+end
+
 
 
   private
@@ -124,7 +151,3 @@ class PlayersController < ApplicationController
     end
   end
 
-
-
-
-end

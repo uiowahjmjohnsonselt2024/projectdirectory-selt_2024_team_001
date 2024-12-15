@@ -46,9 +46,13 @@
   let currentGold = #{ @gold };
 
   function updateGold(newGold) {
-    currentGold = newGold;
-    document.getElementById('gold-amount').textContent = currentGold;
+  const goldAmountElement = document.getElementById('gold-amount');
+  if (goldAmountElement) {
+    goldAmountElement.textContent = newGold;
+  } else {
+    console.error("Gold amount element not found");
   }
+}
 
 :css
   .header-bar {

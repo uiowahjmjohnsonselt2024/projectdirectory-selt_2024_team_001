@@ -18,6 +18,11 @@
       let isCurrentPlayer = false;
       let goldAmount = 0; // Track the gold amount
 
+      // Function to update the displayed gold amount
+      function updateGold(newGold) {
+        document.getElementById('gold-amount').textContent = newGold;
+      }
+
       gridCells.forEach((cell) => {
         cell.addEventListener('click', async () => {
           gridCells.forEach((c) => c.classList.remove('selected'));
@@ -68,6 +73,7 @@
                 const data = await response.json();
                 if (data.success) {
                   alert(`You collected ${goldAmount} gold!`);
+                  updateGold(data.new_gold)
                   modal.style.display = 'none';
                 } else {
                   alert(data.error || "An error occurred.");

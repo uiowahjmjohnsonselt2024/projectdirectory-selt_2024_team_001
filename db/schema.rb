@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_15_080320) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_15_121024) do
   create_table "achievements", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_15_080320) do
     t.datetime "updated_at", null: false
     t.integer "row", default: 0, null: false
     t.integer "column", default: 0, null: false
+    t.integer "gold", default: 0, null: false
     t.index ["server_id"], name: "index_players_on_server_id"
     t.index ["user_id", "server_id"], name: "index_players_on_user_id_and_server_id", unique: true
     t.index ["user_id"], name: "index_players_on_user_id"
