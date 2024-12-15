@@ -85,7 +85,7 @@ Rails.application.routes.draw do
 
   resources :players, only: [] do
     member do
-      get 'inventory' # Add route for the inventory view
+      get 'inventory', to: 'players#inventory' # Add route for the inventory view
     end
     resources :player_items, only: [:index, :create, :update], shallow: true
   end

@@ -35,7 +35,25 @@ class PlayersController < ApplicationController
       return
     end
 
-    prompt = "Write a short sci-fi story based on a player exploring a planet with #{grid_tile.weather} weather and #{grid_tile.environment_type} environment."
+    # Fetch the player's inventory items
+    inventory_items = @player.player_items.includes(:store_item).map do |player_item|
+      "#{player_item.quantity}x #{player_item.store_item.title}"
+    end
+
+    # Format the inventory description
+    inventory_description = if inventory_items.any?
+                              "The player has the following items: #{inventory_items.join(', ')}."
+                            else
+                              "The player has no items in their inventory."
+                            end
+
+    # Generate the prompt based on the grid tile's weather, environment, and inventory
+    prompt = <<~PROMPT
+      Write a short sci-fi story based on a player exploring a planet with #{grid_tile.weather} weather and a #{grid_tile.environment_type} environment.
+      #{inventory_description}
+    PROMPT
+
+    # Call the OpenAI service
     service = OpenaiService.new(prompt: prompt, type: 'text')
     response = service.call
 
@@ -145,7 +163,7 @@ class PlayersController < ApplicationController
     end
   end
 
-  # Set player based on :id parameter (player id)
+  # Set player based on :id parameter (player id) within the server
   def set_player
     @player = @server.players.find_by(id: params[:id])
     unless @player
