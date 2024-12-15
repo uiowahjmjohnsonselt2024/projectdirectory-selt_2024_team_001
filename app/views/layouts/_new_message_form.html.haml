@@ -1,4 +1,3 @@
-.form-group.msg-form
-  = form_with(model: [@single_room, @message], remote: true, class: 'd-flex') do |f|
-    = f.text_field :body, id: 'chat-text', class: 'form-control msg-content', autocomplete: 'off'
-    = f.submit nil, data: { disable_with: false }, class: 'btn btn-primary'
+= form_with(model: [@single_room, @message], remote: true, class: 'msg-form d-flex') do |f|
+  = f.text_field :body, id: 'chat-text', class: 'form-control msg-content', autocomplete: 'off'
+  = f.submit nil, data: { disable_with: false }, class: 'btn btn-primary'

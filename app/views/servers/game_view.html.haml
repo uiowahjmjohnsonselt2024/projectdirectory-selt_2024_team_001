@@ -113,13 +113,13 @@
         #single_room
           %h4.text-center= @server.server_num
           = turbo_stream_from @server
-          #messages
-            - if @messages.present?
-              - @messages.each do |message|
-                %div.message
-                  %p
-                    %strong= message.user.email
-                    = message.body
+          #messages.message-list
+          - if @messages.present?
+            - @messages.last(14).each do |message|
+              %div.message
+                %p
+                  %strong= message.user.email
+                  = message.body
           = render partial: 'layouts/new_message_form'
 
 
