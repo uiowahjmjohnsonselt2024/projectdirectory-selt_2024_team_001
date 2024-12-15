@@ -109,7 +109,7 @@ class ChargesController < ApplicationController
   end
 
   def success_message(charge)
-    "Your payment for #{@shards} ++ #{@converted_amount} ++ #{@amount} ++ has been successfully processed and added to your new total #{current_user.shards} shards.
+    "Your payment for #{@shards} has been successfully processed and added to your new total #{current_user.shards} shards.
      You can take your receipt from here: #{charge[:receipt_url]}"
   end
 
