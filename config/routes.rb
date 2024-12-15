@@ -72,6 +72,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :players, only: [] do
+    member do
+      get 'inventory' # Add route for the inventory view
+    end
+    resources :player_items, only: [:index, :create, :update], shallow: true
+  end
+
   mount ActionCable.server => '/cable'
   post 'convert', to: 'conversions#convert'
 
