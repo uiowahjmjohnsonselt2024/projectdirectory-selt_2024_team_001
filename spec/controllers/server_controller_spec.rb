@@ -108,4 +108,87 @@ RSpec.describe ServersController, type: :controller do
       expect(response).to redirect_to(servers_path)
     end
   end
+
+  describe "GET #game_view" do
+    context "when user is registered to the server" do
+      before do
+        allow(server.players).to receive(:find_or_create_by!).and_return(Player.new(user: user, server: server, row: 0, column: 0))
+      end
+
+      it "assigns the correct instance variables and renders game_view" do
+        get :game_view, params: { id: server.id }
+
+        expect(assigns(:users)).to eq(server.users)
+        expect(assigns(:single_room)).to eq(server)
+        expect(assigns(:message)).to be_a_new(Message)
+        expect(assigns(:messages)).to eq(server.messages.order(:created_at))
+        expect(assigns(:player).user).to eq(user)
+        expect(response).to render_template(:game_view)
+      end
+
+      it "resets invalid player position" do
+        invalid_tile = create(:grid_tile, server: server, row: 10, column: 10) # Use a unique row/column
+        allow(server.grid_tiles).to receive(:exists?).and_return(false)
+
+        get :game_view, params: { id: server.id }
+        player = assigns(:player)
+
+        expect(flash[:error]).to match(/Player position is invalid/)
+        expect(player.row).to eq(0)
+        expect(player.column).to eq(0)
+      end
+    end
+
+    context "when user is not registered to the server" do
+      it "redirects to servers_path with an alert" do
+        another_server = create(:server)
+        get :game_view, params: { id: another_server.id }
+
+        expect(flash[:alert]).to match(/not registered to this server/)
+        expect(response).to redirect_to(servers_path)
+      end
+    end
+  end
+
+  describe "POST #send_chat_message" do
+    it "broadcasts a chat message to the server channel" do
+      expect(ActionCable.server).to receive(:broadcast).with(
+        "server_#{server.id}_channel",
+        hash_including(
+          message: "Hello, world!",
+          user_id: user.id,
+          timestamp: kind_of(ActiveSupport::TimeWithZone)
+        )
+      )
+
+      post :send_chat_message, params: { id: server.id, message: "Hello, world!" }
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe "PATCH #update" do
+    context "with valid attributes" do
+      it "updates the server and redirects" do
+        patch :update, params: { id: server.id, server: { server_num: "12345", status: "inactive" } }
+        server.reload
+
+        expect(server.server_num).to eq("12345")
+        expect(server.status).to eq("inactive")
+        expect(flash[:success]).to match(/Server updated successfully/)
+        expect(response).to redirect_to(server)
+      end
+    end
+
+    context "with invalid attributes" do
+      it "does not update the server and re-renders edit" do
+        allow_any_instance_of(Server).to receive(:update).and_return(false)
+
+        patch :update, params: { id: server.id, server: { server_num: "" } }
+        expect(flash[:error]).to match(/Failed to update server/)
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+
 end

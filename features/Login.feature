@@ -7,14 +7,14 @@ Feature: User Login
     Given I am on the login page
 
   Scenario: Successful login with valid credentials
-    When I enter "legend47@gmail.com" in the "Email" field
-    And I enter "123SecurePass!" in the "Password" field
+    When I enter "legend47@gmail.com" in the "email" field
+    And I enter "123SecurePass!" in the "password" field
     And I press "Login"
     Then I should see "Welcome back!" on the page
 
   Scenario: Unsuccessful login with invalid credentials
-    When I enter "doesn't exist" in the "Email" field
-    And I enter "badpassword" in the "Password" field
+    When I enter "doesn't exist" in the "email" field
+    And I enter "badpassword" in the "password" field
     And I press "Login"
     Then I should see "Invalid email or password" on the page
 

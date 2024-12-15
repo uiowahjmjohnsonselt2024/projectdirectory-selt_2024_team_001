@@ -109,4 +109,38 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  describe "PATCH #update_profile_picture" do
+    context "when logged in" do
+      before { session[:user_id] = user.id }
+
+      context "with a valid profile picture" do
+        it "updates the user's profile picture and redirects with a success message" do
+          patch :update_profile_picture, params: { id: user.id, profile_picture: '/profilePics/avatar.png' }
+          user.reload
+          expect(user.profile_picture).to eq('/profilePics/avatar.png')
+          expect(flash[:notice]).to eq('Profile picture updated successfully in session!')
+          expect(response).to redirect_to(user_profile_path(user))
+        end
+      end
+
+      context "without a profile picture" do
+        it "does not update the profile picture and shows an alert" do
+          patch :update_profile_picture, params: { id: user.id, profile_picture: nil }
+          user.reload
+          expect(user.profile_picture).to be_nil
+          expect(flash[:alert]).to eq('No image selected!')
+          expect(response).to redirect_to(user_profile_path(user))
+        end
+      end
+    end
+
+    context "when not logged in" do
+      it "redirects to the login page with an alert" do
+        patch :update_profile_picture, params: { id: user.id, profile_picture: '/profilePics/avatar.png' }
+        expect(flash[:alert]).to eq("You must be logged in to access this page.")
+        expect(response).to redirect_to(login_path)
+      end
+    end
+  end
 end

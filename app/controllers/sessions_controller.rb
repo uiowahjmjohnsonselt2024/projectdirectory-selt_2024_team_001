@@ -18,27 +18,34 @@ class SessionsController < ApplicationController
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
         cookies.signed[:user_id] = { value: user.id, httponly: true }
-        flash.now[:notice] = "Logged in successfully!"
+        flash[:notice] = "Logged in successfully!"
         # Grant "First Login" achievement if it's the user's first login
         unless user.unlocked_achievement?('First Login')
           Achievement.unlock_for_user(user, 'First Login', 'Logged in for the first time')
         end
         redirect_to welcome_screen_path
       else
-        flash.now[:alert] = "Invalid email or password"
+        flash[:alert] = "Invalid email or password"
         render 'menus/login_menu'
       end
   end
 
   def destroy
     session[:user_id] = nil
-    flash.now[:notice] = "Logged out successfully!"
+    flash[:notice] = "Logged out successfully!"
     redirect_to login_path
   end
 
   def toggle_theme
     session[:theme] = params[:theme_toggle] == 'light' ? 'light' : 'dark'
     redirect_to welcome_settings_path, notice: "Theme updated to #{session[:theme]} mode."
+
+  end
+
+  def update_session_profile_picture
+    session[:profile_picture] = params[:profile_picture]
+    render json: { success: true }
+
   end
 
   def update_session_profile_picture

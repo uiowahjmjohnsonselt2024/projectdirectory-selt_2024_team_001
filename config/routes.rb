@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: :logout
 
+  get 'sessions/login_menu', to: 'sessions#login_menu', as: :login_menu
+
   # Session-related screens
 
   # Routes for screens after login
@@ -48,7 +50,6 @@ Rails.application.routes.draw do
   # config/routes.rb
   #For updating the profile picture
   post '/update_profile_picture', to: 'users#update_profile_picture'
-
   get 'shard_purchase', to: 'sessions#shard_purchase', as: 'shard_purchase'
 
   # A route that is used to go to the start screen
@@ -83,10 +84,12 @@ Rails.application.routes.draw do
   end
 
 
+
   patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
 
   mount ActionCable.server => '/cable'
   post 'convert', to: 'conversions#convert'
+
 
   # Route for chat
   post 'chat', to: 'chats#create'
@@ -98,6 +101,7 @@ Rails.application.routes.draw do
 
   post 'update_session_profile_picture', to: 'sessions#update_session_profile_picture'
 
+  post 'update_session_profile_picture', to: 'sessions#update_session_profile_picture'
 
 
 
