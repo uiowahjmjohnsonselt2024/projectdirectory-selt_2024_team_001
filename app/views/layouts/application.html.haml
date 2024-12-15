@@ -1,7 +1,7 @@
 !!!
-%html
+%html{ lang: "en", "data-theme": session[:theme] || "dark" }
   %head
-    %title{ class: (session[:theme] || 'dark') }Shards of the Grid
+    %title Shards of the Grid
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
@@ -26,6 +26,8 @@
     :css
       /* Ensure full viewport coverage */
       html, body {
+        background-color: rgb(23, 24, 43);
+        color: white;
         height: 100%;
         margin: 0;
         display: flex;
@@ -33,24 +35,19 @@
         font-family: Arial, sans-serif;
       }
 
-      body.dark {
-        background-color: rgb(23, 24, 43);
-        color: white;
-      }
-
-      body.light {
+      [data-theme="light"] body {
         background-color: white;
         color: black;
       }
 
-      title.dark {
+      title {
         padding-bottom: 30px;
         color: white;
         text-align: center;
         margin-top: 1rem;
       }
 
-      title.light {
+      [data-theme="light"] title {
         padding-bottom: 30px;
         color: black;
         text-align: center;
@@ -68,6 +65,19 @@
       }
 
       .footer-centered {
+        height: 50px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+        border-top: 1px solid black
+      }
+
+      [data-theme="light"] .footer-centered {
         height: 50px;
         text-align: center;
         background-color: #f4f4f4;
