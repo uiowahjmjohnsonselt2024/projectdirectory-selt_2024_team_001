@@ -1,14 +1,16 @@
-%div{:style => "width: 100%; height: 60px; background-color: #333; color: white; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; padding: 0 10px;"}
-  %a{:href => "/storefront/select_action", :style => "color: white; text-decoration: none; font-size: 18px; display: flex; align-items: center;"}
-    &#x2190; Back
+= stylesheet_link_tag 'game_view', media: 'all'
 
-  %form{:action => "/storefront/store_menu", :method => "get", :style => "flex: 1; display: flex; justify-content: center;"}
-    %input{:type => "text", :name => "search", :placeholder => "Search the store...", :value => params[:search], :style => "width: 60%; padding: 5px; border: none; border-radius: 5px;"}
-    %button{:type => "submit", :style => "padding: 5px 10px; border: none; border-radius: 5px; background-color: #555; color: white; margin-left: 10px;"} Search
+%div{:style => "width: 100%; height: 60px; background-color: #333; color: white; display: flex; justify-content: space-between; align-items: center; padding: 0 10px;"}
+  = link_to "Back to Game", session[:return_to], class: "btn-space"
 
-  %div{:style => "font-size: 18px; text-align: right;"}
-    Gold:
-    %span{:id => "gold-amount"}= @gold || 0
+  %div.currency-display
+    %span{ style: "margin-right: 20px;" }
+      Gold:
+      %span{ id: "gold-amount" }= @gold
+
+    %span
+      Shards:
+      %span{ id: "shard-amount" }= @shards
 
 %div{:style => "background-color: #aaa; width: 100%; height: calc(100vh - 60px); padding: 20px; box-sizing: border-box;"}
   %div.categories-container{:style => "display: flex; width: 100%; height: 100%;"}
@@ -41,37 +43,55 @@
       %div{:style => "margin-top: 20px; text-align: center; color: white;"} No results found.
 
 :javascript
-  let currentGold = #{ @gold || 0 };
+  let currentGold = #{ @gold };
 
-  function confirmPurchase(itemName, itemCost) {
-    if (confirm(`Are you sure you want to buy ${itemName} for ${itemCost} Gold?`)) {
-      if (currentGold >= itemCost) {
-        currentGold -= itemCost;
-        document.getElementById('gold-amount').textContent = currentGold;
-        alert(`You bought ${itemName} for ${itemCost} Gold!`);
+  function updateGold(newGold) {
+    currentGold = newGold;
+    document.getElementById('gold-amount').textContent = currentGold;
+  }
 
-        // Send the purchase request to the server
-        fetch('/storefront/update_gold', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-          },
-          body: JSON.stringify({ gold_spent: itemCost })
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.status === 'success') {
-            console.log('Gold updated on the server:', data.new_gold);
-          } else {
-            console.error('Server error:', data.message);
-          }
-        })
-        .catch(error => {
-          console.error('Error updating gold on server:', error);
-        });
-      } else {
-        alert("You don't have enough gold to buy this item!");
-      }
-    }
+:css
+  .header-bar {
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .gold-display {
+    font-size: 18px;
+  }
+
+  .categories-container {
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .category-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .category-list li {
+    margin: 20px 0;
+  }
+
+  .category-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .category-link:hover {
+    background-color: #777;
   }
