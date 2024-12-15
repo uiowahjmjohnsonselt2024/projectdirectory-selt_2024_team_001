@@ -2,9 +2,10 @@
   %head
     %meta{ charset: "UTF-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %meta{ name: "csrf-token", content: "#{form_authenticity_token}" }
     :css
       body {
-        background-color: #191919;#!important;
+        background-color: #191919;
         color: #ffffff;
         font-family: Arial, sans-serif;
         margin: 0;
@@ -67,7 +68,7 @@
         background: #1e1e2f;
         border-radius: 15px;
         padding: 20px;
-        display: grid;
+        display: none; /* Default to hidden */
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -126,7 +127,7 @@
   %body
     %div.profile-container
       %img{
-        src: current_user.profile_picture || "/profilePics/holder.png",
+        src: session[:profile_picture] || "/profilePics/holder.png",
         class: "profile-avatar",
         alt: "Profile Avatar",
         id: "current-profile-picture",
@@ -137,11 +138,11 @@
         .stat-item Level: #{current_user.try(:level) || "Not Available"}
         .stat-item Experience Points: #{current_user.try(:experience) || "Not Available"}
         .stat-item Email: #{current_user.email || "Not Available"}
-      = link_to "Achievements Unlocked", user_achievements_path(current_user), class: "btn", text_decoration: "none"
+      = link_to "Achievements Unlocked", user_achievements_path(current_user), class: "btn"
       %button.btn{ type: "button", onclick: "window.location.href='#{welcome_screen_path}'" } Main Menu
 
-    %div#dropdown-menu{ style: "display: none;" }
-      - existing_images = ["profilePics/Admiral_F_PP.png","profilePics/Admiral_M_PP.png","profilePics/Mechanic_F_PP.png","profilePics/Mechanic_M_PP.png","profilePics/Monk_F_PP.png","profilePics/Monk_M_PP.png","profilePics/Pilot_F_PP.png","profilePics/Pilot_M_PP.png","profilePics/holder.png"]
+    %div#dropdown-menu
+      - existing_images = ["profilePics/Admiral_F_PP.png", "profilePics/Admiral_M_PP.png", "profilePics/Mechanic_F_PP.png", "profilePics/Mechanic_M_PP.png", "profilePics/Monk_F_PP.png", "profilePics/Monk_M_PP.png", "profilePics/Pilot_F_PP.png", "profilePics/Pilot_M_PP.png", "profilePics/holder.png"]
       - existing_images.each do |image_path|
         %div.profile-option
           %img{
@@ -172,7 +173,7 @@
           return;
         }
 
-        fetch("/update_profile_picture", {
+        fetch("/update_session_profile_picture", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -180,13 +181,8 @@
           },
           body: JSON.stringify({ profile_picture: selectedImage })
         })
-          .then(response => response.json())
-          .then(data => {
-            if (data.success) {
-              alert("Profile picture updated successfully!");
-            } else {
-              alert("Failed to update profile picture.");
-            }
+          .then(() => {
+            alert("Profile picture updated successfully in session!");
           })
           .catch(error => console.error("Error:", error));
       }

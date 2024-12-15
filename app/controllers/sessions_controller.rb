@@ -40,6 +40,11 @@ class SessionsController < ApplicationController
     redirect_to welcome_settings_path, notice: "Theme updated to #{session[:theme]} mode."
   end
 
+  def update_session_profile_picture
+    session[:profile_picture] = params[:profile_picture]
+    render json: { success: true }
+  end
+
   def welcome_settings
     render 'menus/welcome_settings'
   end

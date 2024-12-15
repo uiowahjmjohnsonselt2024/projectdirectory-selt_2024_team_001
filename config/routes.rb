@@ -79,6 +79,8 @@ Rails.application.routes.draw do
 
   patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
 
+  post 'update_session_profile_picture', to: 'sessions#update_session_profile_picture'
+
 
 
 end
