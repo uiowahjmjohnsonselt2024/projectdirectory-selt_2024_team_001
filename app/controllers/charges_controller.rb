@@ -7,7 +7,7 @@ class ChargesController < ApplicationController
     if flash[:alert].present?
       redirect_back fallback_location: 'shard_purchase'
       return
-      end
+    end
 
     if @currency == 'JPY'
       amount_cents = (@amount).to_i
@@ -77,7 +77,7 @@ class ChargesController < ApplicationController
   def validate_currency
     if @currency != 'USD' && @currency != ''
       if @converted_amount <= 0
-      flash[:alert] << "| Converted Amount must be calculated for non-USD currencies |"
+        flash[:alert] << "| Converted Amount must be calculated for non-USD currencies |"
       end
     end
   end
