@@ -1,0 +1,30 @@
+.currency-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.currency-tag.gold {
+    background-color: #ffd700; /* Gold color */
+}
+
+.currency-tag.shards {
+    background-color: #4b0082; /* Indigo for shards */
+}
+
+.item-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.item-card .modifier {
+    color: #28a745;
+    font-weight: bold;
+    margin: 10px 0;
+}

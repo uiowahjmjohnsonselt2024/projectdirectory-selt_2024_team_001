@@ -24,22 +24,23 @@ Rails.application.routes.draw do
   get 'welcome_screen', to: 'sessions#welcome_screen', as: 'welcome_screen'
   get 'main_game_screen', to: 'sessions#main_game_screen', as: 'main_game_screen'
   get 'welcome_settings', to: 'sessions#welcome_settings', as: 'welcome_settings'
+  # routes.rb
+  resources :servers, only: [:index, :create, :show, :destroy] do
+    resources :messages, only: [:create]
+    resources :players, only: [] do
+      member do
+        patch :update_position
+      end
+    end
 
-  # Routes for servers and nested players
-  resources :servers do
     member do
       post :add_user
       get :game_view
       get :grid
-    end
-
-    # Nested routes for players within a server
-    resources :players do
-      member do
-        patch :update_position # Adds a PATCH route for moving a player
-      end
+      post :send_chat_message
     end
   end
+
 
   post '/add_user_custom', to: 'servers#add_user_custom', as: :add_user_custom
 
@@ -59,24 +60,22 @@ Rails.application.routes.draw do
   # Route to render the login page after videos are watched
   get 'videos/end_intro', to: 'videos#end_intro', as: 'end_intro'
 
-  # Routes for the storefront
-  get 'storefront/select_action', to: 'storefront#select_action'
-  get 'storefront/store_menu', to: 'storefront#store_menu'
-  get 'storefront/ships', to: 'storefront#ships'
-  get 'storefront/modules', to: 'storefront#modules'
-  get 'storefront/crew', to: 'storefront#crew'
-  get 'storefront/consumables', to: 'storefront#consumables'
-  get 'storefront/trade', to: 'storefront#trade'
-  get 'storefront/api_test', to: 'storefront#api_test'
+  resources :storefront, only: [:index] do
+    collection do
+      post 'purchase_item'
+      get 'ships'
+      get 'modules'
+      get 'crew'
+      get 'consumables'
+      get 'store_menu'
+      post 'update_gold'
+    end
+  end
 
-  post 'storefront/update_gold', to: 'storefront#update_gold'
+  mount ActionCable.server => '/cable'
+  post 'convert', to: 'conversions#convert'
 
-
-  # Route for chat
-  post 'chat', to: 'chats#create'
-
-  patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
-  
+  get 'convert_to_usd', to: 'conversions#convert_to_usd'
 
 
 end
