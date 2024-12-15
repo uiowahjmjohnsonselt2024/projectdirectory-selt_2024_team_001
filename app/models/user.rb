@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :achievements, dependent: :destroy
   has_many :grid_tile_users
   has_many :grid_tiles, through: :grid_tile_users
-
+  has_many :players, dependent: :destroy
 
   # Adds methods to set and authenticate against a BCrypt password
   has_secure_password
