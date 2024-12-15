@@ -101,6 +101,8 @@ Rails.application.routes.draw do
 
   post 'update_session_profile_picture', to: 'sessions#update_session_profile_picture'
 
+  post 'update_session_profile_picture', to: 'sessions#update_session_profile_picture'
+
 
 
 end

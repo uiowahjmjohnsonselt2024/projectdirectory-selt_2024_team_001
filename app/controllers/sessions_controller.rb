@@ -48,6 +48,11 @@ class SessionsController < ApplicationController
 
   end
 
+  def update_session_profile_picture
+    session[:profile_picture] = params[:profile_picture]
+    render json: { success: true }
+  end
+
   def welcome_settings
     render 'menus/welcome_settings'
   end
