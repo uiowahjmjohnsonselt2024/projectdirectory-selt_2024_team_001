@@ -72,6 +72,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :players, only: [] do
+    member do
+      get 'inventory' # Add route for the inventory view
+    end
+    resources :player_items, only: [:index, :create, :update], shallow: true
+  end
+
+  patch 'toggle_theme', to: 'sessions#toggle_theme', as: :toggle_theme
+
   mount ActionCable.server => '/cable'
   post 'convert', to: 'conversions#convert'
 

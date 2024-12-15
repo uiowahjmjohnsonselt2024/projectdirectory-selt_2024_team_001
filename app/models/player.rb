@@ -1,6 +1,8 @@
 class Player < ApplicationRecord
   belongs_to :user
   belongs_to :server
+  has_many :player_items
+  has_many :store_items, through: :player_items
 
   validates :row, :column, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
