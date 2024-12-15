@@ -25,8 +25,19 @@ class PlayersController < ApplicationController
       return
     end
 
-    # Generate the prompt based on the grid tile's weather and environment
-    prompt = "Write a short sci-fi story based on a player exploring a planet with #{grid_tile.weather} weather and #{grid_tile.environment_type} environment."
+    # Fetch the player's inventory items
+    inventory_items = @player.player_items.includes(:store_item).map do |player_item|
+      "#{player_item.quantity}x #{player_item.store_item.title}"
+    end
+
+    # Format the inventory description
+    inventory_description = inventory_items.any? ? "The player has the following items: #{inventory_items.join(', ')}." : "The player has no items in their inventory."
+
+    # Generate the prompt based on the grid tile's weather, environment, and inventory
+    prompt = <<~PROMPT
+    Write a short sci-fi story based on a player exploring a planet with #{grid_tile.weather} weather and a #{grid_tile.environment_type} environment. 
+    #{inventory_description}
+  PROMPT
 
     # Call the OpenAI service
     service = OpenaiService.new(prompt: prompt, type: 'text')
@@ -46,10 +57,13 @@ class PlayersController < ApplicationController
 
 
 
+
   def inventory
     @player_items = @player.player_items.includes(:store_item)
-      render 'menus/inventory'  # Explicitly render the correct view
-    end
+    render 'menus/inventory'
+  end
+
+
 
 
   # Fetch the current position of the player
@@ -143,11 +157,12 @@ end
 
 
 
-  def set_player
-    @player = @server.players.find_by(id: params[:id])
-    Rails.logger.debug "set_player: @player = #{@player.inspect}"
-    unless @player
-      render json: { success: false, error: "Player not found for this server." }, status: :not_found
+    def set_player
+      @player = Player.find_by(id: params[:id])
+
+      if @player.nil?
+        render json: { success: false, error: "Player not found." }, status: :not_found
+      end
     end
-  end
+
 
